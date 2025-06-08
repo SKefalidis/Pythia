@@ -1,0 +1,1366 @@
+[
+    {
+        "question": "which creatures not speaking draconic language do have chaotic good alignment?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?creatures WHERE {  ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#chaoticGood> MINUS{?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DraconicL>} }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DraconicL"
+        ],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language>",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> \"chaotic good\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> \"chaotic good\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT DISTINCT ?creature WHERE {\n  ?creature rdf:type <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#chaoticGood> .\n  FILTER NOT EXISTS {\n    ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DraconicL> .\n  }\n}"
+    },
+    {
+        "question": "does Caypup have more special abilities than Aasimar?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (if(COUNT(?cay_SpecAbils)>COUNT(?aas_SpecAbils), 'True', 'False') as ?res) WHERE {  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#caypup> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasSpecAbils> ?cay_SpecAbils. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#aasimar> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasSpecAbils> ?aas_SpecAbils }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Aasimar",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#caypup"
+        ],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#SpecialAbilities"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#caypup> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#SpecialAbilities>",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Aasimar> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#SpecialAbilities>"
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#caypup> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#SpecialAbilities>, <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Aasimar> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#SpecialAbilities>",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {\n  {\n    SELECT (COUNT(DISTINCT ?caypupSpecAbil) AS ?countCaypup) WHERE {\n      <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#caypup> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasSpecAbils> ?caypupSpecAbil .\n      ?caypupSpecAbil a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#SpecialAbilities> .\n    }\n  }\n  {\n    SELECT (COUNT(DISTINCT ?aasimarSpecAbil) AS ?countAasimar) WHERE {\n      <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Aasimar> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasSpecAbils> ?aasimarSpecAbil .\n      ?aasimarSpecAbil a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#SpecialAbilities> .\n    }\n  }\n  FILTER(?countCaypup > ?countAasimar)\n}"
+    },
+    {
+        "question": "how many creatures with non-neutral alignment do speak treant language?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (COUNT(?creatures) as ?n_creatures) WHERE {  ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#TreantL> MINUS{?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#trueNeutral>} MINUS{?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#chaoticNeutral>} MINUS{?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#lawfulNeutral>} }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#TreantL"
+        ],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment>",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> \"non-neutral\"",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#TreantL>"
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> \"non-neutral\", <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#TreantL>",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (COUNT(DISTINCT ?creature) AS ?count)\nWHERE {\n  ?creature <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?alignment .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#TreantL> .\n  \n  # Exclude neutral alignments by filtering out any alignment URI containing \"neutral\" (case-insensitive)\n  FILTER (!CONTAINS(LCASE(STR(?alignment)), \"neutral\"))\n}"
+    },
+    {
+        "question": "what spells Aasimar and Caypup do have in common?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?common_spells WHERE { <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#aasimar> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#canSpell> ?common_spells. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#caypup> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#canSpell> ?common_spells }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Aasimar",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#caypup"
+        ],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Spells"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#caypup> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Spells>",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Aasimar> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Spells>"
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#caypup> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Spells>, <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Aasimar> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Spells>",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT DISTINCT ?spell WHERE {\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#caypup> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#canSpell> ?spell .\n  ?spell rdf:type <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Spells> .\n  \n  ?beast rdf:type <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> .\n  FILTER(?beast = <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#aasimar>) .\n  ?beast <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#canSpell> ?spell .\n}"
+    },
+    {
+        "question": "is the number of creatures speaking both abyssal and aklo languages greater than infernal and terran?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (if(?n_creatures_1>?n_creatures_2, 'True', 'False') as ?res) WHERE {  {SELECT (COUNT(?creatures_1) as ?n_creatures_1) WHERE { ?creatures_1 <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AbyssalL>; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AkloL>}} {SELECT (COUNT(?creatures_2) as ?n_creatures_2) WHERE { ?creatures_2 <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#InfernalL>; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#TerranL>}} }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#InfernalL",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AkloL",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AbyssalL",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#TerranL"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AbyssalL> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AkloL> -> \"number of creatures speaking both abyssal and aklo languages\"",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#InfernalL> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#TerranL> -> \"number of creatures speaking both infernal and terran languages\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AbyssalL> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AkloL> -> \"number of creatures speaking both abyssal and aklo languages\", <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#InfernalL> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#TerranL> -> \"number of creatures speaking both infernal and terran languages\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {\n  {\n    SELECT (COUNT(DISTINCT ?creatureA) AS ?countAbyssalAklo) WHERE {\n      ?creatureA <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AbyssalL> .\n      ?creatureA <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AkloL> .\n    }\n  }\n  {\n    SELECT (COUNT(DISTINCT ?creatureI) AS ?countInfernalTerran) WHERE {\n      ?creatureI <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#InfernalL> .\n      ?creatureI <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#TerranL> .\n    }\n  }\n  FILTER (?countAbyssalAklo > ?countInfernalTerran)\n}"
+    },
+    {
+        "question": "what is the most common alignment type?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?Alignment WHERE { ?subjects <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?Alignment } GROUP BY ?Alignment ORDER BY DESC (COUNT(?Alignment)) LIMIT 1",
+        "entities": [],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> \"type\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> \"type\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?alignment (COUNT(?entity) AS ?count)\nWHERE {\n  ?alignment a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> .\n  ?entity <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?alignment .\n}\nGROUP BY ?alignment\nORDER BY DESC(?count)\nLIMIT 1"
+    },
+    {
+        "question": "how many types of robots are among creatures?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (COUNT(?creatures) as ?n_robots)  WHERE {  ?creatures <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>  FILTER regex(str(?creatures), 'robot', 'i' )  }",
+        "entities": [],
+        "classes": [],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (COUNT(DISTINCT ?robotType) AS ?count)\nWHERE {\n  {\n    # robotType is a subclass of Robot\n    ?robotType <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://example.org/ontology/Robot> .\n  }\n  UNION\n  {\n    # robotType is an instance of Robot\n    ?robotType <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/ontology/Robot> .\n  }\n  # robotType is also a subclass or instance of Creature\n  {\n    ?robotType <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://example.org/ontology/Creature> .\n  }\n  UNION\n  {\n    ?robotType <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/ontology/Creature> .\n  }\n}"
+    },
+    {
+        "question": "is there any type of troll with good alignment?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK   WHERE {   ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#chaoticGood>; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#neutralGood>; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#lawfulGood> FILTER regex(str(?creatures), 'troll', 'i') }",
+        "entities": [],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> \"member\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> \"member\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {\n  ?entity <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Troll> .\n  ?entity <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?alignment .\n  ?alignment <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> .\n  FILTER(CONTAINS(STR(?alignment), \"Good\"))\n}"
+    },
+    {
+        "question": "are creatures with good alignment more common than evil?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?res  WHERE {  {SELECT (COUNT(?good) as ?n_good)  WHERE{  ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?Alignment  BIND(str(?Alignment) as ?good)  FILTER regex(?good, 'good', 'i')} }  {SELECT (COUNT(?evil) as ?n_evil)  WHERE{ ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?Alignment  BIND(str(?Alignment) as ?evil)  FILTER regex(?evil, 'evil', 'i')} }  BIND(if((?n_good>?n_evil), 'True', 'False') as ?res)  }",
+        "entities": [],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> \"member\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> \"member\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {\n  {\n    SELECT (COUNT(DISTINCT ?goodCreature) AS ?goodCount) WHERE {\n      ?goodCreature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?goodAlignment .\n      ?goodAlignment <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> .\n      FILTER(CONTAINS(STR(?goodAlignment), \"Good\"))\n    }\n  }\n  {\n    SELECT (COUNT(DISTINCT ?evilCreature) AS ?evilCount) WHERE {\n      ?evilCreature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?evilAlignment .\n      ?evilAlignment <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> .\n      FILTER(CONTAINS(STR(?evilAlignment), \"Evil\"))\n    }\n  }\n  FILTER(?goodCount > ?evilCount)\n}"
+    },
+    {
+        "question": "what creatures do have cold resist?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT  DISTINCT ?creatures WHERE { ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasResists> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#cold> }",
+        "entities": [],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Resists",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Resists> -> \"cold resist\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Resists> -> \"cold resist\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT DISTINCT ?creature WHERE {\n  ?creature a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasResists> ?resistance .\n  ?resistance a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Resists> .\n  FILTER(?resistance = <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#cold>)\n}"
+    },
+    {
+        "question": "what percentage of dragons do speak both draconic and common languages?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ((?n_dragon_with_languages/?n_dragons)*100 as ?percentage) WHERE { {SELECT (COUNT(DISTINCT(?dragon)) as ?n_dragons) WHERE {  ?creatures <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?language BIND(str(?creatures) as ?dragon) FILTER regex(?dragon,'dragon', 'i')}} {SELECT (COUNT(DISTINCT(?dragon_with_languages)) as ?n_dragon_with_languages) WHERE {  ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DraconicL>; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#CommonL> BIND(str(?creatures) as ?dragon_with_languages) FILTER regex(?dragon_with_languages,'dragon', 'i')}} }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#draconic"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#draconic> -> \"draconic\"",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#draconic> -> \"member\"",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#draconic> -> \"speaks\"",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#draconic> -> \"common\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#draconic> -> \"draconic\", <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#draconic> -> \"member\", <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#draconic> -> \"speaks\", <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#draconic> -> \"common\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ( (COUNT(DISTINCT ?dragonBoth) * 100.0) / COUNT(DISTINCT ?dragon) AS ?percentage )\nWHERE {\n  {\n    SELECT DISTINCT ?dragon WHERE {\n      ?dragon a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Dragon> .\n    }\n  }\n  {\n    SELECT DISTINCT ?dragonBoth WHERE {\n      ?dragonBoth a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Dragon> .\n      ?dragonBoth <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#draconic> .\n      ?dragonBoth <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#common> .\n    }\n  }\n}"
+    },
+    {
+        "question": "what are the top-5 languages by popularity among creatures?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?top5_languages WHERE { ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?top5_languages } GROUP BY ?top5_languages ORDER BY DESC (COUNT(?top5_languages)) LIMIT 5",
+        "entities": [],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language> -> \"popularity\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language> -> \"popularity\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?language (SUM(?popularity) AS ?totalPopularity)\nWHERE {\n  ?language <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language> .\n  ?beast <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> .\n  ?beast <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?language .\n  ?beast <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasACValue> ?popularity .\n}\nGROUP BY ?language\nORDER BY DESC(?totalPopularity)\nLIMIT 5"
+    },
+    {
+        "question": "do dragons in average speak more languages than demons?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (if(AVG(?drag_n_lang)>AVG(?dem_n_lang), 'True', 'False') as ?res) WHERE { {SELECT (COUNT(?language_1) as ?drag_n_lang)  WHERE {   ?creatures_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?language_1  FILTER regex(str(?creatures_1),'dragon', 'i')} GROUP BY ?creatures_1} {SELECT (COUNT(?language_2) as ?dem_n_lang)  WHERE {   ?creatures_2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?language_2  FILTER regex(str(?creatures_2),'demon', 'i')} GROUP BY ?creatures_2} }",
+        "entities": [],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language> -> \"member\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language> -> \"member\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {\n  {\n    SELECT (AVG(?dragonLangCount) AS ?avgDragonLang) WHERE {\n      ?dragon <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Dragon> .\n      ?dragon <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#int> ?dragonLangCount .\n    }\n  }\n  {\n    SELECT (AVG(?demonLangCount) AS ?avgDemonLang) WHERE {\n      ?demon <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Demon> .\n      ?demon <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#int> ?demonLangCount .\n    }\n  }\n  \n  FILTER(?avgDragonLang > ?avgDemonLang)\n}"
+    },
+    {
+        "question": "what creatures do speak both common and undercommon languages?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?creatures WHERE { ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#CommonL>; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#UndercommonL> }",
+        "entities": [],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language>"
+        ],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT DISTINCT ?creature\nWHERE {\n  ?creature a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> .\n}"
+    },
+    {
+        "question": "how many creatures do speak abyssal, sylvan and elven languages?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (COUNT(?creatures) as ?n_creatures) WHERE { ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AbyssalL>; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#SylvanL>; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#ElvenL> }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#SylvanL",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#ElvenL",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AbyssalL"
+        ],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#SylvanL>",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#ElvenL>",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AbyssalL>"
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#SylvanL>, <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#ElvenL>, <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AbyssalL>",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (COUNT(DISTINCT ?creature) AS ?count)\nWHERE {\n  ?creature <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AbyssalL> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#SylvanL> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#ElvenL> .\n}"
+    },
+    {
+        "question": "is there any type of zombie with chaotic evil or chaotic neutral alignment?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (if(?n_zombies_1+?n_zombies_2 > 0, 'True', 'False') as ?res) WHERE {    {SELECT (COUNT(?creatures_1) as ?n_zombies_1) WHERE {  ?creatures_1 <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#chaoticEvil>.   FILTER (regex(str(?creatures_1), 'zombie', 'i' ))}} {SELECT (COUNT(?creatures_2) as ?n_zombies_2) WHERE {  ?creatures_2 <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#chaoticNeutral>.   FILTER (regex(str(?creatures_2), 'zombie', 'i' ))}} }",
+        "entities": [],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment>",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> \"chaotic neutral\"",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> \"chaotic evil\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> \"chaotic neutral\", <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> \"chaotic evil\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {\n  ?beast a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> .\n  ?beast <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?alignment .\n  ?alignment a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> .\n  FILTER (\n    ?alignment = <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#chaoticEvil> ||\n    ?alignment = <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#chaoticNeutral>\n  )\n}"
+    },
+    {
+        "question": "does Trox speak more languages than Sunlord?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (if((COUNT(?trox_lang) > COUNT(?sunlord_lang)), 'True', 'False') as ?res)   WHERE {   <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Trox> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?trox_lang.  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Sunlord> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?sunlord_lang}",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Trox",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Sunlord"
+        ],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Trox> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language>",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Sunlord> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language>"
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Trox> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language>, <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Sunlord> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language>",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK {\n  {\n    SELECT (COUNT(DISTINCT ?langTrox) AS ?countTrox)\n    WHERE {\n      <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Trox> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?langTrox .\n      ?langTrox <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language> .\n    }\n  }\n  {\n    SELECT (COUNT(DISTINCT ?langSunlord) AS ?countSunlord)\n    WHERE {\n      <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Sunlord> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?langSunlord .\n      ?langSunlord <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language> .\n    }\n  }\n  FILTER(?countTrox > ?countSunlord)\n}"
+    },
+    {
+        "question": "does Einherji and Balor have any common language?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Einherji> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?common_language.  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Balor> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?common_language }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Einherji",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Balor"
+        ],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Balor> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language>",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Einherji> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language>"
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Balor> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language>, <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Einherji> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language>",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Balor> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?lang .\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Einherji> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?lang .\n  ?lang a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language> .\n}"
+    },
+    {
+        "question": "how many creatures with lawful neutral alignment can speak giant language?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (COUNT(?creatures) as ?n_creatures) WHERE {  ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#lawfulNeutral>.  ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#GiantL>}",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#GiantL"
+        ],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment"
+        ],
+        "relations": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment -> http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language -> http://www.semanticweb.org/annab/ontologies/2022/3/ontology#GiantL",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment -> \"lawful neutral\""
+        ],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (COUNT(DISTINCT ?creature) AS ?count)\nWHERE {\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> \"lawful neutral\" .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#speaksLanguage> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#GiantL> .\n}"
+    },
+    {
+        "question": "which ogres with lawful evil alignment can speak common language?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?ogres  WHERE {   ?ogres <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#CommonL>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#lawfulEvil>  FILTER regex(str(?ogres), 'ogre', 'i') }",
+        "entities": [],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Ogre> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language> -> \"common language\"",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Ogre> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> \"lawful evil\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Ogre> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language> -> \"common language\", <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Ogre> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> \"lawful evil\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT DISTINCT ?ogre WHERE {\n  ?ogre a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Ogre> .\n  ?ogre <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?lang .\n  ?lang a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language> .\n  FILTER(strends(str(?lang), \"CommonL\")) .\n  ?ogre <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?align .\n  ?align a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> .\n  FILTER(strends(str(?align), \"lawfulEvil\")) .\n}"
+    },
+    {
+        "question": "what is the second most common alignment type for spiders?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?Alignment  WHERE {  ?spiders <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?Alignment FILTER regex(str(?spiders), 'spider', 'i') } GROUP BY ?Alignment ORDER BY DESC(COUNT(?Alignment)) OFFSET 1 LIMIT 1",
+        "entities": [],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> \"member\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> \"member\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?alignment (COUNT(?entity) AS ?count)\nWHERE {\n  ?alignment a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> .\n  ?entity <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?alignment .\n}\nGROUP BY ?alignment\nORDER BY DESC(?count)\nOFFSET 1\nLIMIT 1"
+    },
+    {
+        "question": "what alignment type is the most common for elementals?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?Alignment WHERE {  ?elementals <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?Alignment FILTER regex(str(?elementals), 'elemental', 'i') } GROUP BY ?Alignment ORDER BY DESC(COUNT(?Alignment)) LIMIT 1",
+        "entities": [],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment"
+        ],
+        "relations": [
+            "Elemental -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment>"
+        ],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?alignment (COUNT(?elemental) AS ?count)\nWHERE {\n  ?elemental a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Elemental> .\n  ?elemental ?p ?alignment .\n  ?alignment a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> .\n}\nGROUP BY ?alignment\nORDER BY DESC(?count)\nLIMIT 1"
+    },
+    {
+        "question": "what alignment type is the rarest for creatures speaking auran language?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?Alignment  WHERE {   ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AuranL>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?Alignment}  GROUP BY ?Alignment  ORDER BY ASC(COUNT(?Alignment))  LIMIT 1 ",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AuranL"
+        ],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AuranL>"
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AuranL>",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?alignment WHERE {\n  ?creature ?p1 <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AuranL> .\n  ?creature ?p2 ?alignment .\n  ?alignment a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> .\n}\nGROUP BY ?alignment\nORDER BY (COUNT(?creature))\nLIMIT 1"
+    },
+    {
+        "question": "do skeletons have a greater percentage of true neutral alignment than zombies?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (if((?skeleton_percentage > ?zombie_precentage), 'True', 'False') as ?res) WHERE {  {SELECT (COUNT(?skeletons) as ?n_skeletons) WHERE{ ?skeletons <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>. FILTER regex(str(?skeletons), 'skelet', 'i')} } {SELECT (COUNT(?skeletons) as ?n_neutral_skeletons) WHERE{ ?skeletons <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#trueNeutral> FILTER regex(str(?skeletons), 'skelet', 'i')} } BIND((?n_neutral_skeletons/?n_skeletons) as ?skeleton_percentage) {SELECT (COUNT(?zombies) as ?n_zombies) WHERE{ ?zombies <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>. FILTER regex(str(?zombies), 'zombie', 'i')} } {SELECT (COUNT(?zombies) as ?n_neutral_zombies) WHERE{ ?zombies <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#trueNeutral> FILTER regex(str(?zombies), 'zombie', 'i')} } BIND((?n_neutral_zombies/?n_zombies) as ?zombie_precentage) }",
+        "entities": [],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> \"percentage of true neutral alignment\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> \"percentage of true neutral alignment\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK\nWHERE {\n  {\n    SELECT ( (xsd:decimal(?skeletonTrueNeutralCount) / xsd:decimal(?skeletonTotalCount)) AS ?skeletonRatio ) WHERE {\n      {\n        SELECT (COUNT(DISTINCT ?skeleton) AS ?skeletonTrueNeutralCount) WHERE {\n          ?skeleton a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Skeleton> .\n          ?skeleton <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#trueNeutral> .\n        }\n      }\n      {\n        SELECT (COUNT(DISTINCT ?skeletonAll) AS ?skeletonTotalCount) WHERE {\n          ?skeletonAll a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Skeleton> .\n          ?skeletonAll <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?alignment .\n          ?alignment a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> .\n        }\n      }\n    }\n  }\n  {\n    SELECT ( (xsd:decimal(?zombieTrueNeutralCount) / xsd:decimal(?zombieTotalCount)) AS ?zombieRatio ) WHERE {\n      {\n        SELECT (COUNT(DISTINCT ?zombie) AS ?zombieTrueNeutralCount) WHERE {\n          ?zombie a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Zombie> .\n          ?zombie <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#trueNeutral> .\n        }\n      }\n      {\n        SELECT (COUNT(DISTINCT ?zombieAll) AS ?zombieTotalCount) WHERE {\n          ?zombieAll a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Zombie> .\n          ?zombieAll <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?alignment2 .\n          ?alignment2 a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> .\n        }\n      }\n    }\n  }\n  FILTER(?skeletonRatio > ?zombieRatio)\n}"
+    },
+    {
+        "question": "do raven and ghoul have the same alignment?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (if((?raven_alignment = ?ghoul_alignment), 'True', 'False') as ?res) WHERE {   <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Raven> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?raven_alignment.  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Ghoul> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?ghoul_alignment  }",
+        "entities": [],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> <ghoul>",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> <raven>"
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> <ghoul>, <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> <raven>",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#raven> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?alignmentRaven .\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#ghoul> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?alignmentGhoul .\n  FILTER(?alignmentRaven = ?alignmentGhoul)\n}"
+    },
+    {
+        "question": "what percentage of wolves does have chaotic alignment?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ((?n_chaotic_wolves/?n_wolves)*100 as ?res) WHERE {   {SELECT (COUNT(?wolves) as ?n_wolves) WHERE { ?wolves <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> FILTER regex(str(?wolves), 'wolf', 'i') }} {SELECT (COUNT(?chaotic_wolves) as ?n_chaotic_wolves) WHERE { ?chaotic_wolves <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?Alignment FILTER regex(str(?chaotic_wolves), 'wolf', 'i') FILTER regex(str(?Alignment), 'chaotic', 'i') }} }",
+        "entities": [],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> \"percentage of wolves with chaotic alignment\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> \"percentage of wolves with chaotic alignment\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?percentage WHERE {\n  {\n    SELECT (COUNT(DISTINCT ?wolf) AS ?totalWolves) WHERE {\n      ?wolf a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Wolf> .\n    }\n  }\n  {\n    SELECT (COUNT(DISTINCT ?wolfWithChaoticAlignment) AS ?chaoticWolves) WHERE {\n      ?wolfWithChaoticAlignment a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Wolf> .\n      ?wolfWithChaoticAlignment <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?alignment .\n      ?alignment a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> .\n      FILTER(CONTAINS(STR(?alignment), \"chaotic\"))\n    }\n  }\n  BIND(\n    IF(?totalWolves > 0,\n       (?chaoticWolves * 100.0) / ?totalWolves,\n       0\n    ) AS ?percentage\n  )\n}"
+    },
+    {
+        "question": "what percentage of angels does speak aquan language?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ((?n_aquan_angels/?n_angels)*100 as ?res) WHERE {   {SELECT (COUNT(?angels) as ?n_angels) WHERE { ?angels <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> FILTER regex(str(?angels), 'angel', 'i') }} {SELECT (COUNT(?aquan_angels) as ?n_aquan_angels) WHERE { ?aquan_angels <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AquanL> FILTER regex(str(?aquan_angels), 'angel', 'i') }} }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AquanL"
+        ],
+        "classes": [],
+        "relations": [
+            "ANGEL -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AquanL>"
+        ],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?percentage WHERE {\n  {\n    SELECT (COUNT(DISTINCT ?angel) AS ?totalAngels) WHERE {\n      ?angel a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Angel> .\n    }\n  }\n  {\n    SELECT (COUNT(DISTINCT ?angelWithAquan) AS ?angelsWithAquan) WHERE {\n      ?angelWithAquan a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Angel> .\n      ?angelWithAquan <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AquanL> ?value .\n    }\n  }\n  BIND((?angelsWithAquan * 100.0) / ?totalAngels AS ?percentage)\n}"
+    },
+    {
+        "question": "what is an average number of languages for creatures?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (AVG(?n_languages) as ?res) WHERE { SELECT (COUNT(?language) as ?n_languages) WHERE { ?creatures <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?language } GROUP BY ?creatures }",
+        "entities": [],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> \"languages\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> \"languages\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (AVG(?langCount) AS ?averageLanguages)\nWHERE {\n  {\n    SELECT ?beast (COUNT(DISTINCT ?language) AS ?langCount)\n    WHERE {\n      ?beast <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> .\n      OPTIONAL {\n        ?beast <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?language .\n        ?language a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language> .\n      }\n    }\n    GROUP BY ?beast\n  }\n}"
+    },
+    {
+        "question": "what is the maximum value for the numerical offensive attribute?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (MAX(?values) as ?max_value) WHERE { ?off_attr <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#offValues>; <http://www.w3.org/2000/01/rdf-schema#range> ?data_type. FILTER(?data_type != xsd:boolean) ?creatures ?off_attr ?values }",
+        "entities": [],
+        "classes": [],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (MAX(?value) AS ?maxValue)\nWHERE {\n  FILTER(false)\n}"
+    },
+    {
+        "question": "is Sangudaemon faster than Eblis?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (if(?speed_1 > ?speed_2, 'True', 'False') as ?res) WHERE {<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Sangudaemon> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasSpeedValue> ?speed_1. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Eblis> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasSpeedValue> ?speed_2 }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Eblis",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Sangudaemon"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Eblis> -> \"speed\"",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Sangudaemon> -> \"speed\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Eblis> -> \"speed\", <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Sangudaemon> -> \"speed\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Sangudaemon> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasSpeedValue> ?sSpeed .\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Eblis> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasSpeedValue> ?eSpeed .\n  FILTER(?sSpeed > ?eSpeed)\n}"
+    },
+    {
+        "question": "what is the mean speed value for spiders?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (AVG(?speed) as ?res) WHERE { ?spiders <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasSpeedValue> ?speed FILTER regex(str(?spiders), 'spider', 'i') }",
+        "entities": [],
+        "classes": [],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (AVG(?speedValue) AS ?meanSpeed)\nWHERE {\n  ?entity a ?class .\n  ?entity ?speedProp ?speedValue .\n  \n  FILTER (\n    CONTAINS(LCASE(STR(?class)), \"spider\") ||\n    EXISTS {\n      ?class <http://www.w3.org/2000/01/rdf-schema#label> ?classLabel .\n      FILTER(CONTAINS(LCASE(?classLabel), \"spider\"))\n    }\n  )\n  \n  FILTER (\n    CONTAINS(LCASE(STR(?speedProp)), \"speed\") ||\n    EXISTS {\n      ?speedProp <http://www.w3.org/2000/01/rdf-schema#label> ?speedLabel .\n      FILTER(CONTAINS(LCASE(?speedLabel), \"speed\"))\n    }\n  )\n  \n  FILTER(\n    datatype(?speedValue) = <http://www.w3.org/2001/XMLSchema#decimal> ||\n    datatype(?speedValue) = <http://www.w3.org/2001/XMLSchema#float> ||\n    datatype(?speedValue) = <http://www.w3.org/2001/XMLSchema#double> ||\n    datatype(?speedValue) = <http://www.w3.org/2001/XMLSchema#int> ||\n    datatype(?speedValue) = <http://www.w3.org/2001/XMLSchema#integer>\n  )\n}"
+    },
+    {
+        "question": "what are top 5 by speed chaotic evil creatures?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?creatures WHERE { ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#chaoticEvil>; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasSpeedValue> ?speed } ORDER BY DESC(?speed) LIMIT 5",
+        "entities": [],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> \"chaotic evil\"",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> \"speed\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> \"chaotic evil\", <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> \"speed\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT DISTINCT ?creature ?speed WHERE {\n  ?creature <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#chaoticEvil> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasSpeedValue> ?speed .\n}\nORDER BY DESC(?speed)\nLIMIT 5"
+    },
+    {
+        "question": "what are creatures speaking sphinx language with speed value more than 20?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?creatures WHERE { ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#SphinxL>; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasSpeedValue> ?speed . FILTER (?speed > 20) }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#SphinxL"
+        ],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#SphinxL>",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> \"speed\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#SphinxL>, <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> \"speed\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT DISTINCT ?beast WHERE {\n  ?beast <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> .\n  ?beast <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#SphinxL> .\n  ?beast <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasSpeedValue> ?speed .\n  FILTER (?speed > 20)\n}"
+    },
+    {
+        "question": "what values of health points are related to creatures with the lowest level?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT DISTINCT ?HP WHERE { ?creatures <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLevel> ?level; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasHPValue> ?HP } GROUP BY ?level ?HP HAVING (?level = MIN(?level))",
+        "entities": [],
+        "classes": [],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT DISTINCT ?healthPoints\nWHERE {\n  # No triples provided to bind ?healthPoints\n}"
+    },
+    {
+        "question": "what is the maximum value of health point for creatures with chaotic good alignment?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (MAX(?HP) as ?max_HP)  WHERE {  ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#chaoticGood>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasHPValue> ?HP }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#chaoticGood"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#chaoticGood> -> CREATURE -> \"health point\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#chaoticGood> -> CREATURE -> \"health point\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (MAX(?hp) AS ?maxHealthPoint)\nWHERE {\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#chaoticGood> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasHPvalue> ?hp .\n}"
+    },
+    {
+        "question": "what values of experience points are related to creatures with the highest level?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT DISTINCT ?XP WHERE {  ?creatures <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLevel> ?level;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasXPValue> ?XP  }  GROUP BY ?level ?XP  HAVING (?level = MAX(?level))",
+        "entities": [],
+        "classes": [],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT DISTINCT ?experiencePoints WHERE {\n  # No triples provided, cannot retrieve any data\n}"
+    },
+    {
+        "question": "what is the average challenge rating for creatures speaking celestial language?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (AVG(?CR) as ?avg_CR)  WHERE {   ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#CelestialL>;   <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasCRValue> ?CR}",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#CelestialL"
+        ],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#CelestialL> -> \"challenge rating\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#CelestialL> -> \"challenge rating\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (AVG(?crValue) AS ?averageChallengeRating)\nWHERE {\n  ?creature <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#CelestialL> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasCRValue> ?crValue .\n}"
+    },
+    {
+        "question": "which elemental creatures do have a challenge rating more than 10?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?elementals  WHERE {  ?elementals <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasCRValue> ?CR  FILTER regex(str(?elementals), 'elemental', 'i') FILTER (?CR > 10) }",
+        "entities": [],
+        "classes": [],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT DISTINCT ?creature WHERE {\n  # No triples available to match\n}"
+    },
+    {
+        "question": "what creatures speaking terran language do have an initiative value more than 2 and less than 5?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?creatures   WHERE {   ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#TerranL>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasInitValue> ?Init FILTER (?Init > 2 && ?Init < 5) } ",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#TerranL"
+        ],
+        "classes": [
+            ""
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#TerranL> -> CREATURE -> INITIATIVE"
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#TerranL> -> CREATURE -> INITIATIVE",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT DISTINCT ?creature WHERE {\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#TerranL> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#initiative> ?initiative .\n  FILTER(xsd:integer(?initiative) > 2 && xsd:integer(?initiative) < 5)\n}"
+    },
+    {
+        "question": "what is the minimum non-negative initiative value for creatures with true neutral alignment?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (MIN(?Init) as ?min_Init)  WHERE {   ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#trueNeutral>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasInitValue> ?Init   FILTER (?Init >= 0) }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#trueNeutral"
+        ],
+        "classes": [
+            ""
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#trueNeutral> -> CREATURE -> \"initiative\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#trueNeutral> -> CREATURE -> \"initiative\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (MIN(?initiative) AS ?minInitiative)\nWHERE {\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#trueNeutral> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasInitValue> ?initiative .\n  FILTER(?initiative >= 0)\n}"
+    },
+    {
+        "question": "what are top 3 golem types by experience points?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?golems WHERE {  ?golems <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasXPValue> ?XP  FILTER regex(str(?golems), 'golem', 'i') }  ORDER BY DESC(?XP) LIMIT 3",
+        "entities": [],
+        "classes": [],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?golemType ?experiencePoints\nWHERE {\n  # No triples available to match\n}\nORDER BY DESC(?experiencePoints)\nLIMIT 3"
+    },
+    {
+        "question": "is Abaia superior to vampires in terms of base attributes?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (if ((?n_greater/?n_base_attr) > 0.5, 'True', 'False') as ?res) WHERE {  {SELECT (COUNT(?comp) as ?n_greater)   WHERE { ?base_attr rdfs:subPropertyOf <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#base>. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Abaia> ?base_attr ?ab_attr. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Vampire> ?base_attr ?vamp_attr. BIND(if ((?ab_attr > ?vamp_attr), 1, 0) as ?comp) FILTER (?comp = 1)}} {SELECT (COUNT(?base_attr) as ?n_base_attr)  WHERE{?base_attr <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#base>.}} }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Abaia"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Abaia> -> \"base attributes\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Abaia> -> \"base attributes\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {\n  # Abaia's base attributes\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Abaia> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasHPvalue> ?abaiaHP .\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Abaia> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#str> ?abaiaStr .\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Abaia> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#con> ?abaiaCon .\n\n  # Vampire entity with base attributes\n  ?vampire ?p1 ?vampireHP .\n  ?vampire ?p2 ?vampireStr .\n  ?vampire ?p3 ?vampireCon .\n\n  # Restrict vampire properties to the same as Abaia's base attributes\n  FILTER(?p1 = <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasHPvalue>)\n  FILTER(?p2 = <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#str>)\n  FILTER(?p3 = <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#con>)\n\n  # Vampire URI contains \"vampire\" (case-insensitive)\n  FILTER(CONTAINS(LCASE(STR(?vampire)), \"vampire\"))\n\n  # Abaia is superior in all base attributes\n  FILTER(?abaiaHP > ?vampireHP)\n  FILTER(?abaiaStr > ?vampireStr)\n  FILTER(?abaiaCon > ?vampireCon)\n}"
+    },
+    {
+        "question": "is Dhampir superior to Gorgon in terms of mean base attributes?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (if ((AVG(?dham_attr) > AVG(?gorg_attr)), 'True', 'False') as ?res) WHERE { ?base_attr <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#base>. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Dhampir> ?base_attr ?dham_attr. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Gorgon> ?base_attr ?gorg_attr. }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Dhampir",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Gorgon"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Gorgon> -> \"mean base attributes\"",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Dhampir> -> \"mean base attributes\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Gorgon> -> \"mean base attributes\", <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Dhampir> -> \"mean base attributes\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Dhampir> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#str> ?dhampirStr .\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Dhampir> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#con> ?dhampirCon .\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Dhampir> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#dex> ?dhampirDex .\n\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Gorgon> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#str> ?gorgonStr .\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Gorgon> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#con> ?gorgonCon .\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Gorgon> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#dex> ?gorgonDex .\n\n  FILTER (\n    ((?dhampirStr + ?dhampirCon + ?dhampirDex) / 3) > ((?gorgonStr + ?gorgonCon + ?gorgonDex) / 3)\n  )\n}"
+    },
+    {
+        "question": "is Boggard superior to Selkie in terms of deffencive attributes?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (if ((?n_greater/?n_def_attr) > 0.5, 'True', 'False') as ?res) WHERE {  {SELECT (COUNT(?comp) as ?n_greater)   WHERE { ?def_attr <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#defValues>. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Boggard> ?def_attr ?bog_attr. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Selkie> ?def_attr ?selk_attr. BIND(if (?bog_attr > ?selk_attr, 1, 0) as ?comp) FILTER (?comp = 1)}} {SELECT (COUNT(?def_attr) as ?n_def_attr)  WHERE{?def_attr <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#defValues>.}} }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Selkie",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Boggard"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Selkie> -> \"defensive attributes\"",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Boggard> -> \"defensive attributes\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Selkie> -> \"defensive attributes\", <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Boggard> -> \"defensive attributes\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Selkie> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasACValue> ?selkieAC .\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Selkie> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasFortValue> ?selkieFort .\n\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Boggard> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasACValue> ?boggardAC .\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Boggard> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasFortValue> ?boggardFort .\n\n  FILTER (\n    ?boggardAC >= ?selkieAC &&\n    ?boggardFort >= ?selkieFort &&\n    (\n      ?boggardAC > ?selkieAC ||\n      ?boggardFort > ?selkieFort\n    )\n  )\n}"
+    },
+    {
+        "question": "is Centaur superior to Medusa in terms of mean defensive attributes?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (if ((AVG(?cent_attr) > AVG(?med_attr)), 'True', 'False') as ?res) WHERE { ?def_attr <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#defValues>. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Centaur> ?def_attr ?cent_attr. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Medusa> ?def_attr ?med_attr.}",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Centaur",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Medusa"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Medusa> -> \"mean defensive attributes\"",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Centaur> -> \"mean defensive attributes\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Medusa> -> \"mean defensive attributes\", <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Centaur> -> \"mean defensive attributes\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {\n  # Get defensive values for Medusa\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Medusa> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasACValue> ?medusaAC .\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Medusa> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasFortValue> ?medusaFort .\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Medusa> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasWillValue> ?medusaWill .\n  \n  # Get defensive values for Centaur\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Centaur> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasACValue> ?centaurAC .\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Centaur> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasFortValue> ?centaurFort .\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Centaur> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasWillValue> ?centaurWill .\n  \n  # Calculate means and compare\n  FILTER (\n    ((?centaurAC + ?centaurFort + ?centaurWill) / 3) >\n    ((?medusaAC + ?medusaFort + ?medusaWill) / 3)\n  )\n}"
+    },
+    {
+        "question": "is Biclops superior to Mastodon in terms of statistics sum?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (if ((SUM(?bicl_stats) > SUM(?mast_stats)), 'True', 'False') as ?res) WHERE { ?stats <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#statistics>. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Biclops> ?stats ?bicl_stats. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Mastodon> ?stats ?mast_stats. }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Mastodon",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Biclops"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Mastodon> -> \"statistics sum\"",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Biclops> -> \"statistics sum\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Mastodon> -> \"statistics sum\", <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Biclops> -> \"statistics sum\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {\n  {\n    SELECT ( (COALESCE(?bXP,0) + COALESCE(?bHP,0) + COALESCE(?bAC,0)) AS ?bSum)\n           ( (COALESCE(?mAtk,0) + COALESCE(?mHP,0) + COALESCE(?mCmb,0)) AS ?mSum)\n    WHERE {\n      OPTIONAL { <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Biclops> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasXPValue> ?bXP . }\n      OPTIONAL { <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Biclops> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasHPvalue> ?bHP . }\n      OPTIONAL { <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Biclops> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasACValue> ?bAC . }\n      \n      OPTIONAL { <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Mastodon> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#atk> ?mAtk . }\n      OPTIONAL { <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Mastodon> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasHPvalue> ?mHP . }\n      OPTIONAL { <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Mastodon> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#cmb> ?mCmb . }\n    }\n  }\n  FILTER(?bSum > ?mSum)\n}"
+    },
+    {
+        "question": "is Satyr superior to Cacodaemon in terms of mean statistics?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (if ((AVG(?satyr_stats) > AVG(?cacd_stats)), 'True', 'False') as ?res) WHERE { ?stats <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#statistics>. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Satyr> ?stats ?satyr_stats. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Cacodaemon> ?stats ?cacd_stats. }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Cacodaemon",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Satyr"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Cacodaemon> -> \"mean statistics\"",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Satyr> -> \"mean statistics\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Cacodaemon> -> \"mean statistics\", <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Satyr> -> \"mean statistics\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Satyr> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasHPvalue> ?satyrHP .\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Satyr> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasCRValue> ?satyrCR .\n  \n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Cacodaemon> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasHPvalue> ?cacoHP .\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Cacodaemon> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasCRValue> ?cacoCR .\n  \n  FILTER((?satyrHP + ?satyrCR) > (?cacoHP + ?cacoCR))\n}"
+    },
+    {
+        "question": "what is the dominant statistics for golems in average?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?stats  WHERE {  ?golems <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>.  ?stats <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#statistics>.  FILTER regex(str(?golems), 'golem', 'i')  ?golems ?stats ?golem_stats.  } GROUP BY ?stats ORDER BY DESC(AVG(?golem_stats)) LIMIT 1",
+        "entities": [],
+        "classes": [],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?property (AVG(xsd:decimal(?value)) AS ?averageValue)\nWHERE {\n  ?golem a <http://example.org/ontology/GOLEM> .\n  ?golem ?property ?value .\n  FILTER (datatype(?value) = <http://www.w3.org/2001/XMLSchema#decimal> ||\n          datatype(?value) = <http://www.w3.org/2001/XMLSchema#float> ||\n          datatype(?value) = <http://www.w3.org/2001/XMLSchema#integer>)\n}\nGROUP BY ?property\nORDER BY DESC(?averageValue)"
+    },
+    {
+        "question": "what is the lowest statistics in average for wolves?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?stats WHERE { ?wolfes <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>. ?stats <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#statistics>. FILTER regex(str(?wolfes), 'wolf', 'i') ?wolfes ?stats ?wolf_stats } GROUP BY ?stats ORDER by ASC(AVG(?wolf_stats)) LIMIT 1",
+        "entities": [],
+        "classes": [],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (MIN(?average) AS ?lowestAverage)\nWHERE {\n  # No triples available to identify statistics or average values for wolves\n}"
+    },
+    {
+        "question": "what is the dominant defencive attribute for skeletons in average?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?def_attr  WHERE {  ?skeletons <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>.  ?def_attr <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#defValues>.  FILTER regex(str(?skeletons), 'skeleton', 'i')  ?skeletons ?def_attr ?skeletons_def_attr.  } GROUP BY ?def_attr ORDER BY DESC(AVG(?skeletons_def_attr)) LIMIT 1",
+        "entities": [],
+        "classes": [],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?attribute (AVG(?value) AS ?avgValue)\nWHERE {\n  # No triples provided to identify skeleton defensive attributes.\n}\nGROUP BY ?attribute\nORDER BY DESC(?avgValue)\nLIMIT 1"
+    },
+    {
+        "question": "what is the lowest defensive attribute for ogres in average?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?def_attr  WHERE {  ?ogres <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>.  ?def_attr <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#defValues>.  FILTER regex(str(?ogres), 'ogre', 'i')  ?ogres ?def_attr ?ogres_def_attr.  } GROUP BY ?def_attr ORDER BY DESC(AVG(?ogres_def_attr)) LIMIT 1",
+        "entities": [],
+        "classes": [],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?defensiveAttribute (AVG(?value) AS ?avgValue)\nWHERE {\n  # No triples available to identify defensive attributes or values\n}\nGROUP BY ?defensiveAttribute\nORDER BY ?avgValue\nLIMIT 1"
+    },
+    {
+        "question": "does creatures have more offencive attributes than defencive?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (if(COUNT(DISTINCT ?off_attr) > COUNT(DISTINCT ?def_attr), 'True', 'False') as ?res) WHERE {  ?off_attr <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#offValues>.  ?def_attr <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#defValues>.}",
+        "entities": [],
+        "classes": [
+            ""
+        ],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {\n}"
+    },
+    {
+        "question": "which creatures speaking aklo language do have the maximum attack parameter?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?creatures WHERE {  {SELECT (MAX(?atk) as ?max_atk) WHERE{?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AkloL>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#atk> ?atk}} ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AkloL>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#atk> ?atk  FILTER (?atk = ?max_atk)}",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AkloL"
+        ],
+        "classes": [
+            ""
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AkloL> -> \"member\" -> \"attack\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AkloL> -> \"member\" -> \"attack\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT DISTINCT ?creature ?attack WHERE {\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AkloL> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#atk> ?attack .\n  \n  {\n    SELECT (MAX(?atkValue) AS ?maxAttack) WHERE {\n      ?c <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AkloL> .\n      ?c <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#atk> ?atkValue .\n    }\n  }\n  \n  FILTER(?attack = ?maxAttack)\n}"
+    },
+    {
+        "question": "what is the average attack parameter for robots?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (AVG(?atk) as ?avg_atk) WHERE {  ?robots <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#atk> ?atk  FILTER regex(str(?robots), 'robot', 'i') }",
+        "entities": [],
+        "classes": [],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (AVG(?attackValue) AS ?averageAttack)\nWHERE {\n  FILTER(false)\n}"
+    },
+    {
+        "question": "how many creatures with neutral evil alignment do have combat maneuver bonus less than 4?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (COUNT(?creatures) as ?n_creatures) WHERE {  ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#neutralEvil>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#cmb> ?cmb  FILTER (?cmb < 4) }",
+        "entities": [],
+        "classes": [
+            ""
+        ],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (COUNT(DISTINCT ?creature) AS ?count)\nWHERE {\n  # No triples provided to match alignment or combat maneuver bonus\n}"
+    },
+    {
+        "question": "what is the minimum combat maneuver bonus for creatures speaking ignan language?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (MIN(?cmb) as ?min_cmb) WHERE {  ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#IgnanL>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#cmb> ?cmb}",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#IgnanL"
+        ],
+        "classes": [
+            "",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#IgnanL> -> \"minimum combat maneuver bonus\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#IgnanL> -> \"minimum combat maneuver bonus\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (MIN(?cmb) AS ?minCMB)\nWHERE {\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#IgnanL> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#cmb> ?cmb .\n}"
+    },
+    {
+        "question": "how many demons do have combat maneuver defense level greater than the average for all creatures?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (COUNT(?demons) as ?n_demons) WHERE {  {SELECT (AVG(?cmd) as ?avg_cmd) WHERE { ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#cmd> ?cmd  }} ?demons <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#cmd> ?cmd  FILTER regex(str(?demons), 'demon', 'i') FILTER (?cmd > ?avg_cmd) }",
+        "entities": [],
+        "classes": [
+            ""
+        ],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (COUNT(DISTINCT ?demon) AS ?countDemons)\nWHERE {\n  # Calculate average CMD level for all creatures\n  {\n    SELECT (AVG(?cmdLevel) AS ?avgCmdLevel)\n    WHERE {\n      ?creature a <http://example.org/ontology/Creature> .\n      ?creature <http://example.org/ontology/combatManeuverDefenseLevel> ?cmdLevel .\n    }\n  }\n  \n  # Select demons with CMD level greater than average\n  ?demon a <http://example.org/ontology/Demon> .\n  ?demon <http://example.org/ontology/combatManeuverDefenseLevel> ?demonCmdLevel .\n  \n  FILTER(?demonCmdLevel > ?avgCmdLevel)\n}"
+    },
+    {
+        "question": "what is the maximum combat maneuver defense level for creatures with neutral good alignment?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (MAX(?cmd) as ?max_cmd) WHERE {  ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#neutralGood>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#cmd> ?cmd}",
+        "entities": [],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> \"combat maneuver defense level\"",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> \"neutral good\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> \"combat maneuver defense level\", <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> \"neutral good\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (MAX(?cmd) AS ?maxCombatManeuverDefense)\nWHERE {\n  ?beast a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> .\n  ?beast <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#neutralGood> .\n  ?beast <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#cmd> ?cmd .\n}"
+    },
+    {
+        "question": "what creatures speaking dwarven language do have armor class greater than 12?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?creatures WHERE {  ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DwarvenL>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasACValue> ?AC_value FILTER (?AC_value > 12) }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DwarvenL"
+        ],
+        "classes": [
+            ""
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DwarvenL> -> CREATURE -> \"armor class\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DwarvenL> -> CREATURE -> \"armor class\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT DISTINCT ?creature WHERE {\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DwarvenL> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasACValue> ?acValue .\n  FILTER(?acValue > 12)\n}"
+    },
+    {
+        "question": "what is the average armor class for angels?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (AVG(?AC_value) as ?avg_AC_value) WHERE { ?angels <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasACValue> ?AC_value FILTER regex(str(?angels), 'angel', 'i') }",
+        "entities": [],
+        "classes": [],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (AVG(?armorClassValue) AS ?averageArmorClass)\nWHERE {\n  ?entity <http://example.org/ontology/armorClass> ?armorClassValue .\n  ?entity <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/ontology/Angel> .\n}"
+    },
+    {
+        "question": "what is the minimum flat footed value for creatures with lawful good alignment?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (MIN(?FFValue ) as ?min_FFValue) WHERE {  ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#lawfulGood>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasFlatFootedValue> ?FFValue}",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#lawfulGood"
+        ],
+        "classes": [
+            ""
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#lawfulGood> -> CREATURE -> \"flat footed value\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#lawfulGood> -> CREATURE -> \"flat footed value\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (MIN(?flatFootedValue) AS ?minFlatFootedValue)\nWHERE {\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#lawfulGood> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasFlatFootedValue> ?flatFootedValue .\n}"
+    },
+    {
+        "question": "how many trolls do have flat footed value between 13 and 18?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (COUNT(?trolls) as ?n_trolls) WHERE { ?trolls <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasFlatFootedValue> ?FFValue FILTER regex(str(?trolls), 'troll', 'i') FILTER (?FFValue > 13 && ?FFValue < 18) }",
+        "entities": [],
+        "classes": [],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (COUNT(DISTINCT ?troll) AS ?count)\nWHERE {\n  ?troll a ?trollClass .\n  ?troll ?flatFootedProperty ?flatFootedValue .\n  FILTER(xsd:decimal(?flatFootedValue) >= 13 && xsd:decimal(?flatFootedValue) <= 18)\n}"
+    },
+    {
+        "question": "what is the maximum fort value for creatures speaking goblin language?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (MAX(?fort_value) as ?max_fort_value) WHERE {  ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#GoblinL>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasFortValue> ?fort_value}",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#GoblinL"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#GoblinL> -> CREATURE -> \"fort\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#GoblinL> -> CREATURE -> \"fort\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (MAX(?fortValue) AS ?maxFort)\nWHERE {\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#GoblinL> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasFortValue> ?fortValue .\n}"
+    },
+    {
+        "question": "is there any creature with true neutral alignment with fort value equal to 6?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {  ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#trueNeutral>; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasFortValue> ?FortValue FILTER (?FortValue = '6'^^xsd:integer)}",
+        "entities": [],
+        "classes": [],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {\n}"
+    },
+    {
+        "question": "what is the average number of health points for creatures speaking gnome language?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (AVG(?HP) as ?avg_HP) WHERE {  ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#GnomeL>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasHPvalue> ?HP }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#GnomeL"
+        ],
+        "classes": [
+            ""
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#GnomeL> -> CREATURE -> \"health points\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#GnomeL> -> CREATURE -> \"health points\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (AVG(?hp) AS ?averageHealthPoints)\nWHERE {\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#GnomeL> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasHPvalue> ?hp .\n}"
+    },
+    {
+        "question": "what is the minimum number of health points for dragons with strenghts attribute more than 10?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (MIN(?HP) as ?min_HP) WHERE { ?dragons <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasHPvalue> ?HP; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#str> ?str_attr FILTER regex(str(?dragons), 'dragon', 'i') FILTER (?str_attr > 10) }",
+        "entities": [],
+        "classes": [],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (MIN(?hp) AS ?minHealthPoints)\nWHERE {\n  ?dragon a <ALL_CAPS:DRAGON> .\n  ?dragon <ALL_CAPS:STRENGHTS> ?strenghts .\n  ?dragon <ALL_CAPS:HEALTH_POINTS> ?hp .\n  FILTER(?strenghts > 10)\n}"
+    },
+    {
+        "question": "how many creatures speaking halfling language do have ref value more than 10 and atack parameter less than 15?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (COUNT(?creatures) as ?n_creatures) WHERE {  ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#HalflingL>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasRefValue> ?Ref_value; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#atk> ?atk FILTER (?Ref_value > 10 && ?atk < 15) }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#HalflingL"
+        ],
+        "classes": [
+            ""
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#HalflingL> -> \"atack parameter\"",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#HalflingL> -> \"ref value\"",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#HalflingL> -> \"member\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#HalflingL> -> \"atack parameter\", <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#HalflingL> -> \"ref value\", <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#HalflingL> -> \"member\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (COUNT(DISTINCT ?creature) AS ?count)\nWHERE {\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#HalflingL> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasRefValue> ?refValue .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#atk> ?atkValue .\n  FILTER(?refValue > 10 && ?atkValue < 15)\n}"
+    },
+    {
+        "question": "what creatures with chaotic evil alignment do have the maximum ref value?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?creatures WHERE { {SELECT (MAX(?RefValue) as ?max_RefValue) WHERE{?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#chaoticEvil>; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasRefValue> ?RefValue}}?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#chaoticEvil>; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasRefValue> ?RefValue FILTER(?RefValue = ?max_RefValue)}",
+        "entities": [],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> \"chaotic evil\"",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> \"maximum ref value\"",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> \"ref\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> -> \"chaotic evil\", <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> \"maximum ref value\", <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> \"ref\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT DISTINCT ?beast ?ref WHERE {\n  ?beast a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> .\n  ?beast <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#chaoticEvil> .\n  ?beast <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasRefValue> ?ref .\n  \n  {\n    SELECT (MAX(?maxRef) AS ?maxRefValue) WHERE {\n      ?b a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> .\n      ?b <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#chaoticEvil> .\n      ?b <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasRefValue> ?maxRef .\n    }\n  }\n  \n  FILTER(?ref = ?maxRefValue)\n}"
+    },
+    {
+        "question": "is there any spider type with touch value equal to 11?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE { ?spiders <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasTouchValue> ?touch_value FILTER regex(str(?spiders), 'spider', 'i') FILTER (?touch_value = 11) }",
+        "entities": [],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> \"touch\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> \"touch\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {\n  ?beast a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> .\n  ?beast <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasTouchValue> 11 .\n}"
+    },
+    {
+        "question": "what is the minimum touch value for creatures speaking druidic language with initiative value less than 2?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (MIN(?touch_value) as ?min_touch_value) WHERE {  ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DruidicL>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasTouchValue> ?touch_value; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasInitValue> ?init FILTER (?init < 2) }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DruidicL"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DruidicL> -> CREATURE -> \"initiative\" ",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DruidicL> -> CREATURE -> \"touch\" "
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DruidicL> -> CREATURE -> \"initiative\" , <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DruidicL> -> CREATURE -> \"touch\" ",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (MIN(?touchValue) AS ?minTouchValue)\nWHERE {\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DruidicL> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasInitValue> ?initValue .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasTouchValue> ?touchValue .\n  FILTER(?initValue < 2)\n}"
+    },
+    {
+        "question": "what percentage of creatures with neutral evil alignment do have will value less than 1?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ((?n_creatures2/?n_creatures)*100 as ?creatures_perc) WHERE {      {        SELECT (COUNT(?creatures) as ?n_creatures) WHERE {             ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#neutralEvil>        }    }     {        SELECT (COUNT(?creatures) as ?n_creatures2) WHERE {             ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#neutralEvil>;              <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasWillValue> ?will_value              FILTER (?will_value  < 1)         }    } }",
+        "entities": [],
+        "classes": [
+            ""
+        ],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (0 AS ?percentage)\nWHERE {\n}"
+    },
+    {
+        "question": "what is the average will value for creatures speaking orc language?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (AVG(?will_value) as ?avg_will_value) WHERE {  ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#OrcL>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasWillValue> ?will_value  }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#OrcL"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#OrcL> -> \"will\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#OrcL> -> \"will\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (AVG(?will) AS ?averageWill)\nWHERE {\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#OrcL> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasWillValue> ?will .\n}"
+    },
+    {
+        "question": "what types of zombies do have charisma attribute between 3 and 7?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?zombies WHERE { ?zombies <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#cha> ?cha FILTER regex(str(?zombies), 'zombie', 'i') FILTER (?cha > 3 && ?cha < 7) }",
+        "entities": [],
+        "classes": [],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT DISTINCT ?zombieType WHERE {\n  ?zombie a ?zombieType .\n  ?zombie ?charismaProperty ?charisma .\n  FILTER(?charisma >= 3 && ?charisma <= 7)\n}"
+    },
+    {
+        "question": "is there any creature type with lawful evil alignment having charisma attribute greater than sum of strength and intelligence?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE { ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#lawfulEvil>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#cha> ?cha; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#str> ?str; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#int> ?int FILTER (?cha  > (?str+?int))  }",
+        "entities": [],
+        "classes": [
+            ""
+        ],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {\n}"
+    },
+    {
+        "question": "how many creatures speaking protean language do have constitution greater than 10?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (COUNT(?creatures) as ?n_creatures) WHERE {  ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#ProteanL>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#con> ?con FILTER (?con > 10) }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#ProteanL"
+        ],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#ProteanL>",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> \"constitution\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#ProteanL>, <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> \"constitution\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (COUNT(DISTINCT ?creature) AS ?count)\nWHERE {\n  ?creature <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#ProteanL> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#con> ?constitution .\n  FILTER(?constitution > 10)\n}"
+    },
+    {
+        "question": "what is the maximum value of constitution attribute for elementals?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (MAX(?con) as ?max_con) WHERE { ?elementals <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#con> ?con FILTER regex(str(?elementals), 'elemental', 'i') }",
+        "entities": [],
+        "classes": [],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (MAX(?constitutionValue) AS ?maxConstitution)\nWHERE {\n  ?element rdf:type <http://example.org/Elemental> .\n  ?element <http://example.org/constitution> ?constitutionValue .\n}"
+    },
+    {
+        "question": "what is the average dexterity attribute for creatures with true neutral alignment?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (AVG(?dex) as ?avg_dex) WHERE { ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#trueNeutral>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#dex> ?dex }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#trueNeutral"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#trueNeutral> -> CREATURE -> \"dexterity\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#trueNeutral> -> CREATURE -> \"dexterity\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (AVG(?dexterity) AS ?avgDexterity)\nWHERE {\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#trueNeutral> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#dex> ?dexterity .\n}"
+    },
+    {
+        "question": "which creatures speaking aboleth language do have dexterity greater than average for all creatures?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?creatures WHERE {  {SELECT (AVG(?dex) as ?avg_dex)  WHERE {?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#dex> ?dex}}  ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AbolethL>;   <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#dex> ?dex FILTER (?dex > ?avg_dex) }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AbolethL"
+        ],
+        "classes": [
+            ""
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AbolethL> -> \"member\" -> \"dexterity\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AbolethL> -> \"member\" -> \"dexterity\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT DISTINCT ?creature ?dexterity WHERE {\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AbolethL> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#dex> ?dexterity .\n\n  {\n    SELECT (AVG(?allDex) AS ?avgDex) WHERE {\n      ?anyCreature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#dex> ?allDex .\n    }\n  }\n\n  FILTER(?dexterity > ?avgDex)\n}"
+    },
+    {
+        "question": "how many robots do have intelligence attribute less than 7 and speed value more than 10?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (COUNT(?robots) as ?n_robots) WHERE { ?robots <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#int> ?int; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasSpeedValue> ?speed FILTER regex(str(?robots), 'robot', 'i') FILTER (?int < 7 && ?speed > 10) }",
+        "entities": [],
+        "classes": [],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (COUNT(DISTINCT ?robot) AS ?count)\nWHERE {\n  ?robot <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/Robot> .\n  ?robot <http://example.org/intelligence> ?intelligence .\n  ?robot <http://example.org/speed> ?speed .\n  FILTER(?intelligence < 7 && ?speed > 10)\n}"
+    },
+    {
+        "question": "what is the minimum intelligence attribute for creatures with chaotic neutral alignment?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (MIN(?int) as ?min_int) WHERE { ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#chaoticNeutral>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#int> ?int }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#chaoticNeutral"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#chaoticNeutral> -> CREATURE -> \"intelligence\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#chaoticNeutral> -> CREATURE -> \"intelligence\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (MIN(?intelligence) AS ?minIntelligence)\nWHERE {\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#chaoticNeutral> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#int> ?intelligence .\n}"
+    },
+    {
+        "question": "what percentage of creatures speaking daemonic language do have strength attribute greater than 20?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ((?s/?n_creatures)*100 as ?creatures_perc) WHERE {     {SELECT (COUNT(?creatures) as ?n_creatures) WHERE         {?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DaemonicL>}    }     {SELECT (SUM(?comp) AS ?s) WHERE         {?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DaemonicL>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#str> ?str BIND (if (?str > 20, 1, 0) as ?comp)}    }          }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DaemonicL"
+        ],
+        "classes": [
+            ""
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DaemonicL> -> \"strength\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DaemonicL> -> \"strength\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT \n  ( (COUNT(?strongCreature) * 100.0) / COUNT(?creature) AS ?percentage )\nWHERE {\n  {\n    SELECT DISTINCT ?creature\n    WHERE {\n      ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DaemonicL> .\n    }\n  }\n  {\n    SELECT DISTINCT ?strongCreature\n    WHERE {\n      ?strongCreature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DaemonicL> .\n      ?strongCreature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#str> ?strength .\n      FILTER(?strength > 20)\n    }\n  }\n}"
+    },
+    {
+        "question": "is there any golem type with strength attribute lower than charisma?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE { ?golems <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#str> ?str; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#cha> ?cha FILTER regex(str(?golems), 'golem', 'i') FILTER (?str < ?cha) }",
+        "entities": [],
+        "classes": [],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK {\n  ?golem a ?golemType .\n  ?golem ?strengthProp ?strengthValue .\n  ?golem ?charismaProp ?charismaValue .\n  FILTER(?strengthValue < ?charismaValue)\n}"
+    },
+    {
+        "question": "what is the average wisdom attribute for creatures with lawful neutral alignment?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (AVG(?wis) as ?avg_wis) WHERE { ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#lawfulNeutral>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#wis> ?wis }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#lawfulNeutral"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#lawfulNeutral> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#creature> -> \"wisdom\""
+        ],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (AVG(?wisdom) AS ?averageWisdom)\nWHERE {\n  ?creature a <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#creature> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#alignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#lawfulNeutral> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#wisdom> ?wisdom .\n}"
+    },
+    {
+        "question": "which creatures speaking necril and abyssal languages do have wisdom attribute more than 4?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?creatures WHERE { ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#NecrilL>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AbyssalL>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#wis> ?wis FILTER (?wis > 4) }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AbyssalCustodian",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#NecromancerofLeng"
+        ],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language> -> \"name\"",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> \"wisdom\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language> -> \"name\", <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> \"wisdom\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT DISTINCT ?beast WHERE {\n  ?beast <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> .\n  ?beast <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?language .\n  ?language <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#name> ?lname .\n  ?beast <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#wis> ?wis .\n  \n  FILTER ( (lcase(str(?lname)) = \"necril\" || lcase(str(?lname)) = \"abyssal\") && (?wis > 4) )\n}"
+    },
+    {
+        "question": "what are the sums of the statistics for creatures speaking both gnoll and elven languages?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (SUM(?stats_values) as ?sum_stats_values) WHERE { ?stats <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#statistics>. ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#GnollL>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#ElvenL>.  ?creatures ?stats ?stats_values } GROUP BY ?creatures",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Gnoll",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#ElvenL"
+        ],
+        "classes": [
+            ""
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Gnoll> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#ElvenL> -> \"statistics sum\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Gnoll> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#ElvenL> -> \"statistics sum\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (SUM(?strVal + ?intVal) AS ?totalStatisticsSum)\nWHERE {\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#GnollL> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#ElvenL> .\n  \n  OPTIONAL { ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#str> ?str . }\n  OPTIONAL { ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#int> ?int . }\n  \n  BIND(COALESCE(?str, 0) AS ?strVal)\n  BIND(COALESCE(?int, 0) AS ?intVal)\n}"
+    },
+    {
+        "question": "do Griffon and Hippogriff have the same alignment?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE { <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Griffon> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?grif_alignment. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Hippogriff> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?hippogr_alignment FILTER (?grif_alignment = ?hippogr_alignment) }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Griffon",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Hippogriff"
+        ],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Hippogriff> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment>",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Griffon> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment>"
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Hippogriff> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment>, <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Griffon> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment>",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Griffon> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?alignmentGriffon .\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Hippogriff> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?alignmentHippogriff .\n  FILTER (?alignmentGriffon = ?alignmentHippogriff)\n}"
+    },
+    {
+        "question": "does Androsphinx have a greater sum of intellegence and wisdom attributes than Blood Queen?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE { <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Androsphinx> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#int> ?androsphinx_int; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#wis> ?androsphinx_wis. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#BloodQueen> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#int> ?bqueen_int; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#wis> ?bqueen_wis. FILTER (?androsphinx_int+?androsphinx_wis > ?bqueen_int+?bqueen_wis) }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#BloodQueen",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Androsphinx"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Androsphinx> -> \"wisdom\"",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#BloodQueen> -> \"wisdom\"",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Androsphinx> -> \"intelligence\"",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#BloodQueen> -> \"intelligence\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Androsphinx> -> \"wisdom\", <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#BloodQueen> -> \"wisdom\", <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Androsphinx> -> \"intelligence\", <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#BloodQueen> -> \"intelligence\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Androsphinx> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#int> ?intA .\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Androsphinx> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#wis> ?wisA .\n  \n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#BloodQueen> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#int> ?intB .\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#BloodQueen> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#wis> ?wisB .\n  \n  FILTER((?intA + ?wisA) > (?intB + ?wisB))\n}"
+    },
+    {
+        "question": "does Baalzebul have a greater value of average statistics than Dagon?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (if((AVG(?baalz_stats) > AVG(?dagon_stats)), 'True', 'False') as ?res) WHERE { ?stats <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#statistics>. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Baalzebul> ?stats ?baalz_stats. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Dagon> ?stats ?dagon_stats }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DagonDemonPrinceoftheSea",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Baalzebul"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DagonDemonPrinceoftheSea> -> \"average statistics\"",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Baalzebul> -> \"average statistics\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DagonDemonPrinceoftheSea> -> \"average statistics\", <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Baalzebul> -> \"average statistics\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DagonDemonPrinceoftheSea> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasCRValue> ?dagonCR .\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DagonDemonPrinceoftheSea> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasACValue> ?dagonAC .\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DagonDemonPrinceoftheSea> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasHPvalue> ?dagonHP .\n\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Baalzebul> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasCRValue> ?baalzebulCR .\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Baalzebul> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasACValue> ?baalzebulAC .\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Baalzebul> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasHPvalue> ?baalzebulHP .\n\n  BIND((?dagonCR + ?dagonAC + ?dagonHP) / 3 AS ?dagonAvg)\n  BIND((?baalzebulCR + ?baalzebulAC + ?baalzebulHP) / 3 AS ?baalzebulAvg)\n\n  FILTER(?baalzebulAvg > ?dagonAvg)\n}"
+    },
+    {
+        "question": "which creatures speaking ghoul language do have the greatest constitution attribute?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?creatures WHERE{{SELECT (MAX(?con) as ?max_con) WHERE { ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#GhoulL>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#con> ?con }} ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#GhoulL>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#con> ?con FILTER (?con = ?max_con)}",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Ghoul"
+        ],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Ghoul>",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> \"constitution\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Ghoul>, <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> -> \"constitution\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT DISTINCT ?creature ?con WHERE {\n  ?creature <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#con> ?con .\n  ?creature <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Ghoul> .\n  \n  {\n    SELECT (MAX(?conInner) AS ?maxCon) WHERE {\n      ?creatureInner <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast> .\n      ?creatureInner <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#con> ?conInner .\n      ?creatureInner <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Ghoul> .\n    }\n  }\n  \n  FILTER(?con = ?maxCon)\n}\nORDER BY ?creature"
+    },
+    {
+        "question": "is the number of creatures speaking dark language greater than cyclops language?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (if((COUNT(DISTINCT ?creatures_1) > COUNT(DISTINCT ?creatures_2)), 'True', 'False') as ?res) WHERE { ?creatures_1 <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DarkL>.  ?creatures_2 <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#CyclopsL>. }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Cyclops"
+        ],
+        "classes": [
+            ""
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Cyclops> -> \"language\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Cyclops> -> \"language\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {\n  {\n    SELECT (COUNT(DISTINCT ?creatureDark) AS ?countDark) WHERE {\n      ?creatureDark <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?langDark .\n      FILTER(CONTAINS(LCASE(STR(?langDark)), \"dark\"))\n    }\n  }\n  {\n    SELECT (COUNT(DISTINCT ?creatureCyclops) AS ?countCyclops) WHERE {\n      ?creatureCyclops <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#CyclopsL> .\n    }\n  }\n  FILTER(?countDark > ?countCyclops)\n}"
+    },
+    {
+        "question": "is the number of creatures speaking polyglot language greater than skald language?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (if((COUNT(DISTINCT ?creatures_1) > COUNT(DISTINCT ?creatures_2)), 'True', 'False') as ?res) WHERE { ?creatures_1 <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#PolyglotL>.  ?creatures_2 <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#SkaldL>. }",
+        "entities": [],
+        "classes": [
+            ""
+        ],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {\n}"
+    },
+    {
+        "question": "are angels characterized by the greater average value of experience points than demons?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (if(?avg_ang_XP>?avg_dem_XP, 'True', 'False') as ?res) WHERE { {SELECT (AVG(?ang_XP) as ?avg_ang_XP) WHERE { ?angels <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasXPValue> ?ang_XP FILTER regex(str(?angels), 'angel', 'i')}} {SELECT (AVG(?dem_XP) as ?avg_dem_XP) WHERE { ?demons <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasXPValue> ?dem_XP FILTER regex(str(?demons), 'demon', 'i')}} }",
+        "entities": [],
+        "classes": [],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {\n  {\n    SELECT (AVG(?xpA) AS ?avgA) WHERE {\n      ?a a <ANGEL> ;\n         <EXPERIENCE_POINTS> ?xpA .\n    }\n  }\n  {\n    SELECT (AVG(?xpD) AS ?avgD) WHERE {\n      ?d a <DEMON> ;\n         <EXPERIENCE_POINTS> ?xpD .\n    }\n  }\n  FILTER (?avgA > ?avgD)\n}"
+    },
+    {
+        "question": "do Lamia and Lilith have a common language and alignment?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE { <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Lamia> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?Lamia_lang; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?Lamia_alignment. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Lilith> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?Lilith_lang; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?Lilith_alignment FILTER (?Lamia_lang = ?Lilith_lang && ?Lamia_alignment = ?Lilith_alignment) }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Lamia",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Lilith"
+        ],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Lamia> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language>",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Lilith> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language>",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Lilith> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment>",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Lamia> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment>"
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Lamia> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language>, <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Lilith> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language>, <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Lilith> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment>, <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Lamia> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment>",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Lamia> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?lang .\n  ?lang <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language> .\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Lilith> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?lang .\n\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Lamia> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?alignment .\n  ?alignment <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment> .\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Lilith> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?alignment .\n}"
+    },
+    {
+        "question": "do Lorelei and sirens speak the same languages?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE { <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Lorelei> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?Lorelei_lang. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Siren> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?Siren_lang FILTER (?Lorelei_lang = ?Siren_lang) }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Lorelei"
+        ],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Lorelei> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language>"
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Lorelei> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language>",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {\n  # Collect languages spoken by Lorelei\n  {\n    SELECT DISTINCT ?lang WHERE {\n      <Lorelei> <hasLanguages> ?lang .\n      ?lang a <Language> .\n    }\n  }\n  # Collect languages spoken by sirens\n  {\n    SELECT DISTINCT ?lang2 WHERE {\n      ?siren a <SIREN> .\n      ?siren <hasLanguages> ?lang2 .\n      ?lang2 a <Language> .\n    }\n  }\n\n  # check no language in Lorelei's set missing in sirens' set\n  FILTER NOT EXISTS {\n    ?lang a <Language> .\n    <Lorelei> <hasLanguages> ?lang .\n    FILTER NOT EXISTS {\n      ?siren a <SIREN> .\n      ?siren <hasLanguages> ?lang .\n    }\n  }\n  # check no language in sirens' set missing in Lorelei's set\n  FILTER NOT EXISTS {\n    ?siren a <SIREN> .\n    ?siren <hasLanguages> ?lang .\n    FILTER NOT EXISTS {\n      <Lorelei> <hasLanguages> ?lang .\n    }\n  }\n}"
+    },
+    {
+        "question": "what is the average dexterity attribute for Phoenix and Sleipnir?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ((?Phoenix_dex+?Sleipnir_dex)/2 as ?avg_dex) WHERE { <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Phoenix> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#dex> ?Phoenix_dex. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Sleipnir> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#dex> ?Sleipnir_dex }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Sleipnir",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Phoenix"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Phoenix> -> \"dexterity\"",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Sleipnir> -> \"dexterity\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Phoenix> -> \"dexterity\", <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Sleipnir> -> \"dexterity\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (AVG(?dexValue) AS ?averageDexterity)\nWHERE {\n  VALUES ?entity {\n    <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Phoenix>\n    <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Sleipnir>\n  }\n  ?entity <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#dex> ?dexValue .\n}"
+    },
+    {
+        "question": "what is the maximum constitution attribute for Kraken and Leviathan?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?max_con WHERE { <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Kraken> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#con> ?Kraken_con. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Leviathan> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#con> ?Leviathan_con BIND(if(?Kraken_con > ?Leviathan_con, ?Kraken_con, ?Leviathan_con) as ?max_con) }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Leviathan",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Kraken"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Kraken> -> \"constitution\"",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Leviathan> -> \"constitution\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Kraken> -> \"constitution\", <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Leviathan> -> \"constitution\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (MAX(?conValue) AS ?maxConstitution)\nWHERE {\n  VALUES ?entity {\n    <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Kraken>\n    <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Leviathan>\n  }\n  ?entity <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#con> ?conValue .\n}"
+    },
+    {
+        "question": "what is the minimum wisdom attribute for Gorynych and Vodyanoi?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?min_wis WHERE { <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Gorynych> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#wis> ?Gorynych_wis. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Vodyanoi> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#wis> ?Vodyanoi_wis BIND(if(?Gorynych_wis > ?Vodyanoi_wis, ?Vodyanoi_wis, ?Gorynych_wis) as ?min_wis) }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Vodyanoi",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Gorynych"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Vodyanoi> -> \"wisdom\"",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Gorynych> -> \"wisdom\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Vodyanoi> -> \"wisdom\", <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Gorynych> -> \"wisdom\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (MIN(?wisdom) AS ?minWisdom)\nWHERE {\n  {\n    <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Vodyanoi> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#wis> ?wisdom .\n  }\n  UNION\n  {\n    <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Gorynych> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#wis> ?wisdom .\n  }\n}"
+    },
+    {
+        "question": "does Kitsune or Rusalka have charisma attribute more than 20?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE { <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Kitsune> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#cha> ?Kitsune_cha. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Rusalka> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#cha> ?Rusalka_cha FILTER(?Kitsune_cha > 20 || ?Rusalka_cha > 20) }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Kitsune",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Rusalka"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Rusalka> -> \"charisma\"",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Kitsune> -> \"charisma\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Rusalka> -> \"charisma\", <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Kitsune> -> \"charisma\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {\n  VALUES ?entity {\n    <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Kitsune>\n    <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Rusalka>\n  }\n  ?entity <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#cha> ?charisma .\n  FILTER(?charisma > 20)\n}"
+    },
+    {
+        "question": "do both Amon and Cetus have strength attribute between 15 and 25?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE { <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Amon> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#str> ?Amon_str. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Cetus> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#str> ?Cetus_str FILTER((?Amon_str > 15 && ?Amon_str < 25 ) && (?Cetus_str > 15 && ?Cetus_str < 25 )) }",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Cetus",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Amon"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Amon> -> \"strength\"",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Cetus> -> \"strength\""
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Amon> -> \"strength\", <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Cetus> -> \"strength\"",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Amon> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#str> ?amonStrength .\n  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Cetus> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#str> ?cetusStrength .\n  FILTER (?amonStrength >= 15 && ?amonStrength <= 25) .\n  FILTER (?cetusStrength >= 15 && ?cetusStrength <= 25) .\n}"
+    },
+    {
+        "question": "does Sandman or Charon speak elder or boggarg language?",
+        "gold_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE { <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Sandman> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?Sandman_lang. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Charon> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?Charon_lang FILTER((<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#ElderL> in (?Sandman_lang) || <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#BoggargL> in (?Sandman_lang)) || (<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#ElderL> in (?Charon_lang) || <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#BoggargL> in (?Charon_lang)))}",
+        "entities": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Sandman",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#CharonBoatmanofthelowerplanesCR",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#ElderL",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#BoggardL"
+        ],
+        "classes": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language"
+        ],
+        "relations": [
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#CharonBoatmanofthelowerplanesCR> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language>",
+            "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Sandman> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language>"
+        ],
+        "paths": "<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#CharonBoatmanofthelowerplanesCR> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language>, <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Sandman> -> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language>",
+        "generated_query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nASK WHERE {\n  VALUES ?entity {\n    <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Sandman>\n    <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#CharonBoatmanofthelowerplanesCR>\n  }\n  VALUES ?language {\n    <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#ElderL>\n    <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#BoggardL>\n  }\n  ?entity <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?language .\n  ?language <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language> .\n}"
+    }
+]

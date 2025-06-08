@@ -1,0 +1,686 @@
+[
+    {
+        "question": "What is the time zone of Salt Lake City?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX res: <http://dbpedia.org/resource/> PREFIX dbp: <http://dbpedia.org/property/> SELECT DISTINCT ?uri WHERE { res:Salt_Lake_City <http://dbpedia.org/ontology/timeZone> ?uri }",
+        "entities": [
+            "http://dbpedia.org/resource/Salt_Lake_City"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Salt_Lake_City> -> \"time zone\""
+        ],
+        "paths": "<http://dbpedia.org/resource/Salt_Lake_City> -> \"time zone\"",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?timezone\nWHERE {\n  <http://dbpedia.org/resource/Salt_Lake_City> <http://dbpedia.org/property/timezone> ?timezone .\n}"
+    },
+    {
+        "question": "Who killed Caesar?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX dct: <http://purl.org/dc/terms/> PREFIX dbc: <http://dbpedia.org/resource/Category:> SELECT DISTINCT ?uri WHERE { ?uri dct:subject dbc:Assassins_of_Julius_Caesar }",
+        "entities": [
+            "http://dbpedia.org/resource/Category:Assassins_of_Julius_Caesar"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Category:Assassins_of_Julius_Caesar> -> \"member\""
+        ],
+        "paths": "<http://dbpedia.org/resource/Category:Assassins_of_Julius_Caesar> -> \"member\"",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?assassin\nWHERE {\n  ?assassin <http://purl.org/dc/terms/subject> <http://dbpedia.org/resource/Category:Assassins_of_Julius_Caesar> .\n}"
+    },
+    {
+        "question": "What is the highest mountain in Germany?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX onto: <http://dbpedia.org/ontology/> SELECT ?uri WHERE { ?uri rdf:type onto:Mountain ; onto:elevation ?elevation ; onto:locatedInArea <http://dbpedia.org/resource/Germany> } ORDER BY DESC(?elevation) LIMIT 1",
+        "entities": [
+            "http://dbpedia.org/resource/Germany"
+        ],
+        "classes": [
+            "http://dbpedia.org/ontology/Mountain"
+        ],
+        "relations": [
+            "<http://dbpedia.org/ontology/Mountain> -> <http://dbpedia.org/resource/Germany>",
+            "<http://dbpedia.org/ontology/Mountain> -> \"elevation\""
+        ],
+        "paths": "<http://dbpedia.org/ontology/Mountain> -> <http://dbpedia.org/resource/Germany>, <http://dbpedia.org/ontology/Mountain> -> \"elevation\"",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT ?mountain ?elevation WHERE {\n  {\n    ?mountain <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Mountain> .\n    {\n      ?mountain <http://dbpedia.org/property/location> <http://dbpedia.org/resource/Germany> .\n    }\n    UNION\n    {\n      ?mountain <http://dbpedia.org/ontology/locatedInArea> <http://dbpedia.org/resource/Germany> .\n    }\n    OPTIONAL { ?mountain <http://dbpedia.org/ontology/elevation> ?elev1 . }\n    OPTIONAL { ?mountain <http://dbpedia.org/property/elevationM> ?elev2 . }\n    BIND(COALESCE(?elev1, ?elev2) AS ?elevation)\n    FILTER(bound(?elevation))\n  }\n}\nORDER BY DESC(?elevation)\nLIMIT 1"
+    },
+    {
+        "question": "Which American presidents were in office during the Vietnam War?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/> PREFIX res: <http://dbpedia.org/resource/> PREFIX dct: <http://purl.org/dc/terms/> PREFIX dbc: <http://dbpedia.org/resource/Category:> SELECT ?uri WHERE { ?uri dct:subject dbc:Presidents_of_the_United_States . res:Vietnam_War dbo:commander ?uri }",
+        "entities": [
+            "http://dbpedia.org/resource/Category:Presidents_of_the_United_States",
+            "http://dbpedia.org/resource/Vietnam_War"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Category:Presidents_of_the_United_States> -> <http://dbpedia.org/resource/Vietnam_War>"
+        ],
+        "paths": "<http://dbpedia.org/resource/Category:Presidents_of_the_United_States> -> <http://dbpedia.org/resource/Vietnam_War>",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?president\nWHERE {\n  ?president <http://purl.org/dc/terms/subject> <http://dbpedia.org/resource/Category:Presidents_of_the_United_States> .\n  ?president <http://dbpedia.org/ontology/wikiPageWikiLink> <http://dbpedia.org/resource/Vietnam_War> .\n}"
+    },
+    {
+        "question": "Butch Otter is the governor of which U.S. state?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?uri WHERE { ?uri a <http://dbpedia.org/class/yago/WikicatStatesOfTheUnitedStates> ; <http://dbpedia.org/property/governor> <http://dbpedia.org/resource/Butch_Otter> }",
+        "entities": [
+            "http://dbpedia.org/resource/Butch_Otter"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Butch_Otter> -> \"governor of\""
+        ],
+        "paths": "<http://dbpedia.org/resource/Butch_Otter> -> \"governor of\"",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?state WHERE {\n  ?entity <http://dbpedia.org/ontology/governor> <http://dbpedia.org/resource/Butch_Otter> .\n  ?entity <http://dbpedia.org/property/state> ?state .\n}"
+    },
+    {
+        "question": "How many gold medals did Michael Phelps win at the 2008 Olympics?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbr: <http://dbpedia.org/resource/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT (Count(?sub) as ?c) WHERE { ?sub dbo:goldMedalist dbr:Michael_Phelps . filter (contains (str(?sub), \"2008\") && contains (str(?sub), \"Olympics\")) }",
+        "entities": [
+            "http://dbpedia.org/resource/Michael_Phelps"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Michael_Phelps> -> \"gold medals at the 2008 Olympics\""
+        ],
+        "paths": "<http://dbpedia.org/resource/Michael_Phelps> -> \"gold medals at the 2008 Olympics\"",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT (COUNT(DISTINCT ?var0) AS ?goldMedalCount)\nWHERE {\n  ?var0 <http://dbpedia.org/ontology/goldMedalist> <http://dbpedia.org/resource/Michael_Phelps> .\n  FILTER(CONTAINS(STR(?var0), \"2008_Summer_Olympics\"))\n}"
+    },
+    {
+        "question": "Which artists were born on the same date as Rachel Stevens?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbr: <http://dbpedia.org/resource/> SELECT DISTINCT ?uri WHERE { ?uri a dbo:Artist . dbr:Rachel_Stevens dbo:birthDate ?birthdate . ?uri dbo:birthDate ?birthdate }",
+        "entities": [
+            "http://dbpedia.org/resource/Rachel_Stevens"
+        ],
+        "classes": [
+            "http://dbpedia.org/ontology/Artist"
+        ],
+        "relations": [
+            "<http://dbpedia.org/ontology/Artist> -> \"birthDate\"",
+            "<http://dbpedia.org/resource/Rachel_Stevens> -> \"birthDate\""
+        ],
+        "paths": "<http://dbpedia.org/ontology/Artist> -> \"birthDate\", <http://dbpedia.org/resource/Rachel_Stevens> -> \"birthDate\"",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?artist ?birthDate\nWHERE {\n  # Get Rachel Stevens' birth dates\n  {\n    SELECT DISTINCT ?rachelBirthDate\n    WHERE {\n      {\n        <http://dbpedia.org/resource/Rachel_Stevens> <http://dbpedia.org/ontology/birthDate> ?rachelBirthDate .\n      }\n      UNION\n      {\n        <http://dbpedia.org/resource/Rachel_Stevens> <http://dbpedia.org/property/birthDate> ?rachelBirthDate .\n      }\n    }\n  }\n  # Find artists with matching birth dates\n  ?artist <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Artist> .\n  {\n    ?artist <http://dbpedia.org/ontology/birthDate> ?birthDate .\n  }\n  UNION\n  {\n    ?artist <http://dbpedia.org/property/birthDate> ?birthDate .\n  }\n  UNION\n  {\n    ?artist <http://dbpedia.org/property/birthdate> ?birthDate .\n  }\n  FILTER (?birthDate = ?rachelBirthDate)\n  FILTER (?artist != <http://dbpedia.org/resource/Rachel_Stevens>)\n}"
+    },
+    {
+        "question": "What is the profession of Frank Herbert?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX dbpedia2: <http://dbpedia.org/property/> PREFIX res: <http://dbpedia.org/resource/> SELECT DISTINCT ?string WHERE { res:Frank_Herbert dbpedia2:occupation ?string }",
+        "entities": [
+            "http://dbpedia.org/resource/Frank_Herbert"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Frank_Herbert> -> \"profession\""
+        ],
+        "paths": "<http://dbpedia.org/resource/Frank_Herbert> -> \"profession\"",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?profession WHERE {\n  <http://dbpedia.org/resource/Frank_Herbert> <http://dbpedia.org/property/occupation> ?profession .\n}"
+    },
+    {
+        "question": "Are Taiko some kind of Japanese musical instrument?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nASK WHERE { <http://dbpedia.org/resource/Taiko> a <http://dbpedia.org/class/yago/WikicatJapaneseMusicalInstruments> }",
+        "entities": [
+            "http://dbpedia.org/resource/Taiko"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Taiko> -> JAPANESE_MUSICAL_INSTRUMENT"
+        ],
+        "paths": "<http://dbpedia.org/resource/Taiko> -> JAPANESE_MUSICAL_INSTRUMENT",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nASK {\n  <http://dbpedia.org/resource/Taiko> <http://purl.org/dc/terms/subject> <http://dbpedia.org/resource/Category:Japanese_musical_instruments> .\n}"
+    },
+    {
+        "question": "How many seats does the home stadium of FC Porto have?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX dbr: <http://dbpedia.org/resource/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX db: <http://dbpedia.org/> SELECT ?capacity WHERE { { dbr:FC_Porto dbo:ground ?ground . ?ground dbo:capacity ?capacity } UNION { dbr:FC_Porto dbo:ground ?ground . ?ground dbp:capacity ?capacity } }",
+        "entities": [
+            "http://dbpedia.org/resource/FC_Porto"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/FC_Porto> -> HOME_STADIUM -> \"number of seats\""
+        ],
+        "paths": "<http://dbpedia.org/resource/FC_Porto> -> HOME_STADIUM -> \"number of seats\"",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT ?capacity WHERE {\n  <http://dbpedia.org/resource/FC_Porto> <http://dbpedia.org/ontology/ground> ?stadium .\n  ?stadium <http://dbpedia.org/property/capacity> ?capacity .\n}"
+    },
+    {
+        "question": "Which frequent flyer program has the most airlines?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT ?uri WHERE { ?airline <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Airline> . ?airline <http://dbpedia.org/property/frequentFlyer> ?uri. } GROUP BY ?uri ORDER BY DESC(COUNT(DISTINCT ?airline)) OFFSET 0 LIMIT 1",
+        "entities": [],
+        "classes": [
+            "http://dbpedia.org/ontology/Airline"
+        ],
+        "relations": [
+            "<http://dbpedia.org/ontology/Airline> -> \"frequent flyer program\""
+        ],
+        "paths": "<http://dbpedia.org/ontology/Airline> -> \"frequent flyer program\"",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT ?frequentFlyerProgram (COUNT(DISTINCT ?airline) AS ?airlineCount)\nWHERE {\n  ?airline <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Airline> .\n  ?airline <http://dbpedia.org/property/frequentFlyer> ?frequentFlyerProgram .\n}\nGROUP BY ?frequentFlyerProgram\nORDER BY DESC(?airlineCount)\nLIMIT 1"
+    },
+    {
+        "question": "Which European countries have a constitutional monarchy?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dct: <http://purl.org/dc/terms/> PREFIX dbc: <http://dbpedia.org/resource/Category:> PREFIX dbr: <http://dbpedia.org/resource/> SELECT ?uri WHERE { ?uri dct:subject dbc:Countries_in_Europe ; dbo:governmentType dbr:Constitutional_monarchy }",
+        "entities": [
+            "http://dbpedia.org/resource/Constitutional_monarchy",
+            "http://dbpedia.org/resource/Category:Countries_in_Europe"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Category:Countries_in_Europe> -> <http://dbpedia.org/resource/Constitutional_monarchy>"
+        ],
+        "paths": "<http://dbpedia.org/resource/Category:Countries_in_Europe> -> <http://dbpedia.org/resource/Constitutional_monarchy>",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?country WHERE {\n  ?country <http://purl.org/dc/terms/subject> <http://dbpedia.org/resource/Category:Countries_in_Europe> .\n  {\n    ?country <http://dbpedia.org/property/governmentType> <http://dbpedia.org/resource/Constitutional_monarchy> .\n  }\n  UNION\n  {\n    ?country <http://dbpedia.org/ontology/governmentType> <http://dbpedia.org/resource/Constitutional_monarchy> .\n  }\n}"
+    },
+    {
+        "question": "Which countries have places with more than two caves?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> SELECT DISTINCT ?uri WHERE { ?cave rdf:type dbo:Cave ; dbo:location ?uri . ?uri rdf:type dbo:Country } GROUP BY ?uri HAVING ( COUNT(?cave) > 2 )",
+        "entities": [],
+        "classes": [
+            "http://dbpedia.org/ontology/Cave",
+            "http://dbpedia.org/ontology/Country"
+        ],
+        "relations": [
+            "<http://dbpedia.org/ontology/Cave> -> <http://dbpedia.org/ontology/Country>"
+        ],
+        "paths": "<http://dbpedia.org/ontology/Cave> -> <http://dbpedia.org/ontology/Country>",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT ?country\nWHERE {\n  {\n    SELECT ?country (COUNT(DISTINCT ?cave) AS ?caveCount)\n    WHERE {\n      {\n        ?cave <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Cave> .\n        ?cave <http://dbpedia.org/ontology/location> ?country .\n        ?country <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Country> .\n      }\n      UNION\n      {\n        ?cave <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Cave> .\n        ?cave <http://dbpedia.org/property/location> ?country .\n        ?country <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Country> .\n      }\n      UNION\n      {\n        ?cave <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Cave> .\n        ?cave <http://dbpedia.org/ontology/country> ?country .\n        ?country <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Country> .\n      }\n    }\n    GROUP BY ?country\n    HAVING (COUNT(DISTINCT ?cave) > 2)\n  }\n}"
+    },
+    {
+        "question": "Which airports are located in California, USA?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?uri WHERE { ?uri a <http://dbpedia.org/ontology/Airport> { ?uri <http://dbpedia.org/ontology/location> <http://dbpedia.org/resource/California> } UNION { ?uri <http://dbpedia.org/ontology/city> <http://dbpedia.org/resource/California> } UNION { ?uri <http://dbpedia.org/ontology/city> ?city . ?city <http://dbpedia.org/ontology/isPartOf> <http://dbpedia.org/resource/California> } UNION { ?uri <http://dbpedia.org/ontology/operator> <http://dbpedia.org/resource/California> } }",
+        "entities": [
+            "http://dbpedia.org/resource/California"
+        ],
+        "classes": [
+            "http://dbpedia.org/ontology/Airport"
+        ],
+        "relations": [
+            "<http://dbpedia.org/ontology/Airport> -> <http://dbpedia.org/resource/California>"
+        ],
+        "paths": "<http://dbpedia.org/ontology/Airport> -> <http://dbpedia.org/resource/California>",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?airport WHERE {\n  {\n    ?airport <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Airport> .\n    ?airport <http://dbpedia.org/ontology/location> <http://dbpedia.org/resource/California> .\n  }\n  UNION\n  {\n    ?airport <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Airport> .\n    ?airport <http://dbpedia.org/property/location> <http://dbpedia.org/resource/California> .\n  }\n}"
+    },
+    {
+        "question": "What are the nicknames of San Francisco?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX res: <http://dbpedia.org/resource/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX foaf:<http://xmlns.com/foaf/0.1/> SELECT DISTINCT ?string WHERE { res:San_Francisco foaf:nick ?string }",
+        "entities": [
+            "http://dbpedia.org/resource/San_Francisco"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/San_Francisco> -> \"nickname\""
+        ],
+        "paths": "<http://dbpedia.org/resource/San_Francisco> -> \"nickname\"",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?nickname WHERE {\n  {\n    <http://dbpedia.org/resource/San_Francisco> <http://dbpedia.org/property/nickname> ?nickname .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/San_Francisco> <http://xmlns.com/foaf/0.1/nick> ?nickname .\n  }\n}"
+    },
+    {
+        "question": "What is Angela Merkel\u2019s birth name?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX res: <http://dbpedia.org/resource/> PREFIX dbp: <http://dbpedia.org/property/> SELECT DISTINCT ?string WHERE { res:Angela_Merkel dbp:birthName ?string }",
+        "entities": [
+            "http://dbpedia.org/resource/Angela_Merkel"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Angela_Merkel> -> \"birth name\""
+        ],
+        "paths": "<http://dbpedia.org/resource/Angela_Merkel> -> \"birth name\"",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT ?birthName WHERE {\n  <http://dbpedia.org/resource/Angela_Merkel> <http://dbpedia.org/property/birthName> ?birthName .\n}"
+    },
+    {
+        "question": "Who is the mayor of Berlin?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/> PREFIX res: <http://dbpedia.org/resource/> SELECT DISTINCT ?uri WHERE { res:Berlin dbp:leader ?uri }",
+        "entities": [
+            "http://dbpedia.org/resource/Berlin"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Berlin> -> \"mayor\""
+        ],
+        "paths": "<http://dbpedia.org/resource/Berlin> -> \"mayor\"",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT ?mayor WHERE {\n  <http://dbpedia.org/resource/Berlin> <http://dbpedia.org/property/leaderTitle> ?office .\n  ?office <http://dbpedia.org/property/incumbent> ?mayor .\n}"
+    },
+    {
+        "question": "Which countries in the European Union adopted the Euro?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?uri WHERE { ?uri a <http://dbpedia.org/ontology/Country> { ?uri <http://dbpedia.org/ontology/currency> <http://dbpedia.org/resource/Euro> } UNION { ?uri <http://dbpedia.org/property/currencyCode> \"EUR\"@en } }",
+        "entities": [
+            "http://dbpedia.org/resource/Euro"
+        ],
+        "classes": [
+            "http://dbpedia.org/ontology/Country"
+        ],
+        "relations": [
+            "<http://dbpedia.org/ontology/Country> -> <http://dbpedia.org/resource/Euro>"
+        ],
+        "paths": "<http://dbpedia.org/ontology/Country> -> <http://dbpedia.org/resource/Euro>",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?country WHERE {\n  {\n    ?country <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Country> .\n    ?country <http://dbpedia.org/ontology/currency> <http://dbpedia.org/resource/Euro> .\n  }\n  UNION\n  {\n    ?country <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Country> .\n    ?country <http://dbpedia.org/property/currency> <http://dbpedia.org/resource/Euro> .\n  }\n  FILTER (?country != <http://dbpedia.org/resource/European_Union>)\n}"
+    },
+    {
+        "question": "Which software has been published by Mean Hamster Software?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX res: <http://dbpedia.org/resource/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX onto: <http://dbpedia.org/ontology/> PREFIX prop: <http://dbpedia.org/property/> SELECT DISTINCT ?uri WHERE { ?uri rdf:type onto:Software { ?uri prop:publisher \"Mean Hamster Software\"@en } UNION { ?uri onto:publisher res:Mean_Hamster_Software } }",
+        "entities": [
+            "http://dbpedia.org/resource/Mean_Hamster_Software"
+        ],
+        "classes": [
+            "http://dbpedia.org/ontology/Software"
+        ],
+        "relations": [
+            "<http://dbpedia.org/ontology/Software> -> <http://dbpedia.org/resource/Mean_Hamster_Software>"
+        ],
+        "paths": "<http://dbpedia.org/ontology/Software> -> <http://dbpedia.org/resource/Mean_Hamster_Software>",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?software WHERE {\n  ?software <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Software> .\n  {\n    ?software <http://dbpedia.org/ontology/publisher> <http://dbpedia.org/resource/Mean_Hamster_Software> .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/Mean_Hamster_Software> <http://dbpedia.org/ontology/product> ?software .\n  }\n}"
+    },
+    {
+        "question": "Which country was Bill Gates born in?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX dbr: <http://dbpedia.org/resource/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> SELECT DISTINCT ?country WHERE { { dbr:Bill_Gates dbo:birthPlace ?birthPlace . ?birthPlace dbo:country ?country } UNION { dbr:Bill_Gates dbo:birthPlace ?birthPlace . ?birthPlace dbo:isPartOf ?place . ?place dbo:country ?country } }",
+        "entities": [
+            "http://dbpedia.org/resource/Bill_Gates"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Bill_Gates> -> \"country of birth\""
+        ],
+        "paths": "<http://dbpedia.org/resource/Bill_Gates> -> \"country of birth\"",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?country WHERE {\n  <http://dbpedia.org/resource/Bill_Gates> <http://dbpedia.org/ontology/birthPlace> ?birthPlace .\n  ?place <http://dbpedia.org/ontology/country> ?birthPlace .\n  BIND(?place AS ?country)\n}"
+    },
+    {
+        "question": "How many grand-children did Jacques Cousteau have?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT (COUNT(DISTINCT ?y) AS ?c) WHERE { <http://dbpedia.org/resource/Jacques_Cousteau> <http://dbpedia.org/ontology/child> ?x . ?x <http://dbpedia.org/ontology/child> ?y . }",
+        "entities": [
+            "http://dbpedia.org/resource/Jacques_Cousteau"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Jacques_Cousteau> -> \"CHILD\" -> \"CHILD\""
+        ],
+        "paths": "<http://dbpedia.org/resource/Jacques_Cousteau> -> \"CHILD\" -> \"CHILD\"",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT (COUNT(DISTINCT ?grandchild) AS ?grandchildCount)\nWHERE {\n  <http://dbpedia.org/resource/Jacques_Cousteau> <http://dbpedia.org/ontology/child> ?child .\n  ?child <http://dbpedia.org/property/children> ?grandchild .\n}"
+    },
+    {
+        "question": "Give me all professional skateboarders from Sweden.",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX dbr: <http://dbpedia.org/resource/> SELECT DISTINCT ?uri WHERE { ?uri dbo:occupation dbr:Skateboarder { ?uri dbo:birthPlace dbr:Sweden } UNION { ?uri dbo:birthPlace ?place . ?place dbo:country dbr:Sweden } }",
+        "entities": [
+            "http://dbpedia.org/resource/Sweden",
+            "http://dbpedia.org/resource/Skateboarder"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Skateboarder> -> <http://dbpedia.org/resource/Sweden>"
+        ],
+        "paths": "<http://dbpedia.org/resource/Skateboarder> -> <http://dbpedia.org/resource/Sweden>",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?person WHERE {\n  {\n    ?person <http://dbpedia.org/ontology/occupation> <http://dbpedia.org/resource/Skateboarder> .\n    ?person <http://dbpedia.org/ontology/wikiPageWikiLink> <http://dbpedia.org/resource/Sweden> .\n  }\n  UNION\n  {\n    ?person <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Skateboarder> .\n    ?person <http://dbpedia.org/ontology/wikiPageWikiLink> <http://dbpedia.org/resource/Sweden> .\n  }\n  UNION\n  {\n    ?person <http://purl.org/linguistics/gold/hypernym> <http://dbpedia.org/resource/Skateboarder> .\n    ?person <http://dbpedia.org/ontology/wikiPageWikiLink> <http://dbpedia.org/resource/Sweden> .\n  }\n}"
+    },
+    {
+        "question": "Which monarchs of the United Kingdom were married to a German?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/> PREFIX yago: <http://dbpedia.org/class/yago/> PREFIX res: <http://dbpedia.org/resource/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> SELECT DISTINCT ?uri WHERE { ?uri rdf:type yago:WikicatMonarchsOfTheUnitedKingdom ; dbo:spouse ?spouse . ?spouse dbo:birthPlace res:Germany }",
+        "entities": [
+            "http://dbpedia.org/resource/Germany"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Germany> -> \"SPOUSE\" -> \"MONARCH\" -> \"UNITED KINGDOM\""
+        ],
+        "paths": "<http://dbpedia.org/resource/Germany> -> \"SPOUSE\" -> \"MONARCH\" -> \"UNITED KINGDOM\"",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?person\nWHERE {\n  ?person <http://dbpedia.org/ontology/spouse> <http://dbpedia.org/resource/Germany> .\n}"
+    },
+    {
+        "question": "Give me all Argentine films.",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/> PREFIX yago: <http://dbpedia.org/class/yago/> PREFIX res: <http://dbpedia.org/resource/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> SELECT DISTINCT ?uri WHERE { { ?uri rdf:type yago:ArgentineFilms } UNION { ?uri rdf:type dbo:Film { ?uri dbo:country res:Argentina } UNION { ?uri dbp:country \"Argentina\"@en } } }",
+        "entities": [
+            "http://dbpedia.org/resource/Argentina"
+        ],
+        "classes": [
+            "http://dbpedia.org/ontology/Film"
+        ],
+        "relations": [
+            "<http://dbpedia.org/ontology/Film> -> <http://dbpedia.org/resource/Argentina>"
+        ],
+        "paths": "<http://dbpedia.org/ontology/Film> -> <http://dbpedia.org/resource/Argentina>",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?film ?label WHERE {\n  {\n    ?film <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Film> .\n    ?film <http://dbpedia.org/ontology/country> <http://dbpedia.org/resource/Argentina> .\n  }\n  UNION\n  {\n    ?film <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Film> .\n    ?film <http://dbpedia.org/property/country> <http://dbpedia.org/resource/Argentina> .\n  }\n  OPTIONAL { ?film <http://www.w3.org/2000/01/rdf-schema#label> ?label . FILTER (lang(?label) = \"en\") }\n}"
+    },
+    {
+        "question": "How did Michael Jackson die?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?s WHERE { <http://dbpedia.org/resource/Michael_Jackson> <http://dbpedia.org/property/deathCause> ?s }",
+        "entities": [
+            "http://dbpedia.org/resource/Michael_Jackson"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Michael_Jackson> -> \"cause of death\""
+        ],
+        "paths": "<http://dbpedia.org/resource/Michael_Jackson> -> \"cause of death\"",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?causeOfDeath ?deathAbstract\nWHERE {\n  <http://dbpedia.org/resource/Michael_Jackson> <http://dbpedia.org/property/deathCause> ?causeOfDeath .\n  \n  OPTIONAL {\n    ?deathEvent <http://dbpedia.org/property/deaths> <http://dbpedia.org/resource/Michael_Jackson> .\n    ?deathEvent <http://dbpedia.org/ontology/abstract> ?deathAbstract .\n  }\n}"
+    },
+    {
+        "question": "Which U.S. state has been admitted latest?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:> PREFIX dct: <http://purl.org/dc/terms/> SELECT DISTINCT ?uri WHERE { ?uri dct:subject dbc:States_of_the_United_States ; <http://dbpedia.org/property/admittancedate> ?x } ORDER BY DESC(?x) LIMIT 1",
+        "entities": [
+            "http://dbpedia.org/resource/Category:States_of_the_United_States"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Category:States_of_the_United_States> -> \"date of admission\""
+        ],
+        "paths": "<http://dbpedia.org/resource/Category:States_of_the_United_States> -> \"date of admission\"",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT ?state ?admittancedate WHERE {\n  ?state <http://purl.org/dc/terms/subject> <http://dbpedia.org/resource/Category:States_of_the_United_States> .\n  ?state <http://dbpedia.org/property/admittancedate> ?admittancedate .\n}\nORDER BY DESC(?admittancedate)\nLIMIT 1"
+    },
+    {
+        "question": "Which classes does the Millepede belong to?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX res: <http://dbpedia.org/resource/> PREFIX dbp: <http://dbpedia.org/property/> SELECT DISTINCT ?String WHERE { res:Millipede dbp:taxon ?String }",
+        "entities": [
+            "http://dbpedia.org/resource/Millipede"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Millipede> -> CLASS"
+        ],
+        "paths": "<http://dbpedia.org/resource/Millipede> -> CLASS",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?entity\nWHERE {\n  { ?entity <http://dbpedia.org/ontology/class> <http://dbpedia.org/resource/Millipede> }\n  UNION\n  { ?entity <http://dbpedia.org/property/classis> <http://dbpedia.org/resource/Millipede> }\n}"
+    },
+    {
+        "question": "Give me the homepage of Forbes.",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX res: <http://dbpedia.org/resource/> PREFIX foaf: <http://xmlns.com/foaf/0.1/> SELECT DISTINCT ?string WHERE { res:Forbes foaf:homepage ?string }",
+        "entities": [
+            "http://dbpedia.org/resource/Forbes"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Forbes> -> \"homepage\""
+        ],
+        "paths": "<http://dbpedia.org/resource/Forbes> -> \"homepage\"",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?homepage WHERE {\n  {\n    <http://dbpedia.org/resource/Forbes> <http://xmlns.com/foaf/0.1/homepage> ?homepage .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/Forbes> <http://xmlns.com/foaf/0.1/homepage> ?intermediate .\n    ?intermediate <http://dbpedia.org/property/url> ?homepage .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/Forbes> <http://xmlns.com/foaf/0.1/homepage> ?homepage .\n    <http://dbpedia.org/resource/Forbes> <http://dbpedia.org/property/website> ?homepage .\n  }\n}"
+    },
+    {
+        "question": "Who is the husband of Amanda Palmer?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?uri WHERE { ?uri <http://dbpedia.org/ontology/spouse> <http://dbpedia.org/resource/Amanda_Palmer> }",
+        "entities": [
+            "http://dbpedia.org/resource/Amanda_Palmer"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Amanda_Palmer> -> HUSBAND"
+        ],
+        "paths": "<http://dbpedia.org/resource/Amanda_Palmer> -> HUSBAND",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?husband WHERE {\n  {\n    ?husband <http://dbpedia.org/ontology/spouse> <http://dbpedia.org/resource/Amanda_Palmer> .\n  }\n  UNION\n  {\n    ?husband <http://dbpedia.org/property/spouse> <http://dbpedia.org/resource/Amanda_Palmer> .\n  }\n}"
+    },
+    {
+        "question": "Who painted The Storm on the Sea of Galilee?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX res: <http://dbpedia.org/resource/> PREFIX dbp: <http://dbpedia.org/property/> SELECT DISTINCT ?uri WHERE { res:The_Storm_on_the_Sea_of_Galilee dbo:author ?uri }",
+        "entities": [
+            "http://dbpedia.org/resource/The_Storm_on_the_Sea_of_Galilee"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/The_Storm_on_the_Sea_of_Galilee> -> PAINTER"
+        ],
+        "paths": "<http://dbpedia.org/resource/The_Storm_on_the_Sea_of_Galilee> -> PAINTER",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?painter WHERE {\n  {\n    <http://dbpedia.org/resource/The_Storm_on_the_Sea_of_Galilee> <http://dbpedia.org/ontology/author> ?painter .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/The_Storm_on_the_Sea_of_Galilee> <http://dbpedia.org/property/artist> ?painter .\n  }\n}"
+    },
+    {
+        "question": "What is the highest place of Karakoram?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/> PREFIX res: <http://dbpedia.org/resource/> SELECT DISTINCT ?uri WHERE { res:Karakoram dbp:highest ?uri }",
+        "entities": [
+            "http://dbpedia.org/resource/Karakoram"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Karakoram> -> HIGHEST_PLACE -> \"elevation\""
+        ],
+        "paths": "<http://dbpedia.org/resource/Karakoram> -> HIGHEST_PLACE -> \"elevation\"",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?highestPlace\nWHERE {\n  ?highestPlace <http://dbpedia.org/property/range> <http://dbpedia.org/resource/Karakoram> .\n  ?entity <http://dbpedia.org/property/highestPoint> ?highestPlace .\n}"
+    },
+    {
+        "question": "When did Finland join the EU?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX res: <http://dbpedia.org/resource/> PREFIX dbp: <http://dbpedia.org/property/> SELECT DISTINCT ?date WHERE { res:Finland dbp:accessioneudate ?date }",
+        "entities": [
+            "http://dbpedia.org/resource/Finland"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Finland> -> \"date of joining the EU\""
+        ],
+        "paths": "<http://dbpedia.org/resource/Finland> -> \"date of joining the EU\"",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT ?dateOfJoiningEU WHERE {\n  <http://dbpedia.org/resource/Finland> <http://dbpedia.org/property/accessioneudate> ?dateOfJoiningEU .\n}"
+    },
+    {
+        "question": "Which actors play in Big Bang Theory?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?uri WHERE { <http://dbpedia.org/resource/The_Big_Bang_Theory> <http://dbpedia.org/ontology/starring> ?uri }",
+        "entities": [
+            "http://dbpedia.org/resource/The_Big_Bang_Theory"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/The_Big_Bang_Theory> -> ACTOR"
+        ],
+        "paths": "<http://dbpedia.org/resource/The_Big_Bang_Theory> -> ACTOR",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?actor ?actorLabel\nWHERE {\n  {\n    <http://dbpedia.org/resource/The_Big_Bang_Theory> <http://dbpedia.org/ontology/starring> ?actor .\n    ?actor <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/Person> .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/The_Big_Bang_Theory> <http://dbpedia.org/property/starring> ?actor .\n    ?actor <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/Person> .\n  }\n  OPTIONAL { ?actor <http://www.w3.org/2000/01/rdf-schema#label> ?actorLabel . }\n  FILTER (lang(?actorLabel) = \"en\")\n}"
+    },
+    {
+        "question": "Which computer scientist won an oscar?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?uri WHERE { ?uri <http://dbpedia.org/ontology/field> <http://dbpedia.org/resource/Computer_science> ; <http://dbpedia.org/ontology/award> <http://dbpedia.org/resource/Academy_Award> }",
+        "entities": [
+            "http://dbpedia.org/resource/Computer_science",
+            "http://dbpedia.org/resource/Academy_Award"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Computer_science> -> <http://dbpedia.org/resource/Academy_Award>"
+        ],
+        "paths": "<http://dbpedia.org/resource/Computer_science> -> <http://dbpedia.org/resource/Academy_Award>",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?person WHERE {\n  {\n    ?person <http://dbpedia.org/ontology/field> <http://dbpedia.org/resource/Computer_science> .\n    ?person <http://dbpedia.org/ontology/award> <http://dbpedia.org/resource/Academy_Award> .\n  }\n  UNION\n  {\n    ?person <http://dbpedia.org/property/field> <http://dbpedia.org/resource/Computer_science> .\n    ?person <http://dbpedia.org/ontology/award> <http://dbpedia.org/resource/Academy_Award> .\n  }\n}"
+    },
+    {
+        "question": "Who wrote Harry Potter?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?uri WHERE { <http://dbpedia.org/resource/Harry_Potter> <http://dbpedia.org/property/author> ?uri }",
+        "entities": [
+            "http://dbpedia.org/resource/Harry_Potter"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Harry_Potter> -> AUTHOR"
+        ],
+        "paths": "<http://dbpedia.org/resource/Harry_Potter> -> AUTHOR",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?author WHERE {\n  <http://dbpedia.org/resource/Harry_Potter> <http://dbpedia.org/property/author> ?author .\n}"
+    },
+    {
+        "question": "Give me all writers that won the Nobel Prize in literature.",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?uri WHERE { ?uri a <http://dbpedia.org/ontology/Writer> ; <http://dbpedia.org/ontology/award> <http://dbpedia.org/resource/Nobel_Prize_in_Literature> }",
+        "entities": [
+            "http://dbpedia.org/resource/Nobel_Prize_in_Literature"
+        ],
+        "classes": [
+            "http://dbpedia.org/ontology/Writer"
+        ],
+        "relations": [
+            "<http://dbpedia.org/ontology/Writer> -> <http://dbpedia.org/resource/Nobel_Prize_in_Literature>"
+        ],
+        "paths": "<http://dbpedia.org/ontology/Writer> -> <http://dbpedia.org/resource/Nobel_Prize_in_Literature>",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?writer\nWHERE {\n  {\n    ?writer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Writer> .\n    ?writer <http://dbpedia.org/ontology/award> <http://dbpedia.org/resource/Nobel_Prize_in_Literature> .\n  }\n  UNION\n  {\n    ?writer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Writer> .\n    ?writer <http://dbpedia.org/property/awards> <http://dbpedia.org/resource/Nobel_Prize_in_Literature> .\n  }\n}"
+    },
+    {
+        "question": "Give me English actors starring in Lovesick.",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?uri WHERE { <http://dbpedia.org/resource/Lovesick_(1983_film)> dbo:starring ?uri . ?uri dbo:birthPlace ?city . ?city dbo:country <http://dbpedia.org/resource/United_Kingdom> }",
+        "entities": [
+            "http://dbpedia.org/resource/Lovesick_(1983_film)",
+            "http://dbpedia.org/resource/United_Kingdom"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Lovesick_(1983_film)> -> <http://dbpedia.org/resource/United_Kingdom>"
+        ],
+        "paths": "<http://dbpedia.org/resource/Lovesick_(1983_film)> -> <http://dbpedia.org/resource/United_Kingdom>",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?var0 WHERE {\n  <http://dbpedia.org/resource/Lovesick_(1983_film)> <http://dbpedia.org/ontology/wikiPageWikiLink> ?var0 .\n  ?var0 <http://dbpedia.org/ontology/wikiPageWikiLink> <http://dbpedia.org/resource/United_Kingdom> .\n}"
+    },
+    {
+        "question": "What is the nick name of Baghdad?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX dbr: <http://dbpedia.org/resource/> PREFIX foaf: <http://xmlns.com/foaf/0.1/> SELECT ?nm WHERE { dbr:Baghdad foaf:nick ?nm }",
+        "entities": [
+            "http://dbpedia.org/resource/Baghdad"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Baghdad> -> \"nickname\""
+        ],
+        "paths": "<http://dbpedia.org/resource/Baghdad> -> \"nickname\"",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?nickname WHERE {\n  {\n    <http://dbpedia.org/resource/Baghdad> <http://dbpedia.org/property/nickname> ?nickname .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/Baghdad> <http://xmlns.com/foaf/0.1/nick> ?nickname .\n  }\n}"
+    },
+    {
+        "question": "In which city was the president of Montenegro born?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbr: <http://dbpedia.org/resource/> SELECT DISTINCT ?uri WHERE { ?x <http://dbpedia.org/property/title> dbr:President_of_Montenegro ; dbo:birthPlace ?uri . ?uri dbo:type dbr:Capital_city }",
+        "entities": [
+            "http://dbpedia.org/resource/President_of_Montenegro",
+            "http://dbpedia.org/resource/Capital_city"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/President_of_Montenegro> -> \"place of birth\""
+        ],
+        "paths": "<http://dbpedia.org/resource/President_of_Montenegro> -> \"place of birth\"",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?birthPlace WHERE {\n  {\n    ?person <http://dbpedia.org/ontology/wikiPageWikiLink> <http://dbpedia.org/resource/President_of_Montenegro> .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/President_of_Montenegro> <http://dbpedia.org/ontology/wikiPageWikiLink> ?person .\n  }\n  {\n    ?person <http://dbpedia.org/property/birthPlace> ?birthPlace .\n  }\n  UNION\n  {\n    ?person <http://dbpedia.org/ontology/birthPlace> ?birthPlace .\n  }\n}"
+    },
+    {
+        "question": "Which U.S. state has the highest population density?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT ?uri WHERE { ?uri <http://dbpedia.org/ontology/country> <http://dbpedia.org/resource/United_States> . ?uri <http://dbpedia.org/ontology/capital> ?capital . ?uri <http://dbpedia.org/property/densityrank> ?density . OPTIONAL {?uri <http://www.w3.org/2000/01/rdf-schema#label> ?string. FILTER (lang(?string) = 'en') } } ORDER BY ASC(?density) LIMIT 1",
+        "entities": [
+            "http://dbpedia.org/resource/United_States"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/United_States> -> <http://dbpedia.org/ontology/State>",
+            "<http://dbpedia.org/ontology/State> -> \"population density\""
+        ],
+        "paths": "",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT ?state ?populationDensity\nWHERE {\n  ?state a <http://dbpedia.org/ontology/State> .\n  ?state <population_density_property> ?populationDensity .\n  ?state <http://dbpedia.org/ontology/country> <http://dbpedia.org/resource/United_States> .\n}\nORDER BY DESC(?populationDensity)\nLIMIT 1"
+    },
+    {
+        "question": "What is the longest river in China?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?uri WHERE { ?uri a <http://dbpedia.org/ontology/River> ; <http://dbpedia.org/ontology/country> <http://dbpedia.org/resource/China> ; <http://dbpedia.org/property/length> ?l } ORDER BY DESC(?l) OFFSET 0 LIMIT 1",
+        "entities": [
+            "http://dbpedia.org/resource/China"
+        ],
+        "classes": [
+            "http://dbpedia.org/ontology/River"
+        ],
+        "relations": [
+            "<http://dbpedia.org/ontology/River> -> <http://dbpedia.org/resource/China>",
+            "<http://dbpedia.org/ontology/River> -> \"length\""
+        ],
+        "paths": "<http://dbpedia.org/ontology/River> -> <http://dbpedia.org/resource/China>, <http://dbpedia.org/ontology/River> -> \"length\"",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT ?river ?length WHERE {\n  ?river <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/River> .\n  {\n    ?river <http://dbpedia.org/ontology/country> <http://dbpedia.org/resource/China> .\n  }\n  UNION\n  {\n    ?river <http://dbpedia.org/property/country> <http://dbpedia.org/resource/China> .\n  }\n  UNION\n  {\n    ?river <http://dbpedia.org/ontology/sourceCountry> <http://dbpedia.org/resource/China> .\n  }\n  OPTIONAL { ?river <http://dbpedia.org/ontology/length> ?length1 . }\n  OPTIONAL { ?river <http://dbpedia.org/property/length> ?length2 . }\n  OPTIONAL { ?river <http://dbpedia.org/property/lengthKm> ?length3 . }\n  BIND(\n    COALESCE(\n      xsd:double(?length1),\n      xsd:double(?length2),\n      xsd:double(?length3)\n    ) AS ?length\n  )\n  FILTER(BOUND(?length))\n}\nORDER BY DESC(?length)\nLIMIT 1"
+    },
+    {
+        "question": "What is the area code of Berlin?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/> PREFIX res: <http://dbpedia.org/resource/> SELECT DISTINCT ?string WHERE { res:Berlin dbo:areaCode ?string }",
+        "entities": [
+            "http://dbpedia.org/resource/Berlin"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Berlin> -> \"area code\""
+        ],
+        "paths": "<http://dbpedia.org/resource/Berlin> -> \"area code\"",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?areaCode WHERE {\n  {\n    <http://dbpedia.org/resource/Berlin> <http://dbpedia.org/ontology/areaCode> ?areaCode .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/Berlin> <http://dbpedia.org/property/vorwahl> ?areaCode .\n  }\n}"
+    },
+    {
+        "question": "How many scientists graduated from an Ivy League university?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT (COUNT(DISTINCT ?uri) AS ?c) WHERE { ?uri a <http://dbpedia.org/ontology/Scientist> ; <http://dbpedia.org/ontology/almaMater> ?university . ?university <http://dbpedia.org/ontology/affiliation> <http://dbpedia.org/resource/Ivy_League> ; a <http://dbpedia.org/ontology/University> }",
+        "entities": [
+            "http://dbpedia.org/resource/Ivy_League"
+        ],
+        "classes": [
+            "http://dbpedia.org/ontology/University",
+            "http://dbpedia.org/ontology/Scientist"
+        ],
+        "relations": [
+            "<http://dbpedia.org/ontology/Scientist> -> <http://dbpedia.org/ontology/University>",
+            "<http://dbpedia.org/ontology/University> -> <http://dbpedia.org/resource/Ivy_League>"
+        ],
+        "paths": "<http://dbpedia.org/ontology/Scientist> -> <http://dbpedia.org/ontology/University>, <http://dbpedia.org/ontology/University> -> <http://dbpedia.org/resource/Ivy_League>",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT (COUNT(DISTINCT ?scientist) AS ?numScientists)\nWHERE {\n  ?scientist <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Scientist> .\n  \n  # Link scientist to university via any of the three properties\n  {\n    ?scientist <http://dbpedia.org/ontology/almaMater> ?university .\n  }\n  UNION\n  {\n    ?scientist <http://dbpedia.org/property/almaMater> ?university .\n  }\n  UNION\n  {\n    ?scientist <http://dbpedia.org/ontology/education> ?university .\n  }\n  \n  ?university <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/University> .\n  \n  # Restrict to Ivy League universities using the two most precise properties\n  {\n    ?university <http://dbpedia.org/ontology/affiliation> <http://dbpedia.org/resource/Ivy_League> .\n  }\n  UNION\n  {\n    ?university <http://dbpedia.org/property/affiliations> <http://dbpedia.org/resource/Ivy_League> .\n  }\n}"
+    },
+    {
+        "question": "Which professional surfers were born in Australia?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/> PREFIX res: <http://dbpedia.org/resource/> PREFIX dbr: <http://dbpedia.org/resource/> SELECT DISTINCT ?uri WHERE { { ?uri dbo:occupation res:Surfer ; dbo:birthPlace res:Australia } UNION { ?uri dbo:occupation res:Surfer ; dbo:birthPlace ?place . ?place dbo:country res:Australia } }",
+        "entities": [
+            "http://dbpedia.org/resource/Australia",
+            "http://dbpedia.org/resource/Surfer"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Surfer> -> <http://dbpedia.org/resource/Australia>"
+        ],
+        "paths": "<http://dbpedia.org/resource/Surfer> -> <http://dbpedia.org/resource/Australia>",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?surfer WHERE {\n  {\n    ?surfer <http://purl.org/linguistics/gold/hypernym> <http://dbpedia.org/resource/Surfer> .\n    {\n      ?surfer <http://dbpedia.org/property/birthPlace> <http://dbpedia.org/resource/Australia> .\n    }\n    UNION\n    {\n      ?surfer <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Australia> .\n    }\n  }\n  UNION\n  {\n    ?surfer <http://dbpedia.org/ontology/wikiPageWikiLink> <http://dbpedia.org/resource/Surfer> .\n    ?surfer <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Australia> .\n  }\n}"
+    },
+    {
+        "question": "Give me all Dutch parties.",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?uri WHERE { ?uri a <http://dbpedia.org/ontology/PoliticalParty> ; <http://dbpedia.org/ontology/country> <http://dbpedia.org/resource/Netherlands> }",
+        "entities": [
+            "http://dbpedia.org/resource/Netherlands"
+        ],
+        "classes": [
+            "http://dbpedia.org/ontology/PoliticalParty"
+        ],
+        "relations": [
+            "<http://dbpedia.org/ontology/PoliticalParty> -> <http://dbpedia.org/resource/Netherlands>"
+        ],
+        "paths": "<http://dbpedia.org/ontology/PoliticalParty> -> <http://dbpedia.org/resource/Netherlands>",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?party WHERE {\n  {\n    ?party <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/PoliticalParty> .\n    ?party <http://dbpedia.org/ontology/country> <http://dbpedia.org/resource/Netherlands> .\n  }\n  UNION\n  {\n    ?party <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/PoliticalParty> .\n    ?party <http://dbpedia.org/ontology/headquarter> <http://dbpedia.org/resource/Netherlands> .\n  }\n  UNION\n  {\n    ?party <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/PoliticalParty> .\n    ?party <http://dbpedia.org/property/headquarters> <http://dbpedia.org/resource/Netherlands> .\n  }\n}"
+    },
+    {
+        "question": "How many moons does Mars have?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?n WHERE { <http://dbpedia.org/resource/Mars> <http://dbpedia.org/property/satellites> ?n }",
+        "entities": [
+            "http://dbpedia.org/resource/Mars"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Mars> -> \"number of moons\""
+        ],
+        "paths": "<http://dbpedia.org/resource/Mars> -> \"number of moons\"",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT ?var0 WHERE {\n  <http://dbpedia.org/resource/Mars> <http://dbpedia.org/property/satellites> ?var0 .\n}"
+    },
+    {
+        "question": "What is Batman's real name?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?label WHERE { <http://dbpedia.org/resource/Batman> <http://xmlns.com/foaf/0.1/name> ?label FILTER ( str(?label) != \"Batman\" ) }",
+        "entities": [
+            "http://dbpedia.org/resource/Batman"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Batman> -> \"real name\""
+        ],
+        "paths": "<http://dbpedia.org/resource/Batman> -> \"real name\"",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?realName WHERE {\n  {\n    <http://dbpedia.org/resource/Batman> <http://dbpedia.org/property/alterEgo> ?realName .\n  }\n  UNION\n  {\n    ?x <http://dbpedia.org/property/characterName> <http://dbpedia.org/resource/Batman> .\n    ?x <http://dbpedia.org/property/alterEgo> ?realName .\n  }\n}"
+    },
+    {
+        "question": "What is Elon Musk famous for?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?uri WHERE { <http://dbpedia.org/resource/Elon_Musk> <http://dbpedia.org/ontology/knownFor> ?uri }",
+        "entities": [
+            "http://dbpedia.org/resource/Elon_Musk"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Elon_Musk> -> \"famous for\""
+        ],
+        "paths": "<http://dbpedia.org/resource/Elon_Musk> -> \"famous for\"",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?famousFor\nWHERE {\n  {\n    <http://dbpedia.org/resource/Elon_Musk> <http://dbpedia.org/ontology/knownFor> ?famousFor .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/Elon_Musk> <http://dbpedia.org/property/knownFor> ?famousFor .\n  }\n}"
+    },
+    {
+        "question": "Who is the author of WikiLeaks?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX res: <http://dbpedia.org/resource/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX onto: <http://dbpedia.org/ontology/> SELECT ?uri WHERE { res:WikiLeaks onto:author ?uri }",
+        "entities": [
+            "http://dbpedia.org/resource/WikiLeaks"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/WikiLeaks> -> AUTHOR"
+        ],
+        "paths": "<http://dbpedia.org/resource/WikiLeaks> -> AUTHOR",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?author WHERE {\n  {\n    <http://dbpedia.org/resource/WikiLeaks> <http://dbpedia.org/ontology/author> ?author .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/WikiLeaks> <http://dbpedia.org/property/author> ?author .\n  }\n}"
+    },
+    {
+        "question": "Sean Parnell was the governor of which U.S. state?",
+        "gold_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/> PREFIX res: <http://dbpedia.org/resource/> SELECT DISTINCT ?uri WHERE { res:Sean_Parnell dbo:region ?uri }",
+        "entities": [
+            "http://dbpedia.org/resource/Sean_Parnell"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://dbpedia.org/resource/Sean_Parnell> -> GOVERNED_STATE"
+        ],
+        "paths": "<http://dbpedia.org/resource/Sean_Parnell> -> GOVERNED_STATE",
+        "generated_query": "PREFIX bd: <http://www.bigdata.com/rdf#>\nPREFIX cc: <http://creativecommons.org/ns#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX res: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbpedia2: <http://dbpedia.org/property/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://dbpedia.org/ontology/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nSELECT DISTINCT ?state ?stateLabel WHERE {\n  <http://dbpedia.org/resource/Sean_Parnell> <http://dbpedia.org/ontology/region> ?state .\n  OPTIONAL { ?state <http://www.w3.org/2000/01/rdf-schema#label> ?stateLabel . }\n  FILTER (lang(?stateLabel) = \"en\" || !bound(?stateLabel))\n}"
+    }
+]

@@ -1,0 +1,2 @@
+NERD: Gold
+CRD: Gold
