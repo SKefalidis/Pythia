@@ -1,2 +1,3 @@
 *_full.log
 logs-and-results/lc_quad_1/oracle/run_results_basic_lc_quad_1_test-data.json.json
+*.pyc
