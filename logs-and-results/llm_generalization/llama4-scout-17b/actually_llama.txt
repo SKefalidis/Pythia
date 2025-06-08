@@ -1,2 +1,0 @@
-meta-llama/llama-4-scout-17b-16e-instruct
-lc_quad_1/oracle/run_results_basic_lc_quad_1_test-data.json.json # ignore file because it is too large
