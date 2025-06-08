@@ -1,0 +1,153 @@
+[
+    {
+        "question": "What is the population of the Big Apple?",
+        "predicates": [
+            "http://pnyqa.di.uoa.gr/ontology/hasTotal_Population"
+        ]
+    },
+    {
+        "question": "What party did Athens, Georgia vote for in the 2020 election?", 
+        "predicates": [
+            "http://pnyqa.di.uoa.gr/ontology/winner"
+        ]
+    },
+    {
+        "question": "When was Anderson County, Kentucky founded?",
+        "predicates": [
+        ]
+    },
+    {
+        "question": "Which States neighbor Arizona?",
+        "predicates": [
+        ]
+    },
+    {
+        "question": "How many lakes exist in the largest county of Florida?",
+        "predicates": [
+            "http://pnyqa.di.uoa.gr/ontology/hasArea"
+        ]
+    },
+    {
+        "question": "How large is Cheshire County, NH?",
+        "predicates": [
+            "http://pnyqa.di.uoa.gr/ontology/hasArea"
+        ]
+    },
+    {
+        "question": "Which States are located north of Michigan?",
+        "predicates": [
+        ]
+    },
+    {
+        "question": "How many States is the US made of?",
+        "predicates": [
+        ]
+    },
+    {
+        "question": "Which counties in California were won by the Republican party?",
+        "predicates": [
+            "http://pnyqa.di.uoa.gr/ontology/winner"
+        ]
+    },
+    {
+        "question": "How many did votes did each party get in Texas?",
+        "predicates": [
+            "http://pnyqa.di.uoa.gr/ontology/hasDemocrat_Vote",
+            "http://pnyqa.di.uoa.gr/ontology/hasRepublican_Vote",
+            "http://pnyqa.di.uoa.gr/ontology/hasGreen_Vote",
+            "http://pnyqa.di.uoa.gr/ontology/hasLibertarian_Vote"
+        ]
+    },
+    {
+        "question": "How many women live in Nevada?",
+        "predicates": [
+            "http://pnyqa.di.uoa.gr/ontology/hasFemale_Population"
+        ]
+    },
+    {
+        "question": "How many counties in Oregon voted for the Democrats?",
+        "predicates": [
+            "http://pnyqa.di.uoa.gr/ontology/winner"
+        ]
+    },
+    {
+        "question": "Did the Republican Party get more votes in New Mexico than the Green Party did nationwide?",
+        "predicates": [
+            "http://pnyqa.di.uoa.gr/ontology/hasRepublican_Vote",
+            "http://pnyqa.di.uoa.gr/ontology/hasGreen_Vote"
+        ]
+    },
+    {
+        "question": "In which county of Louisiana did the Libertarian Party get the most votes?",
+        "predicates": [
+            "http://pnyqa.di.uoa.gr/ontology/hasLibertarian_Vote"
+        ]
+    },
+    {
+        "question": "Which American county had the lowest number of votes?",
+        "predicates": [
+            "http://pnyqa.di.uoa.gr/ontology/hasTotal_Vote"
+        ]
+    },
+    {
+        "question": "Which Arizonian counties had more than 10,000 voters?",
+        "predicates": [
+            "http://pnyqa.di.uoa.gr/ontology/hasTotal_Vote"
+        ]
+    },
+    {
+        "question": "Which was the largest, by area, Red State?",
+        "predicates": [
+            "http://pnyqa.di.uoa.gr/ontology/hasArea",
+            "http://pnyqa.di.uoa.gr/ontology/winner"
+        ]
+    },
+    {
+        "question": "What did Eagle CO, vote for?",
+        "predicates": [
+            "http://pnyqa.di.uoa.gr/ontology/winner"
+        ]
+    },
+    {
+        "question": "Where is Eagle County located?",
+        "predicates": [
+        ]
+    },
+    {
+        "question": "How many children and young adults are there in Massachusetts?",
+        "predicates": [
+            "http://pnyqa.di.uoa.gr/ontology/hasChildren",
+            "http://pnyqa.di.uoa.gr/ontology/hasYoung_Adults"
+        ]
+    },
+    {
+        "question": "What did Norfolk MA vote for?",
+        "predicates": [
+            "http://pnyqa.di.uoa.gr/ontology/winner"
+        ]
+    },
+    {
+        "question": "Which is the largest Alaskan lake?",
+        "predicates": [
+            "http://pnyqa.di.uoa.gr/ontology/hasArea"
+        ]
+    },
+    {
+        "question": "How many counties at the border of Connecticut voted for the Democratic party?",
+        "predicates": [
+            "http://pnyqa.di.uoa.gr/ontology/winner"
+        ]
+    },
+    {
+        "question": "What party came first in Rhode Island?",
+        "predicates": [
+            "http://pnyqa.di.uoa.gr/ontology/winner"
+        ]
+    },
+    {
+        "question": "What is the population of Lincoln NE?",
+        "predicates": [
+            "http://pnyqa.di.uoa.gr/ontology/hasTotal_Population"
+        ]
+    }
+]

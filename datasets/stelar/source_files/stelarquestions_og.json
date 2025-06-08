@@ -1,0 +1,62 @@
+[
+    {
+        "question": "List basic information (title, publication date, path, or URL where the data is available, data volume in bytes) about datasets published in 2023 or later by user 'gmarinos'.",
+        "sparql": "PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX dcat: <http://www.w3.org/ns/dcat#> PREFIX dct: <http://purl.org/dc/terms/> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> SELECT ?dataset ?user ?res ?name ?date ?path ?size WHERE { ?dataset dcat:distribution ?res . ?dataset dct:creator ?user . ?user foaf:accountName \"gmarinos\" . ?res dct:title ?name . ?res dct:issued ?date . ?res dcat:accessURL ?path . ?res dcat:byteSize ?size . FILTER (?date >= \"2023-01-01T00:00:01\"^^xsd:dateTime) }"
+    },
+    {
+        "question": "Search for time series data covering the entire year 2023 and (based on profile information) focus on time series of absolute energy above 500 and having a longest subsequence above their mean that spans more than 100 consecutive time points.",
+        "sparql": "PREFIX dcat: <http://www.w3.org/ns/dcat#>PREFIX dct: <http://purl.org/dc/terms/>PREFIX klms: <http://stelar-project.eu/klms#>SELECT ?dataset ?start ?end ?abs_energy ?len_above_mean WHERE {  ?dataset dcat:distribution ?prof .  ?prof klms:contains ?attr1 .  ?attr1 a klms:TemporalAttribute .  ?attr1 dcat:startDate ?start .  ?attr1 dcat:endDate ?end .  ?prof klms:contains ?attr2 .  ?attr2 a klms:SeriesAttribute .  ?attr2 klms:absEnergy ?abs_energy .  ?attr2 klms:lenAboveMean ?len_above_mean .  FILTER (?start >= \"2023-01-01T00:00:00Z\"^^xsd:dateTime &&     ?end <= \"2023-12-31T23:59:59Z\"^^xsd:dateTime &&    ?abs_energy > 200 && ?len_above_mean > 30)}" 
+    },
+    {
+        "question": "Find datasets having spatial extent within the rectangle POLYGON((12.362 45.39,12.485 45.39,12.485 45.576,12.362 45.576,12.362 45.39)) that have been updated after 2023-01-01.",
+        "sparql": "PREFIX dct: <http://purl.org/dc/terms/>PREFIX dcat: <http://www.w3.org/ns/dcat#>PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>PREFIX klms: <http://stelar-project.eu/klms#>PREFIX geo:<http://www.opengis.net/ont/geosparql#>PREFIX geof: <http://www.opengis.net/def/function/geosparql/>SELECT ?dataset ?res ?date_modified ?bbox WHERE {  ?dataset dct:spatial ?loc .  ?dataset dcat:distribution ?res .  ?dataset dct:issued ?date_issued .  ?dataset dct:modified ?date_modified .  ?loc dcat:bbox ?bbox .  FILTER ((geof:sfWithin(?bbox, \"POLYGON((12.362 45.39,12.485 45.39,12.485 45.576,12.362 45.576,12.362 45.39))\"^^geo:wktLiteral))   && (?date_modified > \"2023-01-01T00:00:00Z\"^^xsd:dateTime))} }"
+    },
+    {
+        "question": "Find raster images with cloud coverage < 10% based on their extracted profile information.",
+        "sparql": "PREFIX dcat: <http://www.w3.org/ns/dcat#> PREFIX dct: <http://purl.org/dc/terms/> PREFIX klms: <http://stelar-project.eu/klms#> SELECT ?dataset ?raster_name ?band_name ?start_date ?width ?height ?res_spatial ?cloud_coverage  WHERE { ?dataset dcat:distribution ?prof .   ?prof klms:profileURL ?url .   ?prof a klms:RasterCollection .   ?prof klms:contains ?ras .   ?ras dct:title ?raster_name .   ?ras klms:height ?height .   ?ras klms:width ?width .   ?ras dcat:spatialResolutionInMeters ?res_spatial .   ?ras dct:spatial ?coverage_spatial .   ?ras dct:temporal ?time_extent .   ?time_extent dcat:startDate ?start_date .   ?time_extent dcat:endDate ?end_date .   ?band dct:isPartOf ?ras .   ?band a klms:BandAttribute .   ?band dct:title ?band_name .   ?band klms:valueDistribution ?distr_values .   ?band klms:noDataDistribution ?distr_no_data .   ?distr_no_data klms:contains ?no_data_category .   ?no_data_category klms:name ?no_data_key .   ?no_data_category klms:percentage ?cloud_coverage .   FILTER (?no_data_key = \"clouds\" &&      ?cloud_coverage < \"10.0\"^^xsd:double) } ORDER BY ASC(?no_data_value)"
+    },
+    {
+        "question": "Datasets given as INPUT in tasks executed in workflows.",
+        "sparql": "PREFIX dcat: <http://www.w3.org/ns/dcat#> PREFIX dct: <http://purl.org/dc/terms/> PREFIX klms: <http://stelar-project.eu/klms#> SELECT ?dataset ?resource ?workflowExec ?taskExec ?start_date ?task_state WHERE {   ?taskExec dct:isPartOf ?workflowExec .   ?taskExec dcat:startDate ?start_date .   ?taskExec klms:state ?task_state .   ?taskExec klms:hasInput ?task_input .   ?task_input klms:input ?resource .   ?dataset dcat:distribution ?resource . }"
+    },
+    {
+        "question": "Datasets issued as OUTPUT from tasks executed in workflows.",
+        "sparql": "PREFIX dcat: <http://www.w3.org/ns/dcat#> PREFIX dct: <http://purl.org/dc/terms/> PREFIX klms: <http://stelar-project.eu/klms#> SELECT ?dataset ?resource ?workflowExec ?taskExec ?start_date ?end_date ?task_state WHERE {   ?taskExec dct:isPartOf ?workflowExec .   ?taskExec dcat:startDate ?start_date .   ?taskExec dcat:endDate ?end_date .   ?taskExec klms:state ?task_state .   ?taskExec klms:hasOutput ?task_input .   ?task_input klms:output ?resource .   ?dataset dcat:distribution ?resource . }"
+    },
+    {
+        "question": "Given the file dbee0078-f053-404a-b09d-bde29eaf5521, find all task executions to which it was given as INPUT.",
+        "sparql": "PREFIX dcat: <http://www.w3.org/ns/dcat#> PREFIX dct: <http://purl.org/dc/terms/> PREFIX klms: <http://stelar-project.eu/klms#> SELECT ?resource ?workflowExec ?taskExec ?start_date ?end_date ?task_state WHERE {   ?taskExec dct:isPartOf ?workflowExec .   ?taskExec dcat:startDate ?start_date .   ?taskExec dcat:endDate ?end_date .   ?taskExec klms:state ?task_state .   ?taskExec klms:hasInput ?task_input .   ?task_input klms:input ?resource .   ?resource dct:identifier \"dbee0078-f053-404a-b09d-bde29eaf5521\" . }"
+    },
+    {
+        "question": "Find the task execution that has issued the file 026ca7aa-a417-4822-be63-7e855026c8d9 as OUTPUT.",
+        "sparql": "PREFIX dcat: <http://www.w3.org/ns/dcat#> PREFIX dct: <http://purl.org/dc/terms/> PREFIX klms: <http://stelar-project.eu/klms#> SELECT ?resource ?workflowExec ?taskExec ?start_date ?end_date ?task_state WHERE {   ?taskExec dct:isPartOf ?workflowExec .   ?taskExec dcat:startDate ?start_date .   ?taskExec dcat:endDate ?end_date .   ?taskExec klms:state ?task_state .   ?taskExec klms:hasOutput ?task_output .   ?task_output klms:output ?resource .   ?resource dct:identifier \"026ca7aa-a417-4822-be63-7e855026c8d9\" . }"
+    },
+    {
+        "question": "Given the data source identifier ce4ebc61-19b0-49e8-aa0e-99022b5278ec, find all workflow executions to which it was given as INPUT to a task execution.",
+        "sparql": "PREFIX dcat: <http://www.w3.org/ns/dcat#> PREFIX dct: <http://purl.org/dc/terms/> PREFIX klms: <http://stelar-project.eu/klms#> SELECT ?resource ?taskExec ?workflowExec ?workflow_state ?start_date ?end_date  WHERE {   ?taskExec dct:isPartOf ?workflowExec .   ?workflowExec klms:state ?workflow_state .   ?workflowExec dcat:startDate ?start_date .   ?workflowExec dcat:endDate ?end_date .   ?taskExec klms:hasInput ?task_input .   ?task_input klms:input ?resource .   ?dataset dcat:distribution ?resource .   ?dataset dct:identifier \"ce4ebc61-19b0-49e8-aa0e-99022b5278ec\" . } "
+    },
+    {
+        "question": "Find the workflow execution that has issued any of the files of 1b3cebbe-0271-437f-be9a-92dc374c536b as OUTPUT of a task execution.",
+        "sparql": "PREFIX dcat: <http://www.w3.org/ns/dcat#> PREFIX dct: <http://purl.org/dc/terms/> PREFIX klms: <http://stelar-project.eu/klms#> SELECT ?resource ?taskExec ?workflowExec ?workflow_state ?start_date ?end_date  WHERE {   ?taskExec dct:isPartOf ?workflowExec .   ?workflowExec klms:state ?workflow_state .   ?workflowExec dcat:startDate ?start_date .   ?workflowExec dcat:endDate ?end_date .   ?taskExec klms:hasOutput ?task_output .   ?task_output klms:output ?resource .   ?dataset dcat:distribution ?resource .   ?dataset dct:identifier \"1b3cebbe-0271-437f-be9a-92dc374c536b\" . }"
+    },
+    {
+        "question": "List all task executions included in any executions of workflows with the tag \"use-case B2\".",
+        "sparql": "PREFIX dcat: <http://www.w3.org/ns/dcat#> PREFIX dct: <http://purl.org/dc/terms/> PREFIX klms: <http://stelar-project.eu/klms#> SELECT ?workflowExec ?taskExec ?task_state ?start_date ?end_date WHERE {   ?taskExec dct:isPartOf ?workflowExec .   ?taskExec klms:state ?task_state .   ?taskExec dcat:startDate ?start_date .   OPTIONAL { ?taskExec dcat:endDate ?end_date } .   ?workflowExec klms:hasTags ?kvpair .    ?kvpair  klms:key ?key .   ?kvpair klms:value ?value .   FILTER (regex(?key, \"use-case\") && regex(?value, \"B2\")) }"
+    },
+    {
+        "question": "List all executions of entity extraction tasks",
+        "sparql": "PREFIX dcat: <http://www.w3.org/ns/dcat#> PREFIX dct: <http://purl.org/dc/terms/> PREFIX klms: <http://stelar-project.eu/klms#> SELECT ?taskExec ?state ?start_date ?end_date ?key ?value WHERE {   ?taskExec klms:state ?state .   ?taskExec dcat:startDate ?start_date .   OPTIONAL { ?taskExec dcat:endDate ?end_date . }   ?taskExec klms:hasTags ?kvpair .    ?kvpair  klms:key ?key.   ?kvpair klms:value ?value .   FILTER (regex(?value, \"entity_extraction\")) }"
+    },
+    {
+        "question": "Metrics issued by the task execution {6d321fd2-3b40-48ee-8e74-697c8e0c4bb5}",
+        "sparql": "PREFIX dct: <http://purl.org/dc/terms/> PREFIX klms: <http://stelar-project.eu/klms#> SELECT ?taskExec ?metric ?value ?timestamp WHERE {   ?taskExec  dct:identifier \"6d321fd2-3b40-48ee-8e74-697c8e0c4bb5\" .   ?taskExec klms:hasMetrics ?kvpair .    ?kvpair  klms:key ?metric.   ?kvpair klms:value ?value .   ?kvpair dct:issued ?timestamp . } "
+    },
+    {
+        "question": "Parameters specified for \"6d321fd2-3b40-48ee-8e74-697c8e0c4bb5\",",
+        "sparql": "PREFIX dct: <http://purl.org/dc/terms/> PREFIX klms: <http://stelar-project.eu/klms#> SELECT ?taskExec ?parameter ?value WHERE {   ?taskExec  dct:identifier \"6d321fd2-3b40-48ee-8e74-697c8e0c4bb5\" .   ?taskExec klms:hasParameters ?kvpair .    ?kvpair  klms:key ?parameter.   ?kvpair klms:value ?value . } "
+    },
+    {
+        "question": "List executions of task \"entity_extraction\" in workflows that involve datasets published by organization \"Agroknow\" and issued after 2024-02-01.",
+        "sparql": "PREFIX foaf: <http://xmlns.com/foa.f/0.1/> PREFIX dcat: <http://www.w3.org/ns/dcat#> PREFIX dct: <http://purl.org/dc/terms/> PREFIX klms: <http://stelar-project.eu/klms#> SELECT ?taskExec ?state ?start_date ?end_date  WHERE {   ?taskExec a klms:TaskExecution .   ?taskExec dct:isPartOf ?workflowExec .   ?workflowExec a klms:WorkflowExecution .   ?taskExec klms:state ?state .   ?taskExec klms:hasTags ?kvpair .    ?kvpair  klms:key ?key.   ?kvpair klms:value ?value .   ?taskExec dcat:startDate ?start_date .   OPTIONAL { ?taskExec dcat:endDate ?end_date } .   ?taskExec klms:hasInput ?task_input .   ?task_input klms:input ?resource .   ?resource dct:issued ?input_issued .   ?dataset dcat:distribution ?resource .   ?dataset dct:publisher ?pub .   ?pub foaf:name \"Agroknow\" .   FILTER (regex(?value, \"entity_extraction\") && ?input_issued > \"2024-02-01T00:00:00Z\"^^xsd:dateTime) }"
+    }
+]

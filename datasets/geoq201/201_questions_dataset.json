@@ -1,0 +1,770 @@
+{
+    "1": {
+        "Question": "How many hospitals are there in Oxford?",
+        "Query": "   select (count(DISTINCT ?x ) as ?total) where {           ?x rdf:type <http://yago-knowledge.org/resource/wordnet_hospital_103540595>.           ?x geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/Oxford> geo:hasGeometry ?og . ?og geo:asWKT ?oWKT FILTER ( geof:sfContains (?oWKT, ?xWKT)) } \n"
+    },
+    "2": {
+        "Question": "How many underground lines does London have?",
+        "Query": "select distinct (count(distinct ?x)as ?total)\nwhere {\n          ?x a <http://yago-knowledge.org/resource/wikicat_London_Underground_lines>.\n          \n}"
+    },
+    "3": {
+        "Question": "How many counties does England have?",
+        "Query": "   select (count(distinct ?x) as ?totalCounty) where {               ?x  ?p <http://yago-knowledge.org/resource/wordnet_county_108546183>. ?x geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/England> geo:hasGeometry ?eGeo . ?eGeo geo:asWKT ?eWKT . FILTER ( geof:sfContains (?eWKT, ?xWKT)) }\n"
+    },
+    "4": {
+        "Question": "Which restaurants are close to London Bridge?",
+        "Query": "   SELECT distinct ?poi WHERE   {  ?city geo:hasGeometry ?instanceGeom;                    osm:has_name \"London Bridge\"^^xsd:string;                    a osm:Attraction.         ?instanceGeom geo:asWKT        ?instanceWKT.         ?poi rdf:type osm:Restaurant ;              geo:hasGeometry ?poiGeom .         ?poiGeom  geo:asWKT        ?poiWKT .              FILTER( geof:distance (?poiWKT, ?instanceWKT, uom:metre) < 1000) }\n"
+    },
+    "5": {
+        "Question": "Is there any hospital in a range of 1 km from Jubilee Gardens in London?",
+        "Query": "   ASK{  ?city geo:hasGeometry ?instanceGeom;                    osm:has_name \"Jubilee Gardens\"^^xsd:string;                   a osm:Park.        ?instanceGeom geo:asWKT        ?instanceWKT.        ?poi rdf:type osm:Hospital ;             geo:hasGeometry ?poiGeom .        ?poiGeom  geo:asWKT        ?poiWKT .             FILTER( geof:distance (?poiWKT, ?instanceWKT, uom:metre) < 1000) }\n"
+    },
+    "6": {
+        "Question": "Which counties border county Lincolnshire?",
+        "Query": "   select ?county where {  ?lincolnshire  rdf:type  <http://kr.di.uoa.gr/yago2geo/ontology/OS_County>;   <http://kr.di.uoa.gr/yago2geo/ontology/hasOS_Name> \"Lincolnshire County\";    <http://www.opengis.net/ont/geosparql#hasGeometry> ?geomLC.   ?geomLC geo:asWKT ?lcWKT.   ?county  rdf:type  <http://kr.di.uoa.gr/yago2geo/ontology/OS_County>;     <http://www.opengis.net/ont/geosparql#hasGeometry> ?geomC.      ?geomC geo:asWKT ?cWKT.    FILTER( geof:sfTouches (?lcWKT, ?cWKT)) }\n"
+    },
+    "7": {
+        "Question": "Where is Loch Goil located?",
+        "Query": "   SELECT ?x1WKT WHERE {     <http://yago-knowledge.org/resource/Loch_Goil> geo:hasGeometry ?x1Geo.     ?x1Geo geo:asWKT ?x1WKT. }\n"
+    },
+    "8": {
+        "Question": "Which bridges cross river Thames?",
+        "Query": "   select distinct ?bridges where {  ?bridges a <http://yago-knowledge.org/resource/wordnet_bridge_102898711>.  ?bridges <http://yago-knowledge.org/resource/infobox/en/crosses> ?o.     FILTER CONTAINS(str(?o),\"Thames\"). }\n"
+    },
+    "9": {
+        "Question": "What is the number of universities in London?",
+        "Query": "   select (count(distinct ?x)as ?total) where { ?x rdf:type <http://yago-knowledge.org/resource/wordnet_university_108286569>. ?x geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/London> geo:hasGeometry ?londonGeo . ?londonGeo geo:asWKT ?londonWKT FILTER ( geof:sfContains (?londonWKT, ?xWKT)) } \n"
+    },
+    "10": {
+        "Question": "Which rivers are in Wales?",
+        "Query": "   select distinct ?river where {        ?river rdf:type <http://yago-knowledge.org/resource/wordnet_river_109411430>.         ?river geo:hasGeometry ?rg . ?rg geo:asWKT ?rWKT . <http://yago-knowledge.org/resource/Wales> geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . FILTER ( geof:sfWithin (?rWKT, ?xWKT)) }\n"
+    },
+    "11": {
+        "Question": "Which counties of Scotland border England?",
+        "Query": "   select distinct ?county  where {                                         ?county rdf:type <http://kr.di.uoa.gr/yago2geo/ontology/OS_County>;                                                 geo:hasGeometry ?cGeom.                                         ?cGeom geo:asWKT ?cWKT.                                         <http://yago-knowledge.org/resource/Scotland>         geo:hasGeometry ?geom.                                         ?geom geo:asWKT ?iWKT.                                         <http://yago-knowledge.org/resource/England>                geo:hasGeometry ?geom1.                                          ?geom1 geo:asWKT ?iWKT1.                                         FILTER( geof:sfWithin (?cWKT,?iWKT) &&  geof:sfTouches (?cWKT,?iWKT1) )  }\n"
+    },
+    "12": {
+        "Question": "Where is Nelson's Column located?",
+        "Query": "   SELECT ?geomWKT WHERE {     ?entity osm:has_name \"Nelson's Column\"^^<http://www.w3.org/2001/XMLSchema#string>;             <http://www.opengis.net/ont/geosparql#hasGeometry> ?geom.     ?geom  geo:asWKT ?geomWKT. }\n"
+    },
+    "13": {
+        "Question": "Does the county of Durham border Essex?",
+        "Query": "   ASK {            <http://yago-knowledge.org/resource/Essex> <http://www.opengis.net/ont/geosparql#sfTouches> <http://yago-knowledge.org/resource/County_Durham>. } \n"
+    },
+    "14": {
+        "Question": "Which restaurants are at most 1km away from Big Ben?",
+        "Query": "   SELECT ?restaurant WHERE {        ?bigBen osm:has_name \"Big Ben\"^^<http://www.w3.org/2001/XMLSchema#string>;          geo:hasGeometry ?bigBenGeom.  ?bigBenGeom  geo:asWKT ?bigBenGeomWKT. ?restaurant rdf:type osm:Restaurant;      osm:has_name ?restaurantName;        geo:hasGeometry ?restaurantGeom.  ?restaurantGeom geo:asWKT ?restaurantGeomWKT.  FILTER ( geof:distance (?restaurantGeomWKT, ?bigBenGeomWKT, uom:metre) < 1000) }\n"
+    },
+    "15": {
+        "Question": "Is county Oxfordshire east of the county Essex?",
+        "Query": "   ASK { ?oxfordshire <http://www.w3.org/2000/01/rdf-schema#label> ?l ;         geo:hasGeometry ?geo1 .         filter(str(?l)=\"Oxfordshire\").  ?geo1 geo:asWKT ?wkt1 .         ?essex <http://www.w3.org/2000/01/rdf-schema#label> ?l2 ;         geo:hasGeometry ?geo2 .         ?geo2 geo:asWKT ?wkt2 .         filter(str(?l2)=\"Essex\").         FILTER(strdf:left(?wkt1,?wkt2)) }\n"
+    },
+    "16": {
+        "Question": "Which pubs in Dublin are near Guinness Brewery?",
+        "Query": "   Select distinct ?pub WHERE {  ?pub a osm:Pub ; geo:hasGeometry ?pubGeo . ?pubGeo geo:asWKT ?pubWKT . ?dublin osm:has_name ?l2 ; geo:hasGeometry ?dublinGeo . ?dublinGeo geo:asWKT ?dublinWKT . ?guiness osm:has_name ?l; geo:hasGeometry ?guinessGeo . ?guinessGeo geo:asWKT ?guinessWKT . filter( str(?l2)=\"Dublin\"). filter( str(?l)=\"Guinness Brewery\"). filter( geof:distance (?guinessWKT, ?pubWKT, uom:metre)<1000). filter( geof:sfContains (?dublinWKT, ?pubWKT)). }\n"
+    },
+    "17": {
+        "Question": "Which hospitals in Liverpool are near Abercromby Square?",
+        "Query": "   Select distinct ?hospital WHERE { ?hospital a osm:Hospital ; geo:hasGeometry ?hospitalGeo .  ?hospitalGeo geo:asWKT ?hospitalWKT . ?Liverpool <http://www.w3.org/2000/01/rdf-schema#label>  ?l2 ; geo:hasGeometry ?LiverpoolGeo . ?LiverpoolGeo geo:asWKT ?LiverpoolWKT . ?Abercromby osm:has_name ?l; geo:hasGeometry ?AbercrombyGeo . ?AbercrombyGeo geo:asWKT ?AbercrombyWKT . filter( str(?l2)=\"Liverpool\"). filter( str(?l)=\"Abercromby Square\"). filter( geof:sfContains (?LiverpoolWKT, ?hospitalWKT)). filter ( geof:distance (?hospitalWKT, ?AbercrombyWKT, uom:metre) < 1000). }\n"
+    },
+    "18": {
+        "Question": "Which cafes in London are at most 3 km from St. Anthony the Great and St. John the Baptist church?",
+        "Query": "   Select distinct ?cafe WHERE { ?cafe a osm:Cafe ; geo:hasGeometry ?cafeGeo . ?cafeGeo geo:asWKT ?cafeWKT . ?London <http://www.w3.org/2000/01/rdf-schema#label>  ?l2 ; geo:hasGeometry ?LondonGeo . ?LondonGeo geo:asWKT ?LondonWKT . ?church osm:has_name ?l; geo:hasGeometry ?churchGeo . ?churchGeo geo:asWKT ?churchWKT . filter( str(?l2)=\"London\"). filter( str(?l)=\"St. Anthony the Great & St. John the Baptist\"). filter( geof:sfContains (?LondonWKT, ?cafeWKT)). filter ( geof:distance (?cafeWKT, ?churchWKT, uom:metre) < 3000). }\n"
+    },
+    "19": {
+        "Question": "Which department stores are at most 2km from Central Park hotel in London?",
+        "Query": "   SELECT distinct ?city WHERE{      ?city geo:hasGeometry ?instanceGeom;                   osm:has_name \"London\"^^xsd:string;                   rdf:type osm:City.     ?instanceGeom geo:asWKT ?cWKT.      ?poi geo:hasGeometry ?poiGeom;                   osm:has_name \"Central Park Hotel\"^^xsd:string;                   a osm:Hotel.        ?poiGeom geo:asWKT        ?poiWKT.    ?dept a osm:Department_Store;           geo:hasGeometry ?dGeom.      ?dGeom geo:asWKT ?dWKT.    FILTER( geof:sfContains (?cWKT, ?poiWKT) &&  geof:distance (?dWKT,?cWKT,uom:metre) <= 2000 ) }\n"
+    },
+    "20": {
+        "Question": "Which universities are in county Essex?",
+        "Query": "   select distinct ?university  where {             ?university rdf:type <http://yago-knowledge.org/resource/wordnet_university_108286569>.             ?university geo:hasGeometry ?Ug . ?Ug geo:asWKT ?UWKT . <http://yago-knowledge.org/resource/Essex> geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . FILTER ( geof:sfContains (?xWKT, ?UWKT)) }\n"
+    },
+    "21": {
+        "Question": "Is there a church at most 2km from the University of Westminster?",
+        "Query": "   ASK { ?s2 <http://data.linkedeodata.eu/ontology#has_name> \"University of Westminster\"^^xsd:string. ?s2 rdf:type osm:University .  ?s2 geo:hasGeometry ?geo2 . ?geo2 geo:asWKT ?w2 . ?s3 geo:hasGeometry ?geo3 . ?s3 <http://data.linkedeodata.eu/ontology#has_name> ?name . ?geo3 geo:asWKT ?w3 . ?s3 rdf:type osm:Church.  filter( geof:distance (?w3,?w2, uom:metre) < 2000) }\n"
+    },
+    "22": {
+        "Question": "Is there a mountain in the county of Greater Manchester taller than 1300 meters above sea level?",
+        "Query": "   select distinct ?x  where {                                  ?x rdf:type <http://yago-knowledge.org/resource/wordnet_mountain_109359803>.                                  ?x geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/Greater_Manchester> geo:hasGeometry ?gmGeo . ?gmGeo geo:asWKT ?gmWKT . FILTER( geof:sfContains (?gmWKT, ?xWKT)) .                                 ?x <http://yago-knowledge.org/resource/infobox/en/elevationm>  ?property.                                 FILTER(xsd:integer(str(?property)) > 1300) }\n"
+    },
+    "23": {
+        "Question": "Which mountains in Scotland have height more than 1000 meters?",
+        "Query": "   select distinct ?x where {                                  ?x rdf:type <http://yago-knowledge.org/resource/wordnet_mountain_109359803>.                                  ?x geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/Scotland> geo:hasGeometry ?gmGeo . ?gmGeo geo:asWKT ?sWKT . FILTER( geof:sfWithin (?xWKT, ?sWKT)) .                                 ?x <http://yago-knowledge.org/resource/infobox/en/elevationm>  ?property.                                 FILTER(xsd:integer(str(?property)) > 1000) }\n"
+    },
+    "24": {
+        "Question": "What's the name of the river that runs through London?",
+        "Query": "   SELECT distinct ?name WHERE {         ?x rdf:type <http://yago-knowledge.org/resource/wordnet_river_109411430>.         ?x geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/London> geo:hasGeometry ?lGeo . ?lGeo geo:asWKT ?lWKT . filter (  geof:sfCrosses  (?xWKT, ?lWKT) )         ?x <http://yago-knowledge.org/resource/infobox/en/name> ?name. }\n"
+    },
+    "25": {
+        "Question": "How many cities does Thames river crosses?",
+        "Query": "   SELECT (count(distinct ?x) as ?total) WHERE {         ?city rdf:type <http://yago-knowledge.org/resource/wordnet_city_108524735>. ?city geo:hasGeometry ?cg . ?cg geo:asWKT ?cWKT .         <http://yago-knowledge.org/resource/River_Thames> geo:hasGeometry ?thGeo . ?thGeo geo:asWKT ?lWKT . filter (  geof:sfCrosses  (?xWKT, ?lWKT) ) . }\n"
+    },
+    "26": {
+        "Question": "Which districts border London?",
+        "Query": "   select distinct ?district  where {                                          ?district rdf:type <http://kr.di.uoa.gr/yago2geo/ontology/OS_District>;                                                  geo:hasGeometry ?cGeom.                                          ?cGeom geo:asWKT ?cWKT.                                          ?lon owl:sameAs <http://yago-knowledge.org/resource/London>;         geo:hasGeometry ?geom.                                          ?geom geo:asWKT ?iWKT.                                         FILTER(  geof:sfTouches (?cWKT,?iWKT1) ) }\n"
+    },
+    "29": {
+        "Question": "Is Hampshire north of Berkshire?",
+        "Query": "   ASK { <http://yago-knowledge.org/resource/Hampshire> geo:hasGeometry ?iGeometry1. ?iGeometry1 geo:asWKT ?iWKT1. ?y owl:sameAs <http://yago-knowledge.org/resource/Berkshire>; geo:hasGeometry ?iGeometry2. ?iGeometry2 geo:asWKT ?iWKT2. FILTER(strdf:above(?iWKT1, ?iWKT2)) }\n"
+    },
+    "30": {
+        "Question": "Is there any stadium in Cardiff?",
+        "Query": "   select distinct ?st where {         ?st rdf:type <http://yago-knowledge.org/resource/wordnet_stadium_104295881> .         ?st geo:hasGeometry ?stGeo . ?stGeo geo:asWKT ?stWKT . <http://yago-knowledge.org/resource/Cardiff> geo:hasGeometry ?cGeo . ?cGeo geo:asWKT ?cWKT . filter ( geof:sfContains (?cWKT, ?stWKT)) }\n"
+    },
+    "31": {
+        "Question": "Which aerodromes are at most 50km from London?",
+        "Query": "   SELECT ?airport WHERE {  ?airport rdf:type osm:Airport .  ?airport osm:has_name ?name .  ?airport geo:hasGeometry  ?poiGeom .  ?poiGeom  geo:asWKT ?poiWKT .  ?instance <http://kr.di.uoa.gr/yago-extension/ontology/hasGADM_Name> \"London\"@en.  ?instance geo:hasGeometry ?instanceGeom .  ?instanceGeom geo:asWKT ?instanceWKT .   FILTER(  geof:distance (?poiWKT, ?instanceWKT, uom:metre) < 50000 ) }\n"
+    },
+    "32": {
+        "Question": "How many rivers cross the county West Yorkshire?",
+        "Query": "   SELECT (count(distinct ?x)as ?total) WHERE {          ?x rdf:type <http://yago-knowledge.org/resource/wordnet_river_109411430>.          ?x geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/West_Yorkshire> geo:hasGeometry ?wyG . ?wyG geo:asWKT ?wyWKT . filter ( geof:sfCrosses  (?wyWKT, ?xWKT)) }\n"
+    },
+    "33": {
+        "Question": "Which are the counties of Northern Ireland?",
+        "Query": "   select distinct ?counties where {         ?counties rdf:type <http://yago-knowledge.org/resource/wordnet_county_108546183>.         ?counties geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/Northern_Ireland> geo:hasGeometry ?ig . ?ig geo:asWKT ?iWKT .     FILTER ( geof:sfWithin  (?xWKT, ?iWKT))                  }\n"
+    },
+    "34": {
+        "Question": "Is there a park in England?",
+        "Query": "   select distinct ?np where {         ?np rdf:type <http://yago-knowledge.org/resource/wordnet_park_108615149>. ?np geo:hasGeometry ?pg . ?pg geo:asWKT ?pWKT . yago:England geo:hasGeometry ?eg . ?eg geo:asWKT ?eWKT . filter ( geof:sfContains (?eWKT, ?pWKT)). }\n"
+    },
+    "35": {
+        "Question": "Is Cavan a county of Ireland?",
+        "Query": "   ASK {          <http://yago-knowledge.org/resource/County_Cavan> ?p <http://yago-knowledge.org/resource/wikicat_Counties_of_Ireland>. }\n"
+    },
+    "36": {
+        "Question": "Which lakes are in Ireland?",
+        "Query": "   select distinct ?lakes where {        ?lakes rdf:type <http://yago-knowledge.org/resource/wordnet_lake_109328904>.        ?lakes geo:hasGeometry ?lg . ?lg geo:asWKT ?lWKT . <http://yago-knowledge.org/resource/Ireland> geo:hasGeometry ?ig . ?ig geo:asWKT ?iWKT . filter ( geof:sfContains (?iWKT, ?lWKT)) . }\n"
+    },
+    "37": {
+        "Question": "Are there cities that are at most 2km away from St. David's in Wales?",
+        "Query": "   ASK { ?p1 osm:has_name \"St. David's\"^^<http://www.w3.org/2001/XMLSchema#string> ;         geo:hasGeometry ?p1geo. ?p1geo  geo:asWKT ?p1aswkt . <http://yago-knowledge.org/resource/Wales>  geo:hasGeometry ?p2geo. ?p2geo geo:asWKT ?p2aswkt . ?p3 rdf:type osm:City;     geo:hasGeometry ?p3geo . ?p3geo geo:asWKT ?p3aswkt. FILTER ( geof:sfWithin (?p1aswkt, ?p2aswkt)) . FILTER ( geof:distance (?p1aswkt, ?p3aswkt, uom:metre) <= 2000). }\n"
+    },
+    "38": {
+        "Question": "Is Alnwick Castle in Scotland?",
+        "Query": "   ask {                                 <http://yago-knowledge.org/resource/Alnwick_Castle> geo:hasGeometry ?ag . ?ag geo:asWKT ?aWKT . <http://yago-knowledge.org/resource/Scotland> geo:hasGeometry ?sg . ?sg geo:asWKT ?sWKT . filter( geof:sfContains (?sWKT, ?aWKT))                         }\n"
+    },
+    "39": {
+        "Question": "Which colleges are in London?",
+        "Query": "   select distinct ?p2 { ?p1 osm:has_name \"London\"^^<http://www.w3.org/2001/XMLSchema#string> ;         geo:hasGeometry ?p1geo. ?p1geo  geo:asWKT ?p1aswkt . ?p2 a osm:College;     geo:hasGeometry ?p2geo . ?p2geo geo:asWKT ?p2aswkt. FILTER ( geof:sfWithin (?p2aswkt, ?p1aswkt)) . }\n"
+    },
+    "40": {
+        "Question": "How many districts does Northern Ireland have?",
+        "Query": "   SELECT (count(distinct ?x)as ?total) WHERE {          ?y rdf:type <http://yago-knowledge.org/resource/wordnet_district_108552138>.          ?y geo:hasGeometry ?yg . ?yg geo:asWKT ?yWKT . <http://yago-knowledge.org/resource/Northern_Ireland>  geo:hasGeometry ?ng . ?ng geo:asWKT ?nWKT . filter ( geof:sfContains (?nWKT, ?yWKT)) }\n"
+    },
+    "41": {
+        "Question": "Which pubs are near Mercure Hotel in Glasgow\t42. Is there a mountain within 20km of Cheshire?",
+        "Query": "   SELECT DISTINCT ?pub WHERE{        ?pub    a    osm:Pub ;                 geo:hasGeometry ?pubGeom .         ?pubGeom    geo:asWKT   ?pubWKT .         ?hotel  a    osm:Hotel ;                 osm:has_name   \"Mercure Hotel\"^^<http://www.w3.org/2001/XMLSchema#string> ;                 geo:hasGeometry ?hotelGeom .         ?hotelGeom    geo:asWKT   ?hotelWKT .         ?instance   owl:sameAs  <http://yago-knowledge.org/resource/Glasgow> ;                     geo:hasGeometry ?instanceGeom .         ?instanceGeom   geo:asWKT   ?instanceWKT.         FILTER (  geof:sfContains (?instanceWKT, ?hotelWKT) &&  geof:distance (?hotelWKT, ?pubWKT, uom:metre) <= 1000)   }\n"
+    },
+    "43": {
+        "Question": "Does London have a mountain?",
+        "Query": "   ASK {         ?mountain rdf:type <http://yago-knowledge.org/resource/wordnet_mountain_109359803>.         <http://yago-knowledge.org/resource/London> ?p ?mountain. }\n"
+    },
+    "44": {
+        "Question": "Is Islington near Angel?",
+        "Query": "   ASK { ?x owl:sameAs <http://yago-knowledge.org/resource/Islington>; geo:hasGeometry ?iGeometry1. ?iGeometry1 geo:asWKT ?iWKT1. ?y owl:sameAs <http://yago-knowledge.org/resource/Angel,_London>; geo:hasGeometry ?iGeometry2. ?iGeometry2 geo:asWKT ?iWKT2. FILTER( geof:distance (?iWKT1, ?iWKT2) < 10000) }\n"
+    },
+    "45": {
+        "Question": "Is there a car park near a bridge on river Exe?",
+        "Query": "ASK\n{\nSERVICE <http://pyravlos1.di.uoa.gr:8890/sparql>\n{\n<http://yago-knowledge.org/resource/River_Exe> ?p ?o.\n?x rdf:type <http://yago-knowledge.org/resource/wordnet_bridge_102898711>.\n?x rdf:label ?label.\n}\nSERVICE <http://pyravlos1.di.uoa.gr:8080/geoqa/Query>\n{\n?poi rdf:type osm:Parking .\n?poi geo:hasGeometry ?geom .\n\n?geom geo:asWKT ?wkt .\n?b osm:has_name ?label .\n?b geo:hasGeometry ?bGeom .\n?bGeom geo:asWKT ?bWKT .\nFILTER ( geof:distance (?wkt, ?bWKT, <http://www.opengis.net/def/uom/OGC/1.0/metre>) < 500 ) .\n}\n}"
+    },
+    "46": {
+        "Question": "Which medieval castles are in Scotland?",
+        "Query": "   select distinct ?x    where {                                  ?x rdf:type <http://yago-knowledge.org/resource/wordnet_palace_103878066>.                                  ?x geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/Scotland> geo:hasGeometry ?sg . ?sg geo:asWKT ?sWKT . filter ( geof:sfContains (?sWKT, ?xWKT))  }\n"
+    },
+    "47": {
+        "Question": "Which bars are near Prince's street in Edinburgh?",
+        "Query": "   SELECT ?poi WHERE {   <http://yago-knowledge.org/resource/Edinburgh> geo:hasGeometry ?e_geom .   ?e_geom geo:asWKT ?e_wkt.   ?ps <http://data.linkedeodata.eu/ontology#has_name> \"Princes Street\"^^xsd:string .   ?ps geo:hasGeometry ?ps_geom .   ?ps_geom geo:asWKT ?ps_wkt .   ?poi rdf:type osm:bar .   ?poi geo:hasGeometry ?poi_geom .   ?poi_geom geo:asWKT ?poi_wkt .   FILTER(  geof:sfWithin (?ps_wkt, ?e_wkt) )   FILTER(  geof:distance (?poi_wkt, ?ps_wkt, uom:metre) < 500 ) }\n"
+    },
+    "48": {
+        "Question": "Which hotels are near Loch Ness?",
+        "Query": "   SELECT distinct ?poi WHERE {   ?s osm:has_name \"Loch Ness\"^^xsd:string .   ?poi rdf:type osm:Hotel .   ?s geo:hasGeometry ?s_geom .   ?s_geom geo:asWKT ?s_wkt .   ?poi geo:hasGeometry ?poi_geom .   ?poi_geom geo:asWKT ?poi_wkt.   FILTER(  geof:distance (?poi_wkt, ?s_wkt, uom:metre) < 500 ) }\n"
+    },
+    "49": {
+        "Question": "Is Liverpool part of Scotland?",
+        "Query": "   ASK {         <http://yago-knowledge.org/resource/Liverpool> geo:hasGeometry ?liverg . ?liverg geo:asWKT ?lWKT . <http://yago-knowledge.org/resource/Scotland> geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . filter ( geof:sfContains (?xWKT, ?lWKT)) }\n"
+    },
+    "50": {
+        "Question": "Which museums are within 3km of Saint George's hotel in London?",
+        "Query": "   SELECT distinct ?poi WHERE { ?poi rdf:type osm:Museum. ?poi geo:hasGeometry ?geom . ?geom geo:asWKT ?wkt . ?instance rdf:type osm:Hotel . ?instance osm:has_name \"Saint Georges Hotel\"^^<http://www.w3.org/2001/XMLSchema#string> . ?instance geo:hasGeometry ?inGeom . ?inGeom geo:asWKT ?inWKT . FILTER ( geof:distance (?wkt, ?inWKT, <http://www.opengis.net/def/uom/OGC/1.0/metre>) <= 3000 ) . }\n"
+    },
+    "51": {
+        "Question": "How many rivers cross Edinburgh?",
+        "Query": "   SELECT (count(distinct ?x)as ?total) WHERE {         ?x rdf:type <http://yago-knowledge.org/resource/wordnet_river_109411430>.         ?x geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/Edinburgh> geo:hasGeometry ?eg . ?eg geo:asWKT ?eWKT . filter ( geof:sfCrosses  (?xWKT, ?eWKT)). }\n"
+    },
+    "52": {
+        "Question": "Which county is east of county Dorset?",
+        "Query": "   select distinct ?county where {        <http://yago-knowledge.org/resource/Dorset> geo:hasGeometry ?geomLC.        ?geomLC geo:asWKT ?niWKT.        ?county  rdf:type  <http://kr.di.uoa.gr/yago2geo/ontology/OS_County>;                        <http://www.opengis.net/ont/geosparql#hasGeometry> ?geomC.        ?geomC geo:asWKT ?cWKT.        FILTER(strdf:right(?cWKT, ?niWKT)) }\n"
+    },
+    "53": {
+        "Question": "In what county is Stonehenge located?",
+        "Query": "SELECT ?c WHERE {\n\n        ?p1 osm:has_name \"Stonehenge\"^^<http://www.w3.org/2001/XMLSchema#string> ;\n                geo:hasGeometry ?p1geo.\n        ?p1geo  geo:asWKT ?p1aswkt .\n\n        ?c rdf:type <http://kr.di.uoa.gr/yago2geo/ontology/OS_County>;\n           geo:hasGeometry ?cgeo.\n        ?cgeo geo:asWKT ?caswkt.\n        FILTER ( geof:sfWithin (?p1aswkt, ?caswkt)) .\n}"
+    },
+    "54": {
+        "Question": "Is there a forest in county Cheshire?",
+        "Query": "   ASK {          ?forest rdf:type <http://yago-knowledge.org/resource/wordnet_forest_108438533>.          ?forest ?p <http://yago-knowledge.org/resource/Cheshire>. }\n"
+    },
+    "55": {
+        "Question": "How many counties does the river Thames cross?",
+        "Query": "   SELECT (count(distinct ?x)as ?total) WHERE {         ?x rdf:type <http://yago-knowledge.org/resource/wordnet_county_108546183>. ?x geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT .         <http://yago-knowledge.org/resource/River_Thames> geo:hasGeometry ?rg . ?rg geo:asWKT ?rWKT filter ( geof:sfCrosses  (?rWKT, ?xWKT)) }\n"
+    },
+    "56": {
+        "Question": "Is there a river that crosses county Greater Manchester?",
+        "Query": "   ASK {         ?river rdf:type <http://yago-knowledge.org/resource/wordnet_river_109411430>.         ?river ?p <http://yago-knowledge.org/resource/Greater_Manchester>.    }\n"
+    },
+    "57": {
+        "Question": "Is there a museum at most 1km from Liverpool?",
+        "Query": "   ASK { ?museum rdf:type osm:Museum . ?museum geo:hasGeometry ?geom . ?geom geo:asWKT ?wkt . <http://yago-knowledge.org/resource/Liverpool> geo:hasGeometry ?livGeom . ?livGeom geo:asWKT ?livWKT . FILTER ( geof:distance (?wkt, ?livWKT, <http://www.opengis.net/def/uom/OGC/1.0/metre>) < 1000 ) . }\n"
+    },
+    "58": {
+        "Question": "Which restaurants in London are near Kensington Palace?",
+        "Query": "   SELECT distinct ?poi WHERE { ?poi rdf:type osm:Restaurant . ?poi geo:hasGeometry ?geom . ?geom geo:asWKT ?wkt . ?instance rdf:type osm:Attraction . ?instance osm:has_name \"Kensington Palace\"^^<http://www.w3.org/2001/XMLSchema#string> . ?instance geo:hasGeometry ?inGeom . ?inGeom geo:asWKT ?inWKT . FILTER ( geof:distance (?wkt, ?inWKT, <http://www.opengis.net/def/uom/OGC/1.0/metre>) < 500 ) . }\n"
+    },
+    "59": {
+        "Question": "Which provinces of Ireland have population over 2 million?",
+        "Query": "select distinct ?x\nwhere {\n         ?x rdf:type <http://yago-knowledge.org/resource/wordnet_state_108654360>.\n         ?x geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/Ireland> geo:hasGeometry ?Ig . ?Ig geo:asWKT ?IWKT . FILTER ( geof:sfWithin  (?xWKT, ?IWKT)).\n         ?x <http://yago-knowledge.org/resource/hasNumberOfPeople> ?o.\n         FILTER(?o > 2000000)\n}"
+    },
+    "60": {
+        "Question": "Is the monument of the Great Fire of London east of King WIlliam Street?",
+        "Query": "   ASK { ?poi rdf:type osm:Monument . ?poi osm:has_name \"The Great Fire\"^^<http://www.w3.org/2001/XMLSchema#string> . ?poi geo:hasGeometry ?geom . ?geom geo:asWKT ?wkt . ?road rdf:type osm:Residential . ?road osm:has_name \"King William Street\"^^<http://www.w3.org/2001/XMLSchema#string> . ?road geo:hasGeometry ?roadGeom . ?roadGeom geo:asWKT ?roadWKT . FILTER (strdf:right(?wkt, ?roadWKT)) }         \n"
+    },
+    "61": {
+        "Question": "Which city council includes Dublin?",
+        "Query": "   select distinct ?o where {     <http://yago-knowledge.org/resource/Dublin> <http://yago-knowledge.org/resource/infobox/en/governmenttype> ?o.     FILTER CONTAINS(str(?o),\"City Council\") }\n"
+    },
+    "62": {
+        "Question": "Which are the non-metropolitan counties of England?",
+        "Query": "   select distinct ?x where {          ?x   a <http://yago-knowledge.org/resource/wikicat_Non-metropolitan_counties>.          ?x ?p <http://yago-knowledge.org/resource/England>. }\n"
+    },
+    "63": {
+        "Question": "Which are the main railway stations in Glasgow?",
+        "Query": "   SELECT DISTINCT ?rs WHERE{              ?rs a    osm:Railway_Station ;             geo:hasGeometry ?rsGeom .         ?rsGeom geo:asWKT   ?rsWKT .          ?x owl:sameAs <http://yago-knowledge.org/resource/Glasgow>;             geo:hasGeometry ?instanceGeom .         ?instanceGeom   geo:asWKT   ?instanceWKT.         FILTER  geof:sfContains (?instanceWKT, ?rsWKT) }\n"
+    },
+    "64": {
+        "Question": "What historical monuments are there in London?",
+        "Query": "   SELECT ?x1 WHERE {         ?x1 a <http://yago-knowledge.org/resource/wordnet_monument_108600443>.         ?x1 geo:hasGeometry ?x1g . ?x1g geo:asWKT ?x1WKT . <http://yago-knowledge.org/resource/London> geo:hasGeometry ?x2g . ?x2g geo:asWKT ?x2WKT . FILTER ( geof:sfContains (?x2WKT, ?x1WKT)) }\n"
+    },
+    "65": {
+        "Question": "What is the area of county Cheshire?",
+        "Query": "   select distinct ?area WHERE {         <http://yago-knowledge.org/resource/Cheshire> <http://yago-knowledge.org/resource/infobox/en/areatotalkm> ?area. }\n"
+    },
+    "66": {
+        "Question": "What is the length of river Thames?",
+        "Query": "   SELECT ?length WHERE {         <http://yago-knowledge.org/resource/River_Thames> <http://yago-knowledge.org/resource/hasLength> ?length. }\n"
+    },
+    "67": {
+        "Question": "How many rivers cross England's cities?",
+        "Query": "   SELECT (COUNT(distinct ?x1) as ?num) WHERE {         ?x1 a osm:River.         ?x1 geo:hasGeometry ?x1Geo.         ?x1Geo geo:asWKT ?x1WKT.         <http://yago-knowledge.org/resource/England> geo:hasGeometry ?x2Geo.         ?x2Geo geo:asWKT ?x2WKT.         ?x3 a osm:City.        ?x3 geo:hasGeometry ?x3Geo.        ?x3Geo geo:asWKT ?x3WKT.         FILTER( geof:sfWithin (?x3WKT, ?x2WKT)).         FILTER( geof:sfCrosses (?x1WKT, ?x3WKT)). }\n"
+    },
+    "68": {
+        "Question": "Is the City of London north of the Thames river?",
+        "Query": "   ASK {     ?l owl:sameAs <http://yago-knowledge.org/resource/London>; geo:hasGeometry ?lGeom.          ?lGeom geo:asWKT ?lWKT.      ?river osm:has_name \"River Thames\"^^xsd:string; rdf:type osm:River; geo:hasGeometry ?iGeometry2.          ?iGeometry2 geo:asWKT ?iWKT2.        FILTER(strdf:above(?lWKT, ?iWKT2))  }\n"
+    },
+    "69": {
+        "Question": "Is there a castle in London near Trafalgar Square?",
+        "Query": "   ASK {         ?x1 a osm:Castle.         ?x1 geo:hasGeometry ?x1Geo.         ?x1Geo geo:asWKT ?x1WKT.         ?instance owl:sameAs <http://yago-knowledge.org/resource/London>; geo:hasGeometry ?x2Geo.         ?x2Geo geo:asWKT ?x2WKT.         ?x3 osm:has_name \"Trafalgar Square\"^^<http://www.w3.org/2001/XMLSchema#string>.         ?x3 geo:hasGeometry ?x3Geo.         ?x3Geo geo:asWKT ?x3WKT.         FILTER( geof:sfWithin (?x1WKT, ?x2WKT)).         FILTER( geof:distance (?x1WKT, ?x3WKT, uom:metre) <= 500). }\n"
+    },
+    "70": {
+        "Question": "Which counties of England border country Scotland?",
+        "Query": "   select ?county where {        ?county  rdf:type  <http://kr.di.uoa.gr/yago2geo/ontology/OS_County>;       geo:hasGeometry ?geomC.   ?geomC geo:asWKT ?cWKT.       <http://yago-knowledge.org/resource/Scotland> geo:hasGeometry ?sGeom.      ?sGeom geo:asWKT ?sWKT.                  <http://yago-knowledge.org/resource/England> geo:hasGeometry ?eGeom.        ?sGeom geo:asWKT ?eWKT.        FILTER( geof:sfTouches (?sWKT, ?cWKT) &&  geof:sfWithin (?cWKT,?eWKT)) }\n"
+    },
+    "72": {
+        "Question": "Is there an aerodrome in Essex?",
+        "Query": "   select distinct ?airport where {          ?airport rdf:type <http://yago-knowledge.org/resource/wordnet_airport_102692232>.          ?airport geo:hasGeometry ?ag . ?ag geo:asWKT ?aWKT . <http://yago-knowledge.org/resource/Essex> geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . filter ( geof:sfContains  (?xWKT, ?aWKT)) }\n"
+    },
+    "73": {
+        "Question": "Is Somerset west of Westmorland?",
+        "Query": "   ASK { <http://yago-knowledge.org/resource/Somerset> geo:hasGeometry ?iGeometry1. ?iGeometry1 geo:asWKT ?iWKT1. ?y owl:sameAs <http://yago-knowledge.org/resource/Westmorland>; geo:hasGeometry ?iGeometry2. ?iGeometry2 geo:asWKT ?iWKT2. FILTER(strdf:left(?iWKT1, ?iWKT2)) }\n"
+    },
+    "74": {
+        "Question": "How many cities does Merseyside have?",
+        "Query": "   SELECT (COUNT(?x1) as ?num) WHERE {         ?x1 a <http://yago-knowledge.org/resource/wordnet_city_108524735>.         ?x1 geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/Merseyside> geo:hasGeometry ?yg . ?yg geo:asWKT ?yWKT . filter ( geof:sfContains (?yWKT, ?xWKT)) }\n"
+    },
+    "75": {
+        "Question": "What historic buildings are in Buckinghamshire?",
+        "Query": "   ASK  {   ?poi rdf:type osm:Archaeological .   ?poi geo:hasGeometry  ?poiGeom .   ?poiGeom  geo:asWKT ?poiWKT .   ?poi osm:has_name ?name .   <http://yago-knowledge.org/resource/Buckinghamshire> geo:hasGeometry ?instanceGeom .   ?instanceGeom geo:asWKT ?instanceWKT .   FILTER(  geof:sfWithin (?poiWKT, ?instanceWKT) ) }\n"
+    },
+    "76": {
+        "Question": "Is there a mountain in Merseyside?",
+        "Query": "   ASK {         ?mountain rdf:type <http://yago-knowledge.org/resource/wordnet_mountain_109359803>.         ?mountain ?p <http://yago-knowledge.org/resource/Merseyside>.   }\n"
+    },
+    "77": {
+        "Question": "Does county Suffolk border county Durham?",
+        "Query": "   ASK {       <http://yago-knowledge.org/resource/County_Durham> geo:hasGeometry ?xGeom.        ?xGeom geo:asWKT ?xWKT.        <http://yago-knowledge.org/resource/Suffolk> geo:hasGeometry ?mGeom.        ?mGeom geo:asWKT ?mWKT.        FILTER( geof:sfTouches (?xWKT,?mWKT)) }  \n"
+    },
+    "78": {
+        "Question": "Which restaurants are at most 500m from the University of Liverpool?",
+        "Query": "   select distinct ?p2 WHERE { ?p1 osm:has_name \"University of Liverpool\"^^<http://www.w3.org/2001/XMLSchema#string> ;       a osm:University ;       geo:hasGeometry ?p1geo. ?p1geo geo:asWKT ?p1aswkt. ?p2 rdf:type osm:Restaurant;        geo:hasGeometry ?p2geo . ?p2geo geo:asWKT ?p2aswkt. FILTER ( geof:distance (?p1aswkt, ?p2aswkt, uom:metre) <= 500) }\n"
+    },
+    "79": {
+        "Question": "Which parks are near Trafalgar Square?",
+        "Query": "   SELECT ?x1 WHERE {         ?x1 a osm:Park.         ?x1 geo:hasGeometry ?x1Geo.         ?x1Geo geo:asWKT ?x1WKT.         ?x2 osm:has_name \"Trafalgar Square\"^^<http://www.w3.org/2001/XMLSchema#string>.         ?x2 geo:hasGeometry ?x2Geo.         ?x2Geo geo:asWKT ?x2WKT.         FILTER( geof:distance (?x1WKT, ?x2WKT, uom:metre) <= 500). }\n"
+    },
+    "80": {
+        "Question": "Which villages in Scotland have a population of less than 500 people?",
+        "Query": "   SELECT ?x1 WHERE {         ?x1 a <http://yago-knowledge.org/resource/wordnet_village_108672738>.         ?x1 geo:hasGeometry ?x1g . ?xg geo:asWKT ?x1WKT . <http://yago-knowledge.org/resource/Scotland> geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . filter ( geof:sfContains  (?xWKT, ?x1WKT)).         ?x1 <http://yago-knowledge.org/resource/infobox/en/population> ?x1population.         FILTER(xsd:integer(?x1population) < 500). }\n"
+    },
+    "81": {
+        "Question": "Is there a Modern Art Museum in London?",
+        "Query": "   SELECT distinct ?x WHERE {         ?x rdf:type <http://yago-knowledge.org/resource/wordnet_museum_103800563>.         ?x geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/London> geo:hasGeometry ?lg . ?lg geo:asWKT ?lWKT . filter( geof:sfContains (?lWKT, ?xWKT)).         ?x rdfs:label ?label         FILTER regex(str(?label), \"Modern Art\", \"i\") }\n"
+    },
+    "82": {
+        "Question": "Through which cities does River Thames flow?",
+        "Query": "   select distinct ?owhere {        <http://yago-knowledge.org/resource/River_Thames> geo:hasGeometry ?rg . ?rg geo:asWKT ?rWKT .         ?o rdf:type <http://yago-knowledge.org/resource/wordnet_city_108524735>. ?o geo:hasGeometry ?og . ?og geo:asWKT ?oWKT . filter ( geof:sfCrosses  (?rWKT, ?oWKT))  }\n"
+    },
+    "83": {
+        "Question": "Is there a train station in Dublin?",
+        "Query": "   ASK {         ?x1 a <http://yago-knowledge.org/resource/wordnet_railway_station_104049098>.         ?x1 geo:hasGeometry ?x1g . ?x1g geo:asWKT ?x1WKT . <http://yago-knowledge.org/resource/Dublin> geo:hasGeometry ?dg . ?dg geo:asWKT ?dWKT . filter ( geof:sfContains (?dWKT, ?x1WKT)) }\n"
+    },
+    "84": {
+        "Question": "Is there a forest in Lancashire north of Burnley?",
+        "Query": "   ASK {         ?x1 a osm:Forest.         ?x1 geo:hasGeometry ?x1Geo.         ?x1Geo geo:asWKT ?x1WKT.         <http://yago-knowledge.org/resource/Lancashire> geo:hasGeometry ?x2Geo.         ?x2Geo geo:asWKT ?x2WKT.         <http://yago-knowledge.org/resource/Burnley> geo:hasGeometry ?x3Geo.         ?x3Geo geo:asWKT ?x3WKT.         FILTER( geof:sfWithin (?x1WKT, ?x2WKT)).         FILTER(strdf:above(?x1WKT, ?x3WKT)). }\n"
+    },
+    "85": {
+        "Question": "Is there a county of England that borders the Isle of Wight?",
+        "Query": "   ASK {   ?county rdf:type <http://kr.di.uoa.gr/yago2geo/ontology/OS_County>; geo:hasGeometry ?cGeom.            ?cGeom geo:asWKT ?cWKT.           <http://yago-knowledge.org/resource/England> geo:hasGeometry ?eGeom.            ?eGeom geo:asWKT ?eWKT.                <http://yago-knowledge.org/resource/Isle_of_Wight> geo:hasGeometry ?iwGeom.            ?iwGeom geo:asWKT ?iwWKT.           FILTER( geof:sfWithin (?cWKT,?eWKT))             FILTER( geof:sfTouches (?eWKT,?iwWKT)) }\n"
+    },
+    "86": {
+        "Question": "Is there a church in the county of Greater Manchester dedicated to St. Patrick?",
+        "Query": "   ASK {          ?x rdf:type <http://yago-knowledge.org/resource/wordnet_church_103028079>.          ?x geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/Greater_Manchester> geo:hasGeometry ?Mg . ?Mg geo:asWKT ?MWKT . FILTER ( geof:sfContains (?MWTK, ?xWKT)) .          ?x <http://yago-knowledge.org/resource/infobox/en/dedication> ?property.          FILTER(CONTAINS(?property,\"Patrick\")) }\n"
+    },
+    "87": {
+        "Question": "Which pubs in Liverpool are at most 2km from Anfield stadium?",
+        "Query": "   select distinct ?pubs where {                            ?pubs rdf:type osm:Pub;                                              geo:hasGeometry ?pGeom.                             ?pGeom geo:asWKT ?pWKT.                                                 ?ast owl:sameAs <http://yago-knowledge.org/resource/Anfield>;                                 geo:hasGeometry ?astGeom.                            ?astGeom geo:asWKT ?astWKT.                                <http://yago-knowledge.org/resource/Liverpool> geo:hasGeometry ?lGeom.                       ?lGeom geo:asWKT ?lWKT.               FILTER( geof:sfWithin (?astWKT, ?lWKT) &&  geof:distance (?pWKT, ?astWKT, uom:metre) <= 2000) }   \n"
+    },
+    "88": {
+        "Question": "Which pubs in Liverpool are near Anfield stadium?",
+        "Query": "   select distinct ?pubs where {                            ?pubs rdf:type osm:Pub;                                              geo:hasGeometry ?pGeom.                             ?pGeom geo:asWKT ?pWKT.                                                 ?ast owl:sameAs <http://yago-knowledge.org/resource/Anfield>;                                          geo:hasGeometry ?astGeom.                                 ?astGeom geo:asWKT ?astWKT.                                 <http://yago-knowledge.org/resource/Liverpool> geo:hasGeometry ?lGeom.                                 ?lGeom geo:asWKT ?lWKT.                                                         FILTER( geof:sfWithin (?astWKT, ?lWKT) &&  geof:distance (?pWKT, ?astWKT, uom:metre) <= 1000)  }   \n"
+    },
+    "89": {
+        "Question": "Which hotels are in England's capital?",
+        "Query": "   select distinct ?hotel where {          ?hotel rdf:type <http://yago-knowledge.org/resource/wordnet_hotel_103542333> .          ?hotel geo:hasGeometry ?hg . ?hg geo:asWKT ?hWKT .          <http://yago-knowledge.org/resource/England> <http://yago-knowledge.org/resource/hasCapital> ?y . ?y geo:hasGeometry ?yg . ?yg geo:asWKT ?yWKT . filter ( geof:sfContains  (?yWKT, ?hWKT))}\n"
+    },
+    "90": {
+        "Question": "Which theaters are near Trafalgar Square?",
+        "Query": "   SELECT  ?t  where { ?x osm:has_name  \"Trafalgar Square\"^^xsd:string;             rdf:type osm:Attraction.  ?x geo:hasGeometry ?geo . ?geo geo:asWKT ?w . ?t rdf:type osm:Theatre .  ?t geo:hasGeometry ?geo2 . ?geo2 geo:asWKT ?w2 . filter( geof:distance (?w,?w2, uom:metre) < 1000) }\n"
+    },
+    "91": {
+        "Question": "Through which cities does River Thames flow?",
+        "Query": "   select distinct ?owhere {        <http://yago-knowledge.org/resource/River_Thames> geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT .         ?o rdf:type <http://yago-knowledge.org/resource/wordnet_city_108524735>. ?o geo:hasGeometry ?og . ?og geo:asWKT ?oWKT . filter ( geof:sfCrosses  (?xWKT, ?oWKT)) }\n"
+    },
+    "92": {
+        "Question": "Which rivers are in Great Britain?",
+        "Query": "   select distinct ?rivers where {       ?rivers rdf:type <http://yago-knowledge.org/resource/wordnet_river_109411430>.  ?rivers geo:hasGeometry ?riverGeo . ?riverGeo geo:asWKT ?riverWKT . VALUES ?v {<http://yago-knowledge.org/resource/England> <http://yago-knowledge.org/resource/Scotland> <http://yago-knowledge.org/resource/Wales>} . ?v geo:hasGeometry ?eg . ?eg geo:asWKT ?eWKT . filter ( geof:sfContains (?eWKT, ?riverWKT))   }\n"
+    },
+    "93": {
+        "Question": "Which airports are in the city of Salford?",
+        "Query": "   select ?airports where {           ?airports rdf:type <http://yago-knowledge.org/resource/wordnet_airport_102692232>.           ?airports ?p <http://yago-knowledge.org/resource/City_of_Salford>. }\n"
+    },
+    "94": {
+        "Question": "Where is a car park near Big Ben?",
+        "Query": "   SELECT  distinct  ?w2 WHERE      {        ?poi osm:has_name   \"Big Ben\"^^xsd:string.          ?poi geo:hasGeometry ?geo .       ?geo geo:asWKT ?w .       ?div rdf:type osm:Parking.           ?div geo:hasGeometry ?geo2 .       ?geo2 geo:asWKT ?w2 .  filter( geof:distance (?w,?w2, uom:metre) < 100)  }\n"
+    },
+    "95": {
+        "Question": "Is there a river that crosses Manchester?",
+        "Query": "   ASK where {   ?river rdf:type <http://yago-knowledge.org/resource/wordnet_river_109411430>.     ?river ?p <http://yago-knowledge.org/resource/Manchester>. }\n"
+    },
+    "96": {
+        "Question": "Which Scottish counties border England?",
+        "Query": "   SELECT ?x1 {         ?x1 a <http://kr.di.uoa.gr/yago2geo/ontology/OS_County>.         ?x1 geo:hasGeometry ?x1Geo.         ?x1 geo:asWKT ?x1WKT.         <http://yago-knowledge.org/resource/Scotland> geo:hasGeometry ?x2Geo.         ?x2Geo geo:asWKT ?x2WKT.         <http://yago-knowledge.org/resource/England> geo:hasGeometry ?x3Geo.         ?x3Geo geo:asWKT ?x3WKT.         FILTER( geof:sfWithin (?x1WKT, ?x2WKT)).         FILTER( geof:sfTouches (?x1WKT, ?x3WKT)). }\n"
+    },
+    "97": {
+        "Question": "Is there a car park at most 1km from Waterloo Bridge?",
+        "Query": "   ASK WHERE {   ?entity osm:has_osm_id ?id;           osm:has_name \"Waterloo Bridge\"^^<http://www.w3.org/2001/XMLSchema#string>;           geo:hasGeometry ?geomWaterloo.    ?geomWaterloo geo:asWKT ?waterloogeomWKT.    ?park rdf:type osm:Parking;           geo:hasGeometry ?parkGeom.    ?parkGeom geo:asWKT ?parkGeomWKT.   BIND ( geof:buffer (?waterloogeomWKT, 1000, uom:metre) as ?waterlooEnv).   FILTER ( geof:sfWithin (?parkGeomWKT, ?waterlooEnv)) }\n"
+    },
+    "98": {
+        "Question": "Where is Trafalgar Square located?",
+        "Query": "   SELECT ?x1WKT {         ?x1 osm:has_name \"Trafalgar Square\"^^<http://www.w3.org/2001/XMLSchema#string>.         ?x1 geo:hasGeometry ?x1Geo.         ?x1Geo geo:asWKT ?x1WKT. }\n"
+    },
+    "99": {
+        "Question": "Is the Castle of Edinburgh less than 2km away from Calton Hill?",
+        "Query": "   ASK {         ?x1 osm:has_name \"Calton Hill\"^^<http://www.w3.org/2001/XMLSchema#string>.         ?x1 geo:hasGeometry ?x1Geo.         ?x1Geo geo:asWKT ?x1WKT.                  ?x2 osm:has_name \"Edinburgh Castle\"^^<http://www.w3.org/2001/XMLSchema#string>.         ?x2 geo:hasGeometry ?x2Geo.         ?x2Geo geo:asWKT ?x2WKT.                  FILTER( geof:distance (?x1WKT, ?x2WKT, uom:metre) < 2000). }\n"
+    },
+    "100": {
+        "Question": "How many pharmacies are in 200 meter radius of High Street in Oxford?",
+        "Query": "   SELECT (COUNT(DISTINCT ?poi) as ?totalPharmacies) WHERE   { ?poi      rdf:type         osm:Pharmacy ;                   geo:hasGeometry  ?poiGeom .         ?poiGeom  geo:asWKT        ?poiWKT .         ?instance  osm:has_name \"High Street\"^^xsd:string;                   geo:hasGeometry  ?instanceGeom .         ?instanceGeom geo:asWKT        ?instanceWKT.         FILTER(  geof:distance (?instanceWKT, ?poiWKT, uom:metre) < 200)     }\n"
+    },
+    "101": {
+        "Question": "Which restaurants are near Edinburgh Castle?",
+        "Query": "   SELECT ?poi WHERE{ ?city geo:hasGeometry ?instanceGeom;    osm:has_name \"Edinburgh Castle\"^^xsd:string;       a osm:Castle.    ?instanceGeom geo:asWKT        ?instanceWKT.    ?poi rdf:type osm:Restaurant ;     geo:hasGeometry ?poiGeom . ?poiGeom  geo:asWKT        ?poiWKT .   FILTER ( geof:distance (?instanceWKT, ?poiWKT, uom:metre) < 500) }\n"
+    },
+    "102": {
+        "Question": "Which hotels are near Big Ben?",
+        "Query": "   SELECT ?poi WHERE{ ?city geo:hasGeometry ?instanceGeom;      osm:has_name \"Big Ben\"^^xsd:string .      ?instanceGeom geo:asWKT        ?instanceWKT.      ?poi rdf:type osm:Hotel ;             geo:hasGeometry ?poiGeom .?poiGeom  geo:asWKT        ?poiWKT .     FILTER ( geof:distance (?instanceWKT, ?poiWKT, uom:metre) < 1000) }\n"
+    },
+    "103": {
+        "Question": "Which airports are in Ireland?",
+        "Query": "   select distinct ?airport where {        ?airport rdf:type <http://yago-knowledge.org/resource/wordnet_airport_102692232>.        ?airport geo:hasGeometry ?aGeo.         ?aGeo geo:asWKT ?aWKT . <http://yago-knowledge.org/resource/Ireland> geo:hasGeometry ?iGeo.         ?iGeo geo:asWKT ?iWKT. filter( geof:sfContains (?iWKT,?aWKT))}\n"
+    },
+    "104": {
+        "Question": "Which hospitals are close to Stirling Castle?",
+        "Query": "   SELECT distinct ?x2 WHERE {         ?x1 osm:has_name \"Stirling Castle\"^^<http://www.w3.org/2001/XMLSchema#string>.         ?x1 geo:hasGeometry ?x1Geo.         ?x1Geo geo:asWKT ?x1WKT.         ?x2 a osm:Hospital.         ?x2 geo:hasGeometry ?x2Geo.         ?x2Geo geo:asWKT ?x2WKT.         FILTER( geof:distance (?x1WKT, ?x2WKT, uom:metre) < 500). }\n"
+    },
+    "105": {
+        "Question": "Which airports are in London?",
+        "Query": "   select distinct ?airport where {         ?airport rdf:type <http://yago-knowledge.org/resource/wordnet_airport_102692232>.         ?airport geo:hasGeometry ?aGeo.         ?aGeo geo:asWKT ?aWKT .<http://yago-knowledge.org/resource/London> geo:hasGeometry ?igeo . ?igeo geo:asWKT ?iWKT filter ( geof:sfContains (?iWKT, ?aWKT)) }\n"
+    },
+    "106": {
+        "Question": "Which universities are in England?",
+        "Query": "   select distinct ?university where {          ?university rdf:type <http://yago-knowledge.org/resource/wordnet_university_108286569>.           ?university geo:hasGeometry ?aGeo.         ?aGeo geo:asWKT ?aWKT .<http://yago-knowledge.org/resource/England> geo:hasGeometry ?igeo . ?igeo geo:asWKT ?iWKT filter ( geof:sfContains (?iWKT, ?aWKT))  }\n"
+    },
+    "107": {
+        "Question": "Which mountains are in Scotland?",
+        "Query": "   select distinct ?mountains where {         ?mountains rdf:type <http://yago-knowledge.org/resource/wordnet_mountain_109359803>.         ?mountains geo:hasGeometry ?aGeo.         ?aGeo geo:asWKT ?aWKT .<http://yago-knowledge.org/resource/Scotland> geo:hasGeometry ?igeo . ?igeo geo:asWKT ?iWKT filter ( geof:sfContains (?iWKT, ?aWKT))  }\n"
+    },
+    "108": {
+        "Question": "Where is Elizabeth Tower located?",
+        "Query": "   SELECT ?x1WKT WHERE {         ?x1 osm:has_name \"Elizabeth Tower\"^^<http://www.w3.org/2001/XMLSchema#string>.         ?x1 geo:hasGeometry ?x1Geo.         ?x1Geo geo:asWKT ?x1WKT. }\n"
+    },
+    "109": {
+        "Question": "Which pubs in Manchester are near the Old Trafford stadium?",
+        "Query": "   SELECT  distinct ?div WHERE      {        ?poi osm:has_name    \"Old Trafford\"^^xsd:string.          ?poi geo:hasGeometry ?geo .       ?geo geo:asWKT ?w .       ?poi rdf:type osm:Stadium .      ?div rdf:type osm:Pub.           ?div geo:hasGeometry ?geo2 .       ?geo2 geo:asWKT ?w2 .   filter( geof:distance (?w,?w2, uom:metre) < 500)   }\n"
+    },
+    "110": {
+        "Question": "Which rivers cross Derry?",
+        "Query": "   select ?river where {          ?river rdf:type <http://yago-knowledge.org/resource/wordnet_river_109411430>.          ?river ?p <http://yago-knowledge.org/resource/Derry>. }\n"
+    },
+    "111": {
+        "Question": "Which is the total area of Northern Ireland?",
+        "Query": "   select distinct ?area {   <http://yago-knowledge.org/resource/Northern_Ireland> <http://yago-knowledge.org/resource/infobox/en/areakm> ?area. }\n"
+    },
+    "112": {
+        "Question": "Where is Emirates Stadium located?",
+        "Query": "   SELECT ?x1WKT WHERE {         ?x1 osm:has_name \"Emirates Stadium\"^^<http://www.w3.org/2001/XMLSchema#string>.         ?x1 geo:hasGeometry ?x1Geo.         ?x1Geo geo:asWKT ?x1WKT. }\n"
+    },
+    "113": {
+        "Question": "Which castles are in the Highland council area of Scotland?",
+        "Query": "   select distinct ?castles where {     ?castles rdf:type <http://yago-knowledge.org/resource/wordnet_palace_103878066>.          ?castles geo:hasGeometry ?aGeo.         ?aGeo geo:asWKT ?aWKT . <http://yago-knowledge.org/resource/Highland_(council_area)> geo:hasGeometry ?cGeo. ?cGeo geo:asWKT ?cWKT. filter( geof:sfContains (?iWKT, ?aWKT)) }\n"
+    },
+    "114": {
+        "Question": "How many are the counties of England?",
+        "Query": "   SELECT (COUNT(?x1) AS ?num) WHERE {         ?x1 a <http://kr.di.uoa.gr/yago2geo/ontology/OS_County>.        ?x1 geo:hasGeometry ?x1Geo.         ?x2Geo geo:asWKT ?x1WKT.         <http://yago-knowledge.org/resource/England> geo:hasGeometry ?x2Geo.         ?x2Geo geo:asWKT ?x2WKT.         FILTER( geof:sfWithin (?x1WKT, ?x2WKT)) }\n"
+    },
+    "115": {
+        "Question": "Is there a national park near York?",
+        "Query": "   ASK   {           ?park          rdf:type             osm:Park ;                       geo:hasGeometry  ?parkGeom .             ?parkGeom  geo:asWKT            ?parkWKT .              <http://yago-knowledge.org/resource/York>       geo:hasGeometry  ?yorkGeom .             ?yorkGeom       geo:asWKT            ?yorkWKT . FILTER ( geof:distance (?parkWKT, ?yorkWKT, uom:metre) < 5000) }\n"
+    },
+    "116": {
+        "Question": "Which cafes in Manchester are near Piccadilly Gardens?",
+        "Query": "   Select distinct ?cafe WHERE { ?cafe a osm:Cafe ; geo:hasGeometry ?cafeGeo . ?cafeGeo geo:asWKT ?cafeWKT . <http://yago-knowledge.org/resource/Manchester> geo:hasGeometry ?ManchesterGeo . ?ManchesterGeo geo:asWKT ?ManchesterWKT . ?Piccadilly osm:has_name ?l; geo:hasGeometry ?PiccadillyGeo; rdf:type osm:Park. ?PiccadillyGeo geo:asWKT ?PiccadillyWKT . filter( str(?l)=\"Piccadilly Gardens\"). filter( geof:sfContains (?ManchesterWKT, ?PiccadillyWKT)). filter ( geof:distance (?cafeWKT, ?PiccadillyWKT, uom:metre) <= 1000). }\n"
+    },
+    "117": {
+        "Question": "Which hotels in Manchester are near Wharfside Way?",
+        "Query": "   Select ?hotel WHERE { ?hotel a osm:Hotel ; geo:hasGeometry ?hoteleo . ?hotelGeo geo:asWKT ?hotelWKT . <http://yago-knowledge.org/resource/Manchester> geo:hasGeometry ?ManchesterGeo . ?ManchesterGeo geo:asWKT ?ManchesterWKT . ?Wharfside osm:has_name ?l; geo:hasGeometry ?WharfsideGeo . ?WharfsideGeo geo:asWKT ?WharfsideWKT .  filter( geof:sfContains (?ManchesterWKT, ?hotelWKT)). filter ( geof:distance (?hotelWKT, ?WharfsideWKT, uom:metre) < 1000). }\n"
+    },
+    "118": {
+        "Question": "Which county is west of South Yorkshire?",
+        "Query": "   select distinct ?counties where { ?counties rdf:type <http://kr.di.uoa.gr/yago2geo/ontology/OS_County>; geo:hasGeometry ?cGeom.                 ?cGeom geo:asWKT ?cWKT.        ?sy owl:sameAs <http://yago-knowledge.org/resource/South_Yorkshire>; geo:hasGeometry ?syGeom.  ?syGeom geo:asWKT ?syWKT.       FILTER(strdf:left(?cWKT, ?iWKT))  }\n"
+    },
+    "119": {
+        "Question": "Where can I find a car park in Bristol?",
+        "Query": "   Select distinct ?parking WHERE { ?parking a osm:Parking ; geo:hasGeometry ?parkingGeo . ?parkingGeo geo:asWKT ?parkingWKT . <http://yago-knowledge.org/resource/Bristol> geo:hasGeometry ?BristolGeo . ?BristolGeo geo:asWKT ?BristolWKT . filter( geof:sfContains (?BristolWKT, ?parkingWKT)). }\n"
+    },
+    "120": {
+        "Question": "Which villages are in Herefordshire?",
+        "Query": "   select ?villeges  where {              ?villeges rdf:type <http://yago-knowledge.org/resource/wordnet_village_108672738>.              ?villeges geo:hasGeometry ?vGeo. ?vGeo geo:asWKT ?vWKT . <http://yago-knowledge.org/resource/Herefordshire> geo:hasGeometry ?hGeo. ?hGeo geo:asWKT ?hWKT . filter ( geof:sfContains (?hWKT, ?vWKT)) } \n"
+    },
+    "121": {
+        "Question": "How many mountains are there in Scotland?",
+        "Query": "   select (count(distinct ?x) as ?totalMountain) where {             ?x rdf:type <http://yago-knowledge.org/resource/wordnet_mountain_109359803>.             ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/Scotland> geo:hasGeometry ?sGeo. ?sGeo geo:asWKT ?sWKT . filter ( geof:sfContains (?sWKT, ?xWKT)) }\n"
+    },
+    "122": {
+        "Question": "Which city is southeast of Salford?",
+        "Query": "   SELECT ?x1 WHERE {         ?x1 a osm:City.         ?x1 geo:hasGeometry ?x1Geo.         ?x1Geo geo:asWKT ?x1WKT.         <http://yago-knowledge.org/resource/Salford> geo:hasGeometry ?x2Geo.         ?x2Geo geo:asWKT ?x2WKT.         FILTER(strdf:below(?x1WKT, ?x2WKT)).         FILTER(strdf:left(?x1WKT, ?x2WKT)). }\n"
+    },
+    "123": {
+        "Question": "Which university colleges are in Scotland?",
+        "Query": "   SELECT ?x1 WHERE {         ?x1 a <http://yago-knowledge.org/resource/wordnet_college_108278324>.         ?x1 geo:hasGeometry ?x1Geo. ?x1Geo geo:asWKT ?x1WKT . <http://yago-knowledge.org/resource/Scotland> geo:hasGeometry ?x2Geo. ?x2Geo geo:asWKT ?x2WKT . FILTER ( geof:sfContains (?x2WKT, ?x1WKT)) }\n"
+    },
+    "124": {
+        "Question": "In which city is Big Ben located?",
+        "Query": "   SELECT ?x1 WHERE {         ?x1 a <http://yago-knowledge.org/resource/wordnet_city_108524735>. ?x1 geo:hasGeometry ?x1Geo. ?x1Geo geo:asWKT ?x1WKT .         <http://yago-knowledge.org/resource/Big_Ben> geo:hasGeometry ?bbGeo. ?bbGeo geo:asWKT ?bbWKT . filter( geof:sfContains (?x1WKT, ?bbWKT)) }\n"
+    },
+    "125": {
+        "Question": "Does the district of Coleraine border Belfast?",
+        "Query": "   ASK {         <http://yago-knowledge.org/resource/Coleraine> geo:hasGeometry ?x1Geo.         ?x1Geo geo:asWKT ?x1WKT.         <http://yago-knowledge.org/resource/Belfast> geo:hasGeometry ?x2Geo.         ?x2Geo geo:asWKT ?x2WKT.         FILTER( geof:sfTouches (?x1WKT, ?x2WKT)). }\n"
+    },
+    "126": {
+        "Question": "Which forests are in Northern Ireland?",
+        "Query": "   SELECT ?x1 WHERE {         ?x1 a osm:Forest.         ?x1 geo:hasGeometry ?x1Geo.        ?x1Geo geo:asWKT ?x1WKT.         <http://yago-knowledge.org/resource/Northern_Ireland> geo:hasGeometry ?x2Geo.         ?x2Geo geo:asWKT ?x2WKT.         FILTER( geof:sfWithin (?x1WKT, ?x2WKT)). }\n"
+    },
+    "127": {
+        "Question": "Is there a park in Dublin near Grafton Street?",
+        "Query": "   ASK {         ?x1 a osm:Park.         ?x1 geo:hasGeometry ?x1Geo.         ?x1Geo geo:asWKT ?x1WKT.         ?x2 osm:has_name \"Grafton Street\"^^<http://www.w3.org/2001/XMLSchema#string>.         ?x2 geo:hasGeometry ?x2Geo.         ?x2Geo geo:asWKT ?x2WKT.         <http://yago-knowledge.org/resource/Dublin> geo:hasGeometry ?x3Geo.         ?x3Geo geo:asWKT ?x3WKT.         FILTER( geof:sfWithin (?x1WKT, ?x3WKT)).         FILTER( geof:distance (?x1WKT, ?x2WKT, uom:metre) < 1000). }\n"
+    },
+    "128": {
+        "Question": "Is Trafalgar square located in London?",
+        "Query": "   ASK {        <http://yago-knowledge.org/resource/Trafalgar_Square> geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/London> geo:hasGeometry ?yGeo. ?yGeo geo:asWKT ?yWKT . filter ( geof:sfContains (?yWKT, ?xWKT)) }\n"
+    },
+    "129": {
+        "Question": "How many parks are there in Northampton?",
+        "Query": "   select (count(distinct ?x) as ?totalPark) where {                      ?x rdf:type <http://yago-knowledge.org/resource/wordnet_park_108615149>.              ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/Northampton> geo:hasGeometry ?yGeo. ?yGeo geo:asWKT ?yWKT . filter( geof:sfContains (?yWKT, ?xWKT)). }\n"
+    },
+    "130": {
+        "Question": "Which aerodrome is in Essex?",
+        "Query": "   select distinct ?x where {                      ?x rdf:type <http://yago-knowledge.org/resource/wordnet_airport_102692232>.              ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/Essex> geo:hasGeometry ?yGeo. ?yGeo geo:asWKT ?yWKT . filter( geof:sfContains  (?yWKT, ?xWKT))  } \n"
+    },
+    "131": {
+        "Question": "Is Edinburgh west of Glasgow?",
+        "Query": "   ASK { <http://yago-knowledge.org/resource/Edinburgh> geo:hasGeometry ?iGeometry1. ?iGeometry1 geo:asWKT ?iWKT1. ?y owl:sameAs <http://yago-knowledge.org/resource/Glasgow>; geo:hasGeometry ?iGeometry2. ?iGeometry2 geo:asWKT ?iWKT2. FILTER(strdf:left(?iWKT1, ?iWKT2)) }\n"
+    },
+    "132": {
+        "Question": "Is there an airport in Dublin?",
+        "Query": "   ASK {           ?x rdf:type <http://yago-knowledge.org/resource/wordnet_airport_102692232>.           ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/Dublin> geo:hasGeometry ?dGeo. ?dGeo geo:asWKT ?dWKT . filter( geof:sfContains (?dWKT, ?xWKT)) }\n"
+    },
+    "133": {
+        "Question": "Which Greek restaurants in London are near Wembley stadium?",
+        "Query": "   SELECT  ?poi ?name WHERE {   ?poi rdf:type osm:Restaurant .   ?poi geo:hasGeometry  ?poiGeom .   ?poiGeom  geo:asWKT ?poiWKT .   ?poi osm:has_name ?name .   ?instance owl:sameAs <http://yago-knowledge.org/resource/London> .   ?instance geo:hasGeometry ?instanceGeom .   ?instanceGeom geo:asWKT ?instanceWKT .   FILTER(  geof:sfWithin (?poiWKT, ?instanceWKT) )   FILTER( CONTAINS(LCASE(?name), \"greek\") ) }\n"
+    },
+    "134": {
+        "Question": "Which counties of Ireland does River Shannon cross?",
+        "Query": "   select distinct ?county where {       ?x owl:sameAs <http://yago-knowledge.org/resource/Ireland>; geo:hasGeometry ?geomLC.      ?geomLC geo:asWKT ?niWKT.    ?county  rdf:type  <http://kr.di.uoa.gr/yago2geo/ontology/OSI_County_Council>;            <http://www.opengis.net/ont/geosparql#hasGeometry> ?geomC.        ?geomC geo:asWKT ?cWKT.        ?river  rdf:type  osm:River;                 osm:has_name \"River Shannon\"^^xsd:string;                        geo:hasGeometry ?geomR.        ?geomR geo:asWKT ?rWKT.        FILTER( geof:sfWithin (?cWKT, ?niWKT))        FILTER( geof:sfCrosses (?rWKT, ?cWKT)) }\n"
+    },
+    "135": {
+        "Question": "Which restaurants are near Baker Street in London?",
+        "Query": "   SELECT  distinct ?p2 WHERE {          ?l owl:sameAs <http://yago-knowledge.org/resource/London>; geo:hasGeometry ?lGeom.         ?lGeom geo:asWKT ?lWKT.   ?p1 osm:has_name \"Baker Street\"^^<http://www.w3.org/2001/XMLSchema#string> ;                   geo:hasGeometry  ?p1geo .         ?p1geo  geo:asWKT ?p1aswkt.          ?p2 rdf:type osm:Restaurant;                geo:hasGeometry ?p2geo .         ?p2geo geo:asWKT ?p2aswkt. FILTER ( geof:sfWithin (?p1aswkt,?lWKT) &&  geof:distance (?p1aswkt, ?p2aswkt, uom:metre) < 500) }\n"
+    },
+    "136": {
+        "Question": "Which countries border Wales?",
+        "Query": "   select distinct ?country where {            ?country rdf:type <http://yago-knowledge.org/resource/wordnet_country_108544813>.            <http://yago-knowledge.org/resource/Wales> <http://yago-knowledge.org/resource/hasNeighbor> ?country. }\n"
+    },
+    "137": {
+        "Question": "Is England part of the United Kingdom?",
+        "Query": "   ASK {         <http://yago-knowledge.org/resource/England> geo:hasGeometry ?x1Geo.         ?x1Geo geo:asWKT ?x1WKT.         <http://yago-knowledge.org/resource/United_Kingdom> geo:hasGeometry ?x2Geo.         ?x2Geo geo:asWKT ?x2WK.         FILTER( geof:sfWithin (?x1WKT, ?x2WKT)). }\n"
+    },
+    "138": {
+        "Question": "How many county councils are there in Ireland?",
+        "Query": "SELECT (count(distinct ?county)as ?total)\nWHERE {\n        <http://yago-knowledge.org/resource/Ireland>   geo:hasGeometry ?irelandGeom.\n\n  ?irelandGeom geo:asWKT ?irelandGeomWKT.\n\n  ?county osm:hasName ?countyName;\n          geo:hasGeometry ?countyGeom.\n\n   ?countyGeom geo:asWKT ?countyGeomWKT.\n\n   FILTER( geof:sfWithin (?countyGeomWKT, ?irelandGeomWKT))\n}"
+    },
+    "139": {
+        "Question": "Which restaurants are near Stonehenge?",
+        "Query": "   SELECT ?x1 WHERE {         ?x1 a osm:Restaurant.         ?x1 geo:hasGeometry ?x1Geo.         ?x1Geo geo:asWKT ?x1WKT.         ?x2 osm:has_name \"Stonehenge\"^^<http://www.w3.org/2001/XMLSchema#string>.         ?x2 geo:hasGeometry ?x2Geo.         ?x2Geo geo:asWKT ?x2WKT.         FILTER( geof:distance (?x1WKT, ?x2WKT, uom:metre) < 1000). }\n"
+    },
+    "140": {
+        "Question": "What tourist attractions are there in Belfast, Northern Ireland?",
+        "Query": "   SELECT distinct ?p2  WHERE {  <http://yago-knowledge.org/resource/Northern_Ireland> geo:hasGeometry ?p0geo. ?p0geo  geo:asWKT ?p0aswkt . ?bl owl:sameAs <http://yago-knowledge.org/resource/Belfast>; geo:hasGeometry ?p1geo. ?p1geo  geo:asWKT ?p1aswkt . ?p2 rdf:type osm:Attraction;     geo:hasGeometry ?p2geo. ?p2geo geo:asWKT ?p2aswkt . FILTER ( geof:sfWithin (?p2aswkt, ?p1aswkt) &&  geof:sfWithin (?p1aswkt, ?p0aswkt)  )  }\n"
+    },
+    "142": {
+        "Question": "Which are the districts of county Chesire?",
+        "Query": "   select distinct ?districts where {          ?districts ?p <http://yago-knowledge.org/resource/wikicat_Districts_of_Cheshire>. }\n"
+    },
+    "143": {
+        "Question": "Where is Tower Bridge located?",
+        "Query": "   SELECT ?xWKT WHERE {         <http://yago-knowledge.org/resource/Tower_Bridge> geo:hasGeometry ?xgeo.         ?xgeo geo:asWKT ?xWKT. }\n"
+    },
+    "144": {
+        "Question": "Is London south of Manchester?",
+        "Query": "   ASK {        <http://yago-knowledge.org/resource/geoentity_City_of_London_2643744> geo:hasGeometry ?xGeom.       ?xGeom geo:asWKT ?xWKT.        <http://yago-knowledge.org/resource/Manchester> geo:hasGeometry ?mGeom.      ?mGeom geo:asWKT ?mWKT.        FILTER(strdf:below(?xWKT,?mWKT)) }  \n"
+    },
+    "145": {
+        "Question": "Are there any lakes in Scotland?",
+        "Query": "   ASK {                     ?x rdf:type <http://yago-knowledge.org/resource/wordnet_lake_109328904>.              ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/Scotland> geo:hasGeometry ?sGeo. ?sGeo geo:asWKT ?sWKT .      filter( geof:sfWithin (?xWKT, ?sWKT))   }\n"
+    },
+    "146": {
+        "Question": "Which counties border county Donegal to the south?",
+        "Query": "   SELECT ?x1 WHERE {     ?x1 a <http://kr.di.uoa.gr/yago2geo/ontology/OS_County>.     ?x1 geo:hasGeometry ?x1geo.     ?x1geo geo:asWKT ?x1WKT.     <https://yago-knowledge.org/resource/County_Donegal> geo:hasGeometry ?x2geo.     ?x2geo geo:asWKT ?x2WKT.     FILTER(strdf:below(?x1WKT,?x2WKT)).     FILTER( geof:sfTouches (?x1WKT, ?x2WKT)). }\n"
+    },
+    "147": {
+        "Question": "Is there a forest near Manchester?",
+        "Query": "   ASK  {       ?forest      rdf:type         <http://www.app-lab.eu/osm/ontology#forest> ;                   geo:hasGeometry  ?forestGeom .         ?forestGeom  geo:asWKT        ?forestWKT .         ?Manchester  owl:sameAs      <http://yago-knowledge.org/resource/Manchester> ;                   geo:hasGeometry  ?ManchesterGeom .         ?Manchestereom                   geo:asWKT        ?ManchesterWKT . FILTER ( geof:distance (?forestWKT, ?ManchesterWKT, uom:metre) < 5000) }\n"
+    },
+    "148": {
+        "Question": "Is the Tower of London near river Thames?",
+        "Query": "   ASK {     ?x1 osm:has_name \"Tower of London\"^^<http://www.w3.org/2001/XMLSchema#string>.     ?x1 geo:hasGeometry ?x1geo.     ?x1geo geo:asWKT ?x1WKT.     ?x2 osm:has_name \"Thames\"^^<http://www.w3.org/2001/XMLSchema#string>.     ?x2 geo:hasGeometry ?x2geo.     ?x2geo geo:asWKT ?x2WKT.     FILTER( geof:distance (?x1WKT, ?x2WKT, uom:metre) < 50000). }\n"
+    },
+    "149": {
+        "Question": "Does Hammersmith Bridge connect Hammersmith with Barnes?",
+        "Query": "   ASK { ?poi rdf:type osm:Bridge . ?poi osm:has_name \"Hammersmith Bridge\"^^<http://www.w3.org/2001/XMLSchema#string> . ?poi geo:hasGeometry ?geom . ?geom geo:asWKT ?wkt . ?ham owl:sameAS <http://yago-knowledge.org/resource/Hammersmith> . ?ham geo:hasGeometry ?hamGeom . ?hamGeom geo:asWKT ?hamWKT . ?bar owl:sameAS <http://yago-knowledge.org/resource/Barnes,_London> . ?bar geo:hasGeometry ?barGeom . ?barGeom geo:asWKT ?barWKT . FILTER ( geof:sfTouches (?hamWKT, ?wkt)) FILTER ( geof:sfTouches (?barWKT, ?wkt)) }\n"
+    },
+    "151": {
+        "Question": "Which rivers discharge into the Solway Firth?",
+        "Query": "   select distinct ?river where {          ?river rdf:type  <http://yago-knowledge.org/resource/wordnet_river_109411430>.          ?river ?p <http://yago-knowledge.org/resource/Solway_Firth>. }\n"
+    },
+    "152": {
+        "Question": "Which art museums are at most 1km from Charlotte Square in Edinburgh?",
+        "Query": "   SELECT distinct ?poi WHERE { ?poi rdf:type osm:Museum. ?poi geo:hasGeometry ?geom . ?geom geo:asWKT ?wkt . ?instance osm:has_name \"Charlotte Square\"^^<http://www.w3.org/2001/XMLSchema#string> . ?instance geo:hasGeometry ?inGeom . ?inGeom geo:asWKT ?inWKT . FILTER ( geof:distance (?wkt, ?inWKT, <http://www.opengis.net/def/uom/OGC/1.0/metre>) <= 1000 ) . }\n"
+    },
+    "153": {
+        "Question": "Which rivers cross county Cheshire?",
+        "Query": "   select distinct ?river where {     ?river rdf:type <http://yago-knowledge.org/resource/wordnet_river_109411430>.         ?river geo:hasGeometry ?riverGeo. ?riverGeo geo:asWKT ?rWKT . <http://yago-knowledge.org/resource/Cheshire> geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . filter( geof:sfContains (?xWKT, ?rWKT)) }\n"
+    },
+    "154": {
+        "Question": "Where can I find a car park in Exeter?",
+        "Query": "   SELECT distinct ?poi WHERE { ?poi rdf:type osm:Parking . ?poi geo:hasGeometry ?poiGeom . ?poiGeom geo:asWKT ?poiWKT . ?city owl:sameAs <http://yago-knowledge.org/resource/Exeter> . ?city geo:hasGeometry ?cityGeom . ?cityGeom geo:asWKT ?cityWKT . FILTER ( geof:sfWithin (?poiWKT, ?cityWKT)) }\n"
+    },
+    "155": {
+        "Question": "Which is the highest mountain in Ireland?",
+        "Query": "   select distinct ?x ?property where {                                  ?x rdf:type <http://yago-knowledge.org/resource/wordnet_mountain_109359803>.                                  ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/Ireland> geo:hasGeometry ?irGeo. ?irGeo geo:asWKT ?irWKT .                                 ?x <http://yago-knowledge.org/resource/infobox/en/elevationm>  ?property.      filter ( geof:sfContains (?irWKT, ?xWKT))                           } ORDER BY DESC(?property) LIMIT 1\n"
+    },
+    "156": {
+        "Question": "Where is the closest market to Elephant and Castle underground station?",
+        "Query": "   SELECT ?poiWKT ?poi ( geof:distance (?poiWKT, ?instanceWKT, uom:metre) as ?res) WHERE   { SERVICE <http://pyravlos2.di.uoa.gr:8080/geoqa/Query>       { ?city geo:hasGeometry ?instanceGeom;                    osm:has_name \"Elephant and Castle\"^^xsd:string;                    a osm:Railway_Station.         ?instanceGeom geo:asWKT        ?instanceWKT.         ?poi rdf:type osm:Supermarket ;              geo:hasGeometry ?poiGeom .         ?poiGeom  geo:asWKT        ?poiWKT .              FILTER( geof:distance (?poiWKT, ?instanceWKT, uom:metre) < 1000)       }   } ORDER BY  geof:distance (?poiWKT, ?instanceWKT, uom:metre) LIMIT 1\n"
+    },
+    "157": {
+        "Question": "What is the name of Britain's longest river?",
+        "Query": "   select distinct ?name where  { ?x rdf:type <http://yago-knowledge.org/resource/wordnet_river_109411430>.               ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/England> geo:hasGeometry ?eGeo. ?eGeo geo:asWKT ?eWKT .  filter ( geof:sfContains (?eWKT, ?xWKT))             ?x <http://yago-knowledge.org/resource/hasLength> ?property.               ?x rdfs:label ?name } ORDER BY DESC(xsd:integer(str(?property))) LIMIT 1\n"
+    },
+    "158": {
+        "Question": "Which cities in England have at least 2 castles?",
+        "Query": "   select distinct ?x  where {                                  ?x rdf:type <http://yago-knowledge.org/resource/wordnet_city_108524735>.                                  ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/England> geo:hasGeometry ?eGeo. ?eGeo geo:asWKT ?eWKT .  filter ( geof:sfContains (?eWKT, ?xWKT))                               ?y rdf:type <http://yago-knowledge.org/resource/wordnet_palace_103878066> . ?y geo:hasGeometry ?yGeo. ?yGeo geo:asWKT ?yWKT . filter ( geof:sfContains (?xWKT, ?yWKT)) } GROUP BY ?x HAVING (count(DISTINCT ?y) > 1)\n"
+    },
+    "159": {
+        "Question": "Which is the biggest county council in the Republic of Ireland?",
+        "Query": "   SELECT ?countyName WHERE {         <http://yago-knowledge.org/resource/Ireland>   geo:hasGeometry ?irelandGeom.   ?irelandGeom geo:asWKT ?irelandGeomWKT.   ?county osm:hasName ?countyName;           geo:hasGeometry ?countyGeom.    ?countyGeom geo:asWKT ?countyGeomWKT.    FILTER( geof:sfWithin (?countyGeomWKT, ?irelandGeomWKT)) } ORDER BY ASC (strdf:area(?countyGeomWKT)) LIMIT 1\n"
+    },
+    "160": {
+        "Question": "Which football stadium has the biggest capacity in Ireland?",
+        "Query": "select distinct ?x\nwhere {\n          ?x a <http://yago-knowledge.org/resource/wikicat_Association_football_venues_in_the_Republic_of_Ireland>.\n \n          ?x <http://yago-knowledge.org/resource/infobox/en/seatingcapacity> ?o.\n} ORDER BY DESC(xsd:integer(?o)) LIMIT 1"
+    },
+    "161": {
+        "Question": "Which site of Manchester is the most popular?",
+        "Query": "SELECT  ?site ?sitename ?visitors\nWHERE\n  { SERVICE <http://pyravlos1.di.uoa.gr:8080/geoqa/Query> {\n            ?manchester owl:sameAs <http://yago-knowledge.org/resource/Manchester> ;\n               geo:hasGeometry [ geo:asWKT ?manchesterWKT ] .\n                    {\n                        { ?site a osm:Attraction . }\n                            UNION\n                        { ?site a osm:Museum . }\n                    }\n                ?site  owl:sameAs ?link ;\n                  osm:has_name ?sitename ;\n                  geo:hasGeometry [ geo:asWKT ?siteWKT ] .\n            FILTER( geof:sfWithin (?siteWKT, ?manchesterWKT)) .\n        }\n        SERVICE <http://pyravlos1.di.uoa.gr:8890/sparql> {\n            ?link <http://yago-knowledge.org/resource/infobox/en/visitors> ?visitors  .\n        }\n}\nORDER BY DESC(?visitors)\nLIMIT 1"
+    },
+    "162": {
+        "Question": "Which is the oldest bridge of London?",
+        "Query": "   select distinct ?x where {                                  ?x rdf:type <http://yago-knowledge.org/resource/wordnet_bridge_102898711>.                                  ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/London> geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT. FILTER( geof:sfContains (?yWKT, ?xWKT))                                ?x <http://yago-knowledge.org/resource/wasCreatedOnDate>  ?property.                                 } ORDER BY ?property LIMIT 1\n"
+    },
+    "163": {
+        "Question": "Where is the nearest gas station to St. Peter's Square in Manchester?",
+        "Query": "   SELECT ?p3 WHERE {  ?p1 osm:has_name \"St. Peter's Square\"^^<http://www.w3.org/2001/XMLSchema#string> ;         geo:hasGeometry ?p1geo. ?p1geo  geo:asWKT ?p1aswkt . <http://yago-knowledge.org/resource/Manchester>         geo:hasGeometry ?p2geo. ?p2geo geo:asWKT ?p2aswkt . ?p3 rdf:type osm:Fuel;     osm:has_name ?p3name;     geo:hasGeometry ?p3geo . ?p3geo geo:asWKT ?p3aswkt. FILTER ( geof:sfWithin (?p1aswkt, ?p2aswkt)) . BIND( geof:distance (?p1aswkt, ?p3aswkt, uom:metre) as ?distance) } ORDER BY ?distance LIMIT 1\n"
+    },
+    "164": {
+        "Question": "Which city in Scotland has the largest population?",
+        "Query": "   select distinct ?x ?property where {                                  ?x rdf:type <http://yago-knowledge.org/resource/wordnet_city_108524735>.                                     ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/Scotland> geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT. FILTER( geof:sfContains (?yWKT, ?xWKT))                                ?x <http://yago-knowledge.org/resource/infobox/en/populationtotal>  ?property.                                 } ORDER BY DESC(?property) LIMIT 1\n"
+    },
+    "165": {
+        "Question": "Which cities of the United Kingdom have a university?",
+        "Query": "   select distinct ?x where {  ?x rdf:type <http://yago-knowledge.org/resource/wordnet_city_108524735>.                                               ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/United_Kingdom> geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT. FILTER( geof:sfContains (?yWKT, ?xWKT))                                ?z rdf:type <http://yago-knowledge.org/resource/wordnet_university_108286569>. ?z geo:hasGeometry ?zGeo. ?zGeo geo:asWKT ?zWKT . filter( geof:sfContains (?xWKT, ?zWKT))  }\n"
+    },
+    "166": {
+        "Question": "What is the elevation of the most elevated spot in county Down?",
+        "Query": "   select distinct ?property where {                                  ?x rdf:type <http://yago-knowledge.org/resource/wordnet_mountain_109359803>.                                    ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/County_Down> geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT. FILTER( geof:sfContains (?yWKT, ?xWKT))                                ?x <http://yago-knowledge.org/resource/infobox/en/elevationm> ?property } ORDER BY DESC(?property) LIMIT 1\n"
+    },
+    "167": {
+        "Question": "Which is the largest county of England?",
+        "Query": "   select distinct ?x ?property where {                                  ?x rdf:type <http://yago-knowledge.org/resource/wordnet_county_108546183>.                                   ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/England> geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT. FILTER( geof:sfContains (?yWKT, ?xWKT))                                ?x <http://yago-knowledge.org/resource/infobox/en/areatotalkm> ?property                    } ORDER BY DESC(xsd:integer(?property)) LIMIT 1\n"
+    },
+    "168": {
+        "Question": "What is the longest river in England and Wales?",
+        "Query": "   select distinct ?x ?property where {                                { ?x rdf:type <http://yago-knowledge.org/resource/wordnet_river_109411430>.                                    ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/England> geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT. FILTER( geof:sfContains (?yWKT, ?xWKT))                                ?x <http://yago-knowledge.org/resource/hasLength> ?property                               }                               UNION                               {   ?x rdf:type <http://yago-knowledge.org/resource/wordnet_river_109411430>.                                    ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/Wales> geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT. FILTER( geof:sfContains (?yWKT, ?xWKT))  ?x <http://yago-knowledge.org/resource/hasLength> ?property                               }                               } ORDER BY DESC(xsd:integer(?property)) LIMIT 1\n"
+    },
+    "170": {
+        "Question": "Which city in Scotland has the largest population?",
+        "Query": "   select distinct ?x ?property where {                                    ?x rdf:type <http://yago-knowledge.org/resource/wordnet_city_108524735>.   ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/Scotland> geo:hasGeometry ?sGeo. ?sGeo geo:asWKT ?sWKT.   ?x <http://yago-knowledge.org/resource/hasNumberOfPeople> ?property   filter( geof:sfContains (?sWKT, ?xWKT)) } ORDER BY DESC(?property) LIMIT 1\n"
+    },
+    "171": {
+        "Question": "Which city of England is nearest to London?",
+        "Query": "   SELECT ?city  ( geof:distance (?LondonWKT, ?cityWKT, uom:metre) as ?distance)  WHERE {    ?city a osm:City ; geo:hasGeometry ?cityGeo . ?cityGeo geo:asWKT ?cityWKT .     ?London a osm:City ;     osm:has_name  ?l2 ; geo:hasGeometry ?LondonGeo . ?LondonGeo geo:asWKT ?LondonWKT . filter( str(?l2)=\"London\"). filter(?city != ?London). } ORDER BY ASC(?distance) LIMIT 1\n"
+    },
+    "172": {
+        "Question": "Is there a river in Ireland that crosses more than 3 cities?",
+        "Query": "   ASK { { select distinct ?x  where {                             ?x rdf:type <http://yago-knowledge.org/resource/wordnet_river_109411430>.                          ?y rdf:type <http://yago-knowledge.org/resource/wordnet_city_108524735>.                             ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . ?y geo:hasGeometry ?yGeo. ?yGeo geo:asWKT ?yWKT . <http://yago-knowledge.org/resource/Ireland> geo:hasGeometry ?iGeo. ?iGeo geo:asWKT ?iWKT . filter( geof:sfContains (?iWKT, ?xWKT) &&  geof:sfCrosses  (?xWKT, ?yWKT)) . } GROUP BY(?x) HAVING(count(?y)>3) } }\n"
+    },
+    "173": {
+        "Question": "Which is the largest royal borough of London?",
+        "Query": "SELECT ?x\nWHERE {\n        ?x rdf:type <http://kr.di.uoa.gr/yago2geo/ontology/OS_LondonBoroughWard>;   geo:hasGeometry ?Geom.\n\n  ?Geom geo:asWKT ?GeomWKT.\n} ORDER BY ASC (strdf:area(?GeomWKT)) LIMIT 1"
+    },
+    "174": {
+        "Question": "Which river crosses the most cities in England?",
+        "Query": "   select distinct ?x where {                                                                        ?x rdf:type <http://yago-knowledge.org/resource/wordnet_river_109411430>.             ?y rdf:type <http://yago-knowledge.org/resource/wordnet_city_108524735>.                                                                            ?y geo:hasGeometry ?yGeo. ?yGeo geo:asWKT ?yWKT . <http://yago-knowledge.org/resource/England> geo:hasGeometry ?eGeo. ?eGeo geo:asWKT ?eWKT.                                     ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . filter ( geof:sfCrosses (?xWKT, ?yWKT) &&  geof:sfContains (?eWKT, ?yWKT)) } GROUP BY ?x ORDER BY DESC(COUNT(distinct ?y)) LIMIT 1\n"
+    },
+    "175": {
+        "Question": "Which is the largest lake by area in England?",
+        "Query": "   select distinct ?x ?property where { ?x rdf:type <http://yago-knowledge.org/resource/wordnet_lake_109328904>.  ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/England> geo:hasGeometry ?eGeo. ?eGeo geo:asWKT ?eWKT . filter( geof:sfContains (?eWKT, ?xWKT)) .  ?x <http://yago-knowledge.org/resource/infobox/en/area> ?property } ORDER BY DESC(?property) LIMIT 1\n"
+    },
+    "176": {
+        "Question": "Does Everton FC plays in Liverpool?",
+        "Query": "ASK {\n        <http://yago-knowledge.org/resource/Everton_F.C.> <http://yago-knowledge.org/resource/infobox/en/ground> ?o.\n        FILTER(contains(?o,\"Liverpool\"))\n}"
+    },
+    "177": {
+        "Question": "Which is the largest city of Ireland?",
+        "Query": "   select distinct ?x ?property where {             ?x rdf:type <http://yago-knowledge.org/resource/wordnet_city_108524735>. ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/Ireland> geo:hasGeometry ?iGeo. ?iGeo geo:asWKT ?iWKT . ?x <http://yago-knowledge.org/resource/infobox/en/areatotalkm> ?property filter( geof:sfContains (?iWKT, ?xWKT))  } ORDER BY DESC(?property) LIMIT 1\n"
+    },
+    "178": {
+        "Question": "Which car park is closest to a bridge on river Exe?",
+        "Query": "Select ?poi\n{\nSERVICE <http://pyravlos1.di.uoa.gr:8890/sparql>\n{\n<http://yago-knowledge.org/resource/River_Exe> ?p ?o.\n?x rdf:type <http://yago-knowledge.org/resource/wordnet_bridge_102898711>.\n?x rdf:label ?label.\n}\nSERVICE <http://pyravlos1.di.uoa.gr:8080/geoqa/Query>\n{\n?poi rdf:type osm:Parking .\n?poi geo:hasGeometry ?geom .\n\n?geom geo:asWKT ?wkt .\n?b osm:has_name ?label .\n?b geo:hasGeometry ?bGeom .\n?bGeom geo:asWKT ?bWKT .\nFILTER ( geof:distance (?wkt, ?bWKT, <http://www.opengis.net/def/uom/OGC/1.0/metre>) < 500 ) .\n}\n} ORDER BY DESC( geof:distance (?wkt, ?bWKT, <http://www.opengis.net/def/uom/OGC/1.0/metre>) < 500) LIMIT 1"
+    },
+    "179": {
+        "Question": "What is the most densely populated city in Ireland?",
+        "Query": "   select distinct ?x ?property where { ?x rdf:type <http://yago-knowledge.org/resource/wordnet_city_108524735>.  ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/Ireland> geo:hasGeometry ?iGeo. ?iGeo geo:asWKT ?iWKT. filter ( geof:sfContains (?iWKT, ?xWKT)) . ?x <http://yago-knowledge.org/resource/hasPopulationDensity> ?property  } ORDER BY DESC(?property) LIMIT 1\n"
+    },
+    "180": {
+        "Question": "Is Glasgow the largest city of Scotland in terms of population?",
+        "Query": "   select (?property1 > ?property) where { yago:Glasgow <http://yago-knowledge.org/resource/hasNumberOfPeople> ?property1.  ?y rdf:type <http://yago-knowledge.org/resource/wordnet_city_108524735>.  ?y geo:hasGeometry ?yGeo. ?yGeo geo:asWKT ?yWKT . <http://yago-knowledge.org/resource/Scotland> geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT. filter ( geof:sfContains (?xWKT, ?yWKT)) ?y <http://yago-knowledge.org/resource/hasNumberOfPeople> ?property . }\n"
+    },
+    "181": {
+        "Question": "Does England have more counties than Ireland?",
+        "Query": "   select (COUNT(DISTINCT ?x) > COUNT(DISTINCT ?y)) {  {   select ?x  {    ?x rdf:type <http://yago-knowledge.org/resource/wordnet_county_108546183>. ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/England> geo:hasGeometry ?eGeo. ?eGeo geo:asWKT ?eWKT. filter( geof:sfContains (?eWKT, ?xWKT))  }}   {   select ?y  {    ?y rdf:type <http://yago-knowledge.org/resource/wordnet_county_108546183>.           ?y geo:hasGeometry ?yGeo. ?yGeo geo:asWKT ?yWKT . <http://yago-knowledge.org/resource/Ireland> geo:hasGeometry ?iGeo. ?iGeo geo:asWKT ?iWKT. filter( geof:sfContains (?iWKT, ?yWKT)) }}                            }\n"
+    },
+    "182": {
+        "Question": "Which is the largest lake in England?",
+        "Query": "   select distinct ?x ?property where {                                               ?x rdf:type <http://yago-knowledge.org/resource/wordnet_lake_109328904>.  ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/England> geo:hasGeometry ?EGeo. ?EGeo geo:asWKT ?EWKT. FILTER ( geof:sfContains (?EWKT, ?xWKT))  ?x <http://yago-knowledge.org/resource/infobox/en/area> ?property } ORDER BY DESC(?property) LIMIT 1\n"
+    },
+    "183": {
+        "Question": "Are the cities that River Thames crosses more than 10?",
+        "Query": "   ASK {       ?x rdf:type <http://yago-knowledge.org/resource/wordnet_city_108524735> . ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT.         <http://yago-knowledge.org/resource/River_Thames> geo:hasGeometry ?rGeo. ?rGeo geo:asWKT ?rWKT. filter ( geof:sfCrosses (?rWKT,?xWKT))           } HAVING (?total > 10) \n"
+    },
+    "184": {
+        "Question": "Are there any rivers that cross both England and Wales?",
+        "Query": "   ASK where {      ?x rdf:type <http://yago-knowledge.org/resource/wordnet_river_109411430>.         ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/England> geo:hasGeometry ?yGeo. ?yGeo geo:asWKT ?yWKT. filter( geof:sfCrosses  (?xWKT, ?yWKT) ) <http://yago-knowledge.org/resource/Wales> geo:hasGeometry ?zGeo. ?zGeo geo:asWKT ?zWKT. filter( geof:sfCrosses (?xWKT, ?zWKT))            } \n"
+    },
+    "185": {
+        "Question": "Which county of England occupies the largest area?",
+        "Query": "   select ?x ?property where {    ?x rdf:type <http://yago-knowledge.org/resource/wordnet_county_108546183>.    ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/England> geo:hasGeometry ?yGeo. ?yGeo geo:asWKT ?yWKT. filter( geof:sfContains (?yWKT, ?xWKT))    ?x <http://yago-knowledge.org/resource/infobox/en/areatotalkm> ?property.          } ORDER BY DESC(?property) LIMIT 1\n"
+    },
+    "186": {
+        "Question": "What is the longest bridge in Scotland?",
+        "Query": "   select distinct ?x ?property  where {         ?x rdf:type <http://yago-knowledge.org/resource/wordnet_bridge_102898711>.     ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/Scotland> geo:hasGeometry ?yGeo. ?yGeo geo:asWKT ?yWKT. filter( geof:sfContains (?yWKT, ?xWKT))         ?x <http://yago-knowledge.org/resource/infobox/en/length> ?property.         } ORDER BY DESC(?property) LIMIT 1\n"
+    },
+    "187": {
+        "Question": "Which hospital is nearest to Calton Hill in Edinburgh?",
+        "Query": "   Select ?hospital ( geof:distance (?hospitalWKT, ?CaltonWKT, uom:metre) as ?distance) WHERE { ?hospital a osm:Hospital ; geo:hasGeometry ?hospitalGeo . ?hospitalGeo geo:asWKT ?hospitalWKT . <http://yago-knowledge.org/resource/Edinburgh> geo:hasGeometry ?EdinburghGeo . ?EdinburghGeo geo:asWKT ?EdinburghWKT . ?Calton osm:has_name ?l; geo:hasGeometry ?CaltonGeo . ?CaltonGeo geo:asWKT ?CaltonWKT . filter( str(?l)=\"Calton Hill\"). filter( geof:sfContains (?EdinburghWKT, ?hospitalWKT)). } ORDER BY ASC(?distance) LIMIT 1\n"
+    },
+    "188": {
+        "Question": "Which is the closest airport to London?",
+        "Query": "   SELECT ?poi WHERE   { SERVICE <http://pyravlos1.di.uoa.gr:8080/geoqa/Query>       { <http://yago-knowledge.org/resource/London> geo:hasGeometry ?instanceGeom.                          ?instanceGeom geo:asWKT        ?instanceWKT.         ?poi rdf:type osm:Airport ;              geo:hasGeometry ?poiGeom .         ?poiGeom  geo:asWKT        ?poiWKT .            }       BIND( geof:distance (?instanceWKT, ?poiWKT, uom:metre) as ?res)   } ORDER BY ?res LIMIT 1\n"
+    },
+    "189": {
+        "Question": "Which is the highest point in Cheshire?",
+        "Query": "   select distinct ?x ?property where {                                  ?x rdf:type <http://yago-knowledge.org/resource/wordnet_mountain_109359803>.                                  ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/Cheshire> geo:hasGeometry ?yGeo. ?yGeo geo:asWKT ?yWKT. filter( geof:sfContains (?yWKT, ?xWKT))                                ?x <http://yago-knowledge.org/resource/infobox/en/elevationm>  ?property.                                 } ORDER BY DESC(?property) LIMIT 1\n"
+    },
+    "190": {
+        "Question": "Which is the highest building in London?",
+        "Query": "   select distinct ?x ?property where {                                  ?x rdf:type <http://yago-knowledge.org/resource/wordnet_building_102913152>.                                  ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/London> geo:hasGeometry ?yGeo. ?yGeo geo:asWKT ?yWKT. filter( geof:sfContains (?yWKT, ?xWKT))                                ?x <http://yago-knowledge.org/resource/hasHeight>  ?property.                                  } ORDER BY DESC(xsd:integer(?property)) LIMIT 1\n"
+    },
+    "191": {
+        "Question": "Is the county of Antrim bigger than the county of Armagh?",
+        "Query": "   select distinct (?a1>?a2) where {                                 <http://yago-knowledge.org/resource/County_Antrim> <http://yago-knowledge.org/resource/hasArea> ?a1.                                <http://yago-knowledge.org/resource/County_Armagh> <http://yago-knowledge.org/resource/hasArea> ?a2.  } \n"
+    },
+    "192": {
+        "Question": "Which is the smallest lake in Scotland?",
+        "Query": "   select distinct ?x ?property where {                                               ?x rdf:type <http://yago-knowledge.org/resource/wordnet_lake_109328904>.                                                ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/Scotland> geo:hasGeometry ?yGeo. ?yGeo geo:asWKT ?yWKT. filter( geof:sfContains (?yWKT, ?xWKT))                                               ?x <http://yago-knowledge.org/resource/hasArea> ?property                                                                  } ORDER BY(xsd:double(?property)) LIMIT 1\n"
+    },
+    "193": {
+        "Question": "Which hotel is the nearest to Old Trafford Stadium in Manchester?",
+        "Query": "   Select ?hotel ( geof:distance (?hotelWKT, ?TraffordWKT, uom:metre) as ?distance) WHERE { ?hotel a osm:Hotel ; geo:hasGeometry ?hoteleo . ?hotelGeo geo:asWKT ?hotelWKT . <http://yago-knowledge.org/resource/Manchester> geo:hasGeometry ?ManchesterGeo . ?ManchesterGeo geo:asWKT ?ManchesterWKT . ?Trafford osm:has_name ?l; geo:hasGeometry ?TraffordGeo ; a osm:Stadium . ?TraffordGeo geo:asWKT ?TraffordWKT . filter( str(?l)=\"Old Trafford\"). filter( geof:sfContains (?ManchesterWKT, ?hotelWKT)). } ORDER BY ASC(?distance) LIMIT 1\n"
+    },
+    "194": {
+        "Question": "Which county of England has the biggest population?",
+        "Query": "   select distinct ?x ?property where {                                            ?x rdf:type <http://yago-knowledge.org/resource/wordnet_county_108546183>.                                     ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/England> geo:hasGeometry ?yGeo. ?yGeo geo:asWKT ?yWKT. filter( geof:sfContains (?yWKT, ?xWKT))      ?x <http://yago-knowledge.org/resource/infobox/en/population> ?property                                               } ORDER BY DESC(?property) LIMIT 1\n"
+    },
+    "195": {
+        "Question": "Which Welsh district has the most adjacent Welsh districts?",
+        "Query": "SELECT  ?district1name (count(?district2) as ?count)           \nWHERE\n  {  SERVICE <http://pyravlos1.di.uoa.gr:8080/geoqa/Query> {\n            ?district1  a <http://kr.di.uoa.gr/yago2geo/ontology/OS_UnitaryAuthority> ;\n                        osm:hasName ?district1name ;\n                        geo:hasGeometry [ geo:asWKT ?district1WKT ] .\n            ?district2  a <http://kr.di.uoa.gr/yago2geo/ontology/OS_UnitaryAuthority> ;\n                        osm:hasName ?district2name ;\n                        geo:hasGeometry [ geo:asWKT ?district2WKT ] .\n            filter( ( geof:sfTouches (?district1WKT, ?district2WKT))  &&\n                      (?district1 != ?district2) ).\n        }\n}\nGROUP BY ?district1name\nORDER BY DESC(?count)\nLIMIT 1"
+    },
+    "196": {
+        "Question": "Which town has the biggest population in Scotland?",
+        "Query": "   select distinct ?x ?property where {         ?x rdf:type <http://yago-knowledge.org/resource/wordnet_town_108665504>.                                                                            ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/Scotland> geo:hasGeometry ?yGeo. ?yGeo geo:asWKT ?yWKT. filter( geof:sfContains (?yWKT, ?xWKT))                                    ?x <http://yago-knowledge.org/resource/infobox/en/population> ?property                                    } ORDER BY DESC(?property) LIMIT 1\n"
+    },
+    "197": {
+        "Question": "Which is the longest river in Scotland?",
+        "Query": "   select distinct ?x ?property where {       ?x rdf:type <http://yago-knowledge.org/resource/wordnet_river_109411430>.                                                                            ?x geo:hasGeometry ?xGeo. ?xGeo geo:asWKT ?xWKT . <http://yago-knowledge.org/resource/Scotland> geo:hasGeometry ?yGeo. ?yGeo geo:asWKT ?yWKT. filter( geof:sfContains (?yWKT, ?xWKT))                                    ?x <http://yago-knowledge.org/resource/infobox/en/length> ?property                                   } ORDER BY DESC(?property) LIMIT 1\n"
+    },
+    "200": {
+        "Question": "What London underground stations are closest to the British Museum?",
+        "Query": "   SELECT ?poi ?wkt WHERE { ?poi rdf:type osm:Railway_Station. ?poi geo:hasGeometry ?geom . ?geom geo:asWKT ?wkt . ?instance rdf:type osm:Museum . ?instance osm:has_name \"British Museum\"^^<http://www.w3.org/2001/XMLSchema#string> . ?instance geo:hasGeometry ?inGeom . ?inGeom geo:asWKT ?inWKT . FILTER ( geof:distance (?wkt, ?inWKT, <http://www.opengis.net/def/uom/OGC/1.0/metre>) < 500 ) . }\n"
+    },
+    "201": {
+        "Question": "What is the distance between Liverpool and Glasgow?",
+        "Query": "   SELECT ( geof:distance (?livWKT, ?glasWKT, <http://www.opengis.net/def/uom/OGC/1.0/metre>) AS ?dist) WHERE { <http://yago-knowledge.org/resource/Liverpool> geo:hasGeometry ?livGeom .  ?livGeom geo:asWKT ?livWKT . <http://yago-knowledge/resource/Glasgow> geo:hasGeometry ?glasGeom . ?glasGeom geo:asWKT ?glasWKT . }"
+    }
+}

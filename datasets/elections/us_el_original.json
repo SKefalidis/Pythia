@@ -1,0 +1,158 @@
+[
+    {
+        "question": "What is the population of the Big Apple?",
+        "entities": [
+            "http://yago-knowledge.org/resource/New_York_City"
+        ]
+    },
+    {
+        "question": "What party did Athens, Georgia vote for in the 2020 election?", 
+        "entities": [
+            "http://yago-knowledge.org/resource/Athens,_Georgia"
+        ]
+    },
+    {
+        "question": "When was Anderson County, Kentucky founded?",
+        "entities": [
+            "http://yago-knowledge.org/resource/Anderson_County,_Kentucky"
+        ]
+    },
+    {
+        "question": "Which States neighbor Arizona?",
+        "entities": [
+            "http://yago-knowledge.org/resource/Arizona"
+        ]
+    },
+    {
+        "question": "How many lakes exist in the largest county of Florida?",
+        "entities": [
+            "http://yago-knowledge.org/resource/Florida"
+        ]
+    },
+    {
+        "question": "How large is Cheshire County, NH?",
+        "entities": [
+            "http://yago-knowledge.org/resource/Cheshire_County,_New_Hampshire"
+        ]
+    },
+    {
+        "question": "Which States are located north of Michigan?",
+        "entities": [
+            "http://yago-knowledge.org/resource/Michigan"
+        ]
+    },
+    {
+        "question": "How many States is the US made of?",
+        "entities": [
+            "http://yago-knowledge.org/resource/United_States"
+        ]
+    },
+    {
+        "question": "Which counties in California were won by the Republican party?",
+        "entities": [
+            "http://yago-knowledge.org/resource/California",
+            "http://yago-knowledge.org/resource/Republican_Party_(United_States)"
+        ]
+    },
+    {
+        "question": "How many did votes did each party get in Texas?",
+        "entities": [
+            "http://yago-knowledge.org/resource/Texas"
+        ]
+    },
+    {
+        "question": "How many people live in Nevada?",
+        "entities": [
+            "http://yago-knowledge.org/resource/Nevada"
+        ]
+    },
+    {
+        "question": "How many counties in Oregon voted for the Democrats?",
+        "entities": [
+            "http://yago-knowledge.org/resource/Democratic_Party_(United_States)",
+            "http://yago-knowledge.org/resource/Oregon"
+        ]
+    },
+    {
+        "question": "Did the Republican Party get more votes in New Mexico than the Green Party did nationwide?",
+        "entities": [
+            "http://yago-knowledge.org/resource/Republican_Party_(United_States)",
+            "http://yago-knowledge.org/resource/New_Mexico",
+            "http://yago-knowledge.org/resource/Green_Party_of_the_United_States"
+        ]
+    },
+    {
+        "question": "In which county of Louisiana did the Green Party get the most votes?",
+        "entities": [
+            "http://yago-knowledge.org/resource/Louisiana",
+            "http://yago-knowledge.org/resource/Green_Party_of_the_United_States"
+        ]
+    },
+    {
+        "question": "Which American county had the lowest number of votes?",
+        "entities": [
+            "http://yago-knowledge.org/resource/United_States"
+        ]
+    },
+    {
+        "question": "Which Arizonian counties had more than 10,000 voters?",
+        "entities": [
+            "http://yago-knowledge.org/resource/Arizona"
+        ]
+    },
+    {
+        "question": "Which was the largest, by area, Red State?",
+        "entities": [
+            "http://yago-knowledge.org/resource/Republican_Party_(United_States)"
+        ]
+    },
+    {
+        "question": "What did Eagle CO, vote for?",
+        "entities": [
+            "http://yago-knowledge.org/resource/Eagle_County,_Colorado"
+        ]
+    },
+    {
+        "question": "Where is Eagle County located?",
+        "entities": [
+            "http://yago-knowledge.org/resource/Eagle_County,_Colorado"
+        ]
+    },
+    {
+        "question": "What is the capital of Massachusetts?",
+        "entities": [
+            "http://yago-knowledge.org/resource/Massachusetts"
+        ]
+    },
+    {
+        "question": "What did Norfolk MA vote for?",
+        "entities": [
+            "http://yago-knowledge.org/resource/Norfolk_County,_Massachusetts"
+        ]
+    },
+    {
+        "question": "Which is the largest Alaskan lake?",
+        "entities": [
+            "http://yago-knowledge.org/resource/Alaska"
+        ]
+    },
+    {
+        "question": "How many counties at the border of Connecticut voted for the Democratic party?",
+        "entities": [
+            "http://yago-knowledge.org/resource/Connecticut",
+            "http://yago-knowledge.org/resource/Democratic_Party_(United_States)"
+        ]
+    },
+    {
+        "question": "What did Rhode Island vote for?",
+        "entities": [
+            "http://yago-knowledge.org/resource/Rhode_Island"
+        ]
+    },
+    {
+        "question": "What is the population of Lincoln NE?",
+        "entities": [
+            "http://yago-knowledge.org/resource/Lincoln,_Nebraska"
+        ]
+    }
+]

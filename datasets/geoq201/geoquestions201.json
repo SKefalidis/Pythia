@@ -1,0 +1,770 @@
+[
+    {
+        "question": "How many hospitals are there in Oxford?",
+        "sparql": " SELECT (COUNT(DISTINCT ?x) AS ?total) WHERE { ?x rdf:type yago:wordnet_hospital_103540595 ; geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . yago:Oxford geo:hasGeometry ?og . ?og geo:asWKT ?oWKT FILTER geof:sfContains(?oWKT, ?xWKT) } "
+    },
+    {
+        "question": "How many underground lines does London have?",
+        "sparql": " SELECT DISTINCT (COUNT(DISTINCT ?x) AS ?total) WHERE { ?x rdf:type yago:wikicat_London_Underground_lines } "
+    },
+    {
+        "question": "How many counties does England have?",
+        "sparql": " SELECT (COUNT(DISTINCT ?x) AS ?totalCounty) WHERE { ?x ?p yago:wordnet_county_108546183 ; geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . yago:England geo:hasGeometry ?eGeo . ?eGeo geo:asWKT ?eWKT FILTER geof:sfContains(?eWKT, ?xWKT) } "
+    },
+    {
+        "question": "Which restaurants are close to London Bridge?",
+        "sparql": " SELECT DISTINCT ?poi WHERE { ?city geo:hasGeometry ?instanceGeom ; osm:has_name \"London Bridge\" ; rdf:type osm:Attraction . ?instanceGeom geo:asWKT ?instanceWKT . ?poi rdf:type osm:Restaurant ; geo:hasGeometry ?poiGeom . ?poiGeom geo:asWKT ?poiWKT FILTER ( geof:distance(?poiWKT, ?instanceWKT, uom:metre) < 1000 ) } "
+    },
+    {
+        "question": "Is there any hospital in a range of 1 km from Jubilee Gardens in London?",
+        "sparql": " ASK WHERE { ?city geo:hasGeometry ?instanceGeom ; osm:has_name \"Jubilee Gardens\" ; rdf:type osm:Park . ?instanceGeom geo:asWKT ?instanceWKT . ?poi rdf:type osm:Hospital ; geo:hasGeometry ?poiGeom . ?poiGeom geo:asWKT ?poiWKT FILTER ( geof:distance(?poiWKT, ?instanceWKT, uom:metre) < 1000 ) } "
+    },
+    {
+        "question": "Which counties border county Lincolnshire?",
+        "sparql": " SELECT ?county WHERE { ?lincolnshire rdf:type y2geoo:OS_County ; y2geoo:hasOS_Name \"Lincolnshire County\" ; geo:hasGeometry ?geomLC . ?geomLC geo:asWKT ?lcWKT . ?county rdf:type y2geoo:OS_County ; geo:hasGeometry ?geomC . ?geomC geo:asWKT ?cWKT FILTER geof:sfTouches(?lcWKT, ?cWKT) } "
+    },
+    {
+        "question": "Where is Loch Goil located?",
+        "sparql": " SELECT ?x1WKT WHERE { yago:Loch_Goil geo:hasGeometry ?x1Geo . ?x1Geo geo:asWKT ?x1WKT } "
+    },
+    {
+        "question": "Which bridges cross river Thames?",
+        "sparql": " SELECT DISTINCT ?bridges WHERE { ?bridges rdf:type yago:wordnet_bridge_102898711 ; <http://yago-knowledge.org/resource/infobox/en/crosses> ?o FILTER contains(str(?o), \"Thames\") } "
+    },
+    {
+        "question": "What is the number of universities in London?",
+        "sparql": " SELECT (COUNT(DISTINCT ?x) AS ?total) WHERE { ?x rdf:type yago:wordnet_university_108286569 ; geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . yago:London geo:hasGeometry ?londonGeo . ?londonGeo geo:asWKT ?londonWKT FILTER geof:sfContains(?londonWKT, ?xWKT) } "
+    },
+    {
+        "question": "Which rivers are in Wales?",
+        "sparql": " SELECT DISTINCT ?river WHERE { ?river rdf:type yago:wordnet_river_109411430 ; geo:hasGeometry ?rg . ?rg geo:asWKT ?rWKT . yago:Wales geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT FILTER geof:sfWithin(?rWKT, ?xWKT) } "
+    },
+    {
+        "question": "Which counties of Scotland border England?",
+        "sparql": " SELECT DISTINCT ?county WHERE { ?county rdf:type y2geoo:OS_County ; geo:hasGeometry ?cGeom . ?cGeom geo:asWKT ?cWKT . yago:Scotland geo:hasGeometry ?geom . ?geom geo:asWKT ?iWKT . yago:England geo:hasGeometry ?geom1 . ?geom1 geo:asWKT ?iWKT1 FILTER ( geof:sfWithin(?cWKT, ?iWKT) && geof:sfTouches(?cWKT, ?iWKT1) ) } "
+    },
+    {
+        "question": "Where is Nelson's Column located?",
+        "sparql": " SELECT ?geomWKT WHERE { ?entity osm:has_name \"Nelson's Column\" ; geo:hasGeometry ?geom . ?geom geo:asWKT ?geomWKT } "
+    },
+    {
+        "question": "Does the county of Durham border Essex?",
+        "sparql": " ASK WHERE { yago:Essex geo:sfTouches yago:County_Durham } "
+    },
+    {
+        "question": "Which restaurants are at most 1km away from Big Ben?",
+        "sparql": " SELECT ?restaurant WHERE { ?bigBen osm:has_name \"Big Ben\" ; geo:hasGeometry ?bigBenGeom . ?bigBenGeom geo:asWKT ?bigBenGeomWKT . ?restaurant rdf:type osm:Restaurant ; osm:has_name ?restaurantName ; geo:hasGeometry ?restaurantGeom . ?restaurantGeom geo:asWKT ?restaurantGeomWKT FILTER ( geof:distance(?restaurantGeomWKT, ?bigBenGeomWKT, uom:metre) < 1000 ) } "
+    },
+    {
+        "question": "Is county Oxfordshire east of the county Essex?",
+        "sparql": " ASK WHERE { ?oxfordshire rdfs:label ?l ; geo:hasGeometry ?geo1 FILTER ( str(?l) = \"Oxfordshire\" ) ?geo1 geo:asWKT ?wkt1 . ?essex rdfs:label ?l2 ; geo:hasGeometry ?geo2 . ?geo2 geo:asWKT ?wkt2 FILTER ( str(?l2) = \"Essex\" ) FILTER strdf:left(?wkt1, ?wkt2) } "
+    },
+    {
+        "question": "Which pubs in Dublin are near Guinness Brewery?",
+        "sparql": " SELECT DISTINCT ?pub WHERE { ?pub rdf:type osm:Pub ; geo:hasGeometry ?pubGeo . ?pubGeo geo:asWKT ?pubWKT . ?dublin osm:has_name ?l2 ; geo:hasGeometry ?dublinGeo . ?dublinGeo geo:asWKT ?dublinWKT . ?guiness osm:has_name ?l ; geo:hasGeometry ?guinessGeo . ?guinessGeo geo:asWKT ?guinessWKT FILTER ( str(?l2) = \"Dublin\" ) FILTER ( str(?l) = \"Guinness Brewery\" ) FILTER ( geof:distance(?guinessWKT, ?pubWKT, uom:metre) < 1000 ) FILTER geof:sfContains(?dublinWKT, ?pubWKT) } "
+    },
+    {
+        "question": "Which hospitals in Liverpool are near Abercromby Square?",
+        "sparql": " SELECT DISTINCT ?hospital WHERE { ?hospital rdf:type osm:Hospital ; geo:hasGeometry ?hospitalGeo . ?hospitalGeo geo:asWKT ?hospitalWKT . ?Liverpool rdfs:label ?l2 ; geo:hasGeometry ?LiverpoolGeo . ?LiverpoolGeo geo:asWKT ?LiverpoolWKT . ?Abercromby osm:has_name ?l ; geo:hasGeometry ?AbercrombyGeo . ?AbercrombyGeo geo:asWKT ?AbercrombyWKT FILTER ( str(?l2) = \"Liverpool\" ) FILTER ( str(?l) = \"Abercromby Square\" ) FILTER geof:sfContains(?LiverpoolWKT, ?hospitalWKT) FILTER ( geof:distance(?hospitalWKT, ?AbercrombyWKT, uom:metre) < 1000 ) } "
+    },
+    {
+        "question": "Which cafes in London are at most 3 km from St. Anthony the Great and St. John the Baptist church?",
+        "sparql": " SELECT DISTINCT ?cafe WHERE { ?cafe rdf:type osm:Cafe ; geo:hasGeometry ?cafeGeo . ?cafeGeo geo:asWKT ?cafeWKT . ?London rdfs:label ?l2 ; geo:hasGeometry ?LondonGeo . ?LondonGeo geo:asWKT ?LondonWKT . ?church osm:has_name ?l ; geo:hasGeometry ?churchGeo . ?churchGeo geo:asWKT ?churchWKT FILTER ( str(?l2) = \"London\" ) FILTER ( str(?l) = \"St. Anthony the Great & St. John the Baptist\" ) FILTER geof:sfContains(?LondonWKT, ?cafeWKT) FILTER ( geof:distance(?cafeWKT, ?churchWKT, uom:metre) < 3000 ) } "
+    },
+    {
+        "question": "Which department stores are at most 2km from Central Park hotel in London?",
+        "sparql": " SELECT DISTINCT ?city WHERE { ?city geo:hasGeometry ?instanceGeom ; osm:has_name \"London\" ; rdf:type osm:City . ?instanceGeom geo:asWKT ?cWKT . ?poi geo:hasGeometry ?poiGeom ; osm:has_name \"Central Park Hotel\" ; rdf:type osm:Hotel . ?poiGeom geo:asWKT ?poiWKT . ?dept rdf:type osm:Department_Store ; geo:hasGeometry ?dGeom . ?dGeom geo:asWKT ?dWKT FILTER ( geof:sfContains(?cWKT, ?poiWKT) && ( geof:distance(?dWKT, ?cWKT, uom:metre) <= 2000 ) ) } "
+    },
+    {
+        "question": "Which universities are in county Essex?",
+        "sparql": " SELECT DISTINCT ?university WHERE { ?university rdf:type yago:wordnet_university_108286569 ; geo:hasGeometry ?Ug . ?Ug geo:asWKT ?UWKT . yago:Essex geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT FILTER geof:sfContains(?xWKT, ?UWKT) } "
+    },
+    {
+        "question": "Is there a church at most 2km from the University of Westminster?",
+        "sparql": " ASK WHERE { ?s2 <http://data.linkedeodata.eu/ontology#has_name> \"University of Westminster\" ; rdf:type osm:University ; geo:hasGeometry ?geo2 . ?geo2 geo:asWKT ?w2 . ?s3 geo:hasGeometry ?geo3 ; <http://data.linkedeodata.eu/ontology#has_name> ?name . ?geo3 geo:asWKT ?w3 . ?s3 rdf:type osm:Church FILTER ( geof:distance(?w3, ?w2, uom:metre) < 2000 ) } "
+    },
+    {
+        "question": "Is there a mountain in the county of Greater Manchester taller than 1300 meters above sea level?",
+        "sparql": " SELECT DISTINCT ?x WHERE { ?x rdf:type yago:wordnet_mountain_109359803 ; geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . yago:Greater_Manchester geo:hasGeometry ?gmGeo . ?gmGeo geo:asWKT ?gmWKT FILTER geof:sfContains(?gmWKT, ?xWKT) ?x <http://yago-knowledge.org/resource/infobox/en/elevationm> ?property FILTER ( xsd:integer(str(?property)) > 1300 ) } "
+    },
+    {
+        "question": "Which mountains in Scotland have height more than 1000 meters?",
+        "sparql": " SELECT DISTINCT ?x WHERE { ?x rdf:type yago:wordnet_mountain_109359803 ; geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . yago:Scotland geo:hasGeometry ?gmGeo . ?gmGeo geo:asWKT ?sWKT FILTER geof:sfWithin(?xWKT, ?sWKT) ?x <http://yago-knowledge.org/resource/infobox/en/elevationm> ?property FILTER ( xsd:integer(str(?property)) > 1000 ) } "
+    },
+    {
+        "question": "What's the name of the river that runs through London?",
+        "sparql": " SELECT DISTINCT ?name WHERE { ?x rdf:type yago:wordnet_river_109411430 ; geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . yago:London geo:hasGeometry ?lGeo . ?lGeo geo:asWKT ?lWKT FILTER geof:sfCrosses(?xWKT, ?lWKT) ?x <http://yago-knowledge.org/resource/infobox/en/name> ?name } "
+    },
+    {
+        "question": "How many cities does Thames river crosses?",
+        "sparql": " SELECT (COUNT(DISTINCT ?x) AS ?total) WHERE { ?city rdf:type yago:wordnet_city_108524735 ; geo:hasGeometry ?cg . ?cg geo:asWKT ?cWKT . yago:River_Thames geo:hasGeometry ?thGeo . ?thGeo geo:asWKT ?lWKT FILTER geof:sfCrosses(?xWKT, ?lWKT) } "
+    },
+    {
+        "question": "Which districts border London?",
+        "sparql": " SELECT DISTINCT ?district WHERE { ?district rdf:type y2geoo:OS_District ; geo:hasGeometry ?cGeom . ?cGeom geo:asWKT ?cWKT . ?lon owl:sameAs yago:London ; geo:hasGeometry ?geom . ?geom geo:asWKT ?iWKT FILTER geof:sfTouches(?cWKT, ?iWKT1) } "
+    },
+    {
+        "question": "Is Hampshire north of Berkshire?",
+        "sparql": " ASK WHERE { yago:Hampshire geo:hasGeometry ?iGeometry1 . ?iGeometry1 geo:asWKT ?iWKT1 . ?y owl:sameAs yago:Berkshire ; geo:hasGeometry ?iGeometry2 . ?iGeometry2 geo:asWKT ?iWKT2 FILTER strdf:above(?iWKT1, ?iWKT2) } "
+    },
+    {
+        "question": "Is there any stadium in Cardiff?",
+        "sparql": " SELECT DISTINCT ?st WHERE { ?st rdf:type yago:wordnet_stadium_104295881 ; geo:hasGeometry ?stGeo . ?stGeo geo:asWKT ?stWKT . yago:Cardiff geo:hasGeometry ?cGeo . ?cGeo geo:asWKT ?cWKT FILTER geof:sfContains(?cWKT, ?stWKT) } "
+    },
+    {
+        "question": "Which aerodromes are at most 50km from London?",
+        "sparql": " SELECT ?airport WHERE { ?airport rdf:type osm:Airport ; osm:has_name ?name ; geo:hasGeometry ?poiGeom . ?poiGeom geo:asWKT ?poiWKT . ?instance <http://kr.di.uoa.gr/yago-extension/ontology/hasGADM_Name> \"London\"@en ; geo:hasGeometry ?instanceGeom . ?instanceGeom geo:asWKT ?instanceWKT FILTER ( geof:distance(?poiWKT, ?instanceWKT, uom:metre) < 50000 ) } "
+    },
+    {
+        "question": "How many rivers cross the county West Yorkshire?",
+        "sparql": " SELECT (COUNT(DISTINCT ?x) AS ?total) WHERE { ?x rdf:type yago:wordnet_river_109411430 ; geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . yago:West_Yorkshire geo:hasGeometry ?wyG . ?wyG geo:asWKT ?wyWKT FILTER geof:sfCrosses(?wyWKT, ?xWKT) } "
+    },
+    {
+        "question": "Which are the counties of Northern Ireland?",
+        "sparql": " SELECT DISTINCT ?counties WHERE { ?counties rdf:type yago:wordnet_county_108546183 ; geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . yago:Northern_Ireland geo:hasGeometry ?ig . ?ig geo:asWKT ?iWKT FILTER geof:sfWithin(?xWKT, ?iWKT) } "
+    },
+    {
+        "question": "Is there a park in England?",
+        "sparql": " SELECT DISTINCT ?np WHERE { ?np rdf:type yago:wordnet_park_108615149 ; geo:hasGeometry ?pg . ?pg geo:asWKT ?pWKT . yago:England geo:hasGeometry ?eg . ?eg geo:asWKT ?eWKT FILTER geof:sfContains(?eWKT, ?pWKT) } "
+    },
+    {
+        "question": "Is Cavan a county of Ireland?",
+        "sparql": " ASK WHERE { yago:County_Cavan ?p yago:wikicat_Counties_of_Ireland } "
+    },
+    {
+        "question": "Which lakes are in Ireland?",
+        "sparql": " SELECT DISTINCT ?lakes WHERE { ?lakes rdf:type yago:wordnet_lake_109328904 ; geo:hasGeometry ?lg . ?lg geo:asWKT ?lWKT . yago:Ireland geo:hasGeometry ?ig . ?ig geo:asWKT ?iWKT FILTER geof:sfContains(?iWKT, ?lWKT) } "
+    },
+    {
+        "question": "Are there cities that are at most 2km away from St. David's in Wales?",
+        "sparql": " ASK WHERE { ?p1 osm:has_name \"St. David's\" ; geo:hasGeometry ?p1geo . ?p1geo geo:asWKT ?p1aswkt . yago:Wales geo:hasGeometry ?p2geo . ?p2geo geo:asWKT ?p2aswkt . ?p3 rdf:type osm:City ; geo:hasGeometry ?p3geo . ?p3geo geo:asWKT ?p3aswkt FILTER geof:sfWithin(?p1aswkt, ?p2aswkt) FILTER ( geof:distance(?p1aswkt, ?p3aswkt, uom:metre) <= 2000 ) } "
+    },
+    {
+        "question": "Is Alnwick Castle in Scotland?",
+        "sparql": " ASK WHERE { yago:Alnwick_Castle geo:hasGeometry ?ag . ?ag geo:asWKT ?aWKT . yago:Scotland geo:hasGeometry ?sg . ?sg geo:asWKT ?sWKT FILTER geof:sfContains(?sWKT, ?aWKT) } "
+    },
+    {
+        "question": "Which colleges are in London?",
+        "sparql": " SELECT DISTINCT ?p2 WHERE { ?p1 osm:has_name \"London\" ; geo:hasGeometry ?p1geo . ?p1geo geo:asWKT ?p1aswkt . ?p2 rdf:type osm:College ; geo:hasGeometry ?p2geo . ?p2geo geo:asWKT ?p2aswkt FILTER geof:sfWithin(?p2aswkt, ?p1aswkt) } "
+    },
+    {
+        "question": "How many districts does Northern Ireland have?",
+        "sparql": " SELECT (COUNT(DISTINCT ?x) AS ?total) WHERE { ?y rdf:type yago:wordnet_district_108552138 ; geo:hasGeometry ?yg . ?yg geo:asWKT ?yWKT . yago:Northern_Ireland geo:hasGeometry ?ng . ?ng geo:asWKT ?nWKT FILTER geof:sfContains(?nWKT, ?yWKT) } "
+    },
+    {
+        "question": "Which pubs are near Mercure Hotel in Glasgow\t42. Is there a mountain within 20km of Cheshire?",
+        "sparql": " SELECT DISTINCT ?pub WHERE { ?pub rdf:type osm:Pub ; geo:hasGeometry ?pubGeom . ?pubGeom geo:asWKT ?pubWKT . ?hotel rdf:type osm:Hotel ; osm:has_name \"Mercure Hotel\" ; geo:hasGeometry ?hotelGeom . ?hotelGeom geo:asWKT ?hotelWKT . ?instance owl:sameAs yago:Glasgow ; geo:hasGeometry ?instanceGeom . ?instanceGeom geo:asWKT ?instanceWKT FILTER ( geof:sfContains(?instanceWKT, ?hotelWKT) && ( geof:distance(?hotelWKT, ?pubWKT, uom:metre) <= 1000 ) ) } "
+    },
+    {
+        "question": "Does London have a mountain?",
+        "sparql": " ASK WHERE { ?mountain rdf:type yago:wordnet_mountain_109359803 . yago:London ?p ?mountain } "
+    },
+    {
+        "question": "Is Islington near Angel?",
+        "sparql": " ASK WHERE { ?x owl:sameAs yago:Islington ; geo:hasGeometry ?iGeometry1 . ?iGeometry1 geo:asWKT ?iWKT1 . ?y owl:sameAs <http://yago-knowledge.org/resource/Angel,_London> ; geo:hasGeometry ?iGeometry2 . ?iGeometry2 geo:asWKT ?iWKT2 FILTER ( geof:distance(?iWKT1, ?iWKT2) < 10000 ) } "
+    },
+    {
+        "question": "Is there a car park near a bridge on river Exe?",
+        "sparql": " ASK WHERE { SERVICE <http://pyravlos1.di.uoa.gr:8890/sparql> { yago:River_Exe ?p ?o . ?x rdf:type yago:wordnet_bridge_102898711 ; rdf:label ?label } SERVICE <http://pyravlos1.di.uoa.gr:8080/geoqa/Query> { ?poi rdf:type osm:Parking ; geo:hasGeometry ?geom . ?geom geo:asWKT ?wkt . ?b osm:has_name ?label ; geo:hasGeometry ?bGeom . ?bGeom geo:asWKT ?bWKT FILTER ( geof:distance(?wkt, ?bWKT, uom:metre) < 500 ) } } "
+    },
+    {
+        "question": "Which medieval castles are in Scotland?",
+        "sparql": " SELECT DISTINCT ?x WHERE { ?x rdf:type yago:wordnet_palace_103878066 ; geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . yago:Scotland geo:hasGeometry ?sg . ?sg geo:asWKT ?sWKT FILTER geof:sfContains(?sWKT, ?xWKT) } "
+    },
+    {
+        "question": "Which bars are near Prince's street in Edinburgh?",
+        "sparql": " SELECT ?poi WHERE { yago:Edinburgh geo:hasGeometry ?e_geom . ?e_geom geo:asWKT ?e_wkt . ?ps <http://data.linkedeodata.eu/ontology#has_name> \"Princes Street\" ; geo:hasGeometry ?ps_geom . ?ps_geom geo:asWKT ?ps_wkt . ?poi rdf:type osm:bar ; geo:hasGeometry ?poi_geom . ?poi_geom geo:asWKT ?poi_wkt FILTER geof:sfWithin(?ps_wkt, ?e_wkt) FILTER ( geof:distance(?poi_wkt, ?ps_wkt, uom:metre) < 500 ) } "
+    },
+    {
+        "question": "Which hotels are near Loch Ness?",
+        "sparql": " SELECT DISTINCT ?poi WHERE { ?s osm:has_name \"Loch Ness\" . ?poi rdf:type osm:Hotel . ?s geo:hasGeometry ?s_geom . ?s_geom geo:asWKT ?s_wkt . ?poi geo:hasGeometry ?poi_geom . ?poi_geom geo:asWKT ?poi_wkt FILTER ( geof:distance(?poi_wkt, ?s_wkt, uom:metre) < 500 ) } "
+    },
+    {
+        "question": "Is Liverpool part of Scotland?",
+        "sparql": " ASK WHERE { yago:Liverpool geo:hasGeometry ?liverg . ?liverg geo:asWKT ?lWKT . yago:Scotland geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT FILTER geof:sfContains(?xWKT, ?lWKT) } "
+    },
+    {
+        "question": "Which museums are within 3km of Saint George's hotel in London?",
+        "sparql": " SELECT DISTINCT ?poi WHERE { ?poi rdf:type osm:Museum ; geo:hasGeometry ?geom . ?geom geo:asWKT ?wkt . ?instance rdf:type osm:Hotel ; osm:has_name \"Saint Georges Hotel\" ; geo:hasGeometry ?inGeom . ?inGeom geo:asWKT ?inWKT FILTER ( geof:distance(?wkt, ?inWKT, uom:metre) <= 3000 ) } "
+    },
+    {
+        "question": "How many rivers cross Edinburgh?",
+        "sparql": " SELECT (COUNT(DISTINCT ?x) AS ?total) WHERE { ?x rdf:type yago:wordnet_river_109411430 ; geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . yago:Edinburgh geo:hasGeometry ?eg . ?eg geo:asWKT ?eWKT FILTER geof:sfCrosses(?xWKT, ?eWKT) } "
+    },
+    {
+        "question": "Which county is east of county Dorset?",
+        "sparql": " SELECT DISTINCT ?county WHERE { yago:Dorset geo:hasGeometry ?geomLC . ?geomLC geo:asWKT ?niWKT . ?county rdf:type y2geoo:OS_County ; geo:hasGeometry ?geomC . ?geomC geo:asWKT ?cWKT FILTER strdf:right(?cWKT, ?niWKT) } "
+    },
+    {
+        "question": "In what county is Stonehenge located?",
+        "sparql": " SELECT ?c WHERE { ?p1 osm:has_name \"Stonehenge\" ; geo:hasGeometry ?p1geo . ?p1geo geo:asWKT ?p1aswkt . ?c rdf:type y2geoo:OS_County ; geo:hasGeometry ?cgeo . ?cgeo geo:asWKT ?caswkt FILTER geof:sfWithin(?p1aswkt, ?caswkt) } "
+    },
+    {
+        "question": "Is there a forest in county Cheshire?",
+        "sparql": " ASK WHERE { ?forest rdf:type yago:wordnet_forest_108438533 ; ?p yago:Cheshire } "
+    },
+    {
+        "question": "How many counties does the river Thames cross?",
+        "sparql": " SELECT (COUNT(DISTINCT ?x) AS ?total) WHERE { ?x rdf:type yago:wordnet_county_108546183 ; geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . yago:River_Thames geo:hasGeometry ?rg . ?rg geo:asWKT ?rWKT FILTER geof:sfCrosses(?rWKT, ?xWKT) } "
+    },
+    {
+        "question": "Is there a river that crosses county Greater Manchester?",
+        "sparql": " ASK WHERE { ?river rdf:type yago:wordnet_river_109411430 ; ?p yago:Greater_Manchester } "
+    },
+    {
+        "question": "Is there a museum at most 1km from Liverpool?",
+        "sparql": " ASK WHERE { ?museum rdf:type osm:Museum ; geo:hasGeometry ?geom . ?geom geo:asWKT ?wkt . yago:Liverpool geo:hasGeometry ?livGeom . ?livGeom geo:asWKT ?livWKT FILTER ( geof:distance(?wkt, ?livWKT, uom:metre) < 1000 ) } "
+    },
+    {
+        "question": "Which restaurants in London are near Kensington Palace?",
+        "sparql": " SELECT DISTINCT ?poi WHERE { ?poi rdf:type osm:Restaurant ; geo:hasGeometry ?geom . ?geom geo:asWKT ?wkt . ?instance rdf:type osm:Attraction ; osm:has_name \"Kensington Palace\" ; geo:hasGeometry ?inGeom . ?inGeom geo:asWKT ?inWKT FILTER ( geof:distance(?wkt, ?inWKT, uom:metre) < 500 ) } "
+    },
+    {
+        "question": "Which provinces of Ireland have population over 2 million?",
+        "sparql": " SELECT DISTINCT ?x WHERE { ?x rdf:type yago:wordnet_state_108654360 ; geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . yago:Ireland geo:hasGeometry ?Ig . ?Ig geo:asWKT ?IWKT FILTER geof:sfWithin(?xWKT, ?IWKT) ?x yago:hasNumberOfPeople ?o FILTER ( ?o > 2000000 ) } "
+    },
+    {
+        "question": "Is the monument of the Great Fire of London east of King WIlliam Street?",
+        "sparql": " ASK WHERE { ?poi rdf:type osm:Monument ; osm:has_name \"The Great Fire\" ; geo:hasGeometry ?geom . ?geom geo:asWKT ?wkt . ?road rdf:type osm:Residential ; osm:has_name \"King William Street\" ; geo:hasGeometry ?roadGeom . ?roadGeom geo:asWKT ?roadWKT FILTER strdf:right(?wkt, ?roadWKT) } "
+    },
+    {
+        "question": "Which city council includes Dublin?",
+        "sparql": " SELECT DISTINCT ?o WHERE { yago:Dublin <http://yago-knowledge.org/resource/infobox/en/governmenttype> ?o FILTER contains(str(?o), \"City Council\") } "
+    },
+    {
+        "question": "Which are the non-metropolitan counties of England?",
+        "sparql": " SELECT DISTINCT ?x WHERE { ?x rdf:type yago:wikicat_Non-metropolitan_counties ; ?p yago:England } "
+    },
+    {
+        "question": "Which are the main railway stations in Glasgow?",
+        "sparql": " SELECT DISTINCT ?rs WHERE { ?rs rdf:type osm:Railway_Station ; geo:hasGeometry ?rsGeom . ?rsGeom geo:asWKT ?rsWKT . ?x owl:sameAs yago:Glasgow ; geo:hasGeometry ?instanceGeom . ?instanceGeom geo:asWKT ?instanceWKT FILTER geof:sfContains(?instanceWKT, ?rsWKT) } "
+    },
+    {
+        "question": "What historical monuments are there in London?",
+        "sparql": " SELECT ?x1 WHERE { ?x1 rdf:type yago:wordnet_monument_108600443 ; geo:hasGeometry ?x1g . ?x1g geo:asWKT ?x1WKT . yago:London geo:hasGeometry ?x2g . ?x2g geo:asWKT ?x2WKT FILTER geof:sfContains(?x2WKT, ?x1WKT) } "
+    },
+    {
+        "question": "What is the area of county Cheshire?",
+        "sparql": " SELECT DISTINCT ?area WHERE { yago:Cheshire <http://yago-knowledge.org/resource/infobox/en/areatotalkm> ?area } "
+    },
+    {
+        "question": "What is the length of river Thames?",
+        "sparql": " SELECT ?length WHERE { yago:River_Thames yago:hasLength ?length } "
+    },
+    {
+        "question": "How many rivers cross England's cities?",
+        "sparql": " SELECT (COUNT(DISTINCT ?x1) AS ?num) WHERE { ?x1 rdf:type osm:River ; geo:hasGeometry ?x1Geo . ?x1Geo geo:asWKT ?x1WKT . yago:England geo:hasGeometry ?x2Geo . ?x2Geo geo:asWKT ?x2WKT . ?x3 rdf:type osm:City ; geo:hasGeometry ?x3Geo . ?x3Geo geo:asWKT ?x3WKT FILTER geof:sfWithin(?x3WKT, ?x2WKT) FILTER geof:sfCrosses(?x1WKT, ?x3WKT) } "
+    },
+    {
+        "question": "Is the City of London north of the Thames river?",
+        "sparql": " ASK WHERE { ?l owl:sameAs yago:London ; geo:hasGeometry ?lGeom . ?lGeom geo:asWKT ?lWKT . ?river osm:has_name \"River Thames\" ; rdf:type osm:River ; geo:hasGeometry ?iGeometry2 . ?iGeometry2 geo:asWKT ?iWKT2 FILTER strdf:above(?lWKT, ?iWKT2) } "
+    },
+    {
+        "question": "Is there a castle in London near Trafalgar Square?",
+        "sparql": " ASK WHERE { ?x1 rdf:type osm:Castle ; geo:hasGeometry ?x1Geo . ?x1Geo geo:asWKT ?x1WKT . ?instance owl:sameAs yago:London ; geo:hasGeometry ?x2Geo . ?x2Geo geo:asWKT ?x2WKT . ?x3 osm:has_name \"Trafalgar Square\" ; geo:hasGeometry ?x3Geo . ?x3Geo geo:asWKT ?x3WKT FILTER geof:sfWithin(?x1WKT, ?x2WKT) FILTER ( geof:distance(?x1WKT, ?x3WKT, uom:metre) <= 500 ) } "
+    },
+    {
+        "question": "Which counties of England border country Scotland?",
+        "sparql": " SELECT ?county WHERE { ?county rdf:type y2geoo:OS_County ; geo:hasGeometry ?geomC . ?geomC geo:asWKT ?cWKT . yago:Scotland geo:hasGeometry ?sGeom . ?sGeom geo:asWKT ?sWKT . yago:England geo:hasGeometry ?eGeom . ?sGeom geo:asWKT ?eWKT FILTER ( geof:sfTouches(?sWKT, ?cWKT) && geof:sfWithin(?cWKT, ?eWKT) ) } "
+    },
+    {
+        "question": "Is there an aerodrome in Essex?",
+        "sparql": " SELECT DISTINCT ?airport WHERE { ?airport rdf:type yago:wordnet_airport_102692232 ; geo:hasGeometry ?ag . ?ag geo:asWKT ?aWKT . yago:Essex geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT FILTER geof:sfContains(?xWKT, ?aWKT) } "
+    },
+    {
+        "question": "Is Somerset west of Westmorland?",
+        "sparql": " ASK WHERE { yago:Somerset geo:hasGeometry ?iGeometry1 . ?iGeometry1 geo:asWKT ?iWKT1 . ?y owl:sameAs yago:Westmorland ; geo:hasGeometry ?iGeometry2 . ?iGeometry2 geo:asWKT ?iWKT2 FILTER strdf:left(?iWKT1, ?iWKT2) } "
+    },
+    {
+        "question": "How many cities does Merseyside have?",
+        "sparql": " SELECT (COUNT(?x1) AS ?num) WHERE { ?x1 rdf:type yago:wordnet_city_108524735 ; geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . yago:Merseyside geo:hasGeometry ?yg . ?yg geo:asWKT ?yWKT FILTER geof:sfContains(?yWKT, ?xWKT) } "
+    },
+    {
+        "question": "What historic buildings are in Buckinghamshire?",
+        "sparql": " ASK WHERE { ?poi rdf:type osm:Archaeological ; geo:hasGeometry ?poiGeom . ?poiGeom geo:asWKT ?poiWKT . ?poi osm:has_name ?name . yago:Buckinghamshire geo:hasGeometry ?instanceGeom . ?instanceGeom geo:asWKT ?instanceWKT FILTER geof:sfWithin(?poiWKT, ?instanceWKT) } "
+    },
+    {
+        "question": "Is there a mountain in Merseyside?",
+        "sparql": " ASK WHERE { ?mountain rdf:type yago:wordnet_mountain_109359803 ; ?p yago:Merseyside } "
+    },
+    {
+        "question": "Does county Suffolk border county Durham?",
+        "sparql": " ASK WHERE { yago:County_Durham geo:hasGeometry ?xGeom . ?xGeom geo:asWKT ?xWKT . yago:Suffolk geo:hasGeometry ?mGeom . ?mGeom geo:asWKT ?mWKT FILTER geof:sfTouches(?xWKT, ?mWKT) } "
+    },
+    {
+        "question": "Which restaurants are at most 500m from the University of Liverpool?",
+        "sparql": " SELECT DISTINCT ?p2 WHERE { ?p1 osm:has_name \"University of Liverpool\" ; rdf:type osm:University ; geo:hasGeometry ?p1geo . ?p1geo geo:asWKT ?p1aswkt . ?p2 rdf:type osm:Restaurant ; geo:hasGeometry ?p2geo . ?p2geo geo:asWKT ?p2aswkt FILTER ( geof:distance(?p1aswkt, ?p2aswkt, uom:metre) <= 500 ) } "
+    },
+    {
+        "question": "Which parks are near Trafalgar Square?",
+        "sparql": " SELECT ?x1 WHERE { ?x1 rdf:type osm:Park ; geo:hasGeometry ?x1Geo . ?x1Geo geo:asWKT ?x1WKT . ?x2 osm:has_name \"Trafalgar Square\" ; geo:hasGeometry ?x2Geo . ?x2Geo geo:asWKT ?x2WKT FILTER ( geof:distance(?x1WKT, ?x2WKT, uom:metre) <= 500 ) } "
+    },
+    {
+        "question": "Which villages in Scotland have a population of less than 500 people?",
+        "sparql": " SELECT ?x1 WHERE { ?x1 rdf:type yago:wordnet_village_108672738 ; geo:hasGeometry ?x1g . ?xg geo:asWKT ?x1WKT . yago:Scotland geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT FILTER geof:sfContains(?xWKT, ?x1WKT) ?x1 <http://yago-knowledge.org/resource/infobox/en/population> ?x1population FILTER ( xsd:integer(?x1population) < 500 ) } "
+    },
+    {
+        "question": "Is there a Modern Art Museum in London?",
+        "sparql": " SELECT DISTINCT ?x WHERE { ?x rdf:type yago:wordnet_museum_103800563 ; geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . yago:London geo:hasGeometry ?lg . ?lg geo:asWKT ?lWKT FILTER geof:sfContains(?lWKT, ?xWKT) ?x rdfs:label ?label FILTER regex(str(?label), \"Modern Art\", \"i\") } "
+    },
+    {
+        "question": "Through which cities does River Thames flow?",
+        "sparql": " SELECT DISTINCT ?owhere WHERE { yago:River_Thames geo:hasGeometry ?rg . ?rg geo:asWKT ?rWKT . ?o rdf:type yago:wordnet_city_108524735 ; geo:hasGeometry ?og . ?og geo:asWKT ?oWKT FILTER geof:sfCrosses(?rWKT, ?oWKT) } "
+    },
+    {
+        "question": "Is there a train station in Dublin?",
+        "sparql": " ASK WHERE { ?x1 rdf:type yago:wordnet_railway_station_104049098 ; geo:hasGeometry ?x1g . ?x1g geo:asWKT ?x1WKT . yago:Dublin geo:hasGeometry ?dg . ?dg geo:asWKT ?dWKT FILTER geof:sfContains(?dWKT, ?x1WKT) } "
+    },
+    {
+        "question": "Is there a forest in Lancashire north of Burnley?",
+        "sparql": " ASK WHERE { ?x1 rdf:type osm:Forest ; geo:hasGeometry ?x1Geo . ?x1Geo geo:asWKT ?x1WKT . yago:Lancashire geo:hasGeometry ?x2Geo . ?x2Geo geo:asWKT ?x2WKT . yago:Burnley geo:hasGeometry ?x3Geo . ?x3Geo geo:asWKT ?x3WKT FILTER geof:sfWithin(?x1WKT, ?x2WKT) FILTER strdf:above(?x1WKT, ?x3WKT) } "
+    },
+    {
+        "question": "Is there a county of England that borders the Isle of Wight?",
+        "sparql": " ASK WHERE { ?county rdf:type y2geoo:OS_County ; geo:hasGeometry ?cGeom . ?cGeom geo:asWKT ?cWKT . yago:England geo:hasGeometry ?eGeom . ?eGeom geo:asWKT ?eWKT . yago:Isle_of_Wight geo:hasGeometry ?iwGeom . ?iwGeom geo:asWKT ?iwWKT FILTER geof:sfWithin(?cWKT, ?eWKT) FILTER geof:sfTouches(?eWKT, ?iwWKT) } "
+    },
+    {
+        "question": "Is there a church in the county of Greater Manchester dedicated to St. Patrick?",
+        "sparql": " ASK WHERE { ?x rdf:type yago:wordnet_church_103028079 ; geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . yago:Greater_Manchester geo:hasGeometry ?Mg . ?Mg geo:asWKT ?MWKT FILTER geof:sfContains(?MWTK, ?xWKT) ?x <http://yago-knowledge.org/resource/infobox/en/dedication> ?property FILTER contains(?property, \"Patrick\") } "
+    },
+    {
+        "question": "Which pubs in Liverpool are at most 2km from Anfield stadium?",
+        "sparql": " SELECT DISTINCT ?pubs WHERE { ?pubs rdf:type osm:Pub ; geo:hasGeometry ?pGeom . ?pGeom geo:asWKT ?pWKT . ?ast owl:sameAs yago:Anfield ; geo:hasGeometry ?astGeom . ?astGeom geo:asWKT ?astWKT . yago:Liverpool geo:hasGeometry ?lGeom . ?lGeom geo:asWKT ?lWKT FILTER ( geof:sfWithin(?astWKT, ?lWKT) && ( geof:distance(?pWKT, ?astWKT, uom:metre) <= 2000 ) ) } "
+    },
+    {
+        "question": "Which pubs in Liverpool are near Anfield stadium?",
+        "sparql": " SELECT DISTINCT ?pubs WHERE { ?pubs rdf:type osm:Pub ; geo:hasGeometry ?pGeom . ?pGeom geo:asWKT ?pWKT . ?ast owl:sameAs yago:Anfield ; geo:hasGeometry ?astGeom . ?astGeom geo:asWKT ?astWKT . yago:Liverpool geo:hasGeometry ?lGeom . ?lGeom geo:asWKT ?lWKT FILTER ( geof:sfWithin(?astWKT, ?lWKT) && ( geof:distance(?pWKT, ?astWKT, uom:metre) <= 1000 ) ) } "
+    },
+    {
+        "question": "Which hotels are in England's capital?",
+        "sparql": " SELECT DISTINCT ?hotel WHERE { ?hotel rdf:type yago:wordnet_hotel_103542333 ; geo:hasGeometry ?hg . ?hg geo:asWKT ?hWKT . yago:England yago:hasCapital ?y . ?y geo:hasGeometry ?yg . ?yg geo:asWKT ?yWKT FILTER geof:sfContains(?yWKT, ?hWKT) } "
+    },
+    {
+        "question": "Which theaters are near Trafalgar Square?",
+        "sparql": " SELECT ?t WHERE { ?x osm:has_name \"Trafalgar Square\" ; rdf:type osm:Attraction ; geo:hasGeometry ?geo . ?geo geo:asWKT ?w . ?t rdf:type osm:Theatre ; geo:hasGeometry ?geo2 . ?geo2 geo:asWKT ?w2 FILTER ( geof:distance(?w, ?w2, uom:metre) < 1000 ) } "
+    },
+    {
+        "question": "Through which cities does River Thames flow?",
+        "sparql": " SELECT DISTINCT ?owhere WHERE { yago:River_Thames geo:hasGeometry ?xg . ?xg geo:asWKT ?xWKT . ?o rdf:type yago:wordnet_city_108524735 ; geo:hasGeometry ?og . ?og geo:asWKT ?oWKT FILTER geof:sfCrosses(?xWKT, ?oWKT) } "
+    },
+    {
+        "question": "Which rivers are in Great Britain?",
+        "sparql": " SELECT DISTINCT ?rivers WHERE { ?rivers rdf:type yago:wordnet_river_109411430 ; geo:hasGeometry ?riverGeo . ?riverGeo geo:asWKT ?riverWKT VALUES ?v { yago:England yago:Scotland yago:Wales } ?v geo:hasGeometry ?eg . ?eg geo:asWKT ?eWKT FILTER geof:sfContains(?eWKT, ?riverWKT) } "
+    },
+    {
+        "question": "Which airports are in the city of Salford?",
+        "sparql": " SELECT ?airports WHERE { ?airports rdf:type yago:wordnet_airport_102692232 ; ?p yago:City_of_Salford } "
+    },
+    {
+        "question": "Where is a car park near Big Ben?",
+        "sparql": " SELECT DISTINCT ?w2 WHERE { ?poi osm:has_name \"Big Ben\" ; geo:hasGeometry ?geo . ?geo geo:asWKT ?w . ?div rdf:type osm:Parking ; geo:hasGeometry ?geo2 . ?geo2 geo:asWKT ?w2 FILTER ( geof:distance(?w, ?w2, uom:metre) < 100 ) } "
+    },
+    {
+        "question": "Is there a river that crosses Manchester?",
+        "sparql": " ASK WHERE { ?river rdf:type yago:wordnet_river_109411430 ; ?p yago:Manchester } "
+    },
+    {
+        "question": "Which Scottish counties border England?",
+        "sparql": " SELECT ?x1 WHERE { ?x1 rdf:type y2geoo:OS_County ; geo:hasGeometry ?x1Geo ; geo:asWKT ?x1WKT . yago:Scotland geo:hasGeometry ?x2Geo . ?x2Geo geo:asWKT ?x2WKT . yago:England geo:hasGeometry ?x3Geo . ?x3Geo geo:asWKT ?x3WKT FILTER geof:sfWithin(?x1WKT, ?x2WKT) FILTER geof:sfTouches(?x1WKT, ?x3WKT) } "
+    },
+    {
+        "question": "Is there a car park at most 1km from Waterloo Bridge?",
+        "sparql": " ASK WHERE { ?entity osm:has_osm_id ?id ; osm:has_name \"Waterloo Bridge\" ; geo:hasGeometry ?geomWaterloo . ?geomWaterloo geo:asWKT ?waterloogeomWKT . ?park rdf:type osm:Parking ; geo:hasGeometry ?parkGeom . ?parkGeom geo:asWKT ?parkGeomWKT BIND(geof:buffer(?waterloogeomWKT, 1000, uom:metre) AS ?waterlooEnv) FILTER geof:sfWithin(?parkGeomWKT, ?waterlooEnv) } "
+    },
+    {
+        "question": "Where is Trafalgar Square located?",
+        "sparql": " SELECT ?x1WKT WHERE { ?x1 osm:has_name \"Trafalgar Square\" ; geo:hasGeometry ?x1Geo . ?x1Geo geo:asWKT ?x1WKT } "
+    },
+    {
+        "question": "Is the Castle of Edinburgh less than 2km away from Calton Hill?",
+        "sparql": " ASK WHERE { ?x1 osm:has_name \"Calton Hill\" ; geo:hasGeometry ?x1Geo . ?x1Geo geo:asWKT ?x1WKT . ?x2 osm:has_name \"Edinburgh Castle\" ; geo:hasGeometry ?x2Geo . ?x2Geo geo:asWKT ?x2WKT FILTER ( geof:distance(?x1WKT, ?x2WKT, uom:metre) < 2000 ) } "
+    },
+    {
+        "question": "How many pharmacies are in 200 meter radius of High Street in Oxford?",
+        "sparql": " SELECT (COUNT(DISTINCT ?poi) AS ?totalPharmacies) WHERE { ?poi rdf:type osm:Pharmacy ; geo:hasGeometry ?poiGeom . ?poiGeom geo:asWKT ?poiWKT . ?instance osm:has_name \"High Street\" ; geo:hasGeometry ?instanceGeom . ?instanceGeom geo:asWKT ?instanceWKT FILTER ( geof:distance(?instanceWKT, ?poiWKT, uom:metre) < 200 ) } "
+    },
+    {
+        "question": "Which restaurants are near Edinburgh Castle?",
+        "sparql": " SELECT ?poi WHERE { ?city geo:hasGeometry ?instanceGeom ; osm:has_name \"Edinburgh Castle\" ; rdf:type osm:Castle . ?instanceGeom geo:asWKT ?instanceWKT . ?poi rdf:type osm:Restaurant ; geo:hasGeometry ?poiGeom . ?poiGeom geo:asWKT ?poiWKT FILTER ( geof:distance(?instanceWKT, ?poiWKT, uom:metre) < 500 ) } "
+    },
+    {
+        "question": "Which hotels are near Big Ben?",
+        "sparql": " SELECT ?poi WHERE { ?city geo:hasGeometry ?instanceGeom ; osm:has_name \"Big Ben\" . ?instanceGeom geo:asWKT ?instanceWKT . ?poi rdf:type osm:Hotel ; geo:hasGeometry ?poiGeom . ?poiGeom geo:asWKT ?poiWKT FILTER ( geof:distance(?instanceWKT, ?poiWKT, uom:metre) < 1000 ) } "
+    },
+    {
+        "question": "Which airports are in Ireland?",
+        "sparql": " SELECT DISTINCT ?airport WHERE { ?airport rdf:type yago:wordnet_airport_102692232 ; geo:hasGeometry ?aGeo . ?aGeo geo:asWKT ?aWKT . yago:Ireland geo:hasGeometry ?iGeo . ?iGeo geo:asWKT ?iWKT FILTER geof:sfContains(?iWKT, ?aWKT) } "
+    },
+    {
+        "question": "Which hospitals are close to Stirling Castle?",
+        "sparql": " SELECT DISTINCT ?x2 WHERE { ?x1 osm:has_name \"Stirling Castle\" ; geo:hasGeometry ?x1Geo . ?x1Geo geo:asWKT ?x1WKT . ?x2 rdf:type osm:Hospital ; geo:hasGeometry ?x2Geo . ?x2Geo geo:asWKT ?x2WKT FILTER ( geof:distance(?x1WKT, ?x2WKT, uom:metre) < 500 ) } "
+    },
+    {
+        "question": "Which airports are in London?",
+        "sparql": " SELECT DISTINCT ?airport WHERE { ?airport rdf:type yago:wordnet_airport_102692232 ; geo:hasGeometry ?aGeo . ?aGeo geo:asWKT ?aWKT . yago:London geo:hasGeometry ?igeo . ?igeo geo:asWKT ?iWKT FILTER geof:sfContains(?iWKT, ?aWKT) } "
+    },
+    {
+        "question": "Which universities are in England?",
+        "sparql": " SELECT DISTINCT ?university WHERE { ?university rdf:type yago:wordnet_university_108286569 ; geo:hasGeometry ?aGeo . ?aGeo geo:asWKT ?aWKT . yago:England geo:hasGeometry ?igeo . ?igeo geo:asWKT ?iWKT FILTER geof:sfContains(?iWKT, ?aWKT) } "
+    },
+    {
+        "question": "Which mountains are in Scotland?",
+        "sparql": " SELECT DISTINCT ?mountains WHERE { ?mountains rdf:type yago:wordnet_mountain_109359803 ; geo:hasGeometry ?aGeo . ?aGeo geo:asWKT ?aWKT . yago:Scotland geo:hasGeometry ?igeo . ?igeo geo:asWKT ?iWKT FILTER geof:sfContains(?iWKT, ?aWKT) } "
+    },
+    {
+        "question": "Where is Elizabeth Tower located?",
+        "sparql": " SELECT ?x1WKT WHERE { ?x1 osm:has_name \"Elizabeth Tower\" ; geo:hasGeometry ?x1Geo . ?x1Geo geo:asWKT ?x1WKT } "
+    },
+    {
+        "question": "Which pubs in Manchester are near the Old Trafford stadium?",
+        "sparql": " SELECT DISTINCT ?div WHERE { ?poi osm:has_name \"Old Trafford\" ; geo:hasGeometry ?geo . ?geo geo:asWKT ?w . ?poi rdf:type osm:Stadium . ?div rdf:type osm:Pub ; geo:hasGeometry ?geo2 . ?geo2 geo:asWKT ?w2 FILTER ( geof:distance(?w, ?w2, uom:metre) < 500 ) } "
+    },
+    {
+        "question": "Which rivers cross Derry?",
+        "sparql": " SELECT ?river WHERE { ?river rdf:type yago:wordnet_river_109411430 ; ?p yago:Derry } "
+    },
+    {
+        "question": "Which is the total area of Northern Ireland?",
+        "sparql": " SELECT DISTINCT ?area WHERE { yago:Northern_Ireland <http://yago-knowledge.org/resource/infobox/en/areakm> ?area } "
+    },
+    {
+        "question": "Where is Emirates Stadium located?",
+        "sparql": " SELECT ?x1WKT WHERE { ?x1 osm:has_name \"Emirates Stadium\" ; geo:hasGeometry ?x1Geo . ?x1Geo geo:asWKT ?x1WKT } "
+    },
+    {
+        "question": "Which castles are in the Highland council area of Scotland?",
+        "sparql": " SELECT DISTINCT ?castles WHERE { ?castles rdf:type yago:wordnet_palace_103878066 ; geo:hasGeometry ?aGeo . ?aGeo geo:asWKT ?aWKT . <http://yago-knowledge.org/resource/Highland_(council_area)> geo:hasGeometry ?cGeo . ?cGeo geo:asWKT ?cWKT FILTER geof:sfContains(?iWKT, ?aWKT) } "
+    },
+    {
+        "question": "How many are the counties of England?",
+        "sparql": " SELECT (COUNT(?x1) AS ?num) WHERE { ?x1 rdf:type y2geoo:OS_County ; geo:hasGeometry ?x1Geo . ?x2Geo geo:asWKT ?x1WKT . yago:England geo:hasGeometry ?x2Geo . ?x2Geo geo:asWKT ?x2WKT FILTER geof:sfWithin(?x1WKT, ?x2WKT) } "
+    },
+    {
+        "question": "Is there a national park near York?",
+        "sparql": " ASK WHERE { ?park rdf:type osm:Park ; geo:hasGeometry ?parkGeom . ?parkGeom geo:asWKT ?parkWKT . yago:York geo:hasGeometry ?yorkGeom . ?yorkGeom geo:asWKT ?yorkWKT FILTER ( geof:distance(?parkWKT, ?yorkWKT, uom:metre) < 5000 ) } "
+    },
+    {
+        "question": "Which cafes in Manchester are near Piccadilly Gardens?",
+        "sparql": " SELECT DISTINCT ?cafe WHERE { ?cafe rdf:type osm:Cafe ; geo:hasGeometry ?cafeGeo . ?cafeGeo geo:asWKT ?cafeWKT . yago:Manchester geo:hasGeometry ?ManchesterGeo . ?ManchesterGeo geo:asWKT ?ManchesterWKT . ?Piccadilly osm:has_name ?l ; geo:hasGeometry ?PiccadillyGeo ; rdf:type osm:Park . ?PiccadillyGeo geo:asWKT ?PiccadillyWKT FILTER ( str(?l) = \"Piccadilly Gardens\" ) FILTER geof:sfContains(?ManchesterWKT, ?PiccadillyWKT) FILTER ( geof:distance(?cafeWKT, ?PiccadillyWKT, uom:metre) <= 1000 ) } "
+    },
+    {
+        "question": "Which hotels in Manchester are near Wharfside Way?",
+        "sparql": " SELECT ?hotel WHERE { ?hotel rdf:type osm:Hotel ; geo:hasGeometry ?hoteleo . ?hotelGeo geo:asWKT ?hotelWKT . yago:Manchester geo:hasGeometry ?ManchesterGeo . ?ManchesterGeo geo:asWKT ?ManchesterWKT . ?Wharfside osm:has_name ?l ; geo:hasGeometry ?WharfsideGeo . ?WharfsideGeo geo:asWKT ?WharfsideWKT FILTER geof:sfContains(?ManchesterWKT, ?hotelWKT) FILTER ( geof:distance(?hotelWKT, ?WharfsideWKT, uom:metre) < 1000 ) } "
+    },
+    {
+        "question": "Which county is west of South Yorkshire?",
+        "sparql": " SELECT DISTINCT ?counties WHERE { ?counties rdf:type y2geoo:OS_County ; geo:hasGeometry ?cGeom . ?cGeom geo:asWKT ?cWKT . ?sy owl:sameAs yago:South_Yorkshire ; geo:hasGeometry ?syGeom . ?syGeom geo:asWKT ?syWKT FILTER strdf:left(?cWKT, ?iWKT) } "
+    },
+    {
+        "question": "Where can I find a car park in Bristol?",
+        "sparql": " SELECT DISTINCT ?parking WHERE { ?parking rdf:type osm:Parking ; geo:hasGeometry ?parkingGeo . ?parkingGeo geo:asWKT ?parkingWKT . yago:Bristol geo:hasGeometry ?BristolGeo . ?BristolGeo geo:asWKT ?BristolWKT FILTER geof:sfContains(?BristolWKT, ?parkingWKT) } "
+    },
+    {
+        "question": "Which villages are in Herefordshire?",
+        "sparql": " SELECT ?villeges WHERE { ?villeges rdf:type yago:wordnet_village_108672738 ; geo:hasGeometry ?vGeo . ?vGeo geo:asWKT ?vWKT . yago:Herefordshire geo:hasGeometry ?hGeo . ?hGeo geo:asWKT ?hWKT FILTER geof:sfContains(?hWKT, ?vWKT) } "
+    },
+    {
+        "question": "How many mountains are there in Scotland?",
+        "sparql": " SELECT (COUNT(DISTINCT ?x) AS ?totalMountain) WHERE { ?x rdf:type yago:wordnet_mountain_109359803 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:Scotland geo:hasGeometry ?sGeo . ?sGeo geo:asWKT ?sWKT FILTER geof:sfContains(?sWKT, ?xWKT) } "
+    },
+    {
+        "question": "Which city is southeast of Salford?",
+        "sparql": " SELECT ?x1 WHERE { ?x1 rdf:type osm:City ; geo:hasGeometry ?x1Geo . ?x1Geo geo:asWKT ?x1WKT . yago:Salford geo:hasGeometry ?x2Geo . ?x2Geo geo:asWKT ?x2WKT FILTER strdf:below(?x1WKT, ?x2WKT) FILTER strdf:left(?x1WKT, ?x2WKT) } "
+    },
+    {
+        "question": "Which university colleges are in Scotland?",
+        "sparql": " SELECT ?x1 WHERE { ?x1 rdf:type yago:wordnet_college_108278324 ; geo:hasGeometry ?x1Geo . ?x1Geo geo:asWKT ?x1WKT . yago:Scotland geo:hasGeometry ?x2Geo . ?x2Geo geo:asWKT ?x2WKT FILTER geof:sfContains(?x2WKT, ?x1WKT) } "
+    },
+    {
+        "question": "In which city is Big Ben located?",
+        "sparql": " SELECT ?x1 WHERE { ?x1 rdf:type yago:wordnet_city_108524735 ; geo:hasGeometry ?x1Geo . ?x1Geo geo:asWKT ?x1WKT . yago:Big_Ben geo:hasGeometry ?bbGeo . ?bbGeo geo:asWKT ?bbWKT FILTER geof:sfContains(?x1WKT, ?bbWKT) } "
+    },
+    {
+        "question": "Does the district of Coleraine border Belfast?",
+        "sparql": " ASK WHERE { yago:Coleraine geo:hasGeometry ?x1Geo . ?x1Geo geo:asWKT ?x1WKT . yago:Belfast geo:hasGeometry ?x2Geo . ?x2Geo geo:asWKT ?x2WKT FILTER geof:sfTouches(?x1WKT, ?x2WKT) } "
+    },
+    {
+        "question": "Which forests are in Northern Ireland?",
+        "sparql": " SELECT ?x1 WHERE { ?x1 rdf:type osm:Forest ; geo:hasGeometry ?x1Geo . ?x1Geo geo:asWKT ?x1WKT . yago:Northern_Ireland geo:hasGeometry ?x2Geo . ?x2Geo geo:asWKT ?x2WKT FILTER geof:sfWithin(?x1WKT, ?x2WKT) } "
+    },
+    {
+        "question": "Is there a park in Dublin near Grafton Street?",
+        "sparql": " ASK WHERE { ?x1 rdf:type osm:Park ; geo:hasGeometry ?x1Geo . ?x1Geo geo:asWKT ?x1WKT . ?x2 osm:has_name \"Grafton Street\" ; geo:hasGeometry ?x2Geo . ?x2Geo geo:asWKT ?x2WKT . yago:Dublin geo:hasGeometry ?x3Geo . ?x3Geo geo:asWKT ?x3WKT FILTER geof:sfWithin(?x1WKT, ?x3WKT) FILTER ( geof:distance(?x1WKT, ?x2WKT, uom:metre) < 1000 ) } "
+    },
+    {
+        "question": "Is Trafalgar square located in London?",
+        "sparql": " ASK WHERE { yago:Trafalgar_Square geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:London geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT FILTER geof:sfContains(?yWKT, ?xWKT) } "
+    },
+    {
+        "question": "How many parks are there in Northampton?",
+        "sparql": " SELECT (COUNT(DISTINCT ?x) AS ?totalPark) WHERE { ?x rdf:type yago:wordnet_park_108615149 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:Northampton geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT FILTER geof:sfContains(?yWKT, ?xWKT) } "
+    },
+    {
+        "question": "Which aerodrome is in Essex?",
+        "sparql": " SELECT DISTINCT ?x WHERE { ?x rdf:type yago:wordnet_airport_102692232 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:Essex geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT FILTER geof:sfContains(?yWKT, ?xWKT) } "
+    },
+    {
+        "question": "Is Edinburgh west of Glasgow?",
+        "sparql": " ASK WHERE { yago:Edinburgh geo:hasGeometry ?iGeometry1 . ?iGeometry1 geo:asWKT ?iWKT1 . ?y owl:sameAs yago:Glasgow ; geo:hasGeometry ?iGeometry2 . ?iGeometry2 geo:asWKT ?iWKT2 FILTER strdf:left(?iWKT1, ?iWKT2) } "
+    },
+    {
+        "question": "Is there an airport in Dublin?",
+        "sparql": " ASK WHERE { ?x rdf:type yago:wordnet_airport_102692232 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:Dublin geo:hasGeometry ?dGeo . ?dGeo geo:asWKT ?dWKT FILTER geof:sfContains(?dWKT, ?xWKT) } "
+    },
+    {
+        "question": "Which Greek restaurants in London are near Wembley stadium?",
+        "sparql": " SELECT ?poi ?name WHERE { ?poi rdf:type osm:Restaurant ; geo:hasGeometry ?poiGeom . ?poiGeom geo:asWKT ?poiWKT . ?poi osm:has_name ?name . ?instance owl:sameAs yago:London ; geo:hasGeometry ?instanceGeom . ?instanceGeom geo:asWKT ?instanceWKT FILTER geof:sfWithin(?poiWKT, ?instanceWKT) FILTER contains(lcase(?name), \"greek\") } "
+    },
+    {
+        "question": "Which counties of Ireland does River Shannon cross?",
+        "sparql": " SELECT DISTINCT ?county WHERE { ?x owl:sameAs yago:Ireland ; geo:hasGeometry ?geomLC . ?geomLC geo:asWKT ?niWKT . ?county rdf:type y2geoo:OSI_County_Council ; geo:hasGeometry ?geomC . ?geomC geo:asWKT ?cWKT . ?river rdf:type osm:River ; osm:has_name \"River Shannon\" ; geo:hasGeometry ?geomR . ?geomR geo:asWKT ?rWKT FILTER geof:sfWithin(?cWKT, ?niWKT) FILTER geof:sfCrosses(?rWKT, ?cWKT) } "
+    },
+    {
+        "question": "Which restaurants are near Baker Street in London?",
+        "sparql": " SELECT DISTINCT ?p2 WHERE { ?l owl:sameAs yago:London ; geo:hasGeometry ?lGeom . ?lGeom geo:asWKT ?lWKT . ?p1 osm:has_name \"Baker Street\" ; geo:hasGeometry ?p1geo . ?p1geo geo:asWKT ?p1aswkt . ?p2 rdf:type osm:Restaurant ; geo:hasGeometry ?p2geo . ?p2geo geo:asWKT ?p2aswkt FILTER ( geof:sfWithin(?p1aswkt, ?lWKT) && ( geof:distance(?p1aswkt, ?p2aswkt, uom:metre) < 500 ) ) } "
+    },
+    {
+        "question": "Which countries border Wales?",
+        "sparql": " SELECT DISTINCT ?country WHERE { ?country rdf:type yago:wordnet_country_108544813 . yago:Wales yago:hasNeighbor ?country } "
+    },
+    {
+        "question": "Is England part of the United Kingdom?",
+        "sparql": " ASK WHERE { yago:England geo:hasGeometry ?x1Geo . ?x1Geo geo:asWKT ?x1WKT . yago:United_Kingdom geo:hasGeometry ?x2Geo . ?x2Geo geo:asWKT ?x2WK FILTER geof:sfWithin(?x1WKT, ?x2WKT) } "
+    },
+    {
+        "question": "How many county councils are there in Ireland?",
+        "sparql": " SELECT (COUNT(DISTINCT ?county) AS ?total) WHERE { yago:Ireland geo:hasGeometry ?irelandGeom . ?irelandGeom geo:asWKT ?irelandGeomWKT . ?county osm:hasName ?countyName ; geo:hasGeometry ?countyGeom . ?countyGeom geo:asWKT ?countyGeomWKT FILTER geof:sfWithin(?countyGeomWKT, ?irelandGeomWKT) } "
+    },
+    {
+        "question": "Which restaurants are near Stonehenge?",
+        "sparql": " SELECT ?x1 WHERE { ?x1 rdf:type osm:Restaurant ; geo:hasGeometry ?x1Geo . ?x1Geo geo:asWKT ?x1WKT . ?x2 osm:has_name \"Stonehenge\" ; geo:hasGeometry ?x2Geo . ?x2Geo geo:asWKT ?x2WKT FILTER ( geof:distance(?x1WKT, ?x2WKT, uom:metre) < 1000 ) } "
+    },
+    {
+        "question": "What tourist attractions are there in Belfast, Northern Ireland?",
+        "sparql": " SELECT DISTINCT ?p2 WHERE { yago:Northern_Ireland geo:hasGeometry ?p0geo . ?p0geo geo:asWKT ?p0aswkt . ?bl owl:sameAs yago:Belfast ; geo:hasGeometry ?p1geo . ?p1geo geo:asWKT ?p1aswkt . ?p2 rdf:type osm:Attraction ; geo:hasGeometry ?p2geo . ?p2geo geo:asWKT ?p2aswkt FILTER ( geof:sfWithin(?p2aswkt, ?p1aswkt) && geof:sfWithin(?p1aswkt, ?p0aswkt) ) } "
+    },
+    {
+        "question": "Which are the districts of county Chesire?",
+        "sparql": " SELECT DISTINCT ?districts WHERE { ?districts ?p yago:wikicat_Districts_of_Cheshire } "
+    },
+    {
+        "question": "Where is Tower Bridge located?",
+        "sparql": " SELECT ?xWKT WHERE { yago:Tower_Bridge geo:hasGeometry ?xgeo . ?xgeo geo:asWKT ?xWKT } "
+    },
+    {
+        "question": "Is London south of Manchester?",
+        "sparql": " ASK WHERE { yago:geoentity_City_of_London_2643744 geo:hasGeometry ?xGeom . ?xGeom geo:asWKT ?xWKT . yago:Manchester geo:hasGeometry ?mGeom . ?mGeom geo:asWKT ?mWKT FILTER strdf:below(?xWKT, ?mWKT) } "
+    },
+    {
+        "question": "Are there any lakes in Scotland?",
+        "sparql": " ASK WHERE { ?x rdf:type yago:wordnet_lake_109328904 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:Scotland geo:hasGeometry ?sGeo . ?sGeo geo:asWKT ?sWKT FILTER geof:sfWithin(?xWKT, ?sWKT) } "
+    },
+    {
+        "question": "Which counties border county Donegal to the south?",
+        "sparql": " SELECT ?x1 WHERE { ?x1 rdf:type y2geoo:OS_County ; geo:hasGeometry ?x1geo . ?x1geo geo:asWKT ?x1WKT . <https://yago-knowledge.org/resource/County_Donegal> geo:hasGeometry ?x2geo . ?x2geo geo:asWKT ?x2WKT FILTER strdf:below(?x1WKT, ?x2WKT) FILTER geof:sfTouches(?x1WKT, ?x2WKT) } "
+    },
+    {
+        "question": "Is there a forest near Manchester?",
+        "sparql": " ASK WHERE { ?forest rdf:type <http://www.app-lab.eu/osm/ontology#forest> ; geo:hasGeometry ?forestGeom . ?forestGeom geo:asWKT ?forestWKT . ?Manchester owl:sameAs yago:Manchester ; geo:hasGeometry ?ManchesterGeom . ?Manchestereom geo:asWKT ?ManchesterWKT FILTER ( geof:distance(?forestWKT, ?ManchesterWKT, uom:metre) < 5000 ) } "
+    },
+    {
+        "question": "Is the Tower of London near river Thames?",
+        "sparql": " ASK WHERE { ?x1 osm:has_name \"Tower of London\" ; geo:hasGeometry ?x1geo . ?x1geo geo:asWKT ?x1WKT . ?x2 osm:has_name \"Thames\" ; geo:hasGeometry ?x2geo . ?x2geo geo:asWKT ?x2WKT FILTER ( geof:distance(?x1WKT, ?x2WKT, uom:metre) < 50000 ) } "
+    },
+    {
+        "question": "Does Hammersmith Bridge connect Hammersmith with Barnes?",
+        "sparql": " ASK WHERE { ?poi rdf:type osm:Bridge ; osm:has_name \"Hammersmith Bridge\" ; geo:hasGeometry ?geom . ?geom geo:asWKT ?wkt . ?ham owl:sameAS yago:Hammersmith ; geo:hasGeometry ?hamGeom . ?hamGeom geo:asWKT ?hamWKT . ?bar owl:sameAS <http://yago-knowledge.org/resource/Barnes,_London> ; geo:hasGeometry ?barGeom . ?barGeom geo:asWKT ?barWKT FILTER geof:sfTouches(?hamWKT, ?wkt) FILTER geof:sfTouches(?barWKT, ?wkt) } "
+    },
+    {
+        "question": "Which rivers discharge into the Solway Firth?",
+        "sparql": " SELECT DISTINCT ?river WHERE { ?river rdf:type yago:wordnet_river_109411430 ; ?p yago:Solway_Firth } "
+    },
+    {
+        "question": "Which art museums are at most 1km from Charlotte Square in Edinburgh?",
+        "sparql": " SELECT DISTINCT ?poi WHERE { ?poi rdf:type osm:Museum ; geo:hasGeometry ?geom . ?geom geo:asWKT ?wkt . ?instance osm:has_name \"Charlotte Square\" ; geo:hasGeometry ?inGeom . ?inGeom geo:asWKT ?inWKT FILTER ( geof:distance(?wkt, ?inWKT, uom:metre) <= 1000 ) } "
+    },
+    {
+        "question": "Which rivers cross county Cheshire?",
+        "sparql": " SELECT DISTINCT ?river WHERE { ?river rdf:type yago:wordnet_river_109411430 ; geo:hasGeometry ?riverGeo . ?riverGeo geo:asWKT ?rWKT . yago:Cheshire geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT FILTER geof:sfContains(?xWKT, ?rWKT) } "
+    },
+    {
+        "question": "Where can I find a car park in Exeter?",
+        "sparql": " SELECT DISTINCT ?poi WHERE { ?poi rdf:type osm:Parking ; geo:hasGeometry ?poiGeom . ?poiGeom geo:asWKT ?poiWKT . ?city owl:sameAs yago:Exeter ; geo:hasGeometry ?cityGeom . ?cityGeom geo:asWKT ?cityWKT FILTER geof:sfWithin(?poiWKT, ?cityWKT) } "
+    },
+    {
+        "question": "Which is the highest mountain in Ireland?",
+        "sparql": " SELECT DISTINCT ?x ?property WHERE { ?x rdf:type yago:wordnet_mountain_109359803 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:Ireland geo:hasGeometry ?irGeo . ?irGeo geo:asWKT ?irWKT . ?x <http://yago-knowledge.org/resource/infobox/en/elevationm> ?property FILTER geof:sfContains(?irWKT, ?xWKT) } ORDER BY DESC(?property) LIMIT 1 "
+    },
+    {
+        "question": "Where is the closest market to Elephant and Castle underground station?",
+        "sparql": " SELECT ?poiWKT ?poi (geof:distance(?poiWKT, ?instanceWKT, uom:metre) AS ?res) WHERE { SERVICE <http://pyravlos2.di.uoa.gr:8080/geoqa/Query> { ?city geo:hasGeometry ?instanceGeom ; osm:has_name \"Elephant and Castle\" ; rdf:type osm:Railway_Station . ?instanceGeom geo:asWKT ?instanceWKT . ?poi rdf:type osm:Supermarket ; geo:hasGeometry ?poiGeom . ?poiGeom geo:asWKT ?poiWKT FILTER ( geof:distance(?poiWKT, ?instanceWKT, uom:metre) < 1000 ) } } ORDER BY geof:distance(?poiWKT, ?instanceWKT, uom:metre) LIMIT 1 "
+    },
+    {
+        "question": "What is the name of Britain's longest river?",
+        "sparql": " SELECT DISTINCT ?name WHERE { ?x rdf:type yago:wordnet_river_109411430 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:England geo:hasGeometry ?eGeo . ?eGeo geo:asWKT ?eWKT FILTER geof:sfContains(?eWKT, ?xWKT) ?x yago:hasLength ?property ; rdfs:label ?name } ORDER BY DESC(xsd:integer(str(?property))) LIMIT 1 "
+    },
+    {
+        "question": "Which cities in England have at least 2 castles?",
+        "sparql": " SELECT DISTINCT ?x WHERE { ?x rdf:type yago:wordnet_city_108524735 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:England geo:hasGeometry ?eGeo . ?eGeo geo:asWKT ?eWKT FILTER geof:sfContains(?eWKT, ?xWKT) ?y rdf:type yago:wordnet_palace_103878066 ; geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT FILTER geof:sfContains(?xWKT, ?yWKT) } GROUP BY ?x HAVING ( COUNT(DISTINCT ?y) > 1 ) "
+    },
+    {
+        "question": "Which is the biggest county council in the Republic of Ireland?",
+        "sparql": " SELECT ?countyName WHERE { yago:Ireland geo:hasGeometry ?irelandGeom . ?irelandGeom geo:asWKT ?irelandGeomWKT . ?county osm:hasName ?countyName ; geo:hasGeometry ?countyGeom . ?countyGeom geo:asWKT ?countyGeomWKT FILTER geof:sfWithin(?countyGeomWKT, ?irelandGeomWKT) } ORDER BY ASC(strdf:area(?countyGeomWKT)) LIMIT 1 "
+    },
+    {
+        "question": "Which football stadium has the biggest capacity in Ireland?",
+        "sparql": " SELECT DISTINCT ?x WHERE { ?x rdf:type yago:wikicat_Association_football_venues_in_the_Republic_of_Ireland ; <http://yago-knowledge.org/resource/infobox/en/seatingcapacity> ?o } ORDER BY DESC(xsd:integer(?o)) LIMIT 1 "
+    },
+    {
+        "question": "Which site of Manchester is the most popular?",
+        "sparql": " SELECT ?site ?sitename ?visitors WHERE { SERVICE <http://pyravlos1.di.uoa.gr:8080/geoqa/Query> { ?manchester owl:sameAs yago:Manchester ; geo:hasGeometry _:b0 . _:b0 geo:asWKT ?manchesterWKT { { ?site rdf:type osm:Attraction } UNION { ?site rdf:type osm:Museum } } ?site owl:sameAs ?link ; osm:has_name ?sitename ; geo:hasGeometry _:b1 . _:b1 geo:asWKT ?siteWKT FILTER geof:sfWithin(?siteWKT, ?manchesterWKT) } SERVICE <http://pyravlos1.di.uoa.gr:8890/sparql> { ?link <http://yago-knowledge.org/resource/infobox/en/visitors> ?visitors } } ORDER BY DESC(?visitors) LIMIT 1 "
+    },
+    {
+        "question": "Which is the oldest bridge of London?",
+        "sparql": " SELECT DISTINCT ?x WHERE { ?x rdf:type yago:wordnet_bridge_102898711 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:London geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT FILTER geof:sfContains(?yWKT, ?xWKT) ?x yago:wasCreatedOnDate ?property } ORDER BY ?property LIMIT 1 "
+    },
+    {
+        "question": "Where is the nearest gas station to St. Peter's Square in Manchester?",
+        "sparql": " SELECT ?p3 WHERE { ?p1 osm:has_name \"St. Peter's Square\" ; geo:hasGeometry ?p1geo . ?p1geo geo:asWKT ?p1aswkt . yago:Manchester geo:hasGeometry ?p2geo . ?p2geo geo:asWKT ?p2aswkt . ?p3 rdf:type osm:Fuel ; osm:has_name ?p3name ; geo:hasGeometry ?p3geo . ?p3geo geo:asWKT ?p3aswkt FILTER geof:sfWithin(?p1aswkt, ?p2aswkt) BIND(geof:distance(?p1aswkt, ?p3aswkt, uom:metre) AS ?distance) } ORDER BY ?distance LIMIT 1 "
+    },
+    {
+        "question": "Which city in Scotland has the largest population?",
+        "sparql": " SELECT DISTINCT ?x ?property WHERE { ?x rdf:type yago:wordnet_city_108524735 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:Scotland geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT FILTER geof:sfContains(?yWKT, ?xWKT) ?x <http://yago-knowledge.org/resource/infobox/en/populationtotal> ?property } ORDER BY DESC(?property) LIMIT 1 "
+    },
+    {
+        "question": "Which cities of the United Kingdom have a university?",
+        "sparql": " SELECT DISTINCT ?x WHERE { ?x rdf:type yago:wordnet_city_108524735 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:United_Kingdom geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT FILTER geof:sfContains(?yWKT, ?xWKT) ?z rdf:type yago:wordnet_university_108286569 ; geo:hasGeometry ?zGeo . ?zGeo geo:asWKT ?zWKT FILTER geof:sfContains(?xWKT, ?zWKT) } "
+    },
+    {
+        "question": "What is the elevation of the most elevated spot in county Down?",
+        "sparql": " SELECT DISTINCT ?property WHERE { ?x rdf:type yago:wordnet_mountain_109359803 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:County_Down geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT FILTER geof:sfContains(?yWKT, ?xWKT) ?x <http://yago-knowledge.org/resource/infobox/en/elevationm> ?property } ORDER BY DESC(?property) LIMIT 1 "
+    },
+    {
+        "question": "Which is the largest county of England?",
+        "sparql": " SELECT DISTINCT ?x ?property WHERE { ?x rdf:type yago:wordnet_county_108546183 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:England geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT FILTER geof:sfContains(?yWKT, ?xWKT) ?x <http://yago-knowledge.org/resource/infobox/en/areatotalkm> ?property } ORDER BY DESC(xsd:integer(?property)) LIMIT 1 "
+    },
+    {
+        "question": "What is the longest river in England and Wales?",
+        "sparql": " SELECT DISTINCT ?x ?property WHERE { { ?x rdf:type yago:wordnet_river_109411430 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:England geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT FILTER geof:sfContains(?yWKT, ?xWKT) ?x yago:hasLength ?property } UNION { ?x rdf:type yago:wordnet_river_109411430 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:Wales geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT FILTER geof:sfContains(?yWKT, ?xWKT) ?x yago:hasLength ?property } } ORDER BY DESC(xsd:integer(?property)) LIMIT 1 "
+    },
+    {
+        "question": "Which city in Scotland has the largest population?",
+        "sparql": " SELECT DISTINCT ?x ?property WHERE { ?x rdf:type yago:wordnet_city_108524735 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:Scotland geo:hasGeometry ?sGeo . ?sGeo geo:asWKT ?sWKT . ?x yago:hasNumberOfPeople ?property FILTER geof:sfContains(?sWKT, ?xWKT) } ORDER BY DESC(?property) LIMIT 1 "
+    },
+    {
+        "question": "Which city of England is nearest to London?",
+        "sparql": " SELECT ?city (geof:distance(?LondonWKT, ?cityWKT, uom:metre) AS ?distance) WHERE { ?city rdf:type osm:City ; geo:hasGeometry ?cityGeo . ?cityGeo geo:asWKT ?cityWKT . ?London rdf:type osm:City ; osm:has_name ?l2 ; geo:hasGeometry ?LondonGeo . ?LondonGeo geo:asWKT ?LondonWKT FILTER ( str(?l2) = \"London\" ) FILTER ( ?city != ?London ) } ORDER BY ASC(?distance) LIMIT 1 "
+    },
+    {
+        "question": "Is there a river in Ireland that crosses more than 3 cities?",
+        "sparql": " ASK WHERE { { SELECT DISTINCT ?x WHERE { ?x rdf:type yago:wordnet_river_109411430 . ?y rdf:type yago:wordnet_city_108524735 . ?x geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . ?y geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT . yago:Ireland geo:hasGeometry ?iGeo . ?iGeo geo:asWKT ?iWKT FILTER ( geof:sfContains(?iWKT, ?xWKT) && geof:sfCrosses(?xWKT, ?yWKT) ) } GROUP BY ?x HAVING ( COUNT(?y) > 3 ) } } "
+    },
+    {
+        "question": "Which is the largest royal borough of London?",
+        "sparql": " SELECT ?x WHERE { ?x rdf:type y2geoo:OS_LondonBoroughWard ; geo:hasGeometry ?Geom . ?Geom geo:asWKT ?GeomWKT } ORDER BY ASC(strdf:area(?GeomWKT)) LIMIT 1 "
+    },
+    {
+        "question": "Which river crosses the most cities in England?",
+        "sparql": " SELECT DISTINCT ?x WHERE { ?x rdf:type yago:wordnet_river_109411430 . ?y rdf:type yago:wordnet_city_108524735 ; geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT . yago:England geo:hasGeometry ?eGeo . ?eGeo geo:asWKT ?eWKT . ?x geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT FILTER ( geof:sfCrosses(?xWKT, ?yWKT) && geof:sfContains(?eWKT, ?yWKT) ) } GROUP BY ?x ORDER BY DESC(COUNT(DISTINCT ?y)) LIMIT 1 "
+    },
+    {
+        "question": "Which is the largest lake by area in England?",
+        "sparql": " SELECT DISTINCT ?x ?property WHERE { ?x rdf:type yago:wordnet_lake_109328904 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:England geo:hasGeometry ?eGeo . ?eGeo geo:asWKT ?eWKT FILTER geof:sfContains(?eWKT, ?xWKT) ?x <http://yago-knowledge.org/resource/infobox/en/area> ?property } ORDER BY DESC(?property) LIMIT 1 "
+    },
+    {
+        "question": "Does Everton FC plays in Liverpool?",
+        "sparql": " ASK WHERE { <http://yago-knowledge.org/resource/Everton_F.C.> <http://yago-knowledge.org/resource/infobox/en/ground> ?o FILTER contains(?o, \"Liverpool\") } "
+    },
+    {
+        "question": "Which is the largest city of Ireland?",
+        "sparql": " SELECT DISTINCT ?x ?property WHERE { ?x rdf:type yago:wordnet_city_108524735 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:Ireland geo:hasGeometry ?iGeo . ?iGeo geo:asWKT ?iWKT . ?x <http://yago-knowledge.org/resource/infobox/en/areatotalkm> ?property FILTER geof:sfContains(?iWKT, ?xWKT) } ORDER BY DESC(?property) LIMIT 1 "
+    },
+    {
+        "question": "Which car park is closest to a bridge on river Exe?",
+        "sparql": " SELECT ?poi WHERE { SERVICE <http://pyravlos1.di.uoa.gr:8890/sparql> { yago:River_Exe ?p ?o . ?x rdf:type yago:wordnet_bridge_102898711 ; rdf:label ?label } SERVICE <http://pyravlos1.di.uoa.gr:8080/geoqa/Query> { ?poi rdf:type osm:Parking ; geo:hasGeometry ?geom . ?geom geo:asWKT ?wkt . ?b osm:has_name ?label ; geo:hasGeometry ?bGeom . ?bGeom geo:asWKT ?bWKT FILTER ( geof:distance(?wkt, ?bWKT, uom:metre) < 500 ) } } ORDER BY DESC(( geof:distance(?wkt, ?bWKT, uom:metre) < 500 )) LIMIT 1 "
+    },
+    {
+        "question": "What is the most densely populated city in Ireland?",
+        "sparql": " SELECT DISTINCT ?x ?property WHERE { ?x rdf:type yago:wordnet_city_108524735 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:Ireland geo:hasGeometry ?iGeo . ?iGeo geo:asWKT ?iWKT FILTER geof:sfContains(?iWKT, ?xWKT) ?x yago:hasPopulationDensity ?property } ORDER BY DESC(?property) LIMIT 1 "
+    },
+    {
+        "question": "Is Glasgow the largest city of Scotland in terms of population?",
+        "sparql": " SELECT ( ?property1 > ?property ) WHERE { yago:Glasgow yago:hasNumberOfPeople ?property1 . ?y rdf:type yago:wordnet_city_108524735 ; geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT . yago:Scotland geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT FILTER geof:sfContains(?xWKT, ?yWKT) ?y yago:hasNumberOfPeople ?property } "
+    },
+    {
+        "question": "Does England have more counties than Ireland?",
+        "sparql": " SELECT ( COUNT(DISTINCT ?x) > COUNT(DISTINCT ?y) ) WHERE { { SELECT ?x WHERE { ?x rdf:type yago:wordnet_county_108546183 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:England geo:hasGeometry ?eGeo . ?eGeo geo:asWKT ?eWKT FILTER geof:sfContains(?eWKT, ?xWKT) } } { SELECT ?y WHERE { ?y rdf:type yago:wordnet_county_108546183 ; geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT . yago:Ireland geo:hasGeometry ?iGeo . ?iGeo geo:asWKT ?iWKT FILTER geof:sfContains(?iWKT, ?yWKT) } } } "
+    },
+    {
+        "question": "Which is the largest lake in England?",
+        "sparql": " SELECT DISTINCT ?x ?property WHERE { ?x rdf:type yago:wordnet_lake_109328904 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:England geo:hasGeometry ?EGeo . ?EGeo geo:asWKT ?EWKT FILTER geof:sfContains(?EWKT, ?xWKT) ?x <http://yago-knowledge.org/resource/infobox/en/area> ?property } ORDER BY DESC(?property) LIMIT 1 "
+    },
+    {
+        "question": "Are the cities that River Thames crosses more than 10?",
+        "sparql": " ASK WHERE { ?x rdf:type yago:wordnet_city_108524735 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:River_Thames geo:hasGeometry ?rGeo . ?rGeo geo:asWKT ?rWKT FILTER geof:sfCrosses(?rWKT, ?xWKT) } HAVING ( ?total > 10 ) "
+    },
+    {
+        "question": "Are there any rivers that cross both England and Wales?",
+        "sparql": " ASK WHERE { ?x rdf:type yago:wordnet_river_109411430 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:England geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT FILTER geof:sfCrosses(?xWKT, ?yWKT) yago:Wales geo:hasGeometry ?zGeo . ?zGeo geo:asWKT ?zWKT FILTER geof:sfCrosses(?xWKT, ?zWKT) } "
+    },
+    {
+        "question": "Which county of England occupies the largest area?",
+        "sparql": " SELECT ?x ?property WHERE { ?x rdf:type yago:wordnet_county_108546183 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:England geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT FILTER geof:sfContains(?yWKT, ?xWKT) ?x <http://yago-knowledge.org/resource/infobox/en/areatotalkm> ?property } ORDER BY DESC(?property) LIMIT 1 "
+    },
+    {
+        "question": "What is the longest bridge in Scotland?",
+        "sparql": " SELECT DISTINCT ?x ?property WHERE { ?x rdf:type yago:wordnet_bridge_102898711 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:Scotland geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT FILTER geof:sfContains(?yWKT, ?xWKT) ?x <http://yago-knowledge.org/resource/infobox/en/length> ?property } ORDER BY DESC(?property) LIMIT 1 "
+    },
+    {
+        "question": "Which hospital is nearest to Calton Hill in Edinburgh?",
+        "sparql": " SELECT ?hospital (geof:distance(?hospitalWKT, ?CaltonWKT, uom:metre) AS ?distance) WHERE { ?hospital rdf:type osm:Hospital ; geo:hasGeometry ?hospitalGeo . ?hospitalGeo geo:asWKT ?hospitalWKT . yago:Edinburgh geo:hasGeometry ?EdinburghGeo . ?EdinburghGeo geo:asWKT ?EdinburghWKT . ?Calton osm:has_name ?l ; geo:hasGeometry ?CaltonGeo . ?CaltonGeo geo:asWKT ?CaltonWKT FILTER ( str(?l) = \"Calton Hill\" ) FILTER geof:sfContains(?EdinburghWKT, ?hospitalWKT) } ORDER BY ASC(?distance) LIMIT 1 "
+    },
+    {
+        "question": "Which is the closest airport to London?",
+        "sparql": " SELECT ?poi WHERE { SERVICE <http://pyravlos1.di.uoa.gr:8080/geoqa/Query> { yago:London geo:hasGeometry ?instanceGeom . ?instanceGeom geo:asWKT ?instanceWKT . ?poi rdf:type osm:Airport ; geo:hasGeometry ?poiGeom . ?poiGeom geo:asWKT ?poiWKT } BIND(geof:distance(?instanceWKT, ?poiWKT, uom:metre) AS ?res) } ORDER BY ?res LIMIT 1 "
+    },
+    {
+        "question": "Which is the highest point in Cheshire?",
+        "sparql": " SELECT DISTINCT ?x ?property WHERE { ?x rdf:type yago:wordnet_mountain_109359803 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:Cheshire geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT FILTER geof:sfContains(?yWKT, ?xWKT) ?x <http://yago-knowledge.org/resource/infobox/en/elevationm> ?property } ORDER BY DESC(?property) LIMIT 1 "
+    },
+    {
+        "question": "Which is the highest building in London?",
+        "sparql": " SELECT DISTINCT ?x ?property WHERE { ?x rdf:type yago:wordnet_building_102913152 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:London geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT FILTER geof:sfContains(?yWKT, ?xWKT) ?x yago:hasHeight ?property } ORDER BY DESC(xsd:integer(?property)) LIMIT 1 "
+    },
+    {
+        "question": "Is the county of Antrim bigger than the county of Armagh?",
+        "sparql": " SELECT DISTINCT ( ?a1 > ?a2 ) WHERE { yago:County_Antrim yago:hasArea ?a1 . yago:County_Armagh yago:hasArea ?a2 } "
+    },
+    {
+        "question": "Which is the smallest lake in Scotland?",
+        "sparql": " SELECT DISTINCT ?x ?property WHERE { ?x rdf:type yago:wordnet_lake_109328904 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:Scotland geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT FILTER geof:sfContains(?yWKT, ?xWKT) ?x yago:hasArea ?property } ORDER BY xsd:double(?property) LIMIT 1 "
+    },
+    {
+        "question": "Which hotel is the nearest to Old Trafford Stadium in Manchester?",
+        "sparql": " SELECT ?hotel (geof:distance(?hotelWKT, ?TraffordWKT, uom:metre) AS ?distance) WHERE { ?hotel rdf:type osm:Hotel ; geo:hasGeometry ?hoteleo . ?hotelGeo geo:asWKT ?hotelWKT . yago:Manchester geo:hasGeometry ?ManchesterGeo . ?ManchesterGeo geo:asWKT ?ManchesterWKT . ?Trafford osm:has_name ?l ; geo:hasGeometry ?TraffordGeo ; rdf:type osm:Stadium . ?TraffordGeo geo:asWKT ?TraffordWKT FILTER ( str(?l) = \"Old Trafford\" ) FILTER geof:sfContains(?ManchesterWKT, ?hotelWKT) } ORDER BY ASC(?distance) LIMIT 1 "
+    },
+    {
+        "question": "Which county of England has the biggest population?",
+        "sparql": " SELECT DISTINCT ?x ?property WHERE { ?x rdf:type yago:wordnet_county_108546183 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:England geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT FILTER geof:sfContains(?yWKT, ?xWKT) ?x <http://yago-knowledge.org/resource/infobox/en/population> ?property } ORDER BY DESC(?property) LIMIT 1 "
+    },
+    {
+        "question": "Which Welsh district has the most adjacent Welsh districts?",
+        "sparql": " SELECT ?district1name (COUNT(?district2) AS ?count) WHERE { SERVICE <http://pyravlos1.di.uoa.gr:8080/geoqa/Query> { ?district1 rdf:type y2geoo:OS_UnitaryAuthority ; osm:hasName ?district1name ; geo:hasGeometry _:b0 . _:b0 geo:asWKT ?district1WKT . ?district2 rdf:type y2geoo:OS_UnitaryAuthority ; osm:hasName ?district2name ; geo:hasGeometry _:b1 . _:b1 geo:asWKT ?district2WKT FILTER ( geof:sfTouches(?district1WKT, ?district2WKT) && ( ?district1 != ?district2 ) ) } } GROUP BY ?district1name ORDER BY DESC(?count) LIMIT 1 "
+    },
+    {
+        "question": "Which town has the biggest population in Scotland?",
+        "sparql": " SELECT DISTINCT ?x ?property WHERE { ?x rdf:type yago:wordnet_town_108665504 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:Scotland geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT FILTER geof:sfContains(?yWKT, ?xWKT) ?x <http://yago-knowledge.org/resource/infobox/en/population> ?property } ORDER BY DESC(?property) LIMIT 1 "
+    },
+    {
+        "question": "Which is the longest river in Scotland?",
+        "sparql": " SELECT DISTINCT ?x ?property WHERE { ?x rdf:type yago:wordnet_river_109411430 ; geo:hasGeometry ?xGeo . ?xGeo geo:asWKT ?xWKT . yago:Scotland geo:hasGeometry ?yGeo . ?yGeo geo:asWKT ?yWKT FILTER geof:sfContains(?yWKT, ?xWKT) ?x <http://yago-knowledge.org/resource/infobox/en/length> ?property } ORDER BY DESC(?property) LIMIT 1 "
+    },
+    {
+        "question": "What London underground stations are closest to the British Museum?",
+        "sparql": " SELECT ?poi ?wkt WHERE { ?poi rdf:type osm:Railway_Station ; geo:hasGeometry ?geom . ?geom geo:asWKT ?wkt . ?instance rdf:type osm:Museum ; osm:has_name \"British Museum\" ; geo:hasGeometry ?inGeom . ?inGeom geo:asWKT ?inWKT FILTER ( geof:distance(?wkt, ?inWKT, uom:metre) < 500 ) } "
+    },
+    {
+        "question": "What is the distance between Liverpool and Glasgow?",
+        "sparql": " SELECT (geof:distance(?livWKT, ?glasWKT, uom:metre) AS ?dist) WHERE { yago:Liverpool geo:hasGeometry ?livGeom . ?livGeom geo:asWKT ?livWKT . <http://yago-knowledge/resource/Glasgow> geo:hasGeometry ?glasGeom . ?glasGeom geo:asWKT ?glasWKT } "
+    }
+]

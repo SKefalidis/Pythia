@@ -1,0 +1,53 @@
+Which is the most populous State?
+How many voters exist in the most populous State?
+How many black voters exist in the most populous State?
+Which State has the most Hispanic voters?
+Which State held the closest race?
+Which county in Texas held the closest race?
+Who won the county that held the closest race?
+Which party won the most States?
+How many counties did each party win in Arizona?
+How did Athens, Georgia vote?
+Show me CA.
+Show me Republican counties in California.
+Please draw the States on the map.
+Draw the counties won by the Democratic party.
+Draw the counties won by the Republican party.
+Show me all the American lakes.
+Show me all the American rivers.
+Show me all the forests in the US.
+Which 5 counties had the highest percentage of female voters.
+Which party won the State with the highest percentage of male voters.
+Show me the counties that border Kansas.
+How did the counties on Texas’ border vote?
+Show me the Republican counties that have forests.
+Show me the Democratic counties that have forests.
+Which party won in the state with the highest number of marshes?
+Show me the number of Democratic votes and forests in each state.
+In which states did Republicans win more counties, but Democrats won statewide?
+Show the vote totals by county for each party in Wyoming.
+Do mountainous states vote for the Republican party?
+Which counties near lakes voted for the Democratic party?
+Which party won in the states bordering Lake Michigan?
+Which party won the elections in states bordering Alabama?
+Which party won in the counties along the Nevada-California border?
+Which party won in the 5 most populated states of the US?
+In which counties did the Green Party win?
+Show the votes by party for the Asian population in the US.
+Which party won the elections in counties with the most Native American Population?
+Which US state has the most lakes and forests?
+Which party won in counties connected by the Missouri river?
+Which party won in the state with the least young adults?
+Which counties have the highest female population?
+In how many of the counties with the highest female population the Green Party won?
+Which party won in the counties with the lowest black population?
+Which party won in counties were rivers pass through forests?
+How did the county crossed by the most rivers vote?
+What are the five largest counties by total area that voted for the Republican Party?
+What counties that have similar white and black population vote for?
+Which states have the highest Latino population, and how did they vote by party?
+What are the population percentages of the state with the most lakes?
+What are the total votes by party for Native Hawaiians outside of Hawaii?
+What did the state with the highest male population vote for?
+Can you show the party vote percentages for each state?
+What is the smallest county with forests and the highest Black population that voted for the Democratic Party?

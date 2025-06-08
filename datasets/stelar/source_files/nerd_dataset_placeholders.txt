@@ -1,0 +1,100 @@
+What is the access URL for {{DISTRIBUTION}}?  
+Which user created {{TASK}} in {{WORKFLOW}}?  
+List all distributions associated with {{DATASET}} published by {{ORGANIZATION}}.  
+What metrics were recorded for {{TASK}} under {{WORKFLOW}}?  
+When was {{DATASET}} last modified by {{USER}}?  
+Which organization's members have the role "admin"?  
+How many task executions are linked to {{WORKFLOW}}?  
+What is the license of {{DATASET}} published by {{ORGANIZATION}}?  
+Which user updated the parameters of {{TASK}}?  
+Retrieve the temporal resolution of {{DISTRIBUTION}} for {{DATASET}}.  
+Does {{DATASET}} have a restricted access right?  
+List workflow executions initiated by {{USER}}.  
+What is the byte size of {{DISTRIBUTION}} for {{DATASET}}?  
+Which task executions used {{DISTRIBUTION}} as input?  
+How many distributions are linked to {{DATASET}}?  
+What is the spatial coverage of {{DATASET}} owned by {{ORGANIZATION}}?  
+Which user is the publisher of {{DATASET}}?  
+List all organizations where {{USER}} has an "editor" role.  
+What is the start date of {{WORKFLOW}} executed by {{USER}}?  
+Which task executions have a "completed" state?  
+Retrieve the contact point for {{DATASET}} managed by {{ORGANIZATION}}.  
+How many keywords are associated with {{DISTRIBUTION}}?  
+What is the media type of {{DISTRIBUTION}} for {{DATASET}}?  
+List all versions of {{DATASET}} created by {{USER}}.  
+Which workflow includes {{TASK}} with the highest error rate?  
+What is the provenance information for {{DATASET}}?  
+How many users are members of {{ORGANIZATION}}?  
+Which distribution of {{DATASET}} has the largest file size?  
+What is the frequency of updates for {{DATASET}}?  
+List all task executions that produced {{DISTRIBUTION}} as output.  
+What is the geographical centroid of {{DATASET}}?  
+Which organization has published the most datasets?  
+Retrieve the schema standards conformed to by {{DISTRIBUTION}}.  
+What is the average runtime of {{TASK}} in {{WORKFLOW}}?  
+List all workflow executions with a "failed" state.  
+Which user last modified {{DISTRIBUTION}}?  
+What is the language of {{DATASET}}’s metadata?  
+How many task executions used {{DATASET}} as input?  
+What is the temporal coverage of {{DATASET}}?  
+List all roles assigned to {{USER}} in {{ORGANIZATION}}.  
+Which distribution of {{DATASET}} is available for download?  
+What is the skewness value for {{DISTRIBUTION}}’s numerical attribute?  
+How many workflow executions were run in April 2024?  
+Which task executions have missing parameter values?  
+What is the resolution of {{DISTRIBUTION}}’s raster data?  
+List all datasets tagged as "public" by {{ORGANIZATION}}.  
+What is the variance of {{DISTRIBUTION}}'s numerical distribution?  
+Which user has the highest number of task executions?  
+Retrieve the bounding box coordinates for {{DATASET}}.  
+How many distributions of {{DATASET}} are in CSV format?  
+What is the homepage URL for {{ORGANIZATION}}?  
+List all workflow executions that include {{TASK}} with "precision > 0.9".  
+What is the kurtosis of {{DISTRIBUTION}}’s value distribution?  
+Which {{DATASET}} has the most recent modification date?  
+How many users are inactive in {{ORGANIZATION}}?  
+What is the median value of {{DISTRIBUTION}}’s attribute?  
+List all task executions with metrics exceeding a threshold.  
+Which organizations collaborate on {{DATASET}}?  
+What is the no-data value for {{DISTRIBUTION}}’s raster?  
+How many workflow executions used {{DATASET}} as input?  
+What is the temporal resolution of {{DISTRIBUTION}}?  
+List all datasets with a "restricted" access right.  
+Which task executions have the longest runtime?  
+What is the percentage of missing values in {{DATASET}}?  
+How many distributions are linked to {{WORKFLOW}} outputs?  
+Which user has authored the most workflow executions?  
+What is the format of {{DISTRIBUTION}}’s metadata?  
+List all organizations with datasets in the "climate" theme.  
+What is the F1-score metric for {{TASK}}?  
+How many task executions are pending in {{WORKFLOW}}?  
+What is the spatial resolution of {{DATASET}}’s raster?  
+Which user has access to {{DISTRIBUTION}}’s private data?  
+List all workflow executions with a success rate > 90%.  
+What is the checksum for {{DISTRIBUTION}}’s downloadable file?  
+How many datasets conform to ISO 19115 standards?  
+Which task executions triggered errors in {{WORKFLOW}}?  
+What is the creation date of {{ORGANIZATION}}?  
+List all users who modified {{DATASET}} in the last month.  
+What is the average word count for {{DISTRIBUTION}}’s text?  
+Which workflow includes parallel task executions?  
+How many distributions are georeferenced in {{DATASET}}?  
+What is the lineage description for {{DATASET}}?  
+List all organizations with users holding "admin" roles.  
+What is the peak memory usage of {{TASK}}?  
+Which {{DATASET}} has the highest number of distributions?  
+How many task executions used machine learning models?  
+What is the schema of {{DISTRIBUTION}}’s tabular data?  
+List all workflow executions tagged as "urgent".  
+What is the confidence interval for {{TASK}}’s accuracy metric?  
+Which user uploaded the latest version of {{DATASET}}?  
+How many distributions include raster collections?  
+What is the update frequency of {{DATASET}}’s API endpoint?  
+List all task executions with runtime under 5 minutes.  
+Which organization has the oldest {{DATASET}}?  
+What is the hierarchy depth of {{DISTRIBUTION}}’s data?  
+How many workflow executions are scheduled for Q3 2024?  
+Which user reviewed {{DISTRIBUTION}}’s metadata?  
+What is the Jaccard similarity score for {{TASK}}?  
+List all datasets with temporal coverage from 2020-2023.  
+Which task executions in {{WORKFLOW}} used GPU resources?

@@ -1,0 +1,246 @@
+Provide a list of all datasets released by the United States Geological Survey in 2023.
+!
+SELECT * {
+	?dataset a dcat:Dataset .
+    ?dataset dct:publisher <http://stelar-project.eu/klms#organization/26f8e9c1-5783-463b-a833-95c961ff5d36> .
+	?dataset <http://purl.org/dc/terms/issued> ?time .
+	FILTER (?time > "2023-01-01T00:00:00.0Z"^^xsd:dateTime) 
+    FILTER (?time < "2023-12-31T23:59:59.0Z"^^xsd:dateTime)
+}
+@
+Fetch all datasets that were updated after May 1, 2023.
+!
+SELECT * {
+	?c_dataset_13 a <http://www.w3.org/ns/dcat#Dataset> . 
+	?c_dataset_13 <http://purl.org/dc/terms/modified> ?time .
+	FILTER (?time > "2023-05-01T23:59:59.0Z"^^xsd:dateTime)
+}
+@
+Obtain all datasets with a file size exceeding 1 MB.
+!
+SELECT ?c_dataset_13 {
+	?c_dataset_13 a <http://www.w3.org/ns/dcat#Dataset>. 
+    ?c_dataset_13 dcat:distribution ?distribution .
+    ?distribution dcat:byteSize ?size .
+    FILTER (?size > 1000000)
+}
+@
+Retrieve all datasets with a spatial extent that contains the lakes of Greece.
+!
+SELECT ?dataset {
+	?dataset a <http://www.w3.org/ns/dcat#Dataset>. 
+    ?dataset dct:spatial ?d_spatial .
+    ?d_spatial dcat:bbox ?d_box .
+    <http://stelar-project.eu/klms#dataset/cf0c3c59-fc41-48c9-a529-6b9feff42991> dct:spatial ?g_spatial .
+    ?g_spatial dcat:bbox ?g_box
+    FILTER (geof:sfContains(?d_box, ?g_box))
+}
+@
+How many datasets are marked with the keyword "climate change"?
+!
+SELECT (COUNT (DISTINCT ?dataset) as ?C) {
+	?dataset a <http://www.w3.org/ns/dcat#Dataset>. 
+    ?dataset dcat:keyword ?keyword .
+    FILTER(CONTAINS(LCASE(STR(?keyword)), "climate change"))
+}
+@
+List all workflow executions that started after 2024-01-01.
+!
+SELECT ?workflowExec ?start_date
+WHERE {
+  ?workflowExec a klms:WorkflowExecution ;
+                dcat:startDate ?start_date .
+  FILTER (?start_date > "2024-01-01T00:00:00"^^xsd:dateTime)
+}
+ORDER BY DESC(?start_date)
+@
+Find all task executions with the state "failed" and their corresponding workflow executions.
+!
+SELECT ?taskExec ?workflowExec ?start_date
+WHERE {
+  ?taskExec a klms:TaskExecution ;
+            klms:state "failed" ;
+            dct:isPartOf ?workflowExec ;
+            dcat:startDate ?start_date .
+}
+@
+List all users with the role "admin".
+!
+SELECT ?user ?accountName
+WHERE {
+  ?membership org:member ?user ;
+              org:role ?role .
+  ?role klms:roleSpecs "admin" .
+  ?user foaf:accountName ?accountName .
+}
+@
+Which is the last published dataset?
+!
+SELECT ?dataset ?date
+WHERE {
+  ?dataset dct:publisher ?org ;
+           dct:issued ?date .
+}
+ORDER BY DESC (?date)
+LIMIT 1
+@
+List tabular datasets with >1000 rows.
+!
+SELECT ?dataset ?tabular ?numRows
+WHERE {
+  ?dataset dcat:distribution ?tabular .
+  ?tabular a klms:Tabular ;
+            klms:numRows ?numRows .
+  FILTER (?numRows > 1000)
+}
+@
+Which task executions have computed an F1 score?
+!
+SELECT ?taskExec
+WHERE {
+  ?taskExec klms:hasMetrics ?metric .
+  ?metric klms:key "F1" .
+}
+@
+List users who created both datasets and workflows.
+!
+SELECT ?user ?accountName
+WHERE {
+  ?user foaf:accountName ?accountName .
+  FILTER EXISTS { ?dataset dct:creator ?user . }     # User created at least 1 dataset
+  FILTER EXISTS { ?workflow dct:creator ?user . }   # User created at least 1 workflow
+}
+@
+List task executions that started but never completed.
+!
+SELECT ?taskExec ?start_date
+WHERE {
+  ?taskExec a klms:TaskExecution ;
+            dcat:startDate ?start_date .
+  FILTER NOT EXISTS { ?taskExec dcat:endDate ?end_date }
+}
+@
+Retrieve datasets with distributions in both CSV and JSON formats.
+!
+SELECT ?dataset
+WHERE {
+  ?dataset dcat:distribution ?csv_dist .
+  ?csv_dist dct:format "CSV" .
+  ?dataset dcat:distribution ?json_dist .
+  ?json_dist dct:format "JSON" .
+}
+@
+List users who have not created any workflow executions.
+!
+SELECT ?user ?accountName
+WHERE {
+  ?user foaf:accountName ?accountName .
+  FILTER NOT EXISTS {
+    ?workflow dct:creator ?user .
+  }
+}
+@
+List organizations with more than a hundred published datasets.
+!
+SELECT ?org ?orgName (COUNT(?dataset) AS ?datasetCount)
+WHERE {
+  ?dataset dct:publisher ?org .
+  ?org foaf:name ?orgName .
+}
+GROUP BY ?org ?orgName
+HAVING (COUNT(?dataset) > 100)
+@
+Which datasets have been modified more than once in 2023?
+!
+SELECT ?dataset (COUNT(?modDate) AS ?modCount)
+WHERE {
+  ?dataset dct:modified ?modDate .
+  FILTER (?modDate >= "2023-01-01T00:00:00"^^xsd:dateTime &&
+          ?modDate <= "2023-12-31T23:59:59"^^xsd:dateTime)
+}
+GROUP BY ?dataset
+HAVING (COUNT(?modDate) > 1)
+@
+Show me RDF datasets with at most 50 classes.
+!
+SELECT ?dataset ?rdfGraph ?numClasses
+WHERE {
+  ?dataset dcat:distribution ?rdfGraph .
+  ?rdfGraph a klms:RDFGraph ;
+            klms:numClasses ?numClasses .
+  FILTER (?numClasses <= 50)
+}
+@
+Find all workflow executions active during July 2023.
+!
+SELECT ?workflowExec ?startDate ?endDate
+WHERE {
+  ?workflowExec a klms:WorkflowExecution ;
+                dcat:startDate ?startDate ;
+                dcat:endDate ?endDate .
+  FILTER (
+    # Started before or during March 2024 AND
+    (?startDate <= "2023-07-31T23:59:59"^^xsd:dateTime) &&
+    # Ended after or during March 2024
+    (?endDate >= "2023-07-01T00:00:00"^^xsd:dateTime)
+  )
+}
+ORDER BY ?startDate
+@
+Count of task executions between 2023-06-01 and 2023-12-31.
+!
+SELECT (COUNT(?taskExec) AS ?totalTasks)
+WHERE {
+  ?taskExec a klms:TaskExecution ;
+            dcat:startDate ?startDate ;
+            dcat:endDate ?endDate .
+  FILTER (
+    ?startDate >= "2023-06-01T00:00:00"^^xsd:dateTime &&
+    ?endDate <= "2023-12-31T23:59:59"^^xsd:dateTime
+  )
+}
+@
+Task executions started and completed in January 2024.
+!
+SELECT ?taskExec ?startDate ?endDate
+WHERE {
+  ?taskExec a klms:TaskExecution ;
+            dcat:startDate ?startDate ;
+            dcat:endDate ?endDate .
+  FILTER (
+    ?startDate >= "2024-01-01T00:00:00"^^xsd:dateTime &&
+    ?endDate <= "2024-01-31T23:59:59"^^xsd:dateTime
+  )
+}
+ORDER BY ?startDate
+@
+Workflows tagged "gchatzi"
+!
+SELECT ?workflow WHERE {
+  ?workflow klms:hasTags ?tags .
+  ?tags klms:key "user" .
+  ?tags klms:value "gchatzi"
+}
+@
+Organizations with public+private datasets
+!
+SELECT DISTINCT ?org WHERE {
+  ?dataset1 dct:publisher ?org; 
+            dct:accessRights "public".
+  ?dataset2 dct:publisher ?org; 
+            dct:accessRights "private".
+}
+@
+Users inactive since 2023
+!
+SELECT ?user WHERE {
+  ?user klms:lastActive ?date.
+  FILTER(?date < "2024-01-01"^^xsd:dateTime)
+}
+@
+Find the last login date of kpatro.
+!
+SELECT ?lastActive
+WHERE {
+       <http://stelar-project.eu/klms#user/29410285-d0f5-480c-8420-1cdac8a19696> klms:lastActive ?lastActive .
+}

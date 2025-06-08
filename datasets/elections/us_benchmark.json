@@ -1,0 +1,206 @@
+[
+    {
+        "question": "Which is the most populous State?",
+        "query": "SELECT ?state WHERE {   ?state a pnyqa:State .  ?state pnyqa:hasTotal_Population ?pop .} ORDER BY DESC(?pop) LIMIT 1"
+    },
+    {
+        "question": "How many people voted in the most populous State?",
+        "query": "SELECT ?voters WHERE {   ?state a pnyqa:State .   ?state pnyqa:hasTotal_Population ?pop .   ?state pnyqa:hasTotal_Vote ?voters . } ORDER BY DESC (?pop) LIMIT 1"
+    },
+    {
+        "question": "How many black people live in the most populous State?",
+        "query": "SELECT ?blackPeople WHERE {   ?state a pnyqa:State .   ?state pnyqa:hasTotal_Population ?totalPop .   ?state pnyqa:hasBlack_or_African_American_Population ?blackPeople .} ORDER BY DESC (?totalPop) LIMIT 1"
+    },
+    {
+        "question": "Which State has the largest Asian population?",
+        "query": "SELECT ?state WHERE {   ?state a pnyqa:State .   ?state pnyqa:hasAsian_Population ?ashianPopulation .} ORDER BY DESC(?ashianPopulation) LIMIT 1"
+    },
+    {
+        "question": "Which State held the closest race?",
+        "query": "SELECT ?state WHERE { ?state a pnyqa:State . ?state pnyqa:closeness ?closeness . } ORDER BY ASC(?closeness) LIMIT 1"
+    },
+    {
+        "question": "Which county in Texas held the closest race?",
+        "query": "SELECT ?county WHERE {   ?county a pnyqa:County .   ?county pnyqa:closeness ?closeness .   yago:Texas geo:hasGeometry ?texGeo .   ?texGeo geo:asWKT ?texWKT .   ?county geo:hasGeometry ?countyGeo .   ?countyGeo geo:asWKT ?countyWKT .   FILTER (geof:sfWithin(?countyWKT, ?texWKT)) } ORDER BY ASC(?closeness) LIMIT 1"
+    },
+    {
+        "question": "Who won the county that held the closest race?",
+        "query": "SELECT ?winner WHERE {  ?county a pnyqa:County .  ?county pnyqa:closeness ?closeness .  ?county pnyqa:winner ?winner .} ORDER BY ASC(?closeness) LIMIT 1"
+    },
+    {
+        "question": "Which party won the most States?",
+        "query": "SELECT ?party (COUNT(?state) AS ?stateCount) WHERE {   ?state a pnyqa:State .   ?state pnyqa:winner ?party. } GROUP BY ?party ORDER BY DESC(?stateCount) LIMIT 1"
+    },
+    {
+        "question": "How many counties did each party win in Arizona?",
+        "query": "SELECT ?party (COUNT(?county) AS ?numberOfCounties) WHERE {   ?county a pnyqa:County .   ?county pnyqa:winner ?party .   yago:Arizona geo:hasGeometry ?azGeo .   ?azGeo geo:asWKT ?azWKT .   ?county geo:hasGeometry ?countyGeo .   ?countyGeo geo:asWKT ?countyWKT .   FILTER (geof:sfContains(?azWKT, ?countyWKT)) } GROUP BY ?party"
+    },
+    {
+        "question": "How did Arkansas vote?",
+        "query": "SELECT * WHERE {   yago:Arkansas pnyqa:hasDemocrat_Vote ?democratVotes .  yago:Arkansas pnyqa:hasRepublican_Vote ?republicanVotes .  yago:Arkansas pnyqa:hasGreen_Vote ?greenVotes .  yago:Arkansas pnyqa:hasLibertarian_Vote ?libertarianVotes . }"
+    },
+    {
+        "question": "Show me California.",
+        "query": "SELECT ?californiaWKT WHERE { yago:California geo:hasGeometry ?caGeo . ?caGeo geo:asWKT ?californiaWKT }"
+    },
+    {
+        "question": "Show me Republican counties in California.",
+        "query": "SELECT ?countyWKT WHERE {   ?county a pnyqa:County .   ?county geo:hasGeometry ?countyGeo .   ?countyGeo geo:asWKT ?countyWKT .   ?county pnyqa:winner <http://yago-knowledge.org/resource/Republican_Party_(United_States)> .   yago:California geo:hasGeometry ?cGeo .   ?cGeo geo:asWKT ?cWKT .   FILTER (geof:sfContains(?cWKT, ?countyWKT)) }"
+    },
+    {
+        "question": "Please draw the States on the map.",
+        "query": "SELECT ?stateWKT WHERE { ?state a pnyqa:State . ?state geo:hasGeometry ?stateGeo . ?stateGeo geo:asWKT ?stateWKT }"
+    },
+    {
+        "question": "Draw the counties won by the Democratic party.",
+        "query": "SELECT ?countyWKT WHERE {   ?county a pnyqa:County .   ?county geo:hasGeometry ?countyGeo .   ?countyGeo geo:asWKT ?countyWKT .   ?county pnyqa:winner <http://yago-knowledge.org/resource/Democratic_Party_(United_States)>.}"
+    },
+    {
+        "question": "Draw the counties won by the Republican party.",
+        "query": "SELECT ?countyWKT WHERE {   ?county a pnyqa:County .   ?county geo:hasGeometry ?countyGeo .   ?countyGeo geo:asWKT ?countyWKT .   ?county <http://pnyqa.di.uoa.gr/ontology/winner> <http://yago-knowledge.org/resource/Republican_Party_(United_States)>.}"
+    },
+    {
+        "question": "Show me all the American lakes.",
+        "query": "SELECT ?lakeWKT WHERE {   ?lake a <http://pnyqa.di.uoa.gr/ontology/lake-pond> .  ?lake geo:hasGeometry ?lakeGeo .   ?lakeGeo geo:asWKT ?lakeWKT  .  yago:United_States geo:sfContains ?lake }"
+    },
+    {
+        "question": "Show me all the American rivers.",
+        "query": "SELECT ?riverWKT WHERE { ?river a pnyqa:stream-river . ?river geo:hasGeometry ?riverGeo . ?riverGeo geo:asWKT ?riverWKT . yago:United_States geo:sfContains ?river }"
+    },
+    {
+        "question": "Show me all the forests in the US.",
+        "query": "SELECT ?forestWKT WHERE {   ?forest a <http://pnyqa.di.uoa.gr/ontology/forest> .   ?forest geo:hasGeometry ?forestGeo .   ?forestGeo geo:asWKT ?forestWKT .   yago:United_States geo:sfContains ?forest . }"
+    },
+    {
+        "question": "Which 5 counties have the highest percentage of females?",
+        "query": "SELECT ?county WHERE {   ?county a pnyqa:County .   ?county <http://pnyqa.di.uoa.gr/ontology/hasFemale_Population> ?femalePop .   ?county <http://pnyqa.di.uoa.gr/ontology/hasTotal_Population> ?totalPop .   BIND((?femalePop / ?totalPop) AS ?femalePercentage)} ORDER BY DESC(?femalePercentage) LIMIT 5"
+    },
+    {
+        "question": "Which party won the State with the highest percentage of males?",
+        "query": "SELECT ?winner WHERE {   ?state a pnyqa:State .   ?state pnyqa:hasMale_Population ?malePop .   ?state pnyqa:hasTotal_Population ?totalPop .   BIND ((?malePop / ?totalPop) AS ?malePercentage) .  ?state pnyqa:winner ?winner . } ORDER BY DESC (?malePercentage) LIMIT 1"
+    },
+    {
+        "question": "Show me the counties that border Kansas.",
+        "query": "SELECT ?countyWKT WHERE {   ?county a pnyqa:County .   ?county geo:hasGeometry ?countyGeo .   ?countyGeo geo:asWKT ?countyWKT .   yago:Kansas geo:hasGeometry ?kGeo .   ?kGeo geo:asWKT ?kWKT .   FILTER (geof:sfTouches(?kWKT, ?countyWKT)) }"
+    },
+    {
+        "question": "How did the counties on Texas\u2019 border vote?",
+        "query": "SELECT ?county ?democratVotes ?republicanVotes ?greenVotes ?libertarianVotes ?totalVotes ?winner WHERE {   ?county a pnyqa:County .   ?county geo:hasGeometry ?countyGeo .   ?countyGeo geo:asWKT ?countyWKT .   yago:Texas geo:hasGeometry ?texasGeo .   ?texasGeo geo:asWKT ?texasWKT .   FILTER(geof:sfTouches(?texasWKT, ?countyWKT)) .   OPTIONAL { ?county pnyqa:hasDemocrat_Vote ?democratVotes } .  OPTIONAL { ?county pnyqa:hasRepublican_Vote ?republicanVotes } .  OPTIONAL { ?county pnyqa:hasGreen_Vote ?greenVotes } .  OPTIONAL { ?county pnyqa:hasLibertarian_Vote ?libertarianVotes } .  OPTIONAL { ?county pnyqa:hasTotal_Vote ?totalVotes } .  OPTIONAL { ?county pnyqa:winner ?winner }}"
+    },
+    {
+        "question": "Show me the Republican counties that have forests.",
+        "query": "SELECT ?countyWKT WHERE {   ?county a pnyqa:County .   ?county geo:hasGeometry ?countyGeo .   ?countyGeo geo:asWKT ?countyWKT .   ?county pnyqa:winner <http://yago-knowledge.org/resource/Republican_Party_(United_States)> .   ?forest a pnyqa:forest .   ?forest geo:hasGeometry ?forestGeo .   ?forestGeo geo:asWKT ?forestWKT .   FILTER (geof:sfIntersects(?countyWKT, ?forestWKT)) }"
+    },
+    {
+        "question": "Show me the Democratic counties that have forests.",
+        "query": "SELECT ?countyWKT WHERE {   ?county a pnyqa:County .   ?county geo:hasGeometry ?countyGeo .   ?countyGeo geo:asWKT ?countyWKT .   ?county pnyqa:winner <http://yago-knowledge.org/resource/Democratic_Party_(United_States)> .   ?forest a pnyqa:forest .   ?forest geo:hasGeometry ?forestGeo .   ?forestGeo geo:asWKT ?forestWKT .   FILTER (geof:sfIntersects(?countyWKT, ?forestWKT)) }"
+    },
+    {
+        "question": "Which party won in the state with the highest number of marshes?",
+        "query": "SELECT ?party WHERE {   {    SELECT ?state (COUNT(?marsh) AS ?numMarshes) WHERE {       ?state a pnyqa:State .       ?marsh a pnyqa:swamp-marsh .       ?marsh geo:hasGeometry ?marshGeo .       ?marshGeo geo:asWKT ?marshWKT .       ?state geo:hasGeometry ?stateGeo .       ?stateGeo geo:asWKT ?stateWKT .       FILTER (geof:sfContains(?stateWKT, ?marshWKT))     } GROUP BY ?state ORDER BY DESC(?numMarshes) LIMIT 1  }  ?state pnyqa:winner ?party }"
+    },
+    {
+        "question": "Show me the number of Democratic votes and forests in each state.",
+        "query": "SELECT ?state ?votes (COUNT(?forest) AS ?forestCount) WHERE {   ?state a pnyqa:State .   ?state pnyqa:hasDemocrat_Vote ?votes .  OPTIONAL {    ?forest a <http://pnyqa.di.uoa.gr/ontology/forest> .    ?forest geo:hasGeometry ?forestGeo .    ?forestGeo geo:asWKT ?forestWKT .    ?state geo:hasGeometry ?stateGeo .    ?stateGeo geo:asWKT ?stateWKT .    FILTER (geof:sfWithin(?forestWKT, ?stateWKT))  }} GROUP BY ?state ?votes"
+    },
+    {
+        "question": "In which states did Republicans win more counties, but Democrats won statewide?",
+        "query": "SELECT ?state WHERE {  ?state a pnyqa:State .  ?state pnyqa:winner <http://yago-knowledge.org/resource/Democratic_Party_(United_States)> .    {    SELECT ?state (COUNT(?county) AS ?republicanCount) WHERE {      ?county a pnyqa:County .      ?county pnyqa:winner <http://yago-knowledge.org/resource/Republican_Party_(United_States)> .      ?county geo:hasGeometry ?countyGeo .      ?countyGeo geo:asWKT ?countyWKT .      ?state geo:hasGeometry ?stateGeo .      ?stateGeo geo:asWKT ?stateWKT .      FILTER (geof:sfWithin(?countyWKT, ?stateWKT))    } GROUP BY ?state  }    {    SELECT ?state (COUNT(?county) AS ?democratCount) WHERE {      ?county a pnyqa:County .      ?county pnyqa:winner <http://yago-knowledge.org/resource/Democratic_Party_(United_States)> .      ?county geo:hasGeometry ?countyGeo .      ?countyGeo geo:asWKT ?countyWKT .      ?state geo:hasGeometry ?stateGeo .      ?stateGeo geo:asWKT ?stateWKT .      FILTER (geof:sfWithin(?countyWKT, ?stateWKT))    } GROUP BY ?state  }    FILTER (?republicanCount > ?democratCount)}"
+    },
+    {
+        "question": "Show the vote totals by county for each party in Wyoming.",
+        "query": "SELECT ?county ?demVotes ?repVotes ?greenVotes ?libVotes WHERE {   ?county a pnyqa:County .   ?county pnyqa:hasDemocrat_Vote ?demVotes .   ?county pnyqa:hasRepublican_Vote ?repVotes .   ?county pnyqa:hasGreen_Vote ?greenVotes .   ?county pnyqa:hasLibertarian_Vote ?libVotes .  yago:Wyoming geo:hasGeometry ?wGeo .   ?wGeo geo:asWKT ?wWKT .   ?county geo:hasGeometry ?countyGeo .   ?countyGeo geo:asWKT ?countyWKT .   FILTER (geof:sfWithin(?countyWKT, ?wWKT))}"
+    },
+    {
+        "question": "Which counties near lakes voted for the Democratic party?",
+        "query": "SELECT ?county WHERE {   ?county a pnyqa:County .   ?county geo:hasGeometry ?countyGeo .   ?countyGeo geo:asWKT ?countyWKT .   ?county pnyqa:winner <http://yago-knowledge.org/resource/Democratic_Party_(United_States)> .  ?lake a <http://pnyqa.di.uoa.gr/ontology/lake-pond> .  ?lake geo:hasGeometry ?lakeGeo .   ?lakeGeo geo:asWKT ?lakeWKT .   FILTER (geof:distance(?lakeWKT, ?countyWKT, uom:metre) < 1000) }"
+    },
+    {
+        "question": "Which party won in the states bordering Lake Michigan?",
+        "query": "SELECT ?state ?winner WHERE {   ?state a pnyqa:State .   ?state geo:hasGeometry ?stateGeo .   ?stateGeo geo:asWKT ?stateWKT .   ?state pnyqa:winner ?winner.   yago:Lake_Michigan geo:hasGeometry ?lmGeo .   ?lmGeo geo:asWKT ?lmWKT .   FILTER (geof:sfTouches(?lmWKT, ?stateWKT)) }"
+    },
+    {
+        "question": "Which party won the elections in states bordering Alabama?",
+        "query": "SELECT ?state ?winner WHERE {   ?state a pnyqa:State .   ?state geo:hasGeometry ?stateGeo .   ?stateGeo geo:asWKT ?stateWKT .   ?state pnyqa:winner ?winner .   yago:Alabama geo:hasGeometry ?aGeo .   ?aGeo geo:asWKT ?aWKT .   FILTER (geof:sfTouches(?aWKT, ?stateWKT)) }"
+    },
+    {
+        "question": "Which party won in the counties along the Nevada-California border?",
+        "query": "SELECT ?county ?winner WHERE {   ?county a pnyqa:County .   ?county pnyqa:winner ?winner .   ?county geo:hasGeometry ?countyGeo .   ?countyGeo geo:asWKT ?countyWKT .   yago:Nevada geo:hasGeometry ?nvGeo .   ?nvGeo geo:asWKT ?nvWKT .   yago:California geo:hasGeometry ?caGeo .   ?caGeo geo:asWKT ?caWKT .   FILTER (geof:sfTouches(?nvWKT, ?countyWKT) && geof:sfTouches(?caWKT, ?countyWKT)) }"
+    },
+    {
+        "question": "Which party won in the 5 most populated states of the US?",
+        "query": "SELECT ?state ?winner WHERE {   ?state a pnyqa:State .  ?state pnyqa:hasTotal_Population ?pop .  ?state pnyqa:winner ?winner. } ORDER BY DESC (?pop) LIMIT 5"
+    },
+    {
+        "question": "In which counties did the Green Party win?",
+        "query": "SELECT ?county WHERE {   ?county a pnyqa:County .   ?county pnyqa:winner <http://yago-knowledge.org/resource/Green_Party_of_the_United_States>.}"
+    },
+    {
+        "question": "Which party won the elections in counties with the most Native American Population?",
+        "query": "SELECT ?county ?winner WHERE {   ?county a pnyqa:County .   ?county pnyqa:hasAmerican_Indian_and_Alaska_Native_Population ?pop .   ?county pnyqa:winner ?winner . } ORDER BY DESC(?pop) LIMIT 1"
+    },
+    {
+        "question": "Which US state has the most lakes and forests?",
+        "query": "SELECT ?state (COUNT(?lake) AS ?lakeCount) (COUNT(?forest) AS ?forestCount) WHERE {  ?state a yago:U.S._state .  OPTIONAL { ?lake a <http://pnyqa.di.uoa.gr/ontology/lake-pond> . ?lake geo:hasGeometry ?lakeGeo . ?lakeGeo geo:asWKT ?lakeWKT . FILTER (geof:sfWithin(?lakeWKT, ?stateGeo)) }  OPTIONAL { ?forest a <http://pnyqa.di.uoa.gr/ontology/forest> . ?forest geo:hasGeometry ?forestGeo . ?forestGeo geo:asWKT ?forestWKT . FILTER (geof:sfWithin(?forestWKT, ?stateGeo)) }} GROUP BY ?state ORDER BY DESC(?lakeCount + ?forestCount) LIMIT 1"
+    },
+    {
+        "question": "Which party won in counties connected by the Missouri river?",
+        "query": "SELECT ?county ?winner WHERE {   ?county a pnyqa:County .   ?county geo:hasGeometry ?countyGeo .   ?countyGeo geo:asWKT ?countyWKT .   ?county pnyqa:winner ?winner .   <http://yago-knowledge.org/resource/Missouri> geo:hasGeometry ?riverGeo .   ?riverGeo geo:asWKT ?riverWKT .   FILTER (geof:sfTouches(?countyWKT, ?riverWKT)) }"
+    },
+    {
+        "question": "Which party won in the state with the least young adults?",
+        "query": "SELECT ?party WHERE {  ?state a pnyqa:State .  ?state pnyqa:hasYoung_Adults ?youngAdults .  ?state pnyqa:winner ?party .} ORDER BY ASC(?youngAdults) LIMIT 1"
+    },
+    {
+        "question": "Which counties have the highest female population?",
+        "query": "SELECT ?county WHERE { ?county a pnyqa:County . ?county pnyqa:hasFemale_Population ?femalePop . } ORDER BY DESC(?femalePop)"
+    },
+    {
+        "question": "In how many of the counties with the highest female population the Green Party won?",
+        "query": "SELECT (COUNT(?county) AS ?numCounties) WHERE {  ?county a pnyqa:County .  ?county pnyqa:hasFemale_Population ?femalePop .  ?county pnyqa:winner <http://yago-knowledge.org/resource/Green_Party_of_the_United_States> .} ORDER BY DESC(?femalePop) LIMIT 1"
+    },
+    {
+        "question": "Which party won in the counties with the lowest black population?",
+        "query": "SELECT ?county ?winner WHERE {   ?county a pnyqa:County .   ?county pnyqa:hasBlack_or_African_American_Population ?pop .   ?county pnyqa:winner ?winner . } ORDER BY ASC (?pop) LIMIT 1"
+    },
+    {
+        "question": "Which party won in counties were rivers pass through forests?",
+        "query": "SELECT ?county ?winner WHERE {   ?county a pnyqa:County .   ?county geo:hasGeometry ?countyGeo .   ?countyGeo geo:asWKT ?countyWKT .   ?river rdf:type <http://pnyqa.di.uoa.gr/ontology/stream-river> .   ?river geo:hasGeometry ?riverGeo .   ?riverGeo geo:asWKT ?riverWKT .   ?forest rdf:type <http://pnyqa.di.uoa.gr/ontology/forest> .   ?forest geo:hasGeometry ?forestGeo .   ?forestGeo geo:asWKT ?forestWKT .   FILTER (geof:sfContains(?countyWKT, ?riverWKT))   FILTER (geof:sfIntersects(?riverWKT, ?forestWKT))   ?county pnyqa:winner ?winner }"
+    },
+    {
+        "question": "How did the county crossed by the most rivers vote?",
+        "query": "SELECT ?county ?votes WHERE {   ?county a pnyqa:County .   ?county geo:hasGeometry ?countyGeo .   ?countyGeo geo:asWKT ?countyWKT .   ?river a <http://pnyqa.di.uoa.gr/ontology/stream-river> .   ?river geo:hasGeometry ?riverGeo .   ?riverGeo geo:asWKT ?riverWKT .   FILTER(geof:sfIntersects(?countyWKT, ?riverWKT))   ?county pnyqa:hasTotal_Vote ?votes .   {    SELECT ?county (COUNT(?river) AS ?riverCount) WHERE {       ?county a pnyqa:County .       ?county geo:hasGeometry ?countyGeo .       ?countyGeo geo:asWKT ?countyWKT .       ?river a <http://pnyqa.di.uoa.gr/ontology/stream-river> .       ?river geo:hasGeometry ?riverGeo .       ?riverGeo geo:asWKT ?riverWKT .       FILTER(geof:sfIntersects(?countyWKT, ?riverWKT))     } GROUP BY ?county     ORDER BY DESC(?riverCount)     LIMIT 1   }}"
+    },
+    {
+        "question": "What are the five largest counties by total area that voted for the Republican Party?",
+        "query": "SELECT ?county ?area WHERE {   ?county a pnyqa:County .   ?county pnyqa:hasArea ?area .   ?county pnyqa:winner <http://yago-knowledge.org/resource/Republican_Party_(United_States)>.} ORDER BY DESC(?area) LIMIT 5"
+    },
+    {
+        "question": "What counties that have similar white and black population vote for?",
+        "query": "SELECT ?county ?winner WHERE {    ?county a pnyqa:County .    ?county pnyqa:hasWhite_Population ?whitePop .    ?county pnyqa:hasBlack_or_African_American_Population ?blackPop .    ?county pnyqa:winner ?winner .    FILTER (ABS(?whitePop - ?blackPop) < 1000)}"
+    },
+    {
+        "question": "Which states have the highest Latino population, and how did they vote by party?",
+        "query": "SELECT ?state ?demVote ?repVote ?greenVote ?libVote WHERE {  ?state a pnyqa:State .  ?state pnyqa:hasLatino_Population ?latinoPop .  ?state pnyqa:hasDemocrat_Vote ?demVote .  ?state pnyqa:hasRepublican_Vote ?repVote .  ?state pnyqa:hasGreen_Vote ?greenVote .  ?state pnyqa:hasLibertarian_Vote ?libVote .} ORDER BY DESC (?latinoPop)"
+    },
+    {
+        "question": "What are the population percentages of the state with the most lakes?",
+        "query": "SELECT ?state ?americanIndianAndAlaskaNativePerc ?nativeHawaiianAndPacificIslanderPerc ?asianPerc ?blackOrAfricanAmericanPerc ?whitePerc ?femalePerc ?malePerc WHERE {  {    SELECT ?state (COUNT(?lake) AS ?lakeCount) WHERE {      ?state a pnyqa:State .      ?lake a <http://pnyqa.di.uoa.gr/ontology/lake-pond> .      ?lake geo:hasGeometry ?lakeGeo .      ?lakeGeo geo:asWKT ?lakeWKT .      ?state geo:hasGeometry ?stateGeo .      ?stateGeo geo:asWKT ?stateWKT .      FILTER(geof:sfWithin(?lakeWKT, ?stateWKT))    } GROUP BY ?state    ORDER BY DESC(?lakeCount) LIMIT 1  }  ?state <http://pnyqa.di.uoa.gr/ontology/hasTotal_Population> ?totalPop .  ?state <http://pnyqa.di.uoa.gr/ontology/hasAmerican_Indian_and_Alaska_Native_Population> ?americanIndianAndAlaskaNativePop .  ?state <http://pnyqa.di.uoa.gr/ontology/hasNative_Hawaiian_and_Other_Pacific_Islander_Population> ?nativeHawaiianAndPacificIslanderPop .  ?state <http://pnyqa.di.uoa.gr/ontology/hasAsian_Population> ?asianPop .  ?state <http://pnyqa.di.uoa.gr/ontology/hasBlack_or_African_American_Population> ?blackOrAfricanAmericanPop .  ?state <http://pnyqa.di.uoa.gr/ontology/hasWhite_Population> ?whitePop .  ?state <http://pnyqa.di.uoa.gr/ontology/hasFemale_Population> ?femalePop .  ?state <http://pnyqa.di.uoa.gr/ontology/hasMale_Population> ?malePop .  BIND((?americanIndianAndAlaskaNativePop / ?totalPop) * 100 AS ?americanIndianAndAlaskaNativePerc)  BIND((?nativeHawaiianAndPacificIslanderPop / ?totalPop) * 100 AS ?nativeHawaiianAndPacificIslanderPerc)  BIND((?asianPop / ?totalPop) * 100 AS ?asianPerc)  BIND((?blackOrAfricanAmericanPop / ?totalPop) * 100 AS ?blackOrAfricanAmericanPerc)  BIND((?whitePop / ?totalPop) * 100 AS ?whitePerc)  BIND((?femalePop / ?totalPop) * 100 AS ?femalePerc)  BIND((?malePop / ?totalPop) * 100 AS ?malePerc)}"
+    },
+    {
+        "question": "What are the total votes by party for Native Hawaiians outside of Hawaii?",
+        "query": "SELECT (SUM(?demVotes) AS ?totalDemVotes) (SUM(?repVotes) AS ?totalRepVotes) (SUM(?greenVotes) AS ?totalGreenVotes) (SUM(?libVotes) AS ?totalLibVotes) WHERE {  ?region pnyqa:hasNative_Hawaiian_and_Other_Pacific_Islander_Population ?pop .  ?region pnyqa:hasDemocrat_Vote ?demVotes .  ?region pnyqa:hasRepublican_Vote ?repVotes .  ?region pnyqa:hasGreen_Vote ?greenVotes .  ?region pnyqa:hasLibertarian_Vote ?libVotes .  FILTER NOT EXISTS {    ?region geo:hasGeometry ?geo .    ?geo geo:asWKT ?wkt .    yago:Hawaii geo:hasGeometry ?hawaiiGeo .    ?hawaiiGeo geo:asWKT ?hawaiiWKT .    FILTER(geof:sfWithin(?wkt, ?hawaiiWKT))  }}"
+    },
+    {
+        "question": "What did the state with the highest male population vote for?",
+        "query": "SELECT ?state ?winner WHERE { ?state a pnyqa:State . ?state pnyqa:hasMale_Population ?malePop . ?state pnyqa:winner ?winner . } ORDER BY DESC (?malePop) LIMIT 1"
+    },
+    {
+        "question": "Can you show the party vote percentages for each state?",
+        "query": "SELECT ?state ?demPercent ?repPercent ?greenPercent ?libPercent WHERE {  ?state a pnyqa:State .  ?state pnyqa:hasDemocrat_Vote ?demVotes .  ?state pnyqa:hasRepublican_Vote ?repVotes .  ?state pnyqa:hasGreen_Vote ?greenVotes .  ?state pnyqa:hasLibertarian_Vote ?libVotes .  ?state pnyqa:hasTotal_Vote ?totalVotes .  BIND ((?demVotes / ?totalVotes) * 100 AS ?demPercent)  BIND ((?repVotes / ?totalVotes) * 100 AS ?repPercent)  BIND ((?greenVotes / ?totalVotes) * 100 AS ?greenPercent)  BIND ((?libVotes / ?totalVotes) * 100 AS ?libPercent)}"
+    },
+    {
+        "question": "What is the smallest county with forests and the highest Black population that voted for the Democratic Party?",
+        "query": "SELECT ?county WHERE {   ?county a pnyqa:County .   ?county pnyqa:hasArea ?area .   ?county pnyqa:hasBlack_or_African_American_Population ?blackPop .   ?county pnyqa:winner <http://yago-knowledge.org/resource/Democratic_Party_(United_States)> .   ?county pnyqa:forest ?forest . } ORDER BY ASC(?area) DESC(?blackPop) LIMIT 1"
+    }
+]

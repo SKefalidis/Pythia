@@ -1,0 +1,649 @@
+[
+    {
+        "question": "What is the access URL for 97ef7f22-ec64-4b4b-8c47-c65e38aa4789?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#resource/97ef7f22-ec64-4b4b-8c47-c65e38aa4789"
+        ]
+    },
+    {
+        "question": "Which user created cc5e6649-6e16-49f0-8e68-28135203c617 in e1b4aac1-de24-4570-a8a5-c85ee72fd325?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#execution/cc5e6649-6e16-49f0-8e68-28135203c617",
+            "http://stelar-project.eu/klms#execution/e1b4aac1-de24-4570-a8a5-c85ee72fd325"
+        ]
+    },
+    {
+        "question": "List all distributions associated with 1fcfab22-69a1-4a0f-bf13-8bcce1a6b99f published by GoogleEarthEngine.  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/1fcfab22-69a1-4a0f-bf13-8bcce1a6b99f",
+            "http://stelar-project.eu/klms#organization/GoogleEarthEngine"
+        ]
+    },
+    {
+        "question": "What metrics were recorded for 052ad789-2a55-4ca0-866d-81bfb921015c under e1b4aac1-de24-4570-a8a5-c85ee72fd325?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#execution/052ad789-2a55-4ca0-866d-81bfb921015c",
+            "http://stelar-project.eu/klms#execution/e1b4aac1-de24-4570-a8a5-c85ee72fd325"
+        ]
+    },
+    {
+        "question": "When was b82f163b-0fc1-4df4-beb5-198f5775dde6 last modified by ckan_admin?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/b82f163b-0fc1-4df4-beb5-198f5775dde6",
+            "http://stelar-project.eu/klms#user/ckan_admin"
+        ]
+    },
+    {
+        "question": "Which organization's members have the role \"admin\"?  ",
+        "instances": []
+    },
+    {
+        "question": "How many task executions are linked to dc6a2747-0226-4107-b9c6-3814946c5eb2?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#execution/dc6a2747-0226-4107-b9c6-3814946c5eb2"
+        ]
+    },
+    {
+        "question": "What is the license of d4da009f-190c-4288-b0be-9d9b12e22fc1 published by UnitedStatesGeologicalSurvey?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/d4da009f-190c-4288-b0be-9d9b12e22fc1",
+            "http://stelar-project.eu/klms#organization/UnitedStatesGeologicalSurvey"
+        ]
+    },
+    {
+        "question": "Which user updated the parameters of dd5da5b5-c784-43f9-acf4-e819fcba2204?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#execution/dd5da5b5-c784-43f9-acf4-e819fcba2204"
+        ]
+    },
+    {
+        "question": "Retrieve the temporal resolution of d29719cc-c684-4ff2-ab49-0d5f66569ae5 for ad47e5d2-d9fb-4cb2-b85e-4526ab0558b4.  ",
+        "instances": [
+            "http://stelar-project.eu/klms#resource/d29719cc-c684-4ff2-ab49-0d5f66569ae5",
+            "http://stelar-project.eu/klms#dataset/ad47e5d2-d9fb-4cb2-b85e-4526ab0558b4"
+        ]
+    },
+    {
+        "question": "Does d4da009f-190c-4288-b0be-9d9b12e22fc1 have a restricted access right?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/d4da009f-190c-4288-b0be-9d9b12e22fc1"
+        ]
+    },
+    {
+        "question": "List workflow executions initiated by dlr.  ",
+        "instances": [
+            "http://stelar-project.eu/klms#user/dlr"
+        ]
+    },
+    {
+        "question": "What is the byte size of a24ee343-b823-47a4-81a0-ad9a3e7ff98c for 36327671-2fb9-4f75-9f83-90940e6129f3?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#resource/a24ee343-b823-47a4-81a0-ad9a3e7ff98c",
+            "http://stelar-project.eu/klms#dataset/36327671-2fb9-4f75-9f83-90940e6129f3"
+        ]
+    },
+    {
+        "question": "Which task executions used d81fb4ee-1502-4974-8c1a-0d1defaec61e as input?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#resource/d81fb4ee-1502-4974-8c1a-0d1defaec61e"
+        ]
+    },
+    {
+        "question": "How many distributions are linked to b4408783-7ed3-41fb-961a-f1172c7ed446?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/b4408783-7ed3-41fb-961a-f1172c7ed446"
+        ]
+    },
+    {
+        "question": "What is the spatial coverage of 7f025367-dfaf-44ff-97cc-1a6f2018ba2a owned by GermanAerospaceCenter(DLR)?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/7f025367-dfaf-44ff-97cc-1a6f2018ba2a",
+            "http://stelar-project.eu/klms#organization/GermanAerospaceCenter(DLR)"
+        ]
+    },
+    {
+        "question": "Which user is the publisher of 203fdb34-be14-45d5-b08d-0ec257f4083f?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/203fdb34-be14-45d5-b08d-0ec257f4083f"
+        ]
+    },
+    {
+        "question": "List all organizations where test_user5 has an \"editor\" role.  ",
+        "instances": [
+            "http://stelar-project.eu/klms#user/test_user5"
+        ]
+    },
+    {
+        "question": "What is the start date of 96ab9674-19e1-482b-b248-410d21cf2b29 executed by eodc?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#execution/96ab9674-19e1-482b-b248-410d21cf2b29",
+            "http://stelar-project.eu/klms#user/eodc"
+        ]
+    },
+    {
+        "question": "Which task executions have a \"completed\" state?  ",
+        "instances": []
+    },
+    {
+        "question": "Retrieve the contact point for 36327671-2fb9-4f75-9f83-90940e6129f3 managed by OpenLandMap.  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/36327671-2fb9-4f75-9f83-90940e6129f3",
+            "http://stelar-project.eu/klms#organization/OpenLandMap"
+        ]
+    },
+    {
+        "question": "How many keywords are associated with dd200d6a-b133-43a2-abe0-e878492a4bcd?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#resource/dd200d6a-b133-43a2-abe0-e878492a4bcd"
+        ]
+    },
+    {
+        "question": "What is the media type of dab949bd-07ab-4e9d-b62a-176795f685c8 for b1b609ba-12b8-45d5-ab0a-387500a260cb?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#resource/dab949bd-07ab-4e9d-b62a-176795f685c8",
+            "http://stelar-project.eu/klms#dataset/b1b609ba-12b8-45d5-ab0a-387500a260cb"
+        ]
+    },
+    {
+        "question": "List all versions of 703cf8a0-d74d-4110-861d-78254557066f created by usgs.  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/703cf8a0-d74d-4110-861d-78254557066f",
+            "http://stelar-project.eu/klms#user/usgs"
+        ]
+    },
+    {
+        "question": "Which workflow includes 40e20d4e-624d-4d2b-9852-9983576a45bc with the highest error rate?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#execution/40e20d4e-624d-4d2b-9852-9983576a45bc"
+        ]
+    },
+    {
+        "question": "What is the provenance information for 0b0261ef-3c3f-4f7f-9fe4-09a26ebefc89?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/0b0261ef-3c3f-4f7f-9fe4-09a26ebefc89"
+        ]
+    },
+    {
+        "question": "How many users are members of AthenaResearchCenter?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#organization/AthenaResearchCenter"
+        ]
+    },
+    {
+        "question": "Which distribution of 46b894f0-cfec-434c-b6ea-0be153718baa has the largest file size?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/46b894f0-cfec-434c-b6ea-0be153718baa"
+        ]
+    },
+    {
+        "question": "What is the frequency of updates for 46b894f0-cfec-434c-b6ea-0be153718baa?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/46b894f0-cfec-434c-b6ea-0be153718baa"
+        ]
+    },
+    {
+        "question": "List all task executions that produced 67822783-6388-44fb-8dc0-ade960c0cbd7 as output.  ",
+        "instances": [
+            "http://stelar-project.eu/klms#resource/67822783-6388-44fb-8dc0-ade960c0cbd7"
+        ]
+    },
+    {
+        "question": "What is the geographical centroid of f9130c1b-a758-4fdb-84a5-0248da4eb967?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/f9130c1b-a758-4fdb-84a5-0248da4eb967"
+        ]
+    },
+    {
+        "question": "Which organization has published the most datasets?  ",
+        "instances": []
+    },
+    {
+        "question": "Retrieve the schema standards conformed to by 50156c05-6150-494d-b372-77d859f768d2.  ",
+        "instances": [
+            "http://stelar-project.eu/klms#resource/50156c05-6150-494d-b372-77d859f768d2"
+        ]
+    },
+    {
+        "question": "What is the average runtime of 48cc4a97-4a4a-4b00-92f9-c19af66ce0c5 in bc522e3f-8a73-4cb3-91a3-b4af1f0b48b7?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#execution/48cc4a97-4a4a-4b00-92f9-c19af66ce0c5",
+            "http://stelar-project.eu/klms#execution/bc522e3f-8a73-4cb3-91a3-b4af1f0b48b7"
+        ]
+    },
+    {
+        "question": "List all workflow executions with a \"failed\" state.  ",
+        "instances": []
+    },
+    {
+        "question": "Which user last modified b1ccd30d-905f-4404-a662-45abc4ddba67?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#resource/b1ccd30d-905f-4404-a662-45abc4ddba67"
+        ]
+    },
+    {
+        "question": "What is the language of b9e5fe57-a73a-44ad-9cf9-cc1dea335a0d\u2019s metadata?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/b9e5fe57-a73a-44ad-9cf9-cc1dea335a0d"
+        ]
+    },
+    {
+        "question": "How many task executions used 3e2e49c5-5b4f-4507-873d-8bb106c77551 as input?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/3e2e49c5-5b4f-4507-873d-8bb106c77551"
+        ]
+    },
+    {
+        "question": "What is the temporal coverage of 5ec8cd36-30b3-48e5-854f-a54fd9033b6d?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/5ec8cd36-30b3-48e5-854f-a54fd9033b6d"
+        ]
+    },
+    {
+        "question": "List all roles assigned to sparisi_abaco in AthenaResearchCenter.  ",
+        "instances": [
+            "http://stelar-project.eu/klms#user/sparisi_abaco",
+            "http://stelar-project.eu/klms#organization/AthenaResearchCenter"
+        ]
+    },
+    {
+        "question": "Which distribution of df14aab0-d0b6-451f-91a0-3edef49c3d6e is available for download?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/df14aab0-d0b6-451f-91a0-3edef49c3d6e"
+        ]
+    },
+    {
+        "question": "What is the skewness value for 0b81f43e-a3eb-40d4-a307-9fd9ec2fdb37\u2019s numerical attribute?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#resource/0b81f43e-a3eb-40d4-a307-9fd9ec2fdb37"
+        ]
+    },
+    {
+        "question": "How many workflow executions were run in April 2024?  ",
+        "instances": []
+    },
+    {
+        "question": "Which task executions have missing parameter values?  ",
+        "instances": []
+    },
+    {
+        "question": "What is the resolution of 9c3e1bf2-ce85-4f49-a9a7-9bdc0b3bd3cd\u2019s raster data?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#resource/9c3e1bf2-ce85-4f49-a9a7-9bdc0b3bd3cd"
+        ]
+    },
+    {
+        "question": "List all datasets tagged as \"public\" by ABACO.  ",
+        "instances": [
+            "http://stelar-project.eu/klms#organization/ABACO"
+        ]
+    },
+    {
+        "question": "What is the variance of 78ae25f5-3924-480e-ac8f-8cc8cfa4f35c's numerical distribution?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#resource/78ae25f5-3924-480e-ac8f-8cc8cfa4f35c"
+        ]
+    },
+    {
+        "question": "Which user has the highest number of task executions?  ",
+        "instances": []
+    },
+    {
+        "question": "Retrieve the bounding box coordinates for 5f810f5a-dcc1-4ed3-b501-f1116c34f5e5.  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/5f810f5a-dcc1-4ed3-b501-f1116c34f5e5"
+        ]
+    },
+    {
+        "question": "How many distributions of 02411a1a-4ff1-4c7d-a8fa-adf7ddd91806 are in CSV format?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/02411a1a-4ff1-4c7d-a8fa-adf7ddd91806"
+        ]
+    },
+    {
+        "question": "What is the homepage URL for EarthSearchbyElement84?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#organization/EarthSearchbyElement84"
+        ]
+    },
+    {
+        "question": "List all workflow executions that include 1fdde8dc-bddd-4f40-9b8d-ccd59702dfd6 with \"precision > 0.9\".  ",
+        "instances": [
+            "http://stelar-project.eu/klms#execution/1fdde8dc-bddd-4f40-9b8d-ccd59702dfd6"
+        ]
+    },
+    {
+        "question": "What is the kurtosis of 24aeaf20-d5ee-4040-83c9-597403c89248\u2019s value distribution?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#resource/24aeaf20-d5ee-4040-83c9-597403c89248"
+        ]
+    },
+    {
+        "question": "Which fd5d1a11-e8c2-4dc5-be43-10dc7d65a518 has the most recent modification date?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/fd5d1a11-e8c2-4dc5-be43-10dc7d65a518"
+        ]
+    },
+    {
+        "question": "How many users are inactive in OpenEnvironmentalDataCubeEurope?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#organization/OpenEnvironmentalDataCubeEurope"
+        ]
+    },
+    {
+        "question": "What is the median value of ad9bf84f-40f1-44a5-aa7a-30200c90e1d3\u2019s attribute?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#resource/ad9bf84f-40f1-44a5-aa7a-30200c90e1d3"
+        ]
+    },
+    {
+        "question": "List all task executions with metrics exceeding a threshold.  ",
+        "instances": []
+    },
+    {
+        "question": "Which organizations collaborate on f9130c1b-a758-4fdb-84a5-0248da4eb967?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/f9130c1b-a758-4fdb-84a5-0248da4eb967"
+        ]
+    },
+    {
+        "question": "What is the no-data value for 311b89a6-bbb5-4608-8b82-b7ea0a8fb15a\u2019s raster?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#resource/311b89a6-bbb5-4608-8b82-b7ea0a8fb15a"
+        ]
+    },
+    {
+        "question": "How many workflow executions used 012baefd-abc2-4e06-a4c7-f20e42b11bd3 as input?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/012baefd-abc2-4e06-a4c7-f20e42b11bd3"
+        ]
+    },
+    {
+        "question": "What is the temporal resolution of 78ae25f5-3924-480e-ac8f-8cc8cfa4f35c?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#resource/78ae25f5-3924-480e-ac8f-8cc8cfa4f35c"
+        ]
+    },
+    {
+        "question": "List all datasets with a \"restricted\" access right.  ",
+        "instances": []
+    },
+    {
+        "question": "Which task executions have the longest runtime?  ",
+        "instances": []
+    },
+    {
+        "question": "What is the percentage of missing values in 830c0f09-fd06-4865-971c-02383335a2e5?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/830c0f09-fd06-4865-971c-02383335a2e5"
+        ]
+    },
+    {
+        "question": "How many distributions are linked to a9087eb6-6d47-41f2-a765-973b54f00d9d outputs?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#execution/a9087eb6-6d47-41f2-a765-973b54f00d9d"
+        ]
+    },
+    {
+        "question": "Which user has authored the most workflow executions?  ",
+        "instances": []
+    },
+    {
+        "question": "What is the format of 3ce939f5-c903-46e5-96db-cfa82d10f849\u2019s metadata?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#resource/3ce939f5-c903-46e5-96db-cfa82d10f849"
+        ]
+    },
+    {
+        "question": "List all organizations with datasets in the \"climate\" theme.  ",
+        "instances": []
+    },
+    {
+        "question": "What is the F1-score metric for a68e1bb9-4348-4e0d-a9e0-1416a4a89a3c?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#execution/a68e1bb9-4348-4e0d-a9e0-1416a4a89a3c"
+        ]
+    },
+    {
+        "question": "How many task executions are pending in 0e5ac159-a766-4ebb-bc74-c1aebdf7ac1b?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#execution/0e5ac159-a766-4ebb-bc74-c1aebdf7ac1b"
+        ]
+    },
+    {
+        "question": "What is the spatial resolution of 5f810f5a-dcc1-4ed3-b501-f1116c34f5e5\u2019s raster?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/5f810f5a-dcc1-4ed3-b501-f1116c34f5e5"
+        ]
+    },
+    {
+        "question": "Which user has access to 25426d87-5e73-4005-92ef-6ea2dc93ee30\u2019s private data?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#resource/25426d87-5e73-4005-92ef-6ea2dc93ee30"
+        ]
+    },
+    {
+        "question": "List all workflow executions with a success rate > 90%.  ",
+        "instances": []
+    },
+    {
+        "question": "What is the checksum for ad9bf84f-40f1-44a5-aa7a-30200c90e1d3\u2019s downloadable file?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#resource/ad9bf84f-40f1-44a5-aa7a-30200c90e1d3"
+        ]
+    },
+    {
+        "question": "How many datasets conform to ISO 19115 standards?  ",
+        "instances": []
+    },
+    {
+        "question": "Which task executions triggered errors in 1616cf29-5f5e-4797-858a-f74a92de4499?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#execution/1616cf29-5f5e-4797-858a-f74a92de4499"
+        ]
+    },
+    {
+        "question": "What is the creation date of UnitedStatesGeologicalSurvey?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#organization/UnitedStatesGeologicalSurvey"
+        ]
+    },
+    {
+        "question": "List all users who modified ccac0280-4378-4720-b15c-3a4884b2685e in the last month.  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/ccac0280-4378-4720-b15c-3a4884b2685e"
+        ]
+    },
+    {
+        "question": "What is the average word count for 9c3e1bf2-ce85-4f49-a9a7-9bdc0b3bd3cd\u2019s text?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#resource/9c3e1bf2-ce85-4f49-a9a7-9bdc0b3bd3cd"
+        ]
+    },
+    {
+        "question": "Which workflow includes parallel task executions?  ",
+        "instances": []
+    },
+    {
+        "question": "How many distributions are georeferenced in fbf72bae-f433-4a85-ac3e-85d796b7f399?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/fbf72bae-f433-4a85-ac3e-85d796b7f399"
+        ]
+    },
+    {
+        "question": "What is the lineage description for fabcfccd-3b42-44b5-875c-1b16905186c7?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/fabcfccd-3b42-44b5-875c-1b16905186c7"
+        ]
+    },
+    {
+        "question": "List all organizations with users holding \"admin\" roles.  ",
+        "instances": []
+    },
+    {
+        "question": "What is the peak memory usage of 3b7c9e37-e633-4482-8a19-dd65a2a7630d?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#execution/3b7c9e37-e633-4482-8a19-dd65a2a7630d"
+        ]
+    },
+    {
+        "question": "Which 356c3310-657c-4322-9701-f370340142b3 has the highest number of distributions?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/356c3310-657c-4322-9701-f370340142b3"
+        ]
+    },
+    {
+        "question": "How many task executions used machine learning models?  ",
+        "instances": []
+    },
+    {
+        "question": "What is the schema of 9527e1ec-597c-48e0-a9dc-14eb64204564\u2019s tabular data?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#resource/9527e1ec-597c-48e0-a9dc-14eb64204564"
+        ]
+    },
+    {
+        "question": "List all workflow executions tagged as \"urgent\".  ",
+        "instances": []
+    },
+    {
+        "question": "What is the confidence interval for dea2bdf6-525c-44bd-9a33-3c8617878621\u2019s accuracy metric?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#execution/dea2bdf6-525c-44bd-9a33-3c8617878621"
+        ]
+    },
+    {
+        "question": "Which user uploaded the latest version of 39eacf71-5818-4723-95db-04df34d2b993?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/39eacf71-5818-4723-95db-04df34d2b993"
+        ]
+    },
+    {
+        "question": "How many distributions include raster collections?  ",
+        "instances": []
+    },
+    {
+        "question": "What is the update frequency of 0cb4cd80-0328-4cdb-a3dc-02b1cc8a78b0\u2019s API endpoint?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/0cb4cd80-0328-4cdb-a3dc-02b1cc8a78b0"
+        ]
+    },
+    {
+        "question": "List all task executions with runtime under 5 minutes.  ",
+        "instances": []
+    },
+    {
+        "question": "Which organization has the oldest 9afe5fdf-5dd3-4199-9447-d3e659562904?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/9afe5fdf-5dd3-4199-9447-d3e659562904"
+        ]
+    },
+    {
+        "question": "What is the hierarchy depth of e6a3dd8c-10b4-45f5-99d3-a68073f9229c\u2019s data?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#resource/e6a3dd8c-10b4-45f5-99d3-a68073f9229c"
+        ]
+    },
+    {
+        "question": "How many workflow executions are scheduled for Q3 2024?  ",
+        "instances": []
+    },
+    {
+        "question": "Which user reviewed 038f3775-d350-4d20-86d1-20888d2dfc97\u2019s metadata?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#resource/038f3775-d350-4d20-86d1-20888d2dfc97"
+        ]
+    },
+    {
+        "question": "What is the Jaccard similarity score for d65d67f1-e4d6-4809-9e7a-18d54930a131?  ",
+        "instances": [
+            "http://stelar-project.eu/klms#execution/d65d67f1-e4d6-4809-9e7a-18d54930a131"
+        ]
+    },
+    {
+        "question": "List all datasets with temporal coverage from 2020-2023.  ",
+        "instances": []
+    },
+    {
+        "question": "Which task executions in e3ac1e6e-5213-4259-9a58-efaaf438bc83 used GPU resources?",
+        "instances": [
+            "http://stelar-project.eu/klms#execution/e3ac1e6e-5213-4259-9a58-efaaf438bc83"
+        ]
+    },
+    {
+        "question": "List basic information (title, publication date, path, or URL where the data is available, data volume in bytes) about datasets published in 2023 or later by user 'gmarinos'.",
+        "instances": [
+            "http://stelar-project.eu/klms#user/gmarinos"
+        ]
+    },
+    {
+        "question": "Search for time series data covering the entire year 2023 and (based on profile information) focus on time series of absolute energy above 500 and having a longest subsequence above their mean that spans more than 100 consecutive time points.",
+        "instances": []
+    },
+    {
+        
+        "question": "Find datasets having spatial extent within the rectangle POLYGON((12.362 45.39,12.485 45.39,12.485 45.576,12.362 45.576,12.362 45.39)) that have been updated after 2023-01-01.",
+        "instances": []
+    },
+    {
+        "question": "Find raster images with cloud coverage < 10% based on their extracted profile information.",
+        "instances": []
+    },
+    {
+        "question": "Datasets given as INPUT in tasks executed in workflows.",
+        "instances": []
+    },
+    {
+        "question": "Datasets issued as OUTPUT from tasks executed in workflows",
+        "instances": []
+    },
+    {
+        "question": "Given the file dbee0078-f053-404a-b09d-bde29eaf5521, find all task executions to which it was given as INPUT.",
+        "instances": [
+            "http://stelar-project.eu/klms#resource/dbee0078-f053-404a-b09d-bde29eaf5521"
+        ]
+    },
+    {
+        "question": "Find the task execution that has issued the file 026ca7aa-a417-4822-be63-7e855026c8d9 as OUTPUT.",
+        "instances": [
+            "http://stelar-project.eu/klms#resource/026ca7aa-a417-4822-be63-7e855026c8d9"
+        ]
+    },
+    {
+        "question": "Given the data source identifier ce4ebc61-19b0-49e8-aa0e-99022b5278ec, find all workflow executions to which it was given as INPUT to a task execution.",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/ce4ebc61-19b0-49e8-aa0e-99022b5278ec"
+        ]
+    },
+    {
+        "question": "Find the workflow execution that has issued any of the files of 1b3cebbe-0271-437f-be9a-92dc374c536b as OUTPUT of a task execution.",
+        "instances": [
+            "http://stelar-project.eu/klms#dataset/1b3cebbe-0271-437f-be9a-92dc374c536b"
+        ]
+    },
+    {
+        "question": "List all task executions included in any executions of workflows with the tag \"use-case B2\".",
+        "instances": []
+    },
+    {
+        "question": "List all executions of entity extraction tasks",
+        "instances": []
+    },
+    {
+        "question": "Metrics issued by the task execution {6d321fd2-3b40-48ee-8e74-697c8e0c4bb5}",
+        "instances": [
+            "http://stelar-project.eu/klms#execution/6d321fd2-3b40-48ee-8e74-697c8e0c4bb5"
+        ]
+    },
+    {
+        "question": "Parameters specified for \"6d321fd2-3b40-48ee-8e74-697c8e0c4bb5\"",
+        "instances": [
+            "http://stelar-project.eu/klms#execution/6d321fd2-3b40-48ee-8e74-697c8e0c4bb5"
+        ]
+    },
+    {
+        "question": "List executions of task \"entity_extraction\" in workflows that involve datasets published by organization \"Agroknow\" and issued after 2024-02-01.",
+        "instances": [
+            "http://stelar-project.eu/klms#organization/Agroknow"
+        ]
+    }
+]
