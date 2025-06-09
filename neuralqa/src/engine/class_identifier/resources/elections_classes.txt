@@ -1,0 +1,10 @@
+http://pnyqa.di.uoa.gr/ontology/State - state
+http://pnyqa.di.uoa.gr/ontology/County - county
+http://pnyqa.di.uoa.gr/ontology/swamp-marsh - swamp
+http://pnyqa.di.uoa.gr/ontology/swamp-marsh - marsh
+http://pnyqa.di.uoa.gr/ontology/reservoir - reservoir
+http://pnyqa.di.uoa.gr/ontology/stream-river - river
+http://pnyqa.di.uoa.gr/ontology/canal-ditch - canal
+http://pnyqa.di.uoa.gr/ontology/lake-pond - lake
+http://pnyqa.di.uoa.gr/ontology/forest - forest
+http://pnyqa.di.uoa.gr/ontology/mountain - mountain

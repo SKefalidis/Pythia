@@ -1,0 +1,52 @@
+ http://kr.di.uoa.gr/yago2geo/ontology/GADM_1stOrder_AdministrativeUnit - 1st Order Administrative Unit
+ http://kr.di.uoa.gr/yago2geo/ontology/GADM_2ndOrder_AdministrativeUnit - 2nd Order Administrative Unit
+ http://kr.di.uoa.gr/yago2geo/ontology/GADM_3rdOrder_AdministrativeUnit - 3rd Order Administrative Unit
+ http://kr.di.uoa.gr/yago2geo/ontology/GADM_4thOrder_AdministrativeUnit - 4th Order Administrative Unit
+ http://kr.di.uoa.gr/yago2geo/ontology/GADM_5thOrder_AdministrativeUnit - 5th Order Administrative Unit
+ http://kr.di.uoa.gr/yago2geo/ontology/GAG_MunicipalUnit - Municipal unit
+ http://kr.di.uoa.gr/yago2geo/ontology/GAG_DecentralizedAdministration - Decentralized Administration
+ http://kr.di.uoa.gr/yago2geo/ontology/GAG_RegionalUnit - Regional Unit
+ http://kr.di.uoa.gr/yago2geo/ontology/GAG_Region - Region
+ http://kr.di.uoa.gr/yago2geo/ontology/OSI_Townland - Townland
+ http://kr.di.uoa.gr/yago2geo/ontology/OSI_Municipal_District - municipal district
+ http://kr.di.uoa.gr/yago2geo/ontology/OSI_Barony - Barony
+ http://kr.di.uoa.gr/yago2geo/ontology/OSI_Civil_Parish - Civil Parish
+ http://kr.di.uoa.gr/yago2geo/ontology/OSI_Rural_Area - Rural Area
+ http://kr.di.uoa.gr/yago2geo/ontology/OS_DistrictWard - District Ward
+ http://kr.di.uoa.gr/yago2geo/ontology/OS_UnitaryAuthorityWard - Unitary Authority Ward
+ http://kr.di.uoa.gr/yago2geo/ontology/OS_LondonBoroughWard - London Borough Ward
+ http://kr.di.uoa.gr/yago2geo/ontology/OS_CivilParishorCommunity - Civil Parish or Community
+ http://kr.di.uoa.gr/yago2geo/ontology/OS_COMMUNITYWARD - COMMUNITY WARD
+ http://kr.di.uoa.gr/yago2geo/ontology/OS_COMMUNITY - COMMUNITY
+ http://kr.di.uoa.gr/yago2geo/ontology/OS_MetropolitanDistrictWard - Metropolitan District Ward
+ http://kr.di.uoa.gr/yago2geo/ontology/OS_UnitaryAuthority - Unitary Authority
+ http://kr.di.uoa.gr/yago2geo/ontology/OS_EuropeanRegion - European Region
+ http://kr.di.uoa.gr/yago2geo/ontology/OS_District - District
+ http://kr.di.uoa.gr/yago2geo/ontology/OSNI_Townland - Townland
+ http://kr.di.uoa.gr/yago2geo/ontology/OSNI_Ward - Ward
+ http://kr.di.uoa.gr/yago2geo/ontology/GAG_Municipality - Municipality
+ http://kr.di.uoa.gr/yago2geo/ontology/OS_County - County
+ http://kr.di.uoa.gr/yago2geo/ontology/OS_LondonBorough - London Borough
+ http://kr.di.uoa.gr/yago2geo/ontology/OS_MetropolitanDistrict - Metropolitan District
+ http://kr.di.uoa.gr/yago2geo/ontology/OS_GreaterLondonAuthority - Greater London Authority
+ http://kr.di.uoa.gr/yago2geo/ontology/OSI_County_Council - County Council
+ http://kr.di.uoa.gr/yago2geo/ontology/OSI_City_Council - City Council
+ http://kr.di.uoa.gr/yago2geo/ontology/OSI_City_and_County_Council - City and County Council
+ http://kr.di.uoa.gr/yago2geo/ontology/OSNI_LocalGovermentDistrict - Local Government District
+ http://kr.di.uoa.gr/yago2geo/ontology/OSM_forest - forest
+ http://kr.di.uoa.gr/yago2geo/ontology/OSM_park - park
+ http://kr.di.uoa.gr/yago2geo/ontology/OSM_nature_reserve - nature reserve
+ http://kr.di.uoa.gr/yago2geo/ontology/OSM_lake - lake
+ http://kr.di.uoa.gr/yago2geo/ontology/OSM_beach - beach
+ http://kr.di.uoa.gr/yago2geo/ontology/OSM_bay - bay
+ http://kr.di.uoa.gr/yago2geo/ontology/OSM_reservoir - reservoir
+ http://kr.di.uoa.gr/yago2geo/ontology/OSM_lagoon - lagoon
+ http://kr.di.uoa.gr/yago2geo/ontology/OSM_oxbow - oxbow
+ http://kr.di.uoa.gr/yago2geo/ontology/OSM_village - village
+ http://kr.di.uoa.gr/yago2geo/ontology/OSM_locality - locality
+ http://kr.di.uoa.gr/yago2geo/ontology/OSM_town - town
+ http://kr.di.uoa.gr/yago2geo/ontology/OSM_island - island
+ http://kr.di.uoa.gr/yago2geo/ontology/OSM_city - city
+ http://kr.di.uoa.gr/yago2geo/ontology/OSM_stream - stream
+ http://kr.di.uoa.gr/yago2geo/ontology/OSM_canal - canal
+ http://kr.di.uoa.gr/yago2geo/ontology/State - State

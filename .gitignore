@@ -3,5 +3,5 @@ logs-and-results/pythia-qa-results/lc_quad_1/oracle/run_results_basic_lc_quad_1_
 *.pyc
 neuralqa/models/*.json
 neuralqa/src/engine/entity_linking/resources/indices/*/
-neuralqa/src/engine/class_identifier/resources/knowledge_graph_classes/*
-neuralqa/src/engine/class_identifier/resources/indices/*
+neuralqa/src/engine/class_identifier/resources/knowledge_graph_classes/*.pkl
+neuralqa/src/engine/class_identifier/resources/indices/*/
