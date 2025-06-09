@@ -1,0 +1,45 @@
+elections:
+  path: ../../../../datasets/elections/us_benchmark.json
+  class_description_paths:
+    - ./resources/elections_classes.txt
+
+geoquestions1089:
+  path: ../../../../datasets/geoq1089/GeoQuestions1089.json
+  class_description_paths: 
+    - ./resources/YAGO2geo_classes.txt
+
+cwq:
+  path: ../../../../datasets/cwq/test.json
+  class_description_paths:
+    - ./resources/freebase_classes.txt
+
+qald9:
+  path: ../../../../datasets/qald_9/qald_9_test.json
+  class_description_paths:
+    # - ./resources/dbpedia_classes.txt
+    - ./resources/dbpedia_classes_only.txt
+    - ./resources/dbpedia_classes_only_20.txt
+
+qald10:
+  path: ../../../../datasets/qald_10/qald_10.json
+  class_description_paths:
+    - ./resources/wikidata_classes.txt
+    # - ./resources/wikidata_classes_20.txt
+
+lc_quad_1:
+  path: ../../../../datasets/lc_quad_1/test-data.json
+  class_description_paths:
+    # - ./resources/dbpedia_classes.txt
+    - ./resources/dbpedia_classes_only.txt
+    - ./resources/dbpedia_classes_only_20.txt
+
+lc_quad_2:
+  path: ../../../../datasets/lc_quad_2/test.json
+  class_description_paths:
+    - ./resources/wikidata_classes.txt
+    # - ./resources/wikidata_classes_20.txt
+
+beastiary:
+  path: ../../../../datasets/beastiary/beastiary_with_qald_format.json
+  class_description_paths:
+    - ./resources/beastiary_classes.txt

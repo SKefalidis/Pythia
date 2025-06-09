@@ -1,0 +1,36 @@
+elections:
+  path: ../../../../datasets/elections/us_el_in_kg.json
+  dense_index_path: pnyqa-faiss
+  sparse_index_path: pnyqa-bm25
+
+geoquestions1089:
+  path: ../../../../datasets/geoq1089/GeoQuestions1089.json
+  dense_index_path: yago2geo-filtered-faiss
+  sparse_index_path: yago2geo-filtered-bm25
+
+webqsp:
+  path: ../../../../datasets/webqsp/data/WebQSP.test_clean.json
+
+cwq:
+  path: ../../../../datasets/cwq/cwq_test.json
+
+qald9:
+  path: ../../../../datasets/qald_9/qald_9_test.json
+  dense_index_path: dbpedia2016-filtered-faiss
+  sparse_index_path: dbpedia2016-filtered-bm25
+
+qald10:
+  path: ../../../../datasets/qald_10/qald_10.json
+
+lc_quad_1:
+  path: ../../../../datasets/lc_quad_1/test-data.json
+  dense_index_path: dbpedia2016-filtered-faiss
+  sparse_index_path: dbpedia2016-filtered-bm25
+
+lc_quad_2:
+  path: ../../../../datasets/lc_quad_2/test.json
+
+beastiary:
+  path: ../../../../datasets/beastiary/beastiary_with_qald_format.json
+  dense_index_path: beastiary-faiss
+  sparse_index_path: beastiary-bm25
