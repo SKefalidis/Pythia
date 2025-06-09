@@ -11,7 +11,7 @@ class ElqLinker(EntityLinker):
         super().__init__(knowledge_graph)
 
         # the path where you stored the ELQ models
-        models_path = "/home/skefalidis/BLINK/models/"
+        models_path = "PATH_TO_ELQ_MODELS"
         config = {
             "interactive": False,
             "biencoder_model": models_path+"elq_wiki_large.bin",
