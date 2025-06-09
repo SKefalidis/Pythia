@@ -1,5 +1,5 @@
 *_full.log
-logs-and-results/lc_quad_1/oracle/run_results_basic_lc_quad_1_test-data.json.json
+logs-and-results/pythia-qa-results/lc_quad_1/oracle/run_results_basic_lc_quad_1_test-data.json.json
 *.pyc
 neuralqa/models/*.json
 neuralqa/src/engine/entity_linking/resources/indices/*/
