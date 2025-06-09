@@ -24,6 +24,9 @@ The repository is organized as follows:
 - `neuralqa/` contains the source code of Pythia and auxiliary linkers
 - `tools/` contains helper tools for creating indices, ontology graphs and query manipulation
 
+### How to run
+🚧 Index files are quite large and currently being uploaded... 🚧
+
 ## Benchmarks
 Coming soon...
 
