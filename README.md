@@ -16,7 +16,13 @@ Pythia is a geospatially-aware question-answering engine that is designed to fun
 - **State of the Art performance.** Pythia achieves new state-of-the-art performance in popular question answering benchmarks.
 
 ## Getting Started
-Under construction...
+
+### Repository structure
+The repository is organized as follows:
+- `datasets/` contains the QA datasets used in the evaluation of Pythia
+- `logs-and-results/` contains the log files and raw results of the evaluation of Pythia
+- `neuralqa/` contains the source code of Pythia and auxiliary linkers
+- `tools/` contains helper tools for creating indices, ontology graphs and query manipulation
 
 ## Benchmarks
 Coming soon...
@@ -28,7 +34,7 @@ Under review...
 
 <img align="right" src="https://github.com/AI-team-UoA/.github/blob/main/AI_LOGO.png?raw=true" alt="ai-team-uoa" width="200"/>
 
-- [Sergios-Anestis Kefalidis](http://users.uoa.gr/~sdi1800073/), Research Associate at the University of Athens, Greece
+- [Sergios-Anestis Kefalidis](http://users.uoa.gr/~skefalidis/), Research Associate at the University of Athens, Greece
 - [Kostas Plas](https://www.madgik.di.uoa.gr/el/people/msc-student/kplas), Research Associate at the University of Athens, Greece
 - [Manolis Koubarakis](https://cgi.di.uoa.gr/~koubarak/), Professor at the University of Athens, Greece
 
