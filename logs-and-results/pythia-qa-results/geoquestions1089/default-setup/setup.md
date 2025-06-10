@@ -1,0 +1,2 @@
+NERD: nerd_GeoQA2NERD_Geoquestions1089_logs.json
+CRD: crd_LLM_RETRIEVER_Geoquestions1089_logs.json

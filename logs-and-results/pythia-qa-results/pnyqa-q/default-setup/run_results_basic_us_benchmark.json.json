@@ -1,0 +1,740 @@
+[
+    {
+        "question": "Which is the most populous State?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?state WHERE {   ?state a pnyqa:State .  ?state pnyqa:hasTotal_Population ?pop .} ORDER BY DESC(?pop) LIMIT 1",
+        "entities": [],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/State> -> \"population\""
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/State> -> \"population\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?state WHERE {\n  ?state <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/State> .\n  ?state <http://pnyqa.di.uoa.gr/ontology/hasTotal_Population> ?population .\n  \n  {\n    SELECT (MAX(?pop) AS ?maxPop) WHERE {\n      ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/State> .\n      ?s <http://pnyqa.di.uoa.gr/ontology/hasTotal_Population> ?pop .\n    }\n  }\n  \n  FILTER(?population = ?maxPop)\n}"
+    },
+    {
+        "question": "How many people voted in the most populous State?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?voters WHERE {   ?state a pnyqa:State .   ?state pnyqa:hasTotal_Population ?pop .   ?state pnyqa:hasTotal_Vote ?voters . } ORDER BY DESC (?pop) LIMIT 1",
+        "entities": [],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/State> -> \"number of people voted\"",
+            "<http://pnyqa.di.uoa.gr/ontology/State> -> \"population\""
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/State> -> \"number of people voted\", <http://pnyqa.di.uoa.gr/ontology/State> -> \"population\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?totalVotes WHERE {\n  ?state <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/State> .\n  ?state <http://pnyqa.di.uoa.gr/ontology/hasTotal_Population> ?population .\n  ?state <http://pnyqa.di.uoa.gr/ontology/hasTotal_Vote> ?totalVotes .\n\n  {\n    SELECT (MAX(?pop) AS ?maxPopulation) WHERE {\n      ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/State> .\n      ?s <http://pnyqa.di.uoa.gr/ontology/hasTotal_Population> ?pop .\n    }\n  }\n\n  FILTER(?population = ?maxPopulation)\n}"
+    },
+    {
+        "question": "How many black people live in the most populous State?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?blackPeople WHERE {   ?state a pnyqa:State .   ?state pnyqa:hasTotal_Population ?totalPop .   ?state pnyqa:hasBlack_or_African_American_Population ?blackPeople .} ORDER BY DESC (?totalPop) LIMIT 1",
+        "entities": [],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/State> -> \"black population\"",
+            "<http://pnyqa.di.uoa.gr/ontology/State> -> \"population\""
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/State> -> \"black population\", <http://pnyqa.di.uoa.gr/ontology/State> -> \"population\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?blackPopulation WHERE {\n  {\n    SELECT (MAX(?totalPop) AS ?maxTotalPop) WHERE {\n      ?state a <http://pnyqa.di.uoa.gr/ontology/State> .\n      ?state <http://pnyqa.di.uoa.gr/ontology/hasTotal_Population> ?totalPop .\n    }\n  }\n  ?state a <http://pnyqa.di.uoa.gr/ontology/State> .\n  ?state <http://pnyqa.di.uoa.gr/ontology/hasTotal_Population> ?totalPop .\n  FILTER(?totalPop = ?maxTotalPop)\n  ?state <http://pnyqa.di.uoa.gr/ontology/hasBlack_or_African_American_Population> ?blackPopulation .\n}"
+    },
+    {
+        "question": "Which State has the largest Asian population?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?state WHERE {   ?state a pnyqa:State .   ?state pnyqa:hasAsian_Population ?ashianPopulation .} ORDER BY DESC(?ashianPopulation) LIMIT 1",
+        "entities": [],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/State> -> \"Asian population\""
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/State> -> \"Asian population\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?state ?asianPop WHERE {\n  ?state <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/State> .\n  ?state <http://pnyqa.di.uoa.gr/ontology/hasAsian_Population> ?asianPop .\n  \n  {\n    SELECT (MAX(?pop) AS ?maxPop) WHERE {\n      ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/State> .\n      ?s <http://pnyqa.di.uoa.gr/ontology/hasAsian_Population> ?pop .\n    }\n  }\n  \n  FILTER(?asianPop = ?maxPop)\n}"
+    },
+    {
+        "question": "Which State held the closest race?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?state WHERE { ?state a pnyqa:State . ?state pnyqa:closeness ?closeness . } ORDER BY ASC(?closeness) LIMIT 1",
+        "entities": [],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/State> -> \"race closeness\""
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/State> -> \"race closeness\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?state WHERE {\n  ?state <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/State> .\n  ?state <http://pnyqa.di.uoa.gr/ontology/closeness> ?closeness .\n  \n  {\n    SELECT (MIN(?c) AS ?minCloseness) WHERE {\n      ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/State> .\n      ?s <http://pnyqa.di.uoa.gr/ontology/closeness> ?c .\n    }\n  }\n  \n  FILTER(?closeness = ?minCloseness)\n}"
+    },
+    {
+        "question": "Which county in Texas held the closest race?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?county WHERE {   ?county a pnyqa:County .   ?county pnyqa:closeness ?closeness .   yago:Texas geo:hasGeometry ?texGeo .   ?texGeo geo:asWKT ?texWKT .   ?county geo:hasGeometry ?countyGeo .   ?countyGeo geo:asWKT ?countyWKT .   FILTER (geof:sfWithin(?countyWKT, ?texWKT)) } ORDER BY ASC(?closeness) LIMIT 1",
+        "entities": [
+            "http://yago-knowledge.org/resource/Texas"
+        ],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> \"race\"",
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> \"closeness\""
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/County> -> \"race\", <http://pnyqa.di.uoa.gr/ontology/County> -> \"closeness\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?county ?closeness ?countyWKT WHERE {\n  # Texas geometry\n  <http://yago-knowledge.org/resource/Texas> <http://www.opengis.net/ont/geosparql#hasGeometry> ?texasGeo .\n  ?texasGeo <http://www.opengis.net/ont/geosparql#asWKT> ?texasWKT .\n  \n  # County of type County\n  ?county <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/County> .\n  \n  # County geometry\n  ?county <http://www.opengis.net/ont/geosparql#hasGeometry> ?countyGeo .\n  ?countyGeo <http://www.opengis.net/ont/geosparql#asWKT> ?countyWKT .\n  \n  # Closeness value\n  ?county <http://pnyqa.di.uoa.gr/ontology/closeness> ?closeness .\n  \n  # Filter counties within Texas\n  FILTER(geof:sfWithin(?countyWKT, ?texasWKT))\n}\nORDER BY ASC(?closeness)\nLIMIT 1"
+    },
+    {
+        "question": "Who won the county that held the closest race?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?winner WHERE {  ?county a pnyqa:County .  ?county pnyqa:closeness ?closeness .  ?county pnyqa:winner ?winner .} ORDER BY ASC(?closeness) LIMIT 1",
+        "entities": [],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> \"winner\""
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/County> -> \"winner\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?winner WHERE {\n  ?county <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/County> .\n  ?county <http://pnyqa.di.uoa.gr/ontology/winner> ?winner .\n  ?county <http://pnyqa.di.uoa.gr/ontology/hasDemocrat_Vote> ?demVotes .\n  ?county <http://pnyqa.di.uoa.gr/ontology/hasTotal_Vote> ?totalVotes .\n  \n  BIND(ABS((2 * ?demVotes) - ?totalVotes) AS ?margin)\n}\nORDER BY ?margin\nLIMIT 1"
+    },
+    {
+        "question": "Which party won the most States?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?party (COUNT(?state) AS ?stateCount) WHERE {   ?state a pnyqa:State .   ?state pnyqa:winner ?party. } GROUP BY ?party ORDER BY DESC(?stateCount) LIMIT 1",
+        "entities": [],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/State> -> \"party\""
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/State> -> \"party\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?party (COUNT(?state) AS ?statesWon)\nWHERE {\n  ?state <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/State> .\n  ?state <http://pnyqa.di.uoa.gr/ontology/winner> ?party .\n}\nGROUP BY ?party\nORDER BY DESC(?statesWon)\nLIMIT 1"
+    },
+    {
+        "question": "How many counties did each party win in Arizona?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?party (COUNT(?county) AS ?numberOfCounties) WHERE {   ?county a pnyqa:County .   ?county pnyqa:winner ?party .   yago:Arizona geo:hasGeometry ?azGeo .   ?azGeo geo:asWKT ?azWKT .   ?county geo:hasGeometry ?countyGeo .   ?countyGeo geo:asWKT ?countyWKT .   FILTER (geof:sfContains(?azWKT, ?countyWKT)) } GROUP BY ?party",
+        "entities": [
+            "http://yago-knowledge.org/resource/Arizona"
+        ],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> \"party\"",
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> \"win count\""
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/County> -> \"party\", <http://pnyqa.di.uoa.gr/ontology/County> -> \"win count\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?party (COUNT(DISTINCT ?county) AS ?countiesWon)\nWHERE {\n  <http://yago-knowledge.org/resource/Arizona> geo:hasGeometry ?arizonaGeo .\n  ?arizonaGeo geo:asWKT ?arizonaWKT .\n\n  ?county rdf:type <http://pnyqa.di.uoa.gr/ontology/County> .\n  ?county <http://pnyqa.di.uoa.gr/ontology/winner> ?party .\n  ?county geo:hasGeometry ?countyGeo .\n  ?countyGeo geo:asWKT ?countyWKT .\n\n  FILTER(geof:sfWithin(?countyWKT, ?arizonaWKT))\n}\nGROUP BY ?party\nORDER BY DESC(?countiesWon)"
+    },
+    {
+        "question": "How did Arkansas vote?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT * WHERE {   yago:Arkansas pnyqa:hasDemocrat_Vote ?democratVotes .  yago:Arkansas pnyqa:hasRepublican_Vote ?republicanVotes .  yago:Arkansas pnyqa:hasGreen_Vote ?greenVotes .  yago:Arkansas pnyqa:hasLibertarian_Vote ?libertarianVotes . }",
+        "entities": [
+            "http://yago-knowledge.org/resource/Arkansas"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://yago-knowledge.org/resource/Arkansas> -> \"vote\""
+        ],
+        "paths": "<http://yago-knowledge.org/resource/Arkansas> -> \"vote\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?republicanVotes ?democratVotes ?totalVotes WHERE {\n  <http://yago-knowledge.org/resource/Arkansas> <http://pnyqa.di.uoa.gr/ontology/hasRepublican_Vote> ?republicanVotes .\n  <http://yago-knowledge.org/resource/Arkansas> <http://pnyqa.di.uoa.gr/ontology/hasDemocrat_Vote> ?democratVotes .\n  <http://yago-knowledge.org/resource/Arkansas> <http://pnyqa.di.uoa.gr/ontology/hasTotal_Vote> ?totalVotes .\n}"
+    },
+    {
+        "question": "Show me California.",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?californiaWKT WHERE { yago:California geo:hasGeometry ?caGeo . ?caGeo geo:asWKT ?californiaWKT }",
+        "entities": [
+            "http://yago-knowledge.org/resource/California"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://yago-knowledge.org/resource/California> -> member"
+        ],
+        "paths": "<http://yago-knowledge.org/resource/California> -> member",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT DISTINCT ?wkt WHERE {\n  <http://yago-knowledge.org/resource/California> <http://www.opengis.net/ont/geosparql#hasGeometry> ?geo .\n  ?geo <http://www.opengis.net/ont/geosparql#asWKT> ?wkt .\n}"
+    },
+    {
+        "question": "Show me Republican counties in California.",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?countyWKT WHERE {   ?county a pnyqa:County .   ?county geo:hasGeometry ?countyGeo .   ?countyGeo geo:asWKT ?countyWKT .   ?county pnyqa:winner <http://yago-knowledge.org/resource/Republican_Party_(United_States)> .   yago:California geo:hasGeometry ?cGeo .   ?cGeo geo:asWKT ?cWKT .   FILTER (geof:sfContains(?cWKT, ?countyWKT)) }",
+        "entities": [
+            "http://yago-knowledge.org/resource/Republican_Party_(United_States)",
+            "http://yago-knowledge.org/resource/California"
+        ],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> <http://yago-knowledge.org/resource/Republican_Party_(United_States)>"
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/County> -> <http://yago-knowledge.org/resource/Republican_Party_(United_States)>",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT DISTINCT ?county ?countyWKT WHERE {\n  ?county <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/County> .\n  ?county <http://pnyqa.di.uoa.gr/ontology/winner> <http://yago-knowledge.org/resource/Republican_Party_(United_States)> .\n  ?county <http://www.opengis.net/ont/geosparql#hasGeometry> ?countyGeo .\n  ?countyGeo <http://www.opengis.net/ont/geosparql#asWKT> ?countyWKT .\n  \n  <http://yago-knowledge.org/resource/California> <http://www.opengis.net/ont/geosparql#hasGeometry> ?calGeo .\n  ?calGeo <http://www.opengis.net/ont/geosparql#asWKT> ?calWKT .\n  \n  FILTER(geof:sfContains(?calWKT, ?countyWKT))\n}"
+    },
+    {
+        "question": "Please draw the States on the map.",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?stateWKT WHERE { ?state a pnyqa:State . ?state geo:hasGeometry ?stateGeo . ?stateGeo geo:asWKT ?stateWKT }",
+        "entities": [],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/State> -> \"member\""
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/State> -> \"member\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT DISTINCT ?state ?wkt WHERE {\n  ?state <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/State> .\n  ?state <http://www.opengis.net/ont/geosparql#hasGeometry> ?geo .\n  ?geo <http://www.opengis.net/ont/geosparql#asWKT> ?wkt .\n}"
+    },
+    {
+        "question": "Draw the counties won by the Democratic party.",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?countyWKT WHERE {   ?county a pnyqa:County .   ?county geo:hasGeometry ?countyGeo .   ?countyGeo geo:asWKT ?countyWKT .   ?county pnyqa:winner <http://yago-knowledge.org/resource/Democratic_Party_(United_States)>.}",
+        "entities": [
+            "http://yago-knowledge.org/resource/Democratic_Party_(United_States)"
+        ],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> <http://yago-knowledge.org/resource/Democratic_Party_(United_States)>"
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/County> -> <http://yago-knowledge.org/resource/Democratic_Party_(United_States)>",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT DISTINCT ?county ?wkt WHERE {\n  ?county <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/County> .\n  ?county <http://pnyqa.di.uoa.gr/ontology/winner> <http://yago-knowledge.org/resource/Democratic_Party_(United_States)> .\n  ?county <http://www.opengis.net/ont/geosparql#hasGeometry> ?geo .\n  ?geo <http://www.opengis.net/ont/geosparql#asWKT> ?wkt .\n}"
+    },
+    {
+        "question": "Draw the counties won by the Republican party.",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?countyWKT WHERE {   ?county a pnyqa:County .   ?county geo:hasGeometry ?countyGeo .   ?countyGeo geo:asWKT ?countyWKT .   ?county <http://pnyqa.di.uoa.gr/ontology/winner> <http://yago-knowledge.org/resource/Republican_Party_(United_States)>.}",
+        "entities": [
+            "http://yago-knowledge.org/resource/Republican_Party_(United_States)"
+        ],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> <http://yago-knowledge.org/resource/Republican_Party_(United_States)>"
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/County> -> <http://yago-knowledge.org/resource/Republican_Party_(United_States)>",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT DISTINCT ?county ?wkt WHERE {\n  ?county <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/County> .\n  ?county <http://pnyqa.di.uoa.gr/ontology/winner> <http://yago-knowledge.org/resource/Republican_Party_(United_States)> .\n  ?county <http://www.opengis.net/ont/geosparql#hasGeometry> ?geo .\n  ?geo <http://www.opengis.net/ont/geosparql#asWKT> ?wkt .\n}"
+    },
+    {
+        "question": "Show me all the American lakes.",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?lakeWKT WHERE {   ?lake a <http://pnyqa.di.uoa.gr/ontology/lake-pond> .  ?lake geo:hasGeometry ?lakeGeo .   ?lakeGeo geo:asWKT ?lakeWKT  .  yago:United_States geo:sfContains ?lake }",
+        "entities": [
+            "http://yago-knowledge.org/resource/United_States"
+        ],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/lake-pond"
+        ],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT DISTINCT ?lake ?lakeWKT WHERE {\n  ?lake a <http://pnyqa.di.uoa.gr/ontology/lake-pond> .\n  ?lake <http://www.opengis.net/ont/geosparql#hasGeometry> ?lakeGeo .\n  ?lakeGeo <http://www.opengis.net/ont/geosparql#asWKT> ?lakeWKT .\n  \n  <http://yago-knowledge.org/resource/United_States> <http://www.opengis.net/ont/geosparql#hasGeometry> ?usGeo .\n  ?usGeo <http://www.opengis.net/ont/geosparql#asWKT> ?usWKT .\n  \n  FILTER(geof:sfContains(?usWKT, ?lakeWKT))\n}"
+    },
+    {
+        "question": "Show me all the American rivers.",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?riverWKT WHERE { ?river a pnyqa:stream-river . ?river geo:hasGeometry ?riverGeo . ?riverGeo geo:asWKT ?riverWKT . yago:United_States geo:sfContains ?river }",
+        "entities": [
+            "http://yago-knowledge.org/resource/United_States"
+        ],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/stream-river"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/stream-river> -> member"
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/stream-river> -> member",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT DISTINCT ?river ?name ?riverWKT WHERE {\n  # United States geometry\n  <http://yago-knowledge.org/resource/United_States> geo:hasGeometry ?usGeo .\n  ?usGeo geo:asWKT ?usWKT .\n  \n  # Rivers of type stream-river\n  ?river a <http://pnyqa.di.uoa.gr/ontology/stream-river> .\n  \n  # River name (optional)\n  OPTIONAL { ?river <http://pnyqa.di.uoa.gr/ontology/hasName> ?name . }\n  \n  # River geometry\n  ?river geo:hasGeometry ?riverGeo .\n  ?riverGeo geo:asWKT ?riverWKT .\n  \n  # Filter rivers contained in the US\n  FILTER(geof:sfContains(?usWKT, ?riverWKT))\n}"
+    },
+    {
+        "question": "Show me all the forests in the US.",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?forestWKT WHERE {   ?forest a <http://pnyqa.di.uoa.gr/ontology/forest> .   ?forest geo:hasGeometry ?forestGeo .   ?forestGeo geo:asWKT ?forestWKT .   yago:United_States geo:sfContains ?forest . }",
+        "entities": [
+            "http://yago-knowledge.org/resource/United_States"
+        ],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/forest"
+        ],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT DISTINCT ?forest ?forestWKT WHERE {\n  ?forest rdf:type <http://pnyqa.di.uoa.gr/ontology/forest> .\n  ?forest geo:hasGeometry ?forestGeo .\n  ?forestGeo geo:asWKT ?forestWKT .\n  \n  <http://yago-knowledge.org/resource/United_States> geo:hasGeometry ?usGeo .\n  ?usGeo geo:asWKT ?usWKT .\n  \n  FILTER(geof:sfWithin(?forestWKT, ?usWKT))\n}"
+    },
+    {
+        "question": "Which 5 counties have the highest percentage of females?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?county WHERE {   ?county a pnyqa:County .   ?county <http://pnyqa.di.uoa.gr/ontology/hasFemale_Population> ?femalePop .   ?county <http://pnyqa.di.uoa.gr/ontology/hasTotal_Population> ?totalPop .   BIND((?femalePop / ?totalPop) AS ?femalePercentage)} ORDER BY DESC(?femalePercentage) LIMIT 5",
+        "entities": [],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> \"percentage of females\""
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/County> -> \"percentage of females\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?county ?femalePercentage\nWHERE {\n  ?county <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/County> .\n  ?county <http://pnyqa.di.uoa.gr/ontology/hasFemale_Percentage> ?femalePercentage .\n}\nORDER BY DESC(?femalePercentage)\nLIMIT 5"
+    },
+    {
+        "question": "Which party won the State with the highest percentage of males?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?winner WHERE {   ?state a pnyqa:State .   ?state pnyqa:hasMale_Population ?malePop .   ?state pnyqa:hasTotal_Population ?totalPop .   BIND ((?malePop / ?totalPop) AS ?malePercentage) .  ?state pnyqa:winner ?winner . } ORDER BY DESC (?malePercentage) LIMIT 1",
+        "entities": [],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/State> -> \"party won\"",
+            "<http://pnyqa.di.uoa.gr/ontology/State> -> \"percentage of males\""
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/State> -> \"party won\", <http://pnyqa.di.uoa.gr/ontology/State> -> \"percentage of males\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT DISTINCT ?party WHERE {\n  ?state <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/State> .\n  ?state <http://pnyqa.di.uoa.gr/ontology/hasMale_Percentage> ?malePerc .\n  ?state <http://pnyqa.di.uoa.gr/ontology/winner> ?party .\n  \n  {\n    SELECT (MAX(?mp) AS ?maxMalePerc) WHERE {\n      ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/State> .\n      ?s <http://pnyqa.di.uoa.gr/ontology/hasMale_Percentage> ?mp .\n    }\n  }\n  \n  FILTER(?malePerc = ?maxMalePerc)\n}"
+    },
+    {
+        "question": "Show me the counties that border Kansas.",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?countyWKT WHERE {   ?county a pnyqa:County .   ?county geo:hasGeometry ?countyGeo .   ?countyGeo geo:asWKT ?countyWKT .   yago:Kansas geo:hasGeometry ?kGeo .   ?kGeo geo:asWKT ?kWKT .   FILTER (geof:sfTouches(?kWKT, ?countyWKT)) }",
+        "entities": [
+            "http://yago-knowledge.org/resource/Kansas"
+        ],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT DISTINCT ?county WHERE {\n  <http://yago-knowledge.org/resource/Kansas> geo:hasGeometry ?kansasGeo .\n  ?kansasGeo geo:asWKT ?kansasWKT .\n  \n  ?county a <http://pnyqa.di.uoa.gr/ontology/County> .\n  ?county geo:hasGeometry ?countyGeo .\n  ?countyGeo geo:asWKT ?countyWKT .\n  \n  FILTER(geof:sfTouches(?countyWKT, ?kansasWKT))\n}"
+    },
+    {
+        "question": "How did the counties on Texas\u2019 border vote?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?county ?democratVotes ?republicanVotes ?greenVotes ?libertarianVotes ?totalVotes ?winner WHERE {   ?county a pnyqa:County .   ?county geo:hasGeometry ?countyGeo .   ?countyGeo geo:asWKT ?countyWKT .   yago:Texas geo:hasGeometry ?texasGeo .   ?texasGeo geo:asWKT ?texasWKT .   FILTER(geof:sfTouches(?texasWKT, ?countyWKT)) .   OPTIONAL { ?county pnyqa:hasDemocrat_Vote ?democratVotes } .  OPTIONAL { ?county pnyqa:hasRepublican_Vote ?republicanVotes } .  OPTIONAL { ?county pnyqa:hasGreen_Vote ?greenVotes } .  OPTIONAL { ?county pnyqa:hasLibertarian_Vote ?libertarianVotes } .  OPTIONAL { ?county pnyqa:hasTotal_Vote ?totalVotes } .  OPTIONAL { ?county pnyqa:winner ?winner }}",
+        "entities": [
+            "http://yago-knowledge.org/resource/Texas"
+        ],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "relations": [
+            "<http://yago-knowledge.org/resource/Texas> -> <http://pnyqa.di.uoa.gr/ontology/County> -> \"vote\""
+        ],
+        "paths": "<http://yago-knowledge.org/resource/Texas> -> <http://pnyqa.di.uoa.gr/ontology/County> -> \"vote\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT DISTINCT ?county ?republicanVotes ?democratVotes ?totalVotes WHERE {\n  <http://yago-knowledge.org/resource/Texas> <http://www.opengis.net/ont/geosparql#hasGeometry> ?texasGeo .\n  ?texasGeo <http://www.opengis.net/ont/geosparql#asWKT> ?texasWKT .\n  \n  ?county a <http://pnyqa.di.uoa.gr/ontology/County> .\n  ?county <http://www.opengis.net/ont/geosparql#hasGeometry> ?countyGeo .\n  ?countyGeo <http://www.opengis.net/ont/geosparql#asWKT> ?countyWKT .\n  \n  FILTER(geof:sfTouches(?countyWKT, ?texasWKT))\n  \n  OPTIONAL { ?county <http://pnyqa.di.uoa.gr/ontology/hasRepublican_Vote> ?republicanVotes . }\n  OPTIONAL { ?county <http://pnyqa.di.uoa.gr/ontology/hasDemocrat_Vote> ?democratVotes . }\n  OPTIONAL { ?county <http://pnyqa.di.uoa.gr/ontology/hasTotal_Vote> ?totalVotes . }\n}\nORDER BY ?county"
+    },
+    {
+        "question": "Show me the Republican counties that have forests.",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?countyWKT WHERE {   ?county a pnyqa:County .   ?county geo:hasGeometry ?countyGeo .   ?countyGeo geo:asWKT ?countyWKT .   ?county pnyqa:winner <http://yago-knowledge.org/resource/Republican_Party_(United_States)> .   ?forest a pnyqa:forest .   ?forest geo:hasGeometry ?forestGeo .   ?forestGeo geo:asWKT ?forestWKT .   FILTER (geof:sfIntersects(?countyWKT, ?forestWKT)) }",
+        "entities": [
+            "http://yago-knowledge.org/resource/Republican_Party_(United_States)"
+        ],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/forest",
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> <http://yago-knowledge.org/resource/Republican_Party_(United_States)>"
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/County> -> <http://yago-knowledge.org/resource/Republican_Party_(United_States)>",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT DISTINCT ?county ?countyWKT WHERE {\n  ?county <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/County> .\n  ?county <http://pnyqa.di.uoa.gr/ontology/winner> <http://yago-knowledge.org/resource/Republican_Party_(United_States)> .\n  \n  ?forest <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/forest> .\n  \n  ?county <http://www.opengis.net/ont/geosparql#hasGeometry> ?countyGeo .\n  ?countyGeo <http://www.opengis.net/ont/geosparql#asWKT> ?countyWKT .\n  \n  ?forest <http://www.opengis.net/ont/geosparql#hasGeometry> ?forestGeo .\n  ?forestGeo <http://www.opengis.net/ont/geosparql#asWKT> ?forestWKT .\n  \n  FILTER(geof:sfContains(?countyWKT, ?forestWKT))\n}"
+    },
+    {
+        "question": "Show me the Democratic counties that have forests.",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?countyWKT WHERE {   ?county a pnyqa:County .   ?county geo:hasGeometry ?countyGeo .   ?countyGeo geo:asWKT ?countyWKT .   ?county pnyqa:winner <http://yago-knowledge.org/resource/Democratic_Party_(United_States)> .   ?forest a pnyqa:forest .   ?forest geo:hasGeometry ?forestGeo .   ?forestGeo geo:asWKT ?forestWKT .   FILTER (geof:sfIntersects(?countyWKT, ?forestWKT)) }",
+        "entities": [
+            "http://yago-knowledge.org/resource/Democratic_Party_(United_States)"
+        ],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/forest",
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> <http://yago-knowledge.org/resource/Democratic_Party_(United_States)>"
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/County> -> <http://yago-knowledge.org/resource/Democratic_Party_(United_States)>",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT DISTINCT ?county ?countyWKT WHERE {\n  ?county <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/County> .\n  ?county <http://pnyqa.di.uoa.gr/ontology/winner> <http://yago-knowledge.org/resource/Democratic_Party_(United_States)> .\n  ?county <http://www.opengis.net/ont/geosparql#hasGeometry> ?countyGeo .\n  ?countyGeo <http://www.opengis.net/ont/geosparql#asWKT> ?countyWKT .\n  \n  ?forest <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/forest> .\n  ?forest <http://www.opengis.net/ont/geosparql#hasGeometry> ?forestGeo .\n  \n  FILTER(geof:sfContains(?countyGeo, ?forestGeo))\n}"
+    },
+    {
+        "question": "Which party won in the state with the highest number of marshes?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?party WHERE {   {    SELECT ?state (COUNT(?marsh) AS ?numMarshes) WHERE {       ?state a pnyqa:State .       ?marsh a pnyqa:swamp-marsh .       ?marsh geo:hasGeometry ?marshGeo .       ?marshGeo geo:asWKT ?marshWKT .       ?state geo:hasGeometry ?stateGeo .       ?stateGeo geo:asWKT ?stateWKT .       FILTER (geof:sfContains(?stateWKT, ?marshWKT))     } GROUP BY ?state ORDER BY DESC(?numMarshes) LIMIT 1  }  ?state pnyqa:winner ?party }",
+        "entities": [],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/State",
+            "http://pnyqa.di.uoa.gr/ontology/swamp-marsh"
+        ],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?party WHERE {\n  {\n    SELECT ?state (COUNT(DISTINCT ?marsh) AS ?marshCount) WHERE {\n      ?state a <http://pnyqa.di.uoa.gr/ontology/State> .\n      ?marsh a <http://pnyqa.di.uoa.gr/ontology/swamp-marsh> .\n      ?state <http://www.opengis.net/ont/geosparql#sfContains> ?marsh .\n    }\n    GROUP BY ?state\n    ORDER BY DESC(?marshCount)\n    LIMIT 1\n  }\n  ?state <http://pnyqa.di.uoa.gr/ontology/hasWinningParty> ?party .\n}"
+    },
+    {
+        "question": "Show me the number of Democratic votes and forests in each state.",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?state ?votes (COUNT(?forest) AS ?forestCount) WHERE {   ?state a pnyqa:State .   ?state pnyqa:hasDemocrat_Vote ?votes .  OPTIONAL {    ?forest a <http://pnyqa.di.uoa.gr/ontology/forest> .    ?forest geo:hasGeometry ?forestGeo .    ?forestGeo geo:asWKT ?forestWKT .    ?state geo:hasGeometry ?stateGeo .    ?stateGeo geo:asWKT ?stateWKT .    FILTER (geof:sfWithin(?forestWKT, ?stateWKT))  }} GROUP BY ?state ?votes",
+        "entities": [],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/State",
+            "http://pnyqa.di.uoa.gr/ontology/forest"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/State> -> \"Democratic votes\"",
+            "<http://pnyqa.di.uoa.gr/ontology/State> -> <http://pnyqa.di.uoa.gr/ontology/forest>"
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/State> -> \"Democratic votes\", <http://pnyqa.di.uoa.gr/ontology/State> -> <http://pnyqa.di.uoa.gr/ontology/forest>",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?state (SUM(?demVotes) AS ?democraticVotes) (COUNT(DISTINCT ?forest) AS ?forestCount)\nWHERE {\n  ?state <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/State> .\n  ?state <http://pnyqa.di.uoa.gr/ontology/hasDemocrat_Vote> ?demVotes .\n  \n  OPTIONAL {\n    ?state <http://www.opengis.net/ont/geosparql#sfContains> ?forest .\n    ?forest <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/forest> .\n  }\n}\nGROUP BY ?state\nORDER BY ?state"
+    },
+    {
+        "question": "In which states did Republicans win more counties, but Democrats won statewide?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?state WHERE {  ?state a pnyqa:State .  ?state pnyqa:winner <http://yago-knowledge.org/resource/Democratic_Party_(United_States)> .    {    SELECT ?state (COUNT(?county) AS ?republicanCount) WHERE {      ?county a pnyqa:County .      ?county pnyqa:winner <http://yago-knowledge.org/resource/Republican_Party_(United_States)> .      ?county geo:hasGeometry ?countyGeo .      ?countyGeo geo:asWKT ?countyWKT .      ?state geo:hasGeometry ?stateGeo .      ?stateGeo geo:asWKT ?stateWKT .      FILTER (geof:sfWithin(?countyWKT, ?stateWKT))    } GROUP BY ?state  }    {    SELECT ?state (COUNT(?county) AS ?democratCount) WHERE {      ?county a pnyqa:County .      ?county pnyqa:winner <http://yago-knowledge.org/resource/Democratic_Party_(United_States)> .      ?county geo:hasGeometry ?countyGeo .      ?countyGeo geo:asWKT ?countyWKT .      ?state geo:hasGeometry ?stateGeo .      ?stateGeo geo:asWKT ?stateWKT .      FILTER (geof:sfWithin(?countyWKT, ?stateWKT))    } GROUP BY ?state  }    FILTER (?republicanCount > ?democratCount)}",
+        "entities": [
+            "http://yago-knowledge.org/resource/Democratic_Party_(United_States)",
+            "http://yago-knowledge.org/resource/Republican_Party_(United_States)"
+        ],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/State",
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/State> -> <http://yago-knowledge.org/resource/Democratic_Party_(United_States)>",
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> <http://yago-knowledge.org/resource/Republican_Party_(United_States)>"
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/State> -> <http://yago-knowledge.org/resource/Democratic_Party_(United_States)>, <http://pnyqa.di.uoa.gr/ontology/County> -> <http://yago-knowledge.org/resource/Republican_Party_(United_States)>",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT DISTINCT ?state ?wkt WHERE {\n  # State is of type State and won by Democratic Party\n  ?state <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/State> .\n  ?state <http://pnyqa.di.uoa.gr/ontology/winner> <http://yago-knowledge.org/resource/Democratic_Party_(United_States)> .\n  \n  # Get state's geometry\n  ?state <http://www.opengis.net/ont/geosparql#hasGeometry> ?stateGeo .\n  ?stateGeo <http://www.opengis.net/ont/geosparql#asWKT> ?wkt .\n  \n  # Find counties contained in the state using geof:sfContains function\n  ?county <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/County> .\n  ?county <http://pnyqa.di.uoa.gr/ontology/winner> ?countyWinner .\n  \n  # Use geof:sfContains function to ensure county is in the state\n  FILTER(geof:sfContains(?state, ?county))\n  \n  # Aggregate counts of counties won by Republicans and Democrats per state\n  {\n    SELECT ?state (COUNT(DISTINCT ?repCounty) AS ?repCount) (COUNT(DISTINCT ?demCounty) AS ?demCount) WHERE {\n      ?state <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/State> .\n      ?state <http://pnyqa.di.uoa.gr/ontology/winner> <http://yago-knowledge.org/resource/Democratic_Party_(United_States)> .\n      \n      ?county <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/County> .\n      ?county <http://pnyqa.di.uoa.gr/ontology/winner> ?countyWinner .\n      \n      FILTER(geof:sfContains(?state, ?county))\n      \n      # Republican counties\n      OPTIONAL {\n        FILTER(?countyWinner = <http://yago-knowledge.org/resource/Republican_Party_(United_States)>) .\n        BIND(?county AS ?repCounty)\n      }\n      \n      # Democratic counties\n      OPTIONAL {\n        FILTER(?countyWinner = <http://yago-knowledge.org/resource/Democratic_Party_(United_States)>) .\n        BIND(?county AS ?demCounty)\n      }\n    }\n    GROUP BY ?state\n  }\n  \n  # Filter states where Republicans won more counties than Democrats\n  FILTER(?repCount > ?demCount)\n}"
+    },
+    {
+        "question": "Show the vote totals by county for each party in Wyoming.",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?county ?demVotes ?repVotes ?greenVotes ?libVotes WHERE {   ?county a pnyqa:County .   ?county pnyqa:hasDemocrat_Vote ?demVotes .   ?county pnyqa:hasRepublican_Vote ?repVotes .   ?county pnyqa:hasGreen_Vote ?greenVotes .   ?county pnyqa:hasLibertarian_Vote ?libVotes .  yago:Wyoming geo:hasGeometry ?wGeo .   ?wGeo geo:asWKT ?wWKT .   ?county geo:hasGeometry ?countyGeo .   ?countyGeo geo:asWKT ?countyWKT .   FILTER (geof:sfWithin(?countyWKT, ?wWKT))}",
+        "entities": [
+            "http://yago-knowledge.org/resource/Wyoming"
+        ],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> \"party\"",
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> \"vote totals\""
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/County> -> \"party\", <http://pnyqa.di.uoa.gr/ontology/County> -> \"vote totals\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT DISTINCT ?county ?demVotes ?repVotes ?libVotes WHERE {\n  <http://yago-knowledge.org/resource/Wyoming> geo:hasGeometry ?wyomingGeo .\n  \n  ?county rdf:type <http://pnyqa.di.uoa.gr/ontology/County> .\n  ?county geo:hasGeometry ?countyGeo .\n  \n  FILTER(geof:sfContains(?wyomingGeo, ?countyGeo))\n  \n  OPTIONAL { ?county <http://pnyqa.di.uoa.gr/ontology/hasDemocrat_Vote> ?demVotes . }\n  OPTIONAL { ?county <http://pnyqa.di.uoa.gr/ontology/hasRepublican_Vote> ?repVotes . }\n  OPTIONAL { ?county <http://pnyqa.di.uoa.gr/ontology/hasLibertarian_Vote> ?libVotes . }\n}\nORDER BY ?county"
+    },
+    {
+        "question": "Which counties near lakes voted for the Democratic party?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?county WHERE {   ?county a pnyqa:County .   ?county geo:hasGeometry ?countyGeo .   ?countyGeo geo:asWKT ?countyWKT .   ?county pnyqa:winner <http://yago-knowledge.org/resource/Democratic_Party_(United_States)> .  ?lake a <http://pnyqa.di.uoa.gr/ontology/lake-pond> .  ?lake geo:hasGeometry ?lakeGeo .   ?lakeGeo geo:asWKT ?lakeWKT .   FILTER (geof:distance(?lakeWKT, ?countyWKT, uom:metre) < 1000) }",
+        "entities": [
+            "http://yago-knowledge.org/resource/Democratic_Party_(United_States)"
+        ],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/lake-pond",
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> <http://yago-knowledge.org/resource/Democratic_Party_(United_States)>"
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/County> -> <http://yago-knowledge.org/resource/Democratic_Party_(United_States)>",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT DISTINCT ?county ?countyWKT WHERE {\n  ?county <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/County> .\n  ?county <http://pnyqa.di.uoa.gr/ontology/winner> <http://yago-knowledge.org/resource/Democratic_Party_(United_States)> .\n  ?county geo:hasGeometry ?countyGeo .\n  ?countyGeo geo:asWKT ?countyWKT .\n  \n  ?lake <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/lake-pond> .\n  ?lake geo:hasGeometry ?lakeGeo .\n  ?lakeGeo geo:asWKT ?lakeWKT .\n  \n  FILTER (geof:distance(?countyWKT, ?lakeWKT, <http://www.opengis.net/def/uom/OGC/1.0/metre>) < 5000)\n}"
+    },
+    {
+        "question": "Which party won in the states bordering Lake Michigan?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?state ?winner WHERE {   ?state a pnyqa:State .   ?state geo:hasGeometry ?stateGeo .   ?stateGeo geo:asWKT ?stateWKT .   ?state pnyqa:winner ?winner.   yago:Lake_Michigan geo:hasGeometry ?lmGeo .   ?lmGeo geo:asWKT ?lmWKT .   FILTER (geof:sfTouches(?lmWKT, ?stateWKT)) }",
+        "entities": [
+            "http://yago-knowledge.org/resource/Lake_Michigan"
+        ],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/State> -> \"party won\""
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/State> -> \"party won\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT DISTINCT ?state ?party WHERE {\n  # Get Lake Michigan geometry\n  <http://yago-knowledge.org/resource/Lake_Michigan> <http://www.opengis.net/ont/geosparql#hasGeometry> ?lakeGeo .\n  ?lakeGeo <http://www.opengis.net/ont/geosparql#asWKT> ?lakeWKT .\n  \n  # Get states and their geometries\n  ?state <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/State> .\n  ?state <http://www.opengis.net/ont/geosparql#hasGeometry> ?stateGeo .\n  ?stateGeo <http://www.opengis.net/ont/geosparql#asWKT> ?stateWKT .\n  \n  # Filter states that border Lake Michigan\n  FILTER(geof:sfTouches(?stateWKT, ?lakeWKT))\n  \n  # Get the party that won in the state\n  ?state <http://pnyqa.di.uoa.gr/ontology/winner> ?party .\n}"
+    },
+    {
+        "question": "Which party won the elections in states bordering Alabama?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?state ?winner WHERE {   ?state a pnyqa:State .   ?state geo:hasGeometry ?stateGeo .   ?stateGeo geo:asWKT ?stateWKT .   ?state pnyqa:winner ?winner .   yago:Alabama geo:hasGeometry ?aGeo .   ?aGeo geo:asWKT ?aWKT .   FILTER (geof:sfTouches(?aWKT, ?stateWKT)) }",
+        "entities": [
+            "http://yago-knowledge.org/resource/Alabama"
+        ],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/State> -> <http://yago-knowledge.org/resource/Alabama> -> \"party that won the elections\""
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/State> -> <http://yago-knowledge.org/resource/Alabama> -> \"party that won the elections\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT DISTINCT ?party WHERE {\n  ?state <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/State> .\n  ?state <http://pnyqa.di.uoa.gr/ontology/winner> ?party .\n  \n  # Get geometries of the state and Alabama\n  ?state <http://www.opengis.net/ont/geosparql#hasGeometry> ?stateGeo .\n  ?stateGeo <http://www.opengis.net/ont/geosparql#asWKT> ?stateWKT .\n  \n  <http://yago-knowledge.org/resource/Alabama> <http://www.opengis.net/ont/geosparql#hasGeometry> ?alabamaGeo .\n  ?alabamaGeo <http://www.opengis.net/ont/geosparql#asWKT> ?alabamaWKT .\n  \n  # Filter states that border Alabama\n  FILTER(geof:sfTouches(?stateWKT, ?alabamaWKT))\n}"
+    },
+    {
+        "question": "Which party won in the counties along the Nevada-California border?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?county ?winner WHERE {   ?county a pnyqa:County .   ?county pnyqa:winner ?winner .   ?county geo:hasGeometry ?countyGeo .   ?countyGeo geo:asWKT ?countyWKT .   yago:Nevada geo:hasGeometry ?nvGeo .   ?nvGeo geo:asWKT ?nvWKT .   yago:California geo:hasGeometry ?caGeo .   ?caGeo geo:asWKT ?caWKT .   FILTER (geof:sfTouches(?nvWKT, ?countyWKT) && geof:sfTouches(?caWKT, ?countyWKT)) }",
+        "entities": [
+            "http://yago-knowledge.org/resource/Nevada",
+            "http://yago-knowledge.org/resource/California"
+        ],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> \"party\""
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/County> -> \"party\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT DISTINCT ?county ?party WHERE {\n  ?county <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/County> .\n  ?county <http://pnyqa.di.uoa.gr/ontology/winner> ?party .\n  \n  {\n    # Counties in Nevada that touch California\n    <http://yago-knowledge.org/resource/Nevada> <http://www.opengis.net/ont/geosparql#sfContains> ?county .\n    ?county <http://www.opengis.net/ont/geosparql#sfTouches> <http://yago-knowledge.org/resource/California> .\n  }\n  UNION\n  {\n    # Counties in California that touch Nevada\n    <http://yago-knowledge.org/resource/California> <http://www.opengis.net/ont/geosparql#sfContains> ?county .\n    ?county <http://www.opengis.net/ont/geosparql#sfTouches> <http://yago-knowledge.org/resource/Nevada> .\n  }\n}\nORDER BY ?county"
+    },
+    {
+        "question": "Which party won in the 5 most populated states of the US?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?state ?winner WHERE {   ?state a pnyqa:State .  ?state pnyqa:hasTotal_Population ?pop .  ?state pnyqa:winner ?winner. } ORDER BY DESC (?pop) LIMIT 5",
+        "entities": [],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/State> -> \"population\"",
+            "<http://pnyqa.di.uoa.gr/ontology/State> -> \"party won\""
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/State> -> \"population\", <http://pnyqa.di.uoa.gr/ontology/State> -> \"party won\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?state ?party WHERE {\n  ?state <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/State> .\n  ?state <http://pnyqa.di.uoa.gr/ontology/hasTotal_Population> ?population .\n  ?state <http://pnyqa.di.uoa.gr/ontology/winner> ?party .\n}\nORDER BY DESC(?population)\nLIMIT 5"
+    },
+    {
+        "question": "In which counties did the Green Party win?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?county WHERE {   ?county a pnyqa:County .   ?county pnyqa:winner <http://yago-knowledge.org/resource/Green_Party_of_the_United_States>.}",
+        "entities": [
+            "http://yago-knowledge.org/resource/Green_Party_of_the_United_States"
+        ],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> <http://yago-knowledge.org/resource/Green_Party_of_the_United_States>"
+        ],
+        "paths": "",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT DISTINCT ?county WHERE {\n  ?county a <http://pnyqa.di.uoa.gr/ontology/County> .\n  ?county ?p <http://yago-knowledge.org/resource/Green_Party_of_the_United_States> .\n}"
+    },
+    {
+        "question": "Which party won the elections in counties with the most Native American Population?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?county ?winner WHERE {   ?county a pnyqa:County .   ?county pnyqa:hasAmerican_Indian_and_Alaska_Native_Population ?pop .   ?county pnyqa:winner ?winner . } ORDER BY DESC(?pop) LIMIT 1",
+        "entities": [],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> \"party that won elections\"",
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> \"Native American Population\""
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/County> -> \"party that won elections\", <http://pnyqa.di.uoa.gr/ontology/County> -> \"Native American Population\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT DISTINCT ?party WHERE {\n  ?county a <http://pnyqa.di.uoa.gr/ontology/County> .\n  ?county <http://pnyqa.di.uoa.gr/ontology/hasAmerican_Indian_and_Alaska_Native_Population> ?pop .\n  ?county <http://pnyqa.di.uoa.gr/ontology/winner> ?party .\n  {\n    SELECT (MAX(?popInner) AS ?maxPop) WHERE {\n      ?countyInner a <http://pnyqa.di.uoa.gr/ontology/County> .\n      ?countyInner <http://pnyqa.di.uoa.gr/ontology/hasAmerican_Indian_and_Alaska_Native_Population> ?popInner .\n    }\n  }\n  FILTER(?pop = ?maxPop)\n}"
+    },
+    {
+        "question": "Which US state has the most lakes and forests?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?state (COUNT(?lake) AS ?lakeCount) (COUNT(?forest) AS ?forestCount) WHERE {  ?state a yago:U.S._state .  OPTIONAL { ?lake a <http://pnyqa.di.uoa.gr/ontology/lake-pond> . ?lake geo:hasGeometry ?lakeGeo . ?lakeGeo geo:asWKT ?lakeWKT . FILTER (geof:sfWithin(?lakeWKT, ?stateGeo)) }  OPTIONAL { ?forest a <http://pnyqa.di.uoa.gr/ontology/forest> . ?forest geo:hasGeometry ?forestGeo . ?forestGeo geo:asWKT ?forestWKT . FILTER (geof:sfWithin(?forestWKT, ?stateGeo)) }} GROUP BY ?state ORDER BY DESC(?lakeCount + ?forestCount) LIMIT 1",
+        "entities": [
+            "http://yago-knowledge.org/resource/U.S._state"
+        ],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/lake-pond",
+            "http://pnyqa.di.uoa.gr/ontology/forest"
+        ],
+        "relations": [],
+        "paths": "",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?state ?stateWKT ( (COUNT(DISTINCT ?lake) + COUNT(DISTINCT ?forest)) AS ?totalCount )\nWHERE {\n  ?state a <http://yago-knowledge.org/resource/U.S._state> .\n  \n  OPTIONAL {\n    ?lake a <http://pnyqa.di.uoa.gr/ontology/lake-pond> .\n    FILTER(geof:sfContains(?state, ?lake))\n  }\n  \n  OPTIONAL {\n    ?forest a <http://pnyqa.di.uoa.gr/ontology/forest> .\n    FILTER(geof:sfContains(?state, ?forest))\n  }\n  \n  ?state <http://www.opengis.net/ont/geosparql#hasGeometry> ?stateGeo .\n  ?stateGeo <http://www.opengis.net/ont/geosparql#asWKT> ?stateWKT .\n}\nGROUP BY ?state ?stateWKT\nORDER BY DESC(?totalCount)\nLIMIT 1"
+    },
+    {
+        "question": "Which party won in counties connected by the Missouri river?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?county ?winner WHERE {   ?county a pnyqa:County .   ?county geo:hasGeometry ?countyGeo .   ?countyGeo geo:asWKT ?countyWKT .   ?county pnyqa:winner ?winner .   <http://yago-knowledge.org/resource/Missouri> geo:hasGeometry ?riverGeo .   ?riverGeo geo:asWKT ?riverWKT .   FILTER (geof:sfTouches(?countyWKT, ?riverWKT)) }",
+        "entities": [
+            "http://yago-knowledge.org/resource/Missouri"
+        ],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> <http://yago-knowledge.org/resource/Missouri>",
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> \"party that won\""
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/County> -> <http://yago-knowledge.org/resource/Missouri>, <http://pnyqa.di.uoa.gr/ontology/County> -> \"party that won\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT DISTINCT ?party WHERE {\n  ?county <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/County> .\n  <http://yago-knowledge.org/resource/Missouri> <http://www.opengis.net/ont/geosparql#sfIntersects> ?county .\n  ?county <http://pnyqa.di.uoa.gr/ontology/winner> ?party .\n}"
+    },
+    {
+        "question": "Which party won in the state with the least young adults?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?party WHERE {  ?state a pnyqa:State .  ?state pnyqa:hasYoung_Adults ?youngAdults .  ?state pnyqa:winner ?party .} ORDER BY ASC(?youngAdults) LIMIT 1",
+        "entities": [],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/State> -> \"party won\"",
+            "<http://pnyqa.di.uoa.gr/ontology/State> -> \"young adults\""
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/State> -> \"party won\", <http://pnyqa.di.uoa.gr/ontology/State> -> \"young adults\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT DISTINCT ?party WHERE {\n  ?state <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/State> .\n  ?state <http://pnyqa.di.uoa.gr/ontology/hasYoung_Adults> ?youngAdults .\n  ?state <http://pnyqa.di.uoa.gr/ontology/winner> ?party .\n\n  {\n    SELECT (MIN(?youngAdultsInner) AS ?minYoungAdults) WHERE {\n      ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/State> .\n      ?s <http://pnyqa.di.uoa.gr/ontology/hasYoung_Adults> ?youngAdultsInner .\n    }\n  }\n\n  FILTER(?youngAdults = ?minYoungAdults)\n}"
+    },
+    {
+        "question": "Which counties have the highest female population?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?county WHERE { ?county a pnyqa:County . ?county pnyqa:hasFemale_Population ?femalePop . } ORDER BY DESC(?femalePop)",
+        "entities": [],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> \"female population\""
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/County> -> \"female population\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT DISTINCT ?county ?femalePop WHERE {\n  ?county <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/County> .\n  ?county <http://pnyqa.di.uoa.gr/ontology/hasFemale_Population> ?femalePop .\n  \n  {\n    SELECT (MAX(?fp) AS ?maxFemalePop) WHERE {\n      ?c <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/County> .\n      ?c <http://pnyqa.di.uoa.gr/ontology/hasFemale_Population> ?fp .\n    }\n  }\n  \n  FILTER(?femalePop = ?maxFemalePop)\n}"
+    },
+    {
+        "question": "In how many of the counties with the highest female population the Green Party won?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT (COUNT(?county) AS ?numCounties) WHERE {  ?county a pnyqa:County .  ?county pnyqa:hasFemale_Population ?femalePop .  ?county pnyqa:winner <http://yago-knowledge.org/resource/Green_Party_of_the_United_States> .} ORDER BY DESC(?femalePop) LIMIT 1",
+        "entities": [
+            "http://yago-knowledge.org/resource/Green_Party_of_the_United_States"
+        ],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> \"female population\"",
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> <http://yago-knowledge.org/resource/Green_Party_of_the_United_States>"
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/County> -> \"female population\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT (COUNT(DISTINCT ?county) AS ?count)\nWHERE {\n  ?county <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/County> .\n  ?county <http://pnyqa.di.uoa.gr/ontology/hasFemale_Population> ?femalePop .\n  ?county <http://pnyqa.di.uoa.gr/ontology/winner> <http://yago-knowledge.org/resource/Green_Party_of_the_United_States> .\n\n  {\n    SELECT (MAX(?pop) AS ?maxPop)\n    WHERE {\n      ?c <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/County> .\n      ?c <http://pnyqa.di.uoa.gr/ontology/hasFemale_Population> ?pop .\n    }\n  }\n\n  FILTER(?femalePop = ?maxPop)\n}"
+    },
+    {
+        "question": "Which party won in the counties with the lowest black population?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?county ?winner WHERE {   ?county a pnyqa:County .   ?county pnyqa:hasBlack_or_African_American_Population ?pop .   ?county pnyqa:winner ?winner . } ORDER BY ASC (?pop) LIMIT 1",
+        "entities": [],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> \"party won\"",
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> \"black population\""
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/County> -> \"party won\", <http://pnyqa.di.uoa.gr/ontology/County> -> \"black population\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT DISTINCT ?party WHERE {\n  ?county <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/County> .\n  ?county <http://pnyqa.di.uoa.gr/ontology/hasBlack_or_African_American_Population> ?blackPop .\n  ?county <http://pnyqa.di.uoa.gr/ontology/winner> ?party .\n\n  {\n    SELECT (MIN(?pop) AS ?minPop) WHERE {\n      ?c <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/County> .\n      ?c <http://pnyqa.di.uoa.gr/ontology/hasBlack_or_African_American_Population> ?pop .\n    }\n  }\n\n  FILTER(?blackPop = ?minPop)\n}"
+    },
+    {
+        "question": "Which party won in counties were rivers pass through forests?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?county ?winner WHERE {   ?county a pnyqa:County .   ?county geo:hasGeometry ?countyGeo .   ?countyGeo geo:asWKT ?countyWKT .   ?river rdf:type <http://pnyqa.di.uoa.gr/ontology/stream-river> .   ?river geo:hasGeometry ?riverGeo .   ?riverGeo geo:asWKT ?riverWKT .   ?forest rdf:type <http://pnyqa.di.uoa.gr/ontology/forest> .   ?forest geo:hasGeometry ?forestGeo .   ?forestGeo geo:asWKT ?forestWKT .   FILTER (geof:sfContains(?countyWKT, ?riverWKT))   FILTER (geof:sfIntersects(?riverWKT, ?forestWKT))   ?county pnyqa:winner ?winner }",
+        "entities": [],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/forest",
+            "http://pnyqa.di.uoa.gr/ontology/County",
+            "http://pnyqa.di.uoa.gr/ontology/stream-river"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> \"party won\""
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/County> -> \"party won\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT DISTINCT ?county ?party WHERE {\n  ?county <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/County> .\n  ?forest <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/forest> .\n  ?river <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/stream-river> .\n  \n  ?county <http://pnyqa.di.uoa.gr/ontology/winner> ?party .\n  \n  ?countyGeo geo:hasGeometry ?countyGeom .\n  ?forestGeo geo:hasGeometry ?forestGeom .\n  ?riverGeo geo:hasGeometry ?riverGeom .\n  \n  ?county geo:hasGeometry ?countyGeo .\n  ?forest geo:hasGeometry ?forestGeo .\n  ?river geo:hasGeometry ?riverGeo .\n  \n  FILTER(geof:sfContains(?countyGeom, ?forestGeom)) .\n  FILTER(geof:sfCrosses(?riverGeom, ?forestGeom)) .\n}"
+    },
+    {
+        "question": "How did the county crossed by the most rivers vote?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?county ?votes WHERE {   ?county a pnyqa:County .   ?county geo:hasGeometry ?countyGeo .   ?countyGeo geo:asWKT ?countyWKT .   ?river a <http://pnyqa.di.uoa.gr/ontology/stream-river> .   ?river geo:hasGeometry ?riverGeo .   ?riverGeo geo:asWKT ?riverWKT .   FILTER(geof:sfIntersects(?countyWKT, ?riverWKT))   ?county pnyqa:hasTotal_Vote ?votes .   {    SELECT ?county (COUNT(?river) AS ?riverCount) WHERE {       ?county a pnyqa:County .       ?county geo:hasGeometry ?countyGeo .       ?countyGeo geo:asWKT ?countyWKT .       ?river a <http://pnyqa.di.uoa.gr/ontology/stream-river> .       ?river geo:hasGeometry ?riverGeo .       ?riverGeo geo:asWKT ?riverWKT .       FILTER(geof:sfIntersects(?countyWKT, ?riverWKT))     } GROUP BY ?county     ORDER BY DESC(?riverCount)     LIMIT 1   }}",
+        "entities": [],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/County",
+            "http://pnyqa.di.uoa.gr/ontology/stream-river"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> \"vote\"",
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> <http://pnyqa.di.uoa.gr/ontology/stream-river>"
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/County> -> \"vote\", <http://pnyqa.di.uoa.gr/ontology/County> -> <http://pnyqa.di.uoa.gr/ontology/stream-river>",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?county ?winner ?repVotes ?demVotes WHERE {\n  ?county <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/County> .\n  ?river <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/stream-river> .\n  \n  {\n    ?county <http://www.opengis.net/ont/geosparql#sfIntersects> ?river .\n  } UNION {\n    ?county <http://www.opengis.net/ont/geosparql#sfContains> ?river .\n  } UNION {\n    ?county <http://www.opengis.net/ont/geosparql#sfOverlaps> ?river .\n  }\n  \n  ?county <http://pnyqa.di.uoa.gr/ontology/winner> ?winner .\n  OPTIONAL { ?county <http://pnyqa.di.uoa.gr/ontology/hasRepublican_Vote> ?repVotes . }\n  OPTIONAL { ?county <http://pnyqa.di.uoa.gr/ontology/hasDemocrat_Vote> ?demVotes . }\n}\nGROUP BY ?county ?winner ?repVotes ?demVotes\nORDER BY DESC(COUNT(DISTINCT ?river))\nLIMIT 1"
+    },
+    {
+        "question": "What are the five largest counties by total area that voted for the Republican Party?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?county ?area WHERE {   ?county a pnyqa:County .   ?county pnyqa:hasArea ?area .   ?county pnyqa:winner <http://yago-knowledge.org/resource/Republican_Party_(United_States)>.} ORDER BY DESC(?area) LIMIT 5",
+        "entities": [
+            "http://yago-knowledge.org/resource/Republican_Party_(United_States)"
+        ],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> <http://yago-knowledge.org/resource/Republican_Party_(United_States)>",
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> \"total area\""
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/County> -> <http://yago-knowledge.org/resource/Republican_Party_(United_States)>, <http://pnyqa.di.uoa.gr/ontology/County> -> \"total area\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?county ?area WHERE {\n  ?county <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/County> .\n  ?county <http://pnyqa.di.uoa.gr/ontology/winner> <http://yago-knowledge.org/resource/Republican_Party_(United_States)> .\n  ?county <http://pnyqa.di.uoa.gr/ontology/hasArea> ?area .\n}\nORDER BY DESC(?area)\nLIMIT 5"
+    },
+    {
+        "question": "What counties that have similar white and black population vote for?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?county ?winner WHERE {    ?county a pnyqa:County .    ?county pnyqa:hasWhite_Population ?whitePop .    ?county pnyqa:hasBlack_or_African_American_Population ?blackPop .    ?county pnyqa:winner ?winner .    FILTER (ABS(?whitePop - ?blackPop) < 1000)}",
+        "entities": [],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> \"vote\"",
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> \"white population\"",
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> \"black population\""
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/County> -> \"vote\", <http://pnyqa.di.uoa.gr/ontology/County> -> \"white population\", <http://pnyqa.di.uoa.gr/ontology/County> -> \"black population\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT DISTINCT ?county ?winner WHERE {\n  ?county <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/County> .\n  ?county <http://pnyqa.di.uoa.gr/ontology/hasWhite_Population> ?whitePop .\n  ?county <http://pnyqa.di.uoa.gr/ontology/hasBlack_or_African_American_Population> ?blackPop .\n  ?county <http://pnyqa.di.uoa.gr/ontology/winner> ?winner .\n  \n  FILTER(?whitePop > 1000 && ?blackPop > 1000) .\n  \n  # Calculate absolute difference\n  BIND(abs(?whitePop - ?blackPop) AS ?diff) .\n  \n  # Calculate 10% of the smaller population to allow relative comparison\n  BIND(IF(?whitePop < ?blackPop, ?whitePop * 0.1, ?blackPop * 0.1) AS ?threshold) .\n  \n  FILTER(?diff <= ?threshold) .\n}"
+    },
+    {
+        "question": "Which states have the highest Latino population, and how did they vote by party?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?state ?demVote ?repVote ?greenVote ?libVote WHERE {  ?state a pnyqa:State .  ?state pnyqa:hasLatino_Population ?latinoPop .  ?state pnyqa:hasDemocrat_Vote ?demVote .  ?state pnyqa:hasRepublican_Vote ?repVote .  ?state pnyqa:hasGreen_Vote ?greenVote .  ?state pnyqa:hasLibertarian_Vote ?libVote .} ORDER BY DESC (?latinoPop)",
+        "entities": [],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/State> -> \"Latino population\"",
+            "<http://pnyqa.di.uoa.gr/ontology/State> -> \"vote by party\""
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/State> -> \"Latino population\", <http://pnyqa.di.uoa.gr/ontology/State> -> \"vote by party\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?state ?repVotes ?demVotes\nWHERE {\n  ?state <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/State> .\n  ?state <http://pnyqa.di.uoa.gr/ontology/hasRepublican_Vote> ?repVotes .\n  ?state <http://pnyqa.di.uoa.gr/ontology/hasDemocrat_Vote> ?demVotes .\n}\nORDER BY DESC(?repVotes + ?demVotes)"
+    },
+    {
+        "question": "What are the population percentages of the state with the most lakes?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?state ?americanIndianAndAlaskaNativePerc ?nativeHawaiianAndPacificIslanderPerc ?asianPerc ?blackOrAfricanAmericanPerc ?whitePerc ?femalePerc ?malePerc WHERE {  {    SELECT ?state (COUNT(?lake) AS ?lakeCount) WHERE {      ?state a pnyqa:State .      ?lake a <http://pnyqa.di.uoa.gr/ontology/lake-pond> .      ?lake geo:hasGeometry ?lakeGeo .      ?lakeGeo geo:asWKT ?lakeWKT .      ?state geo:hasGeometry ?stateGeo .      ?stateGeo geo:asWKT ?stateWKT .      FILTER(geof:sfWithin(?lakeWKT, ?stateWKT))    } GROUP BY ?state    ORDER BY DESC(?lakeCount) LIMIT 1  }  ?state <http://pnyqa.di.uoa.gr/ontology/hasTotal_Population> ?totalPop .  ?state <http://pnyqa.di.uoa.gr/ontology/hasAmerican_Indian_and_Alaska_Native_Population> ?americanIndianAndAlaskaNativePop .  ?state <http://pnyqa.di.uoa.gr/ontology/hasNative_Hawaiian_and_Other_Pacific_Islander_Population> ?nativeHawaiianAndPacificIslanderPop .  ?state <http://pnyqa.di.uoa.gr/ontology/hasAsian_Population> ?asianPop .  ?state <http://pnyqa.di.uoa.gr/ontology/hasBlack_or_African_American_Population> ?blackOrAfricanAmericanPop .  ?state <http://pnyqa.di.uoa.gr/ontology/hasWhite_Population> ?whitePop .  ?state <http://pnyqa.di.uoa.gr/ontology/hasFemale_Population> ?femalePop .  ?state <http://pnyqa.di.uoa.gr/ontology/hasMale_Population> ?malePop .  BIND((?americanIndianAndAlaskaNativePop / ?totalPop) * 100 AS ?americanIndianAndAlaskaNativePerc)  BIND((?nativeHawaiianAndPacificIslanderPop / ?totalPop) * 100 AS ?nativeHawaiianAndPacificIslanderPerc)  BIND((?asianPop / ?totalPop) * 100 AS ?asianPerc)  BIND((?blackOrAfricanAmericanPop / ?totalPop) * 100 AS ?blackOrAfricanAmericanPerc)  BIND((?whitePop / ?totalPop) * 100 AS ?whitePerc)  BIND((?femalePop / ?totalPop) * 100 AS ?femalePerc)  BIND((?malePop / ?totalPop) * 100 AS ?malePerc)}",
+        "entities": [],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/State",
+            "http://pnyqa.di.uoa.gr/ontology/lake-pond"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/State> -> \"population percentages\""
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/State> -> \"population percentages\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?state ?femalePercentage ?malePercentage ?whitePercentage WHERE {\n  {\n    SELECT ?state (COUNT(?lake) AS ?lakeCount) WHERE {\n      ?state <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/State> .\n      ?lake <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/lake-pond> .\n      ?state <http://www.opengis.net/ont/geosparql#sfContains> ?lake .\n    }\n    GROUP BY ?state\n    ORDER BY DESC(?lakeCount)\n    LIMIT 1\n  }\n  OPTIONAL { ?state <http://pnyqa.di.uoa.gr/ontology/hasFemale_Percentage> ?femalePercentage . }\n  OPTIONAL { ?state <http://pnyqa.di.uoa.gr/ontology/hasMale_Percentage> ?malePercentage . }\n  OPTIONAL { ?state <http://pnyqa.di.uoa.gr/ontology/hasWhite_Percentage> ?whitePercentage . }\n}"
+    },
+    {
+        "question": "What are the total votes by party for Native Hawaiians outside of Hawaii?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT (SUM(?demVotes) AS ?totalDemVotes) (SUM(?repVotes) AS ?totalRepVotes) (SUM(?greenVotes) AS ?totalGreenVotes) (SUM(?libVotes) AS ?totalLibVotes) WHERE {  ?region pnyqa:hasNative_Hawaiian_and_Other_Pacific_Islander_Population ?pop .  ?region pnyqa:hasDemocrat_Vote ?demVotes .  ?region pnyqa:hasRepublican_Vote ?repVotes .  ?region pnyqa:hasGreen_Vote ?greenVotes .  ?region pnyqa:hasLibertarian_Vote ?libVotes .  FILTER NOT EXISTS {    ?region geo:hasGeometry ?geo .    ?geo geo:asWKT ?wkt .    yago:Hawaii geo:hasGeometry ?hawaiiGeo .    ?hawaiiGeo geo:asWKT ?hawaiiWKT .    FILTER(geof:sfWithin(?wkt, ?hawaiiWKT))  }}",
+        "entities": [
+            "http://yago-knowledge.org/resource/Hawaii"
+        ],
+        "classes": [],
+        "relations": [
+            "<http://yago-knowledge.org/resource/Hawaii> -> PARTY -> \"total votes\""
+        ],
+        "paths": "<http://yago-knowledge.org/resource/Hawaii> -> PARTY -> \"total votes\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?state ?nativeHawaiianPopulation ?totalVotes ?democratVotes WHERE {\n  VALUES ?type { <http://pnyqa.di.uoa.gr/ontology/State> <http://yago-knowledge.org/resource/yagoGeoEntity> }\n  \n  ?state <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?type .\n  \n  FILTER (?state != <http://yago-knowledge.org/resource/Hawaii>) .\n  \n  ?state <http://pnyqa.di.uoa.gr/ontology/hasNative_Hawaiian_and_Other_Pacific_Islander_Population> ?nativeHawaiianPopulation .\n  FILTER (?nativeHawaiianPopulation > 0) .\n  \n  ?state <http://pnyqa.di.uoa.gr/ontology/hasTotal_Vote> ?totalVotes .\n  ?state <http://pnyqa.di.uoa.gr/ontology/hasDemocrat_Vote> ?democratVotes .\n}\nORDER BY DESC(?nativeHawaiianPopulation)"
+    },
+    {
+        "question": "What did the state with the highest male population vote for?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?state ?winner WHERE { ?state a pnyqa:State . ?state pnyqa:hasMale_Population ?malePop . ?state pnyqa:winner ?winner . } ORDER BY DESC (?malePop) LIMIT 1",
+        "entities": [],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/State> -> \"male population\" ",
+            "<http://pnyqa.di.uoa.gr/ontology/State> -> \"vote\""
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/State> -> \"male population\" , <http://pnyqa.di.uoa.gr/ontology/State> -> \"vote\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?winner WHERE {\n  {\n    SELECT (MAX(?malePop) AS ?maxMalePop) WHERE {\n      ?state <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/State> .\n      ?state <http://pnyqa.di.uoa.gr/ontology/hasMale_Population> ?malePop .\n    }\n  }\n  ?state <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/State> .\n  ?state <http://pnyqa.di.uoa.gr/ontology/hasMale_Population> ?maxMalePop .\n  ?state <http://pnyqa.di.uoa.gr/ontology/winner> ?winner .\n}"
+    },
+    {
+        "question": "Can you show the party vote percentages for each state?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?state ?demPercent ?repPercent ?greenPercent ?libPercent WHERE {  ?state a pnyqa:State .  ?state pnyqa:hasDemocrat_Vote ?demVotes .  ?state pnyqa:hasRepublican_Vote ?repVotes .  ?state pnyqa:hasGreen_Vote ?greenVotes .  ?state pnyqa:hasLibertarian_Vote ?libVotes .  ?state pnyqa:hasTotal_Vote ?totalVotes .  BIND ((?demVotes / ?totalVotes) * 100 AS ?demPercent)  BIND ((?repVotes / ?totalVotes) * 100 AS ?repPercent)  BIND ((?greenVotes / ?totalVotes) * 100 AS ?greenPercent)  BIND ((?libVotes / ?totalVotes) * 100 AS ?libPercent)}",
+        "entities": [],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/State> -> \"party vote percentages\""
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/State> -> \"party vote percentages\"",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT DISTINCT ?state ?republicanPercentage ?democratPercentage\nWHERE {\n  ?state <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://pnyqa.di.uoa.gr/ontology/State> .\n  ?state <http://pnyqa.di.uoa.gr/ontology/hasRepublican_Percentage> ?republicanPercentage .\n  ?state <http://pnyqa.di.uoa.gr/ontology/hasDemocrat_Percentage> ?democratPercentage .\n}\nORDER BY ?state"
+    },
+    {
+        "question": "What is the smallest county with forests and the highest Black population that voted for the Democratic Party?",
+        "gold_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nSELECT ?county WHERE {   ?county a pnyqa:County .   ?county pnyqa:hasArea ?area .   ?county pnyqa:hasBlack_or_African_American_Population ?blackPop .   ?county pnyqa:winner <http://yago-knowledge.org/resource/Democratic_Party_(United_States)> .   ?county pnyqa:forest ?forest . } ORDER BY ASC(?area) DESC(?blackPop) LIMIT 1",
+        "entities": [
+            "http://yago-knowledge.org/resource/Democratic_Party_(United_States)"
+        ],
+        "classes": [
+            "http://pnyqa.di.uoa.gr/ontology/forest",
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "relations": [
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> \"Black population\"",
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> \"area\"",
+            "<http://pnyqa.di.uoa.gr/ontology/County> -> <http://yago-knowledge.org/resource/Democratic_Party_(United_States)>"
+        ],
+        "paths": "<http://pnyqa.di.uoa.gr/ontology/County> -> \"Black population\", <http://pnyqa.di.uoa.gr/ontology/County> -> \"area\", <http://pnyqa.di.uoa.gr/ontology/County> -> <http://yago-knowledge.org/resource/Democratic_Party_(United_States)>",
+        "generated_query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#>\nPREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nPREFIX strdf: <http://strdf.di.uoa.gr/ontology#>\nPREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX yago: <http://yago-knowledge.org/resource/>\nPREFIX y2geor: <http://kr.di.uoa.gr/yago2geo/resource/>\nPREFIX y2geoo: <http://kr.di.uoa.gr/yago2geo/ontology/>\nPREFIX pnyqa: <http://pnyqa.di.uoa.gr/ontology/>\nFILTER(geof:sfContains(?countyWKT, ?forestWKT))"
+    }
+]
