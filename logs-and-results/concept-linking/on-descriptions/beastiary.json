@@ -1,0 +1,799 @@
+[
+    {
+        "precision": 0.025974025974025976,
+        "recall": 0.06896551724137931,
+        "f1": 0.03773584905660377,
+        "gold_tp": 29,
+        "queries_correct": 25
+    },
+    {
+        "question": "which creatures not speaking draconic language do have chaotic good alignment?",
+        "gold": [],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "logs": null
+    },
+    {
+        "question": "does Caypup have more special abilities than Aasimar?",
+        "gold": [],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#SpecialAbilities"
+        ],
+        "logs": null
+    },
+    {
+        "question": "how many creatures with non-neutral alignment do speak treant language?",
+        "gold": [],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "logs": null
+    },
+    {
+        "question": "what spells Aasimar and Caypup do have in common?",
+        "gold": [],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Spells"
+        ],
+        "logs": null
+    },
+    {
+        "question": "is the number of creatures speaking both abyssal and aklo languages greater than infernal and terran?",
+        "gold": [],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "what is the most common alignment type?",
+        "gold": [],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment"
+        ],
+        "logs": null
+    },
+    {
+        "question": "how many types of robots are among creatures?",
+        "gold": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "is there any type of troll with good alignment?",
+        "gold": [],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment"
+        ],
+        "logs": null
+    },
+    {
+        "question": "are creatures with good alignment more common than evil?",
+        "gold": [],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment"
+        ],
+        "logs": null
+    },
+    {
+        "question": "what creatures do have cold resist?",
+        "gold": [],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Resists",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "logs": null
+    },
+    {
+        "question": "what percentage of dragons do speak both draconic and common languages?",
+        "gold": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "what are the top-5 languages by popularity among creatures?",
+        "gold": [],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language"
+        ],
+        "logs": null
+    },
+    {
+        "question": "do dragons in average speak more languages than demons?",
+        "gold": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language"
+        ],
+        "logs": null
+    },
+    {
+        "question": "what creatures do speak both common and undercommon languages?",
+        "gold": [],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "logs": null
+    },
+    {
+        "question": "how many creatures do speak abyssal, sylvan and elven languages?",
+        "gold": [],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "logs": null
+    },
+    {
+        "question": "is there any type of zombie with chaotic evil or chaotic neutral alignment?",
+        "gold": [],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "logs": null
+    },
+    {
+        "question": "does Trox speak more languages than Sunlord?",
+        "gold": [],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language"
+        ],
+        "logs": null
+    },
+    {
+        "question": "does Einherji and Balor have any common language?",
+        "gold": [],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language"
+        ],
+        "logs": null
+    },
+    {
+        "question": "how many creatures with lawful neutral alignment can speak giant language?",
+        "gold": [],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment"
+        ],
+        "logs": null
+    },
+    {
+        "question": "which ogres with lawful evil alignment can speak common language?",
+        "gold": [],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment"
+        ],
+        "logs": null
+    },
+    {
+        "question": "what is the second most common alignment type for spiders?",
+        "gold": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment"
+        ],
+        "logs": null
+    },
+    {
+        "question": "what alignment type is the most common for elementals?",
+        "gold": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment"
+        ],
+        "logs": null
+    },
+    {
+        "question": "what alignment type is the rarest for creatures speaking auran language?",
+        "gold": [],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment"
+        ],
+        "logs": null
+    },
+    {
+        "question": "do skeletons have a greater percentage of true neutral alignment than zombies?",
+        "gold": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment"
+        ],
+        "logs": null
+    },
+    {
+        "question": "do raven and ghoul have the same alignment?",
+        "gold": [],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment"
+        ],
+        "logs": null
+    },
+    {
+        "question": "what percentage of wolves does have chaotic alignment?",
+        "gold": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment"
+        ],
+        "logs": null
+    },
+    {
+        "question": "what percentage of angels does speak aquan language?",
+        "gold": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "what is an average number of languages for creatures?",
+        "gold": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "logs": null
+    },
+    {
+        "question": "what is the maximum value for the numerical offensive attribute?",
+        "gold": [],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "is Sangudaemon faster than Eblis?",
+        "gold": [],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "what is the mean speed value for spiders?",
+        "gold": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "what are top 5 by speed chaotic evil creatures?",
+        "gold": [],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "logs": null
+    },
+    {
+        "question": "what are creatures speaking sphinx language with speed value more than 20?",
+        "gold": [],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "logs": null
+    },
+    {
+        "question": "what values of health points are related to creatures with the lowest level?",
+        "gold": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "what is the maximum value of health point for creatures with chaotic good alignment?",
+        "gold": [],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "what values of experience points are related to creatures with the highest level?",
+        "gold": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "what is the average challenge rating for creatures speaking celestial language?",
+        "gold": [],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "logs": null
+    },
+    {
+        "question": "which elemental creatures do have a challenge rating more than 10?",
+        "gold": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "what creatures speaking terran language do have an initiative value more than 2 and less than 5?",
+        "gold": [],
+        "predictions": [
+            ""
+        ],
+        "logs": null
+    },
+    {
+        "question": "what is the minimum non-negative initiative value for creatures with true neutral alignment?",
+        "gold": [],
+        "predictions": [
+            ""
+        ],
+        "logs": null
+    },
+    {
+        "question": "what are top 3 golem types by experience points?",
+        "gold": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "is Abaia superior to vampires in terms of base attributes?",
+        "gold": [],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "is Dhampir superior to Gorgon in terms of mean base attributes?",
+        "gold": [],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "is Boggard superior to Selkie in terms of deffencive attributes?",
+        "gold": [],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "is Centaur superior to Medusa in terms of mean defensive attributes?",
+        "gold": [],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "is Biclops superior to Mastodon in terms of statistics sum?",
+        "gold": [],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "is Satyr superior to Cacodaemon in terms of mean statistics?",
+        "gold": [],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "what is the dominant statistics for golems in average?",
+        "gold": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "what is the lowest statistics in average for wolves?",
+        "gold": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "what is the dominant defencive attribute for skeletons in average?",
+        "gold": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "what is the lowest defensive attribute for ogres in average?",
+        "gold": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "does creatures have more offencive attributes than defencive?",
+        "gold": [],
+        "predictions": [
+            ""
+        ],
+        "logs": null
+    },
+    {
+        "question": "which creatures speaking aklo language do have the maximum attack parameter?",
+        "gold": [],
+        "predictions": [
+            ""
+        ],
+        "logs": null
+    },
+    {
+        "question": "what is the average attack parameter for robots?",
+        "gold": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "how many creatures with neutral evil alignment do have combat maneuver bonus less than 4?",
+        "gold": [],
+        "predictions": [
+            ""
+        ],
+        "logs": null
+    },
+    {
+        "question": "what is the minimum combat maneuver bonus for creatures speaking ignan language?",
+        "gold": [],
+        "predictions": [
+            "",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language"
+        ],
+        "logs": null
+    },
+    {
+        "question": "how many demons do have combat maneuver defense level greater than the average for all creatures?",
+        "gold": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "predictions": [
+            ""
+        ],
+        "logs": null
+    },
+    {
+        "question": "what is the maximum combat maneuver defense level for creatures with neutral good alignment?",
+        "gold": [],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "logs": null
+    },
+    {
+        "question": "what creatures speaking dwarven language do have armor class greater than 12?",
+        "gold": [],
+        "predictions": [
+            ""
+        ],
+        "logs": null
+    },
+    {
+        "question": "what is the average armor class for angels?",
+        "gold": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "what is the minimum flat footed value for creatures with lawful good alignment?",
+        "gold": [],
+        "predictions": [
+            ""
+        ],
+        "logs": null
+    },
+    {
+        "question": "how many trolls do have flat footed value between 13 and 18?",
+        "gold": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "what is the maximum fort value for creatures speaking goblin language?",
+        "gold": [],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "is there any creature with true neutral alignment with fort value equal to 6?",
+        "gold": [],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "what is the average number of health points for creatures speaking gnome language?",
+        "gold": [],
+        "predictions": [
+            ""
+        ],
+        "logs": null
+    },
+    {
+        "question": "what is the minimum number of health points for dragons with strenghts attribute more than 10?",
+        "gold": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "how many creatures speaking halfling language do have ref value more than 10 and atack parameter less than 15?",
+        "gold": [],
+        "predictions": [
+            ""
+        ],
+        "logs": null
+    },
+    {
+        "question": "what creatures with chaotic evil alignment do have the maximum ref value?",
+        "gold": [],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "logs": null
+    },
+    {
+        "question": "is there any spider type with touch value equal to 11?",
+        "gold": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "logs": null
+    },
+    {
+        "question": "what is the minimum touch value for creatures speaking druidic language with initiative value less than 2?",
+        "gold": [],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "what percentage of creatures with neutral evil alignment do have will value less than 1?",
+        "gold": [],
+        "predictions": [
+            ""
+        ],
+        "logs": null
+    },
+    {
+        "question": "what is the average will value for creatures speaking orc language?",
+        "gold": [],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "what types of zombies do have charisma attribute between 3 and 7?",
+        "gold": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "is there any creature type with lawful evil alignment having charisma attribute greater than sum of strength and intelligence?",
+        "gold": [],
+        "predictions": [
+            ""
+        ],
+        "logs": null
+    },
+    {
+        "question": "how many creatures speaking protean language do have constitution greater than 10?",
+        "gold": [],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "logs": null
+    },
+    {
+        "question": "what is the maximum value of constitution attribute for elementals?",
+        "gold": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "what is the average dexterity attribute for creatures with true neutral alignment?",
+        "gold": [],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "which creatures speaking aboleth language do have dexterity greater than average for all creatures?",
+        "gold": [],
+        "predictions": [
+            ""
+        ],
+        "logs": null
+    },
+    {
+        "question": "how many robots do have intelligence attribute less than 7 and speed value more than 10?",
+        "gold": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "what is the minimum intelligence attribute for creatures with chaotic neutral alignment?",
+        "gold": [],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "what percentage of creatures speaking daemonic language do have strength attribute greater than 20?",
+        "gold": [],
+        "predictions": [
+            ""
+        ],
+        "logs": null
+    },
+    {
+        "question": "is there any golem type with strength attribute lower than charisma?",
+        "gold": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "what is the average wisdom attribute for creatures with lawful neutral alignment?",
+        "gold": [],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "which creatures speaking necril and abyssal languages do have wisdom attribute more than 4?",
+        "gold": [],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "logs": null
+    },
+    {
+        "question": "what are the sums of the statistics for creatures speaking both gnoll and elven languages?",
+        "gold": [],
+        "predictions": [
+            ""
+        ],
+        "logs": null
+    },
+    {
+        "question": "do Griffon and Hippogriff have the same alignment?",
+        "gold": [],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment"
+        ],
+        "logs": null
+    },
+    {
+        "question": "does Androsphinx have a greater sum of intellegence and wisdom attributes than Blood Queen?",
+        "gold": [],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "does Baalzebul have a greater value of average statistics than Dagon?",
+        "gold": [],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "which creatures speaking ghoul language do have the greatest constitution attribute?",
+        "gold": [],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "logs": null
+    },
+    {
+        "question": "is the number of creatures speaking dark language greater than cyclops language?",
+        "gold": [],
+        "predictions": [
+            ""
+        ],
+        "logs": null
+    },
+    {
+        "question": "is the number of creatures speaking polyglot language greater than skald language?",
+        "gold": [],
+        "predictions": [
+            ""
+        ],
+        "logs": null
+    },
+    {
+        "question": "are angels characterized by the greater average value of experience points than demons?",
+        "gold": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast"
+        ],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "do Lamia and Lilith have a common language and alignment?",
+        "gold": [],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Alignment"
+        ],
+        "logs": null
+    },
+    {
+        "question": "do Lorelei and sirens speak the same languages?",
+        "gold": [],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language"
+        ],
+        "logs": null
+    },
+    {
+        "question": "what is the average dexterity attribute for Phoenix and Sleipnir?",
+        "gold": [],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "what is the maximum constitution attribute for Kraken and Leviathan?",
+        "gold": [],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "what is the minimum wisdom attribute for Gorynych and Vodyanoi?",
+        "gold": [],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "does Kitsune or Rusalka have charisma attribute more than 20?",
+        "gold": [],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "do both Amon and Cetus have strength attribute between 15 and 25?",
+        "gold": [],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "does Sandman or Charon speak elder or boggarg language?",
+        "gold": [],
+        "predictions": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Language"
+        ],
+        "logs": null
+    }
+]

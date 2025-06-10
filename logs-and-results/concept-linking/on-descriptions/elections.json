@@ -1,0 +1,533 @@
+[
+    {
+        "precision": 0.9516129032258065,
+        "recall": 0.9833333333333333,
+        "f1": 0.9672131147540983,
+        "gold_tp": 60,
+        "queries_correct": 47
+    },
+    {
+        "question": "Which is the most populous State?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "logs": null
+    },
+    {
+        "question": "How many people voted in the most populous State?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "logs": null
+    },
+    {
+        "question": "How many black people live in the most populous State?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Which State has the largest Asian population?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Which State held the closest race?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Which county in Texas held the closest race?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Who won the county that held the closest race?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Which party won the most States?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "logs": null
+    },
+    {
+        "question": "How many counties did each party win in Arizona?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "logs": null
+    },
+    {
+        "question": "How did Arkansas vote?",
+        "gold": [],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "Show me California.",
+        "gold": [],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Show me Republican counties in California.",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Please draw the States on the map.",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Draw the counties won by the Democratic party.",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Draw the counties won by the Republican party.",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Show me all the American lakes.",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/lake-pond"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/lake-pond"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Show me all the American rivers.",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/stream-river"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/stream-river"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Show me all the forests in the US.",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/forest"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/forest"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Which 5 counties have the highest percentage of females?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Which party won the State with the highest percentage of males?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Show me the counties that border Kansas.",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "logs": null
+    },
+    {
+        "question": "How did the counties on Texas’ border vote?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Show me the Republican counties that have forests.",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/forest",
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/forest",
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Show me the Democratic counties that have forests.",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/forest",
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/forest",
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Which party won in the state with the highest number of marshes?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/swamp-marsh",
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/swamp-marsh",
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Show me the number of Democratic votes and forests in each state.",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/forest",
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/forest",
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "logs": null
+    },
+    {
+        "question": "In which states did Republicans win more counties, but Democrats won statewide?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/County",
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/County",
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Show the vote totals by county for each party in Wyoming.",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Which counties near lakes voted for the Democratic party?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/County",
+            "http://pnyqa.di.uoa.gr/ontology/lake-pond"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/County",
+            "http://pnyqa.di.uoa.gr/ontology/lake-pond"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Which party won in the states bordering Lake Michigan?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "Which party won the elections in states bordering Alabama?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Which party won in the counties along the Nevada-California border?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Which party won in the 5 most populated states of the US?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "logs": null
+    },
+    {
+        "question": "In which counties did the Green Party win?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Which party won the elections in counties with the most Native American Population?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Which US state has the most lakes and forests?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/forest",
+            "http://pnyqa.di.uoa.gr/ontology/lake-pond"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/forest",
+            "http://pnyqa.di.uoa.gr/ontology/lake-pond",
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Which party won in counties connected by the Missouri river?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/County",
+            "http://pnyqa.di.uoa.gr/ontology/stream-river"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Which party won in the state with the least young adults?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Which counties have the highest female population?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "logs": null
+    },
+    {
+        "question": "In how many of the counties with the highest female population the Green Party won?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Which party won in the counties with the lowest black population?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Which party won in counties were rivers pass through forests?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/forest",
+            "http://pnyqa.di.uoa.gr/ontology/County",
+            "http://pnyqa.di.uoa.gr/ontology/stream-river"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/forest",
+            "http://pnyqa.di.uoa.gr/ontology/County",
+            "http://pnyqa.di.uoa.gr/ontology/stream-river"
+        ],
+        "logs": null
+    },
+    {
+        "question": "How did the county crossed by the most rivers vote?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/County",
+            "http://pnyqa.di.uoa.gr/ontology/stream-river"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/County",
+            "http://pnyqa.di.uoa.gr/ontology/stream-river"
+        ],
+        "logs": null
+    },
+    {
+        "question": "What are the five largest counties by total area that voted for the Republican Party?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "logs": null
+    },
+    {
+        "question": "What counties that have similar white and black population vote for?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Which states have the highest Latino population, and how did they vote by party?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "logs": null
+    },
+    {
+        "question": "What are the population percentages of the state with the most lakes?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/lake-pond",
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/lake-pond",
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "logs": null
+    },
+    {
+        "question": "What are the total votes by party for Native Hawaiians outside of Hawaii?",
+        "gold": [],
+        "predictions": [],
+        "logs": null
+    },
+    {
+        "question": "What did the state with the highest male population vote for?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "logs": null
+    },
+    {
+        "question": "Can you show the party vote percentages for each state?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/State"
+        ],
+        "logs": null
+    },
+    {
+        "question": "What is the smallest county with forests and the highest Black population that voted for the Democratic Party?",
+        "gold": [
+            "http://pnyqa.di.uoa.gr/ontology/forest",
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "predictions": [
+            "http://pnyqa.di.uoa.gr/ontology/forest",
+            "http://pnyqa.di.uoa.gr/ontology/County"
+        ],
+        "logs": null
+    }
+]
